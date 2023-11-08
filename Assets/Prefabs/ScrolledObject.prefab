@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 1879518276470262759}
   - component: {fileID: -1032148392928579942}
   - component: {fileID: 1646345818551329705}
+  - component: {fileID: 4859928808271287688}
   m_Layer: 0
   m_Name: ScrolledObject
   m_TagString: Untagged
@@ -179,7 +180,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 0
   objectType: 1
-  objectBody: {fileID: 0}
   graphic: {fileID: 4426572431478108249}
   explosion: {fileID: 3847479776899742560}
 --- !u!95 &1646345818551329705
@@ -203,6 +203,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &4859928808271287688
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7793649715270445147}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &8213700235724322155
 PrefabInstance:
   m_ObjectHideFlags: 0

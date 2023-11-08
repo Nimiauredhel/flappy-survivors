@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
 using Data;
 using DG.Tweening;
 using DG.Tweening.Core;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Weapons;
 
 public class PlayerCharacter : MonoBehaviour
 {
@@ -13,7 +15,8 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] internal Rigidbody2D _playerBody;
     [SerializeField] internal Transform _playerGraphic;
     [SerializeField] internal Animator _playerAnimator;
-    [FormerlySerializedAs("_playerMovementData")] [SerializeField] private PlayerMovementData movementData;
+    [SerializeField] private PlayerWeaponsComponent weapons;
+    [SerializeField] private PlayerMovementData movementData;
 
     private float _currentXSpeed;
     private float _currentYSpeed;
@@ -97,6 +100,11 @@ public class PlayerCharacter : MonoBehaviour
         {
             character.SetGoUp();
         }
+
+        public override void UpdateState(PlayerCharacter character)
+        {
+            character.weapons.WeaponsUpdate(WeaponData.WeaponType.Climbing);
+        }
     }
     
     private class DiveState : PlayerState
@@ -110,6 +118,11 @@ public class PlayerCharacter : MonoBehaviour
         {
             character.SetGoDown();
         }
+        
+        public override void UpdateState(PlayerCharacter character)
+        {
+            character.weapons.WeaponsUpdate(WeaponData.WeaponType.Diving);
+        }
     }
     
     private class NeutralState : PlayerState
@@ -121,6 +134,30 @@ public class PlayerCharacter : MonoBehaviour
     }
     
     #endregion
+
+    [Serializable]
+    private class PlayerWeaponsComponent
+    {
+        [SerializeField] private List<WeaponInstance> weapons = new List<WeaponInstance>(8);
+
+        public void InitializeWeapons()
+        {
+            foreach (WeaponInstance weapon in weapons)
+            {
+                weapon.Initialize();
+            }
+        }
+
+        public void WeaponsUpdate(WeaponData.WeaponType validType)
+        {
+            if (weapons == null || weapons.Count == 0) return;
+
+            foreach (WeaponInstance weapon in weapons)
+            {
+                weapon.WeaponUpdate(validType);
+            }
+        }
+    }
 
     public void DoUpdate()
     {
@@ -145,6 +182,7 @@ public class PlayerCharacter : MonoBehaviour
     private void Awake()
     {
         SetNewState(_neutralState);
+        weapons.InitializeWeapons();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -154,20 +192,6 @@ public class PlayerCharacter : MonoBehaviour
         if (SO != null && SO.Active)
         {
             Debug.Log("Collided with SO!");
-            
-            SO.Deactivate();
-            
-            /*switch (SO.ObjectType)
-            {
-                case ScrolledObject.ScrolledObjectType.None:
-                    break;
-                case ScrolledObject.ScrolledObjectType.Enemy:
-                    break;
-                case ScrolledObject.ScrolledObjectType.Experience:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }*/
         }
     }
 

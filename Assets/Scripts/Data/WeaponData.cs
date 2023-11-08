@@ -18,8 +18,12 @@ public class WeaponData : ScriptableObject
     public WeaponType Type => weaponType;
     public float Cooldown => cooldown;
     public float Duration => duration;
-    public WeaponSandbox Logic => logic;
     public WeaponData NextLevel => nextLevel;
+
+    public void WeaponUpdate()
+    {
+        logic.Draw(this);
+    }
 
     [SerializeField] private WeaponType weaponType;
     [SerializeField] private float cooldown;

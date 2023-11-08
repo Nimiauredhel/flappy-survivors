@@ -6,12 +6,9 @@ namespace Weapons
 {
     public class WeaponSandbox : MonoBehaviour
     {
-        protected float cooldownCounter = 0.0f;
-        protected float durationCounter = 0.0f;
+        public virtual void Draw(WeaponData weaponData){}
         
-        public virtual void DoAttack()
-        {
-        }
+        public virtual void Sheathe(WeaponData weaponData){}
 
     }
 }
