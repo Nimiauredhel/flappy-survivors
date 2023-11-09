@@ -19,4 +19,15 @@ public static class BuildUtils
         // Build player.
         BuildPipeline.BuildPlayer(levels, path, BuildTarget.Android, BuildOptions.None);
     }
+
+	[MenuItem("Build/WebGL")]
+    public static void BuildForWebGL()
+    {
+        // Get filename.
+        string path = BUILD_FOLDER + string.Format(BUILD_NAME_FORMAT, Application.version, DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss"), "/");
+        string[] levels = new string[] {"Assets/Scenes/GameplayScene.unity"};
+
+        // Build player.
+        BuildPipeline.BuildPlayer(levels, path, BuildTarget.WebGL, BuildOptions.None);
+    }
 }
