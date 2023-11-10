@@ -5,6 +5,7 @@ namespace Data
     [CreateAssetMenu(fileName = "Player Movement Data", menuName = "Data/Player Movement Data", order = 0)]
     public class PlayerMovementData : ScriptableObject
     {
+        public float NeutralDuration => neutralDuration;
         public float ClimbSpeed => climbSpeed;
         public float DiveSpeed => diveSpeed;
         public float ClimbAccelTime => climbAccelTime;
@@ -15,7 +16,8 @@ namespace Data
         public float MinX => minX;
         public float MaxY => maxY;
         public float MinY => minY;
-    
+
+        [SerializeField] private float neutralDuration;
         [SerializeField] private float climbSpeed;
         [SerializeField] private float diveSpeed;
         [SerializeField] private float climbAccelTime;

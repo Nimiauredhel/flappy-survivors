@@ -41,7 +41,7 @@ namespace Gameplay
 
             public virtual void DiveCommand(PlayerCharacter character)
             {
-                character.SetNewState(character._diveState);
+                
             }
 
             public virtual void EnterState(PlayerCharacter character)
@@ -95,6 +95,11 @@ namespace Gameplay
             {
             
             }
+            
+            public override void DiveCommand(PlayerCharacter character)
+            {
+                character.SetNewState(character._neutralState);
+            }
 
             public override void EnterState(PlayerCharacter character)
             {
@@ -127,9 +132,24 @@ namespace Gameplay
     
         private class NeutralState : PlayerState
         {
+            private float timeToDive = 0.0f;
+            
             public override void EnterState(PlayerCharacter character)
             {
+                timeToDive = character.movementData.NeutralDuration;
                 character.SetNeutral();
+            }
+
+            public override void UpdateState(PlayerCharacter character)
+            {
+                if (timeToDive <= 0.0f)
+                {
+                    character.SetNewState(character._diveState);
+                }
+                else
+                {
+                    timeToDive -= Time.deltaTime;
+                }
             }
         }
     
@@ -234,7 +254,10 @@ namespace Gameplay
         {
             ySpeedTweener?.Kill();
             ySpeedTweener = DOTween.To(() => _currentYSpeed, y => _currentYSpeed = y, 0.0f, 0.5f);
-            _playerBody.SetRotation(Quaternion.Euler(0.0f, 0.0f, 0.0f));
+            xSpeedTweener?.Kill();
+            xSpeedTweener = DOTween.To(() => _currentXSpeed, x => _currentXSpeed = x, 0.05f, 0.5f);
+            rotationTweener?.Kill();
+            rotationTweener = _playerGraphic.DORotate(Vector3.zero, 0.5f);
         }
 
     }

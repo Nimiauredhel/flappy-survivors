@@ -914,22 +914,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2701603590806665382, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: endX
-      value: -24
-      objectReference: {fileID: 0}
-    - target: {fileID: 2701603590806665382, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: maxY
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2701603590806665382, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: minY
-      value: -7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2701603590806665382, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: startX
-      value: 24
-      objectReference: {fileID: 0}
     - target: {fileID: 3549120443606164865, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
       propertyPath: m_Name
       value: ObjectMover

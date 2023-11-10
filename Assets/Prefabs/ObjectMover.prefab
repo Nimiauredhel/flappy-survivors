@@ -48,10 +48,10 @@ MonoBehaviour:
   pooledObjects: []
   toRemove: []
   poolSize: 100
-  startX: 12
-  endX: -12
-  minY: -3.5
-  maxY: 3.5
-  maxSpawnGap: 3
-  minSpawnGap: 0.5
+  startX: 24
+  endX: -24
+  minY: -7
+  maxY: 7
+  maxSpawnGap: 1.5
+  minSpawnGap: 0.25
   objectPrefab: {fileID: -1032148392928579942, guid: 2f8ce556b6252b044822f6850129f3a5, type: 3}
