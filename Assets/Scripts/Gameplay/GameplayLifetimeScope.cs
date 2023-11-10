@@ -1,4 +1,7 @@
+using Gameplay.Data;
+using Gameplay.Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VContainer;
 using VContainer.Unity;
 
@@ -7,16 +10,24 @@ namespace Gameplay
     public class GameplayLifetimeScope : LifetimeScope
     {
         [SerializeField] private TouchReceiver _touchReceiver;
-        [SerializeField] private PlayerCharacter _playerCharacter;
+        [SerializeField] private PlayerView _playerView;
         [SerializeField] private ObjectMover _objectMover;
-
+        [SerializeField] private PlayerWeaponsComponent _playerWeapons;
+        [SerializeField] private PlayerMovementData _playerMovementData;
+        
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterComponent(_touchReceiver);
-            builder.RegisterComponent(_playerCharacter);
+            builder.RegisterComponent(_playerView);
             builder.RegisterComponent(_objectMover);
-            builder.RegisterEntryPoint<GameController>();
+            builder.RegisterComponent(_playerWeapons);
+            builder.RegisterComponent(_playerMovementData);
             
+            builder.Register<PlayerModel>(Lifetime.Singleton);
+            
+            builder.RegisterEntryPoint<GameController>();
+            builder.RegisterEntryPoint<PlayerController>();
+
         }
     }
 }

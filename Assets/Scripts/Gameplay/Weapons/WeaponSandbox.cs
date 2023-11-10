@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using Gameplay.Data;
 using UnityEngine;
 
-namespace Weapons
+namespace Gameplay.Weapons
 {
     public class WeaponSandbox : MonoBehaviour
     {

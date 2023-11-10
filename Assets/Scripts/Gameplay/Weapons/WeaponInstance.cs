@@ -1,7 +1,8 @@
 using System;
+using Gameplay.Data;
 using UnityEngine;
 
-namespace Weapons
+namespace Gameplay.Weapons
 {
     [Serializable]
     public class WeaponInstance

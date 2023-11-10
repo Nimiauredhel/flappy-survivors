@@ -1,10 +1,10 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Gameplay;
+using Gameplay.Data;
 using UnityEngine;
 
-namespace Weapons
+namespace Gameplay.Weapons
 {
     public class BasicWeapon : WeaponSandbox
     {

@@ -6,17 +6,17 @@ namespace Gameplay
 {
     public class TouchReceiver : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        public event Action PointerDown;
-        public event Action PointerUp;
+        public event EventHandler<PointerEventData> PointerDown;
+        public event EventHandler<PointerEventData> PointerUp;
     
         public void OnPointerDown(PointerEventData eventData)
         {
-            PointerDown?.Invoke();
+            PointerDown?.Invoke(this, eventData);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            PointerUp?.Invoke();
+            PointerUp?.Invoke(this, eventData);
         }
     }
 }
