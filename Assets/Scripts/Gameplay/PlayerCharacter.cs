@@ -41,7 +41,7 @@ namespace Gameplay
 
             public virtual void DiveCommand(PlayerCharacter character)
             {
-                
+                character.SetNewState(character._neutralState);
             }
 
             public virtual void EnterState(PlayerCharacter character)
@@ -89,16 +89,24 @@ namespace Gameplay
             }
         }
 
+        private class InitialState : PlayerState
+        {
+            public override void DiveCommand(PlayerCharacter character)
+            {
+                
+            }
+            
+            public override void EnterState(PlayerCharacter character)
+            {
+                character.SetNeutral();
+            }
+        }
+        
         private class ClimbState : PlayerState
         {
             public override void ClimbCommand(PlayerCharacter character)
             {
             
-            }
-            
-            public override void DiveCommand(PlayerCharacter character)
-            {
-                character.SetNewState(character._neutralState);
             }
 
             public override void EnterState(PlayerCharacter character)
@@ -201,7 +209,7 @@ namespace Gameplay
 
         private void Awake()
         {
-            SetNewState(_neutralState);
+            SetNewState(new InitialState());
             weapons.InitializeWeapons();
         }
 
