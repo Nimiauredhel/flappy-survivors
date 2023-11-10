@@ -15,7 +15,6 @@ namespace Data
         public float MinX => minX;
         public float MaxY => maxY;
         public float MinY => minY;
-        public float NeutralX => neutralX;
     
         [SerializeField] private float climbSpeed;
         [SerializeField] private float diveSpeed;
@@ -27,6 +26,5 @@ namespace Data
         [SerializeField] private float minX;
         [SerializeField] private float maxY;
         [SerializeField] private float minY;
-        [SerializeField] private float neutralX;
     }
 }

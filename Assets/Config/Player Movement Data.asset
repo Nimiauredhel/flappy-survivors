@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10450aac7cfe16d4988d0bd8d3204c4f, type: 3}
   m_Name: Player Movement Data
   m_EditorClassIdentifier: 
-  climbSpeed: 5
-  diveSpeed: 10
+  climbSpeed: 10
+  diveSpeed: 20
   climbAccelTime: 0.5
   diveAccelTime: 0.25
-  forwardSpeed: 5
-  reverseSpeed: 3
-  maxX: 6
-  minX: -6
-  maxY: 4
-  minY: -4
-  neutralX: 0
+  forwardSpeed: 12
+  reverseSpeed: 6
+  maxX: 12
+  minX: -12
+  maxY: 8
+  minY: -8

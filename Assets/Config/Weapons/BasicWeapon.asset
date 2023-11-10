@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BasicWeapon
   m_EditorClassIdentifier: 
   weaponType: 2
-  cooldown: 1
-  duration: 0.5
+  cooldown: 2
+  duration: 1
   logic: {fileID: 4863351513355314585, guid: d8c6dc4fb18d63d4782fc70c83cf80a0, type: 3}
   nextLevel: {fileID: 0}
