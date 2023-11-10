@@ -18,6 +18,7 @@ public class WeaponData : ScriptableObject
     public WeaponType Type => weaponType;
     public float Cooldown => cooldown;
     public float Duration => duration;
+    public float BaseDamage => baseDamage;
     public WeaponData NextLevel => nextLevel;
 
     public void WeaponUpdate()
@@ -28,6 +29,9 @@ public class WeaponData : ScriptableObject
     [SerializeField] private WeaponType weaponType;
     [SerializeField] private float cooldown;
     [SerializeField] private float duration;
+    [Space] 
+    [SerializeField] private float baseDamage;
+    [Space]
     [SerializeField] private WeaponSandbox logic;
     [SerializeField] private WeaponData nextLevel;
 }

@@ -11,7 +11,13 @@ namespace Gameplay
     {
         private static readonly int CLIMBING_HASH = Animator.StringToHash("Climbing");
         private static readonly int DIVING_HASH = Animator.StringToHash("Diving");
-    
+
+        public int TotalXP => totalXp;
+        public float Health => health;
+        
+        [SerializeField] private int totalXp;
+        [SerializeField] private float health;
+        [Space]
         [SerializeField] internal Rigidbody2D _playerBody;
         [SerializeField] internal Transform _playerGraphic;
         [SerializeField] internal Animator _playerAnimator;
@@ -160,6 +166,13 @@ namespace Gameplay
                 }
             }
         }
+        
+        private void SetNewState(PlayerState newState)
+        {
+            _currentState?.ExitState(this);
+            _currentState = newState;
+            _currentState.EnterState(this);
+        }
     
         #endregion
 
@@ -213,6 +226,13 @@ namespace Gameplay
             weapons.InitializeWeapons();
         }
 
+        private void OnDestroy()
+        {
+            rotationTweener.Kill();
+            xSpeedTweener.Kill();
+            ySpeedTweener.Kill();
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             ScrolledObject SO = other.gameObject.GetComponentInParent<ScrolledObject>();
@@ -220,14 +240,25 @@ namespace Gameplay
             if (SO != null && SO.Active)
             {
                 Debug.Log("Collided with SO!");
+
+                TakeDamage(SO.MeleeDamage);
             }
         }
 
-        private void SetNewState(PlayerState newState)
+        private void TakeDamage(float damage)
         {
-            _currentState?.ExitState(this);
-            _currentState = newState;
-            _currentState.EnterState(this);
+            health -= damage;
+
+            if (health <= 0.0f)
+            {
+                health = 0.0f;
+                Die();
+            }
+        }
+
+        private void Die()
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
 
         private void SetGoUp()

@@ -74,7 +74,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Time: 0.5
+  m_Time: 0.2
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -84,7 +84,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.8073387
+        value: 0.55963135
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -105,8 +105,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 1, b: 0.8366351, a: 0.6901961}
-      key1: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 0.75535774, g: 0.9716981, b: 0.93841493, a: 0.30980393}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -122,8 +122,8 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
+      atime1: 51464
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afd9d3ccbd11de47a4e32cf629c02d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 5
   _playerBody: {fileID: 3428615867705913178}
   _playerGraphic: {fileID: 7702927511180078301}
   _playerAnimator: {fileID: 982779209933678457}

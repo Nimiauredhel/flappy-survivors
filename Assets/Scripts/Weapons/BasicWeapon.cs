@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Gameplay;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace Weapons
     {
         [SerializeField] private Collider2D hitBox;
         private WeaponData _weaponData;
+        private CancellationTokenSource attackCancellationTokenSource = new CancellationTokenSource();
         
         public override void Draw(WeaponData weaponData)
         {
@@ -36,8 +38,7 @@ namespace Weapons
             if (SO != null && SO.Active)
             {
                 Debug.Log("Hit SO!");
-            
-                SO.Deactivate();
+                SO.TakeDamage(_weaponData.BaseDamage);
             }
         }
     }

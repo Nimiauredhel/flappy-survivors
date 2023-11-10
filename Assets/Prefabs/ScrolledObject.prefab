@@ -178,7 +178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784304a9eb760da41873c958bacbcffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0
+  value: 1
+  health: 1
+  meleeDamage: 1
   objectType: 1
   graphic: {fileID: 4426572431478108249}
   explosion: {fileID: 3847479776899742560}
