@@ -2,10 +2,12 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Gameplay.Configuration;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Gameplay.Weapons
 {
+    [UsedImplicitly]
     public class BasicWeaponLogic : WeaponLogicSandbox
     {
         public override void Draw(WeaponInstance instance)

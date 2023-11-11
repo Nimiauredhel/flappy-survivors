@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86aad4624c266fb4cbfb61dede14d80a, type: 3}
-  m_Name: BasicWeapon
+  m_Name: KillSphere
   m_EditorClassIdentifier: 
-  weaponType: 2
-  cooldown: 1.25
-  duration: 0.75
+  weaponType: 1
+  cooldown: 1
+  duration: 0.5
   baseDamage: 5
-  viewPrefab: {fileID: 7273189750282731730, guid: d8c6dc4fb18d63d4782fc70c83cf80a0, type: 3}
+  viewPrefab: {fileID: 7273189750282731730, guid: 88067083801288347b4eccaf1932aa93, type: 3}
   logic:
     GuidAssignmentFailed: 0
     GUID: 2bc05b5214594004c992c29dc20c245e

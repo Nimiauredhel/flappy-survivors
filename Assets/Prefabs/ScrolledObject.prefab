@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 15
-  health: 1
+  health: 5
   meleeDamage: 1
   objectType: 1
   graphic: {fileID: 4426572431478108249}
