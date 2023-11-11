@@ -16,6 +16,7 @@ namespace Gameplay.Player
 
         [Inject] readonly TouchReceiver _touchReceiver;
         [Inject] readonly PlayerView view;
+        [Inject] private readonly PlayerUIView uiView;
         [Inject] readonly PlayerModel model;
         [Inject] readonly PlayerWeaponsComponent weapons;
         [Inject] readonly PlayerMovementData movementData;
@@ -189,6 +190,9 @@ namespace Gameplay.Player
             _touchReceiver.PointerDown += PointerDownHandler;
             _touchReceiver.PointerUp += PointerUpHandler;
             view.TriggerEntered += TriggerEnterHandler;
+            
+            uiView.UpdatePlayerHealthView(model.CurrentHealth/model.MaxHealth);
+            uiView.UpdatePlayerXPView(0.0f);
         }
 
         public void Dispose()
@@ -202,6 +206,12 @@ namespace Gameplay.Player
         }
         
         #endregion
+
+        public void GetXP(int value)
+        {
+            model.ChangeXP(value);
+            uiView.UpdatePlayerXPView(model.TotalXP/1000.0f);
+        }
 
         private void PointerDownHandler(object sender, PointerEventData eventData)
         {
@@ -219,8 +229,6 @@ namespace Gameplay.Player
 
             if (SO != null && SO.Active)
             {
-                Debug.Log("Collided with SO!");
-
                 TakeDamage(SO.MeleeDamage);
             }
         }
@@ -228,8 +236,9 @@ namespace Gameplay.Player
         private void TakeDamage(float damage)
         {
             model.ChangeHealth(-damage);
+            uiView.UpdatePlayerHealthView(model.CurrentHealth/model.MaxHealth);
 
-            if (model.Health <= 0.0f)
+            if (model.CurrentHealth <= 0.0f)
             {
                 Die();
             }

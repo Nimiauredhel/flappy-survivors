@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Gameplay
@@ -7,11 +8,12 @@ namespace Gameplay
         public bool Active => active;
         public float Health => health;
         public float MeleeDamage => meleeDamage;
-        public float Value => value;
+        public int Value => value;
         public ScrolledObjectType ObjectType => objectType;
+        public event EventHandler<int> EnemyKilled; 
 
         private bool active = false;
-        [SerializeField] private float value;
+        [SerializeField] private int value;
         [SerializeField] private float health;
         [SerializeField] private float meleeDamage;
         [SerializeField] private ScrolledObjectType objectType;
@@ -52,9 +54,10 @@ namespace Gameplay
 
         private void Die()
         {
-            //TODO: call event to give player XP
             explosion.SetActive(true);
             Deactivate();
+            
+            EnemyKilled?.Invoke(this, value);
         }
     }
 }

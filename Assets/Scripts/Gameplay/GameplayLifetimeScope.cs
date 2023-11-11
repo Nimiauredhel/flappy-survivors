@@ -11,6 +11,7 @@ namespace Gameplay
     {
         [SerializeField] private TouchReceiver _touchReceiver;
         [SerializeField] private PlayerView _playerView;
+        [SerializeField] private PlayerUIView _playerUIView;
         [SerializeField] private ObjectMover _objectMover;
         [SerializeField] private PlayerWeaponsComponent _playerWeapons;
         [SerializeField] private PlayerMovementData _playerMovementData;
@@ -19,15 +20,15 @@ namespace Gameplay
         {
             builder.RegisterComponent(_touchReceiver);
             builder.RegisterComponent(_playerView);
+            builder.RegisterComponent(_playerUIView);
             builder.RegisterComponent(_objectMover);
             builder.RegisterComponent(_playerWeapons);
             builder.RegisterComponent(_playerMovementData);
             
             builder.Register<PlayerModel>(Lifetime.Singleton);
             
+            builder.RegisterEntryPoint<PlayerController>().AsSelf();
             builder.RegisterEntryPoint<GameController>();
-            builder.RegisterEntryPoint<PlayerController>();
-
         }
     }
 }

@@ -37,7 +37,6 @@ namespace Gameplay.Weapons
 
             if (SO != null && SO.Active)
             {
-                Debug.Log("Hit SO!");
                 SO.TakeDamage(_weaponData.BaseDamage);
             }
         }

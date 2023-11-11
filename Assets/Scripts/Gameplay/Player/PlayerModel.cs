@@ -1,14 +1,18 @@
+using UnityEngine;
+
 namespace Gameplay.Player
 {
     public class PlayerModel
     {
         public int TotalXP => totalXp;
-        public float Health => health;
+        public float MaxHealth => _maxHealth;
+        public float CurrentHealth => _currentHealth;
         public float CurrentXSpeed => _currentXSpeed;
         public float CurrentYSpeed => _currentYSpeed;
         
         private int totalXp = 0;
-        private float health = 5.0f;
+        private float _maxHealth = 5.0f;
+        private float _currentHealth = 5.0f;
         
         private float _currentXSpeed;
         private float _currentYSpeed;
@@ -25,12 +29,12 @@ namespace Gameplay.Player
 
         public void ChangeHealth(float value)
         {
-            health += value;
-            
-            if (health <= 0.0f)
-            {
-                health = 0.0f;
-            }
+            _currentHealth = Mathf.Clamp(_currentHealth + value, 0.0f, _maxHealth);
+        }
+
+        public void ChangeXP(int value)
+        {
+            totalXp += value;
         }
     }
 }
