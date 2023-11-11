@@ -6,7 +6,7 @@ using UnityEditor;
 
 public static class BuildUtils
 {
-    private const string BUILD_FOLDER = "F:/Builds/FlappySurvivors/";
+    private const string BUILD_FOLDER = "Z:/Builds/FlappySurvivors/";
     private const string BUILD_NAME_FORMAT = "Flappy Survivors {0} {1}/FlappySurvivors{2}";
     
     [MenuItem("Build/Android")]
