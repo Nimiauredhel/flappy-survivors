@@ -655,17 +655,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &634322811 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1343090150135394106, guid: 5a510ed3e69732345984b06c044d0e37, type: 3}
-  m_PrefabInstance: {fileID: 2888692827898764325}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bc05b5214594004c992c29dc20c245e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &676556658 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8917491558016166113, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
@@ -1429,25 +1418,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6086592239576207485, guid: 75775b164519e2246a01c17626daa837, type: 3}
-      propertyPath: _playerView
+      propertyPath: playerView
       value: 
       objectReference: {fileID: 1883166113}
     - target: {fileID: 6086592239576207485, guid: 75775b164519e2246a01c17626daa837, type: 3}
-      propertyPath: _objectMover
+      propertyPath: objectMover
       value: 
       objectReference: {fileID: 1656706223}
     - target: {fileID: 6086592239576207485, guid: 75775b164519e2246a01c17626daa837, type: 3}
-      propertyPath: _playerUIView
+      propertyPath: playerUIView
       value: 
       objectReference: {fileID: 2077594219}
     - target: {fileID: 6086592239576207485, guid: 75775b164519e2246a01c17626daa837, type: 3}
-      propertyPath: _touchReceiver
+      propertyPath: touchReceiver
       value: 
       objectReference: {fileID: 676556658}
-    - target: {fileID: 6086592239576207485, guid: 75775b164519e2246a01c17626daa837, type: 3}
-      propertyPath: _playerWeapons.weapons.Array.data[0].logic
-      value: 
-      objectReference: {fileID: 634322811}
     - target: {fileID: 7482715668597420255, guid: 75775b164519e2246a01c17626daa837, type: 3}
       propertyPath: m_Name
       value: GameplayLifetimeScope

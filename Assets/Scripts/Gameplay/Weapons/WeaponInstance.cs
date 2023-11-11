@@ -1,57 +1,76 @@
 using System;
-using Gameplay.Data;
+using Gameplay.Configuration;
 using UnityEngine;
 
 namespace Gameplay.Weapons
 {
-    [Serializable]
     public class WeaponInstance
     {
-        [SerializeField] private WeaponSandbox logic;
-        [SerializeField] private WeaponData data;
+        public WeaponView View => view;
+        public WeaponConfiguration Config => config;
+        public WeaponStatus Status => status;
         
-        private WeaponState state;
-
-        public void Initialize()
+        private WeaponView view;
+        private WeaponLogicSandbox logic;
+        private WeaponConfiguration config;
+        
+        private WeaponStatus status;
+        
+        public class WeaponStatus
         {
-            state = new WeaponState(data);
+            public float timeSinceActivated = 0.0f;
+
+            public WeaponStatus(WeaponConfiguration configuration)
+            {
+                timeSinceActivated = configuration.Cooldown;
+            }
         }
 
-        public void WeaponUpdate(WeaponData.WeaponType validType)
+        public void Initialize(WeaponView view, WeaponConfiguration config, WeaponLogicSandbox logic)
+        {
+            this.view = view;
+            this.config = config;
+            this.logic = logic;
+            status = new WeaponStatus(this.config);
+
+            view.TriggerEnter += HitHandler;
+        }
+
+        public void OnDispose()
+        {
+            view.TriggerEnter -= HitHandler;
+        }
+
+        public void WeaponUpdate(WeaponConfiguration.WeaponType validType)
         {
             bool activated = false;
             
-            if (data.Type == validType || data.Type == WeaponData.WeaponType.Both)
+            if (config.Type == validType || config.Type == WeaponConfiguration.WeaponType.Both)
             {
-                if (state.timeSinceActivated > data.Cooldown)
+                if (status.timeSinceActivated > config.Cooldown)
                 {
                     activated = true;
-                    logic.Draw(data);
+                    logic.Draw(this);
                 }
             }
             else
             {
-                logic.Sheathe(data);
+                logic.Sheathe(this);
             }
 
             if (activated)
             {
-                state.timeSinceActivated = 0.0f;
+                status.timeSinceActivated = 0.0f;
             }
             else
             {
-                state.timeSinceActivated += Time.deltaTime;
+                status.timeSinceActivated += Time.deltaTime;
             }
         }
-    }
 
-    public class WeaponState
-    {
-        public float timeSinceActivated = 0.0f;
-
-        public WeaponState(WeaponData data)
+        private void HitHandler(object sender, Collider2D other)
         {
-            timeSinceActivated = data.Cooldown;
+            logic.HitHandler(sender, other, this);
         }
     }
 }

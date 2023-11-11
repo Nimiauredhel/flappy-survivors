@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.Data;
+using Gameplay.Configuration;
 using Gameplay.Weapons;
+using TypeReferences;
 using UnityEngine;
 
 namespace Gameplay.Player
@@ -11,15 +12,30 @@ namespace Gameplay.Player
     {
         [SerializeField] private List<WeaponInstance> weapons = new List<WeaponInstance>(8);
 
-        public void InitializeWeapons()
+        public void InitializeWeapons(Transform weaponParent, WeaponConfiguration[] configs)
         {
-            foreach (WeaponInstance weapon in weapons)
+            foreach (WeaponConfiguration config in configs)
             {
-                weapon.Initialize();
+                var logicInstance = Activator.CreateInstance(config.Logic);
+                
+                WeaponInstance newInstance = new WeaponInstance();
+                newInstance.Initialize(
+                    WeaponView.Instantiate(config.ViewPrefab, weaponParent),
+                    config, logicInstance as WeaponLogicSandbox
+                    );
+                weapons.Add(newInstance);
             }
         }
 
-        public void WeaponsUpdate(WeaponData.WeaponType validType)
+        public void OnDispose()
+        {
+            foreach (WeaponInstance weapon in weapons)
+            {
+                weapon.OnDispose();
+            }
+        }
+
+        public void WeaponsUpdate(WeaponConfiguration.WeaponType validType)
         {
             if (weapons == null || weapons.Count == 0) return;
 

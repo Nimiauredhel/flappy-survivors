@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
-using Gameplay.Data;
+using Gameplay.Configuration;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using VContainer;
@@ -14,12 +14,13 @@ namespace Gameplay.Player
         private static readonly int CLIMBING_HASH = Animator.StringToHash("Climbing");
         private static readonly int DIVING_HASH = Animator.StringToHash("Diving");
 
-        [Inject] readonly TouchReceiver _touchReceiver;
-        [Inject] readonly PlayerView view;
+        [Inject] private readonly TouchReceiver _touchReceiver;
+        [Inject] private readonly PlayerView view;
         [Inject] private readonly PlayerUIView uiView;
-        [Inject] readonly PlayerModel model;
-        [Inject] readonly PlayerWeaponsComponent weapons;
-        [Inject] readonly PlayerMovementData movementData;
+        [Inject] private readonly PlayerModel model;
+        [Inject] private readonly PlayerWeaponsComponent weapons;
+        [Inject] private readonly PlayerCharacterConfiguration characterConfig;
+        [Inject] private readonly PlayerMovementConfiguration movementConfig;
 
         private PlayerState _currentState;
         private ClimbState _climbState = new ClimbState();
@@ -60,8 +61,8 @@ namespace Gameplay.Player
                 float xSpeed = 0.0f;
                 float ySpeed = 0.0f;
             
-                if ((player.model.CurrentXSpeed > 0.0f && player.view.Body.position.x > player.movementData.MaxX)
-                    || (player.model.CurrentXSpeed < 0.0f && player.view.Body.position.x < player.movementData.MinX))
+                if ((player.model.CurrentXSpeed > 0.0f && player.view.Body.position.x > player.movementConfig.MaxX)
+                    || (player.model.CurrentXSpeed < 0.0f && player.view.Body.position.x < player.movementConfig.MinX))
                 {
                     xSpeed = 0.0f;
                 }
@@ -70,8 +71,8 @@ namespace Gameplay.Player
                     xSpeed = player.model.CurrentXSpeed;
                 }
             
-                if ((player.model.CurrentYSpeed > 0.0f && player.view.Body.position.y > player.movementData.MaxY)
-                    || (player.model.CurrentYSpeed < 0.0f && player.view.Body.position.y < player.movementData.MinY))
+                if ((player.model.CurrentYSpeed > 0.0f && player.view.Body.position.y > player.movementConfig.MaxY)
+                    || (player.model.CurrentYSpeed < 0.0f && player.view.Body.position.y < player.movementConfig.MinY))
                 {
                     ySpeed = 0.0f;
                 }
@@ -117,7 +118,7 @@ namespace Gameplay.Player
 
             public override void UpdateState(PlayerController player)
             {
-                player.weapons.WeaponsUpdate(WeaponData.WeaponType.Climbing);
+                player.weapons.WeaponsUpdate(WeaponConfiguration.WeaponType.Climbing);
             }
         }
 
@@ -135,7 +136,7 @@ namespace Gameplay.Player
         
             public override void UpdateState(PlayerController player)
             {
-                player.weapons.WeaponsUpdate(WeaponData.WeaponType.Diving);
+                player.weapons.WeaponsUpdate(WeaponConfiguration.WeaponType.Diving);
             }
         }
 
@@ -145,7 +146,7 @@ namespace Gameplay.Player
             
             public override void EnterState(PlayerController player)
             {
-                timeToDive = player.movementData.NeutralDuration;
+                timeToDive = player.movementConfig.NeutralDuration;
                 player.SetNeutral();
             }
 
@@ -186,7 +187,7 @@ namespace Gameplay.Player
         public void Start()
         {
             SetNewState(new InitialState());
-            weapons.InitializeWeapons();
+            weapons.InitializeWeapons(view.Graphic.transform, characterConfig.Weapons);
             _touchReceiver.PointerDown += PointerDownHandler;
             _touchReceiver.PointerUp += PointerUpHandler;
             view.TriggerEntered += TriggerEnterHandler;
@@ -252,13 +253,13 @@ namespace Gameplay.Player
         private void SetGoUp()
         {
             ySpeedTweener?.Kill();
-            ySpeedTweener = DOTween.To(() => model.CurrentYSpeed, y => model.SetYSpeed(y), movementData.ClimbSpeed, movementData.ClimbAccelTime);
+            ySpeedTweener = DOTween.To(() => model.CurrentYSpeed, y => model.SetYSpeed(y), movementConfig.ClimbSpeed, movementConfig.ClimbAccelTime);
         
             rotationTweener?.Kill();
-            rotationTweener = view.Graphic.DORotate(new Vector3(0.0f, 0.0f, 35.0f), movementData.ClimbAccelTime);
+            rotationTweener = view.Graphic.DORotate(new Vector3(0.0f, 0.0f, 35.0f), movementConfig.ClimbAccelTime);
         
             xSpeedTweener?.Kill();
-            xSpeedTweener = DOTween.To(() => model.CurrentXSpeed, x => model.SetXSpeed(x), -movementData.ReverseSpeed, movementData.ClimbAccelTime);
+            xSpeedTweener = DOTween.To(() => model.CurrentXSpeed, x => model.SetXSpeed(x), -movementConfig.ReverseSpeed, movementConfig.ClimbAccelTime);
         
             view.Animator.Play(CLIMBING_HASH);
         }
@@ -266,13 +267,13 @@ namespace Gameplay.Player
         private void SetGoDown()
         {
             ySpeedTweener?.Kill();
-            ySpeedTweener = DOTween.To(() => model.CurrentYSpeed, y => model.SetYSpeed(y), -movementData.DiveSpeed, movementData.DiveAccelTime);
+            ySpeedTweener = DOTween.To(() => model.CurrentYSpeed, y => model.SetYSpeed(y), -movementConfig.DiveSpeed, movementConfig.DiveAccelTime);
         
             rotationTweener?.Kill();
-            rotationTweener = view.Graphic.DORotate(new Vector3(0.0f, 0.0f, -35.0f), movementData.DiveAccelTime);
+            rotationTweener = view.Graphic.DORotate(new Vector3(0.0f, 0.0f, -35.0f), movementConfig.DiveAccelTime);
         
             xSpeedTweener?.Kill();
-            xSpeedTweener = DOTween.To(() => model.CurrentXSpeed, x => model.SetXSpeed(x), movementData.ForwardSpeed, movementData.DiveAccelTime);
+            xSpeedTweener = DOTween.To(() => model.CurrentXSpeed, x => model.SetXSpeed(x), movementConfig.ForwardSpeed, movementConfig.DiveAccelTime);
         
             view.Animator.Play(DIVING_HASH);
         }

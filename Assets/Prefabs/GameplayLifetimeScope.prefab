@@ -48,11 +48,11 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
-  _touchReceiver: {fileID: 0}
-  _playerView: {fileID: 0}
-  _objectMover: {fileID: 0}
-  _playerWeapons:
-    weapons:
-    - logic: {fileID: 0}
-      data: {fileID: 11400000, guid: 0e98b4b55b2b8b64583c7d61f3ab666c, type: 2}
-  _playerMovementData: {fileID: 11400000, guid: e414032af90abd241a93a779ea55474f, type: 2}
+  touchReceiver: {fileID: 0}
+  playerView: {fileID: 0}
+  playerUIView: {fileID: 0}
+  objectMover: {fileID: 0}
+  playerWeapons:
+    weapons: []
+  characterConfig: {fileID: 11400000, guid: c6090626691570544aa583874a1a877e, type: 2}
+  playerMovementConfig: {fileID: 11400000, guid: e414032af90abd241a93a779ea55474f, type: 2}

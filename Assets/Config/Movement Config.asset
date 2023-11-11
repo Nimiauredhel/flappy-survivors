@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10450aac7cfe16d4988d0bd8d3204c4f, type: 3}
+  m_Name: Movement Config
+  m_EditorClassIdentifier: 
+  neutralDuration: 0.5
+  climbSpeed: 10
+  diveSpeed: 20
+  climbAccelTime: 0.5
+  diveAccelTime: 0.25
+  forwardSpeed: 12
+  reverseSpeed: 6
+  maxX: 12
+  minX: -12
+  maxY: 8
+  minY: -8

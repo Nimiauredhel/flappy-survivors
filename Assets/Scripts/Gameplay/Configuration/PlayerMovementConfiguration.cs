@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace Gameplay.Data
+namespace Gameplay.Configuration
 {
     [CreateAssetMenu(fileName = "Player Movement Data", menuName = "Data/Player Movement Data", order = 0)]
-    public class PlayerMovementData : ScriptableObject
+    public class PlayerMovementConfiguration : ScriptableObject
     {
         public float NeutralDuration => neutralDuration;
         public float ClimbSpeed => climbSpeed;

@@ -1,4 +1,4 @@
-using Gameplay.Data;
+using Gameplay.Configuration;
 using Gameplay.Player;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,21 +9,23 @@ namespace Gameplay
 {
     public class GameplayLifetimeScope : LifetimeScope
     {
-        [SerializeField] private TouchReceiver _touchReceiver;
-        [SerializeField] private PlayerView _playerView;
-        [SerializeField] private PlayerUIView _playerUIView;
-        [SerializeField] private ObjectMover _objectMover;
-        [SerializeField] private PlayerWeaponsComponent _playerWeapons;
-        [SerializeField] private PlayerMovementData _playerMovementData;
+        [SerializeField] private TouchReceiver touchReceiver;
+        [SerializeField] private PlayerView playerView;
+        [SerializeField] private PlayerUIView playerUIView;
+        [SerializeField] private ObjectMover objectMover;
+        [SerializeField] private PlayerWeaponsComponent playerWeapons;
+        [SerializeField] private PlayerCharacterConfiguration characterConfig;
+        [SerializeField] private PlayerMovementConfiguration playerMovementConfig;
         
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.RegisterComponent(_touchReceiver);
-            builder.RegisterComponent(_playerView);
-            builder.RegisterComponent(_playerUIView);
-            builder.RegisterComponent(_objectMover);
-            builder.RegisterComponent(_playerWeapons);
-            builder.RegisterComponent(_playerMovementData);
+            builder.RegisterComponent(touchReceiver);
+            builder.RegisterComponent(playerView);
+            builder.RegisterComponent(playerUIView);
+            builder.RegisterComponent(objectMover);
+            builder.RegisterComponent(playerWeapons);
+            builder.RegisterComponent(characterConfig);
+            builder.RegisterComponent(playerMovementConfig);
             
             builder.Register<PlayerModel>(Lifetime.Singleton);
             
