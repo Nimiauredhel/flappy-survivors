@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 7273189750282731730}
   - component: {fileID: 5494598786590864023}
   m_Layer: 0
-  m_Name: Garlic
+  m_Name: KillSphereView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

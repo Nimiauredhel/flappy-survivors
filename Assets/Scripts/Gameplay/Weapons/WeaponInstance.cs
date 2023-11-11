@@ -32,6 +32,7 @@ namespace Gameplay.Weapons
             this.config = config;
             this.logic = logic;
             status = new WeaponStatus(this.config);
+            logic.Initialize(this);
             logic.Sheathe(this);
 
             view.TriggerEnter += HitHandler;
@@ -39,6 +40,7 @@ namespace Gameplay.Weapons
 
         public void OnDispose()
         {
+            logic.OnDispose(this);
             view.TriggerEnter -= HitHandler;
         }
 

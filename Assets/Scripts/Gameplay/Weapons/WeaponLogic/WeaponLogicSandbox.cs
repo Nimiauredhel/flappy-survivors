@@ -7,6 +7,10 @@ namespace Gameplay.Weapons
     [Serializable]
     public class WeaponLogicSandbox
     {
+        public virtual void Initialize(WeaponInstance instance){}
+        
+        public virtual void OnDispose(WeaponInstance instance){}
+        
         public virtual void Draw(WeaponInstance instance){}
         
         public virtual void Sheathe(WeaponInstance instance){}
