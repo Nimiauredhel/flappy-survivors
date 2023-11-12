@@ -6,51 +6,49 @@ namespace Gameplay.Weapons
 {
     public class WeaponInstance
     {
-        public WeaponView View => view;
-        public WeaponConfiguration Config => config;
-        public WeaponStatus Status => status;
+        public readonly WeaponView View;
+        public readonly WeaponStats Stats;
+        public readonly WeaponStatus Status;
+        public readonly WeaponConfiguration NextLevel;
         
-        private WeaponView view;
-        private WeaponLogicSandbox logic;
-        private WeaponConfiguration config;
-        
-        private WeaponStatus status;
+        private readonly WeaponLogicEntity logic;
         
         public class WeaponStatus
         {
             public float timeSinceActivated = 0.0f;
 
-            public WeaponStatus(WeaponConfiguration configuration)
+            public WeaponStatus(WeaponStats stats)
             {
-                timeSinceActivated = configuration.Cooldown;
+                timeSinceActivated = stats.Cooldown;
             }
         }
 
-        public void Initialize(WeaponView view, WeaponConfiguration config, WeaponLogicSandbox logic)
+        public WeaponInstance(WeaponView view, WeaponStats stats, WeaponLogicEntity logic,
+            WeaponConfiguration nextLevel)
         {
-            this.view = view;
-            this.config = config;
+            View = view;
+            Stats = stats;
+            Status = new WeaponStatus(Stats);
+            
             this.logic = logic;
-            status = new WeaponStatus(this.config);
-            logic.Initialize(this);
-            logic.Sheathe(this);
-
-            view.TriggerEnter += HitHandler;
+            this.logic.Initialize(this);
+            this.logic.Sheathe(this);
+            View.TriggerEnter += HitHandler;
         }
 
         public void OnDispose()
         {
             logic.OnDispose(this);
-            view.TriggerEnter -= HitHandler;
+            View.TriggerEnter -= HitHandler;
         }
 
-        public void WeaponUpdate(WeaponConfiguration.WeaponType validType)
+        public void WeaponUpdate(WeaponType validType)
         {
             bool activated = false;
             
-            if (config.Type == validType || config.Type == WeaponConfiguration.WeaponType.Both)
+            if (Stats.Type == validType || Stats.Type == WeaponType.Both)
             {
-                if (status.timeSinceActivated > config.Cooldown)
+                if (Status.timeSinceActivated > Stats.Cooldown)
                 {
                     activated = true;
                     logic.Draw(this);
@@ -63,11 +61,11 @@ namespace Gameplay.Weapons
 
             if (activated)
             {
-                status.timeSinceActivated = 0.0f;
+                Status.timeSinceActivated = 0.0f;
             }
             else
             {
-                status.timeSinceActivated += Time.deltaTime;
+                Status.timeSinceActivated += Time.deltaTime;
             }
         }
 

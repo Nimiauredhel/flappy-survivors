@@ -1,11 +1,10 @@
 using System;
-using Gameplay.Configuration;
 using UnityEngine;
 
 namespace Gameplay.Weapons
 {
     [Serializable]
-    public class WeaponLogicSandbox
+    public class WeaponLogicComponent
     {
         public virtual void Initialize(WeaponInstance instance){}
         

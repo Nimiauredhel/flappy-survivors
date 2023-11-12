@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 namespace Gameplay.Weapons
 {
     [UsedImplicitly]
-    public class ProjectileWeaponLogic : WeaponLogicSandbox
+    public class ProjectileWeaponLogic : WeaponLogicComponent
     {
         private ObjectPool<WeaponView> projectilePool;
         
@@ -47,7 +47,7 @@ namespace Gameplay.Weapons
 
             if (SO != null && SO.Active)
             {
-                SO.TakeDamage(instance.Config.BaseDamage);
+                SO.TakeDamage(instance.Stats.BaseDamage);
             }
         }
 
@@ -70,7 +70,7 @@ namespace Gameplay.Weapons
             
             try
             {
-                while (time < instance.Config.Duration && !token.IsCancellationRequested)
+                while (time < instance.Stats.Duration && !token.IsCancellationRequested)
                 {
                     projectile.transform.position += (Vector3.right * 16.0f * Time.deltaTime);
                     projectile.transform.Rotate(Vector3.forward, 540.0f * Time.deltaTime);

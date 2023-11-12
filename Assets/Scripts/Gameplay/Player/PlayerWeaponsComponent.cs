@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using Gameplay.Configuration;
 using Gameplay.Weapons;
+using Gameplay.Weapons.WeaponLogic;
 using TypeReferences;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Gameplay.Player
 {
@@ -16,14 +18,13 @@ namespace Gameplay.Player
         {
             foreach (WeaponConfiguration config in configs)
             {
-                var logicInstance = Activator.CreateInstance(config.Logic);
-                
-                WeaponInstance newInstance = new WeaponInstance();
-                newInstance.Initialize(
-                    WeaponView.Instantiate(config.ViewPrefab, weaponParent),
-                    config, logicInstance as WeaponLogicSandbox
-                    );
-                weapons.Add(newInstance);
+                weapons.Add(new WeaponInstance
+                (
+                    Object.Instantiate(config.ViewPrefab, weaponParent),
+                    config.Stats,
+                    WeaponLogicBuilder.BuildWeaponLogicEntity(config.LogicComponents),
+                    config.NextLevel
+                ));
             }
         }
 
@@ -35,7 +36,7 @@ namespace Gameplay.Player
             }
         }
 
-        public void WeaponsUpdate(WeaponConfiguration.WeaponType validType)
+        public void WeaponsUpdate(WeaponType validType)
         {
             if (weapons == null || weapons.Count == 0) return;
 

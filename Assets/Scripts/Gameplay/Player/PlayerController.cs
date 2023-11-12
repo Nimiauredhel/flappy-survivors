@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using Gameplay.Configuration;
+using Gameplay.Weapons;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using VContainer;
@@ -118,7 +119,7 @@ namespace Gameplay.Player
 
             public override void UpdateState(PlayerController player)
             {
-                player.weapons.WeaponsUpdate(WeaponConfiguration.WeaponType.Climbing);
+                player.weapons.WeaponsUpdate(WeaponType.Climbing);
             }
         }
 
@@ -136,7 +137,7 @@ namespace Gameplay.Player
         
             public override void UpdateState(PlayerController player)
             {
-                player.weapons.WeaponsUpdate(WeaponConfiguration.WeaponType.Diving);
+                player.weapons.WeaponsUpdate(WeaponType.Diving);
             }
         }
 

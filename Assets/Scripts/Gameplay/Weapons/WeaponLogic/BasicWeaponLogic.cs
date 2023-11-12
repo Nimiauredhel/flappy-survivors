@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Gameplay.Weapons
 {
     [UsedImplicitly]
-    public class BasicWeaponLogic : WeaponLogicSandbox
+    public class BasicWeaponLogic : WeaponLogicComponent
     {
         public override void Draw(WeaponInstance instance)
         {
@@ -27,7 +27,7 @@ namespace Gameplay.Weapons
 
             if (SO != null && SO.Active)
             {
-                SO.TakeDamage(instance.Config.BaseDamage);
+                SO.TakeDamage(instance.Stats.BaseDamage);
             }
         }
 
@@ -35,7 +35,7 @@ namespace Gameplay.Weapons
         {
             instance.View.Graphic.enabled = true;
             instance.View.Hitbox.enabled = true;
-            await Task.Delay(TimeSpan.FromSeconds(instance.Config.Duration));
+            await Task.Delay(TimeSpan.FromSeconds(instance.Stats.Duration));
             Sheathe(instance);
         }
     }

@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86aad4624c266fb4cbfb61dede14d80a, type: 3}
   m_Name: BasicProjectile
   m_EditorClassIdentifier: 
-  weaponType: 2
-  cooldown: 1
-  duration: 3
-  baseDamage: 5
-  viewPrefab: {fileID: 7273189750282731730, guid: 9fa645536ef5a6f44899a341fb8462f4, type: 3}
-  logic:
-    GuidAssignmentFailed: 0
+  stats:
+    weaponType: 2
+    cooldown: 0.25
+    duration: 3
+    baseDamage: 3
+  logicComponents:
+  - GuidAssignmentFailed: 0
     GUID: c1e4d0f00ef9d4a419fd9bd69d1c084c
     _typeNameAndAssembly: Gameplay.Weapons.ProjectileWeaponLogic, Assembly-CSharp
     _suppressLogs: 0
+  viewPrefab: {fileID: 7273189750282731730, guid: 9fa645536ef5a6f44899a341fb8462f4, type: 3}
   nextLevel: {fileID: 0}
