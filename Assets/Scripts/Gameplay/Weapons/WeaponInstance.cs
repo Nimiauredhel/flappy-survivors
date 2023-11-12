@@ -13,6 +13,7 @@ namespace Gameplay.Weapons
         public readonly WeaponConfiguration NextLevel;
         
         private readonly WeaponLogicEntity logic;
+        private readonly WeaponUIView uiView;
         
         public class WeaponStatus
         {
@@ -25,12 +26,13 @@ namespace Gameplay.Weapons
         }
 
         public WeaponInstance(WeaponView view, WeaponStats stats, WeaponLogicEntity logic,
-            WeaponConfiguration nextLevel)
+            WeaponConfiguration nextLevel, WeaponUIView uiView)
         {
             View = view;
             Stats = stats;
             Status = new WeaponStatus(Stats);
-            
+
+            this.uiView = uiView;
             this.logic = logic;
             this.logic.Initialize(this);
             this.logic.Sheathe(this);
@@ -68,6 +70,8 @@ namespace Gameplay.Weapons
             {
                 Status.timeSinceActivated += Time.deltaTime;
             }
+            
+            uiView.UpdateCooldownIndicator(1.0f-(Status.timeSinceActivated/Stats.Cooldown));
         }
 
         private void HitHandler(object sender, Collider2D other)

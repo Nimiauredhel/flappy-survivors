@@ -11,12 +11,14 @@ namespace Gameplay.Configuration
         public WeaponStats Stats => stats;
         public WeaponView ViewPrefab => viewPrefab;
         public TypeReference[] LogicComponents => logicComponents;
+        public Sprite IconSprite => iconSprite;
         public WeaponConfiguration NextLevel => nextLevel;
 
         [SerializeField] private WeaponStats stats;
         [Inherits(typeof(WeaponLogicComponent))]
         [SerializeField] private TypeReference[] logicComponents;
         [SerializeField] private WeaponView viewPrefab;
+        [SerializeField] private Sprite iconSprite;
         [SerializeField] private WeaponConfiguration nextLevel;
     }
 }

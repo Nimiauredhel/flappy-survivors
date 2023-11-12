@@ -54,7 +54,7 @@ namespace Gameplay.Player
 
             public virtual void UpdateState(PlayerController player)
             {
-            
+                player.weapons.WeaponsUpdate(WeaponType.Both);
             }
 
             public virtual void FixedUpdateState(PlayerController player)
@@ -102,6 +102,11 @@ namespace Gameplay.Player
             public override void EnterState(PlayerController player)
             {
                 player.SetNeutral();
+            }
+
+            public override void UpdateState(PlayerController player)
+            {
+                
             }
         }
         
@@ -153,6 +158,8 @@ namespace Gameplay.Player
 
             public override void UpdateState(PlayerController player)
             {
+                player.weapons.WeaponsUpdate(WeaponType.Both);
+                
                 if (timeToDive <= 0.0f)
                 {
                     player.SetNewState(player._diveState);
@@ -188,7 +195,7 @@ namespace Gameplay.Player
         public void Start()
         {
             SetNewState(new InitialState());
-            weapons.InitializeWeapons(view.Graphic.transform, characterConfig.Weapons);
+            weapons.InitializeWeapons(view.Graphic.transform, characterConfig.Weapons, uiView);
             _touchReceiver.PointerDown += PointerDownHandler;
             _touchReceiver.PointerUp += PointerUpHandler;
             view.TriggerEntered += TriggerEnterHandler;

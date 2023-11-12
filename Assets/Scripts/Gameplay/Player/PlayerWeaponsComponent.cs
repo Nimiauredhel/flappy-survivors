@@ -14,16 +14,18 @@ namespace Gameplay.Player
     {
         [SerializeField] private List<WeaponInstance> weapons = new List<WeaponInstance>(8);
 
-        public void InitializeWeapons(Transform weaponParent, WeaponConfiguration[] configs)
+        public void InitializeWeapons(Transform weaponParent, WeaponConfiguration[] configs, PlayerUIView uiView)
         {
             foreach (WeaponConfiguration config in configs)
             {
+                WeaponUIView weaponUIView = uiView.AddOrReplaceWeaponIcon(config.IconSprite);
+                
                 weapons.Add(new WeaponInstance
                 (
                     Object.Instantiate(config.ViewPrefab, weaponParent),
                     config.Stats,
                     WeaponLogicBuilder.BuildWeaponLogicEntity(config.LogicComponents),
-                    config.NextLevel
+                    config.NextLevel, weaponUIView
                 ));
             }
         }
