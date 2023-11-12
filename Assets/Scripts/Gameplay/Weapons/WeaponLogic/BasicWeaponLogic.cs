@@ -1,11 +1,9 @@
 using System;
-using System.Threading;
 using System.Threading.Tasks;
-using Gameplay.Configuration;
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Gameplay.Weapons
+namespace Gameplay.Weapons.WeaponLogic
 {
     [UsedImplicitly]
     public class BasicWeaponLogic : WeaponLogicComponent

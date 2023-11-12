@@ -7,7 +7,7 @@ using UnityEngine.Pool;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
-namespace Gameplay.Weapons
+namespace Gameplay.Weapons.WeaponLogic
 {
     [UsedImplicitly]
     public class ProjectileWeaponLogic : WeaponLogicComponent

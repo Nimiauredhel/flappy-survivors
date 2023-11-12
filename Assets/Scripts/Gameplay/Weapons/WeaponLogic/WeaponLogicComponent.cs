@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Gameplay.Weapons
+namespace Gameplay.Weapons.WeaponLogic
 {
     [Serializable]
     public class WeaponLogicComponent

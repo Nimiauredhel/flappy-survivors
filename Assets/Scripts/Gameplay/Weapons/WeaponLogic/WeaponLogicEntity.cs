@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Gameplay.Weapons
+namespace Gameplay.Weapons.WeaponLogic
 {
     public class WeaponLogicEntity
     {

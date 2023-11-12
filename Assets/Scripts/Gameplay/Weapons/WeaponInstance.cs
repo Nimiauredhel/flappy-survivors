@@ -1,5 +1,6 @@
 using System;
 using Gameplay.Configuration;
+using Gameplay.Weapons.WeaponLogic;
 using UnityEngine;
 
 namespace Gameplay.Weapons
