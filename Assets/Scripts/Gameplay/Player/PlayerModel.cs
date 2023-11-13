@@ -11,8 +11,8 @@ namespace Gameplay.Player
         public float CurrentYSpeed => _currentYSpeed;
         
         private int totalXp = 0;
-        private float _maxHealth = 5.0f;
-        private float _currentHealth = 5.0f;
+        private float _maxHealth = 100.0f;
+        private float _currentHealth = 100.0f;
         
         private float _currentXSpeed;
         private float _currentYSpeed;

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using Gameplay.Configuration;
+using Gameplay.ScrolledObjects;
 using Gameplay.Weapons;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -216,7 +217,7 @@ namespace Gameplay.Player
         
         #endregion
 
-        public void GetXP(int value)
+        public void ChangePlayerXP(int value)
         {
             model.ChangeXP(value);
             uiView.UpdatePlayerXPView(model.TotalXP/1000.0f);
@@ -234,17 +235,17 @@ namespace Gameplay.Player
         
         private void TriggerEnterHandler(object sender, Collider2D other)
         {
-            ScrolledObject SO = other.gameObject.GetComponentInParent<ScrolledObject>();
+            ScrolledObjectView SO = other.gameObject.GetComponentInParent<ScrolledObjectView>();
 
             if (SO != null && SO.Active)
             {
-                TakeDamage(SO.MeleeDamage);
+                SO.HitByPlayer(ChangePlayerHealth, ChangePlayerXP);
             }
         }
 
-        private void TakeDamage(float damage)
+        private void ChangePlayerHealth(float amount)
         {
-            model.ChangeHealth(-damage);
+            model.ChangeHealth(amount);
             uiView.UpdatePlayerHealthView(model.CurrentHealth/model.MaxHealth);
 
             if (model.CurrentHealth <= 0.0f)

@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Gameplay.ScrolledObjects;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -43,11 +44,11 @@ namespace Gameplay.Weapons.WeaponLogic
 
         public override void HitHandler(object sender, Collider2D other, WeaponInstance instance)
         {
-            ScrolledObject SO = other.gameObject.GetComponentInParent<ScrolledObject>();
+            ScrolledObjectView SO = other.gameObject.GetComponentInParent<ScrolledObjectView>();
 
             if (SO != null && SO.Active)
             {
-                SO.TakeDamage(instance.Stats.BaseDamage);
+                SO.HitByWeapon(instance.Stats.BaseDamage);
             }
         }
 

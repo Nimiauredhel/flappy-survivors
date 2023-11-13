@@ -311,54 +311,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &1490149512247222144
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4339119640184623883}
-  - component: {fileID: 6049055969962774075}
-  m_Layer: 0
-  m_Name: PlayerUIView
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4339119640184623883
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490149512247222144}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -165.86624, y: 142.00888, z: 52145.305}
-  m_LocalScale: {x: 54, y: 54, z: 54}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2664520738431207436}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6049055969962774075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490149512247222144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d952156b5538d9e42844b136fb539b71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSlider: {fileID: 4702508380886176354}
-  xpSlider: {fileID: 6304115803410888495}
-  weaponIconParent: {fileID: 2352610091759774680}
-  weaponIconPrefab: {fileID: 9117978627444281350, guid: 89a302f2633387d438c30b61c7176c34, type: 3}
 --- !u!1 &1878760983404365119
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,8 +323,9 @@ GameObject:
   - component: {fileID: 98772453737808812}
   - component: {fileID: 870789234000513367}
   - component: {fileID: 2356794692867591248}
+  - component: {fileID: 4782457858926039520}
   m_Layer: 5
-  m_Name: GameCanvas
+  m_Name: GameplayUIViews
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -394,7 +347,6 @@ RectTransform:
   - {fileID: 1451832011711767029}
   - {fileID: 797426362974262209}
   - {fileID: 465823025505864649}
-  - {fileID: 4339119640184623883}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -465,6 +417,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4782457858926039520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878760983404365119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d952156b5538d9e42844b136fb539b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 4702508380886176354}
+  xpSlider: {fileID: 6304115803410888495}
+  weaponIconParent: {fileID: 2352610091759774680}
+  weaponIconPrefab: {fileID: 9117978627444281350, guid: 89a302f2633387d438c30b61c7176c34, type: 3}
 --- !u!1 &2282999006450752879
 GameObject:
   m_ObjectHideFlags: 0

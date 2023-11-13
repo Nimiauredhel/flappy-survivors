@@ -622,17 +622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afd9d3ccbd11de47a4e32cf629c02d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2077594219 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6049055969962774075, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
-  m_PrefabInstance: {fileID: 4732591126790484284}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d952156b5538d9e42844b136fb539b71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &97529174494311813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -692,11 +681,15 @@ PrefabInstance:
     - target: {fileID: 6086592239576207485, guid: 75775b164519e2246a01c17626daa837, type: 3}
       propertyPath: playerUIView
       value: 
-      objectReference: {fileID: 2077594219}
+      objectReference: {fileID: 4732591126790484285}
     - target: {fileID: 6086592239576207485, guid: 75775b164519e2246a01c17626daa837, type: 3}
       propertyPath: touchReceiver
       value: 
       objectReference: {fileID: 3808482197361992687}
+    - target: {fileID: 6086592239576207485, guid: 75775b164519e2246a01c17626daa837, type: 3}
+      propertyPath: enemiesController
+      value: 
+      objectReference: {fileID: 1656706223}
     - target: {fileID: 7482715668597420255, guid: 75775b164519e2246a01c17626daa837, type: 3}
       propertyPath: m_Name
       value: GameplayLifetimeScope
@@ -784,7 +777,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3549120443606164865, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
       propertyPath: m_Name
-      value: ObjectMover
+      value: EnemiesController
       objectReference: {fileID: 0}
     - target: {fileID: 6773386059927239579, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
       propertyPath: m_LocalPosition.x
@@ -861,7 +854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1878760983404365119, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
       propertyPath: m_Name
-      value: GameCanvas
+      value: GameplayUIViews
       objectReference: {fileID: 0}
     - target: {fileID: 2664520738431207436, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
       propertyPath: m_Pivot.x
@@ -948,6 +941,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
+--- !u!114 &4732591126790484285 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4782457858926039520, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
+  m_PrefabInstance: {fileID: 4732591126790484284}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d952156b5538d9e42844b136fb539b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 1646345818551329705}
   - component: {fileID: 4859928808271287688}
   m_Layer: 0
-  m_Name: ScrolledObject
+  m_Name: BasicEnemyView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,12 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784304a9eb760da41873c958bacbcffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 15
-  health: 5
-  meleeDamage: 1
-  objectType: 1
   graphic: {fileID: 4426572431478108249}
-  explosion: {fileID: 3847479776899742560}
+  deathEffect: {fileID: 3847479776899742560}
 --- !u!95 &1646345818551329705
 Animator:
   serializedVersion: 5

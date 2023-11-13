@@ -8,33 +8,33 @@ namespace Gameplay
 {
     public class GameController : IStartable, ITickable, IFixedTickable, IDisposable
     {
-        [Inject] private readonly ObjectMover _objectMover;
+        [Inject] private readonly EnemiesController _enemiesController;
         [Inject] private readonly PlayerController _playerController;
 
         public void Start()
         {
-            _objectMover.Initialize();
-            _objectMover.EnemyKilled += EnemyKilledHandler;
+            _enemiesController.Initialize();
+            _enemiesController.EnemyKilled += EnemyKilledHandler;
         }
 
         public void Tick()
         {
-            _objectMover.DoUpdate();
+            _enemiesController.DoUpdate();
         }
 
         public void FixedTick()
         {
-            _objectMover.DoFixedUpdate();
+            _enemiesController.DoFixedUpdate();
         }
 
         public void Dispose()
         {
-            _objectMover.EnemyKilled -= EnemyKilledHandler;
+            _enemiesController.EnemyKilled -= EnemyKilledHandler;
         }
 
         private void EnemyKilledHandler(object sender, int value)
         {
-            _playerController.GetXP(value);
+            _playerController.ChangePlayerXP(value);
         }
     }
 }
