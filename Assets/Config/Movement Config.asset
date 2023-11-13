@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10450aac7cfe16d4988d0bd8d3204c4f, type: 3}
   m_Name: Movement Config
   m_EditorClassIdentifier: 
-  neutralDuration: 0.5
+  neutralDuration: 0.3
   climbSpeed: 10
   diveSpeed: 20
   climbAccelTime: 0.5
