@@ -775,6 +775,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2701603590806665382, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
+      propertyPath: enemyConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 27800374413169842a1697941995eb90, type: 2}
     - target: {fileID: 3549120443606164865, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
       propertyPath: m_Name
       value: EnemiesController
