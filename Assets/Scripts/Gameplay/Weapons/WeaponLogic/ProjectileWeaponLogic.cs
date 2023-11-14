@@ -90,8 +90,8 @@ namespace Gameplay.Weapons.WeaponLogic
                 while (time < instance.Stats.Duration && !token.IsCancellationRequested)
                 {
                     float deltaTime = Time.deltaTime;
-                    projectile.transform.position += (Vector3.right * 16.0f * deltaTime);
-                    projectile.transform.Rotate(Vector3.forward, 540.0f * deltaTime);
+                    projectile.transform.position += (Vector3.right * instance.Stats.Speed * deltaTime);
+                    projectile.transform.Rotate(Vector3.forward, 30.0f * instance.Stats.Speed * deltaTime);
                     time += deltaTime;
                     await Task.Yield();
                 }
