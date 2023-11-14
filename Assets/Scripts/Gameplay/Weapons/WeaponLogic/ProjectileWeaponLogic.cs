@@ -53,11 +53,17 @@ namespace Gameplay.Weapons.WeaponLogic
 
                 if (projectile != null)
                 {
+                    projectile.transform.position = instance.View.transform.position;
+                    projectile.SetHitArea(instance.Stats.Area);
+                    projectile.Graphic.enabled = true;
+                    projectile.Hitbox.enabled = true;
+                    projectile.transform.Rotate(Vector3.forward, Random.Range(-180.0f, 180.0f));
+                    
                     CancellationTokenSource tokenSource = new CancellationTokenSource();
                     projectileTokenSources.Add(tokenSource);
                     
                     FireSingleProjectile(instance, projectile, tokenSource);
-                    await Task.Delay(100);
+                    await Task.Delay(150);
                 }
             }
         }
@@ -78,11 +84,6 @@ namespace Gameplay.Weapons.WeaponLogic
             projectile.TriggerEnter += hitAction;
             
             float time = 0.0f;
-
-            projectile.transform.position = instance.View.transform.position;
-            projectile.Graphic.enabled = true;
-            projectile.Hitbox.enabled = true;
-            projectile.transform.Rotate(Vector3.forward, Random.Range(-180.0f, 180.0f));
             
             try
             {

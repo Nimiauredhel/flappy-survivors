@@ -17,5 +17,10 @@ namespace Gameplay.Weapons
         {
             TriggerEnter?.Invoke(this, other);
         }
+        
+        public void SetHitArea(float hitArea = 1.0f)
+        {
+            hitbox.transform.localScale = Vector3.one * hitArea;
+        }
     }
 }

@@ -31,9 +31,9 @@ namespace Gameplay.Weapons
         [SerializeField] private float power;
         [SerializeField] private float speed;
         [SerializeField] private float duration;
-        [SerializeField] private float area;
+        [SerializeField][Range(1.0f, 10.0f)] private float area;
         [SerializeField] private float cooldown;
-        [SerializeField] private int amount;
+        [SerializeField][Range(1, 30)] private int amount;
         
         
         [SerializeField] private string name;

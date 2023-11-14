@@ -17,7 +17,7 @@ MonoBehaviour:
     power: 5
     speed: 0
     duration: 0.8
-    area: 1
+    area: 1.25
     cooldown: 3
     amount: 0
     name: Battle Axe

@@ -36,6 +36,8 @@ namespace Gameplay.Weapons
             this.logic = logic;
             this.logic.Initialize(this);
             this.logic.Sheathe(this);
+            
+            View.SetHitArea(Stats.Area);
             View.TriggerEnter += HitHandler;
         }
 
