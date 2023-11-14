@@ -20,14 +20,9 @@ namespace Gameplay.Weapons.WeaponLogic
             instance.View.Hitbox.enabled = false;
         }
 
-        public override void HitHandler(object sender, Collider2D other, WeaponInstance instance)
+        public override void HitHandler(ScrolledObjectView hitObject, WeaponInstance instance)
         {
-            ScrolledObjectView SO = other.gameObject.GetComponentInParent<ScrolledObjectView>();
-
-            if (SO != null && SO.Active)
-            {
-                SO.HitByWeapon(instance.Stats.BaseDamage);
-            }
+                hitObject.HitByWeapon(instance.Stats.Power);
         }
 
         private async Task AttackAsync(WeaponInstance instance)

@@ -51,7 +51,7 @@ namespace Gameplay.Weapons
             
             if (Stats.Type == validType || Stats.Type == WeaponType.Both)
             {
-                if (Status.timeSinceActivated > Stats.Cooldown)
+                if (Status.timeSinceActivated >= Stats.Cooldown)
                 {
                     activated = true;
                     logic.Draw(this);

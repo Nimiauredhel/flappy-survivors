@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Gameplay.ScrolledObjects;
@@ -14,6 +15,7 @@ namespace Gameplay.Weapons.WeaponLogic
     public class ProjectileWeaponLogic : WeaponLogicComponent
     {
         private ObjectPool<WeaponView> projectilePool;
+        private List<CancellationTokenSource> projectileTokenSources = new List<CancellationTokenSource>(8);
         
         public override void Initialize(WeaponInstance instance)
         {
@@ -22,19 +24,15 @@ namespace Gameplay.Weapons.WeaponLogic
 
         public override void OnDispose(WeaponInstance instance)
         {
-            
+            foreach (CancellationTokenSource tokenSource in projectileTokenSources)
+            {
+                tokenSource.Cancel();
+            }
         }
 
         public override void Draw(WeaponInstance instance)
         {
-            WeaponView projectile;
-            projectilePool.Get(out projectile);
-
-            if (projectile != null)
-            {
-                CancellationTokenSource token = new CancellationTokenSource();
-                FireProjectile(instance, projectile, token);
-            }
+            FireMultipleProjectiles(instance);
         }
 
         public override void Sheathe(WeaponInstance instance)
@@ -42,22 +40,39 @@ namespace Gameplay.Weapons.WeaponLogic
             
         }
 
-        public override void HitHandler(object sender, Collider2D other, WeaponInstance instance)
+        public override void HitHandler(ScrolledObjectView hitObject, WeaponInstance instance)
         {
-            ScrolledObjectView SO = other.gameObject.GetComponentInParent<ScrolledObjectView>();
+            hitObject.HitByWeapon(instance.Stats.Power);
+        }
 
-            if (SO != null && SO.Active)
+        private async void FireMultipleProjectiles(WeaponInstance instance)
+        {
+            for (int i = 0; i < instance.Stats.Amount; i++)
             {
-                SO.HitByWeapon(instance.Stats.BaseDamage);
+                projectilePool.Get(out WeaponView projectile);
+
+                if (projectile != null)
+                {
+                    CancellationTokenSource tokenSource = new CancellationTokenSource();
+                    projectileTokenSources.Add(tokenSource);
+                    
+                    FireSingleProjectile(instance, projectile, tokenSource);
+                    await Task.Delay(100);
+                }
             }
         }
 
-        private async Task FireProjectile(WeaponInstance instance, WeaponView projectile, CancellationTokenSource token)
+        private async Task FireSingleProjectile(WeaponInstance instance, WeaponView projectile, CancellationTokenSource token)
         {
             EventHandler<Collider2D> hitAction = delegate(object sender, Collider2D other)
             {
-                token.Cancel();
-                HitHandler(sender, other, instance);
+                ScrolledObjectView SO = other.GetComponentInParent<ScrolledObjectView>();
+
+                if (SO != null)
+                {
+                    HitHandler(SO, instance);
+                    token.Cancel();
+                }
             };
             
             projectile.TriggerEnter += hitAction;
@@ -88,6 +103,7 @@ namespace Gameplay.Weapons.WeaponLogic
             finally
             {
                 projectile.TriggerEnter -= hitAction;
+                projectileTokenSources.Remove(token);
                 projectile.Graphic.enabled = false;
                 projectile.Hitbox.enabled = false;
                 projectilePool.Release(projectile);

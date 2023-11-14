@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86aad4624c266fb4cbfb61dede14d80a, type: 3}
+  m_Name: BattleAxe1
+  m_EditorClassIdentifier: 
+  stats:
+    weaponType: 2
+    power: 5
+    speed: 0
+    duration: 0.4
+    area: 1
+    cooldown: 3
+    amount: 0
+    name: Battle Axe
+    description: Smite foes from above with a short but powerful blow.
+  logicComponents:
+  - GuidAssignmentFailed: 0
+    GUID: 2bc05b5214594004c992c29dc20c245e
+    _typeNameAndAssembly: Gameplay.Weapons.WeaponLogic.BasicWeaponLogic, Assembly-CSharp
+    _suppressLogs: 0
+  viewPrefab: {fileID: 7273189750282731730, guid: d8c6dc4fb18d63d4782fc70c83cf80a0, type: 3}
+  iconSprite: {fileID: 21300000, guid: 6d18d707b454b8b469fd37fb5c7836f9, type: 3}
+  nextLevel: {fileID: 11400000, guid: a326835469e9a994e9e8bd2ad25e8035, type: 2}

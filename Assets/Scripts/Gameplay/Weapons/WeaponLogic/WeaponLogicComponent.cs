@@ -1,5 +1,5 @@
 using System;
-using UnityEngine;
+using Gameplay.ScrolledObjects;
 
 namespace Gameplay.Weapons.WeaponLogic
 {
@@ -14,7 +14,7 @@ namespace Gameplay.Weapons.WeaponLogic
         
         public virtual void Sheathe(WeaponInstance instance){}
         
-        public virtual void HitHandler(object sender, Collider2D other, WeaponInstance instance){}
+        public virtual void HitHandler(ScrolledObjectView hitObject, WeaponInstance instance){}
 
     }
 }

@@ -10,18 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86aad4624c266fb4cbfb61dede14d80a, type: 3}
-  m_Name: KillSphere
+  m_Name: BattleAxe2
   m_EditorClassIdentifier: 
   stats:
-    weaponType: 1
+    weaponType: 2
+    power: 5
+    speed: 0
+    duration: 0.8
+    area: 1
     cooldown: 3
-    duration: 3
-    baseDamage: 5
+    amount: 0
+    name: Battle Axe
+    description: 2x duration.
   logicComponents:
   - GuidAssignmentFailed: 0
     GUID: 2bc05b5214594004c992c29dc20c245e
     _typeNameAndAssembly: Gameplay.Weapons.WeaponLogic.BasicWeaponLogic, Assembly-CSharp
     _suppressLogs: 0
-  viewPrefab: {fileID: 7273189750282731730, guid: 88067083801288347b4eccaf1932aa93, type: 3}
-  iconSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  nextLevel: {fileID: 0}
+  viewPrefab: {fileID: 7273189750282731730, guid: d8c6dc4fb18d63d4782fc70c83cf80a0, type: 3}
+  iconSprite: {fileID: 21300000, guid: 6d18d707b454b8b469fd37fb5c7836f9, type: 3}
+  nextLevel: {fileID: 11400000, guid: 6c2454643e18071448f7d6fdb98f411c, type: 2}

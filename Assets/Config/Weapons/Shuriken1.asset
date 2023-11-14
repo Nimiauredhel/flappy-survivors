@@ -10,13 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86aad4624c266fb4cbfb61dede14d80a, type: 3}
-  m_Name: BasicProjectile
+  m_Name: Shuriken1
   m_EditorClassIdentifier: 
   stats:
     weaponType: 2
-    cooldown: 0.25
+    power: 3
+    speed: 0
     duration: 3
-    baseDamage: 3
+    area: 1
+    cooldown: 4
+    amount: 3
+    name: Shuriken
+    description: Dispatch enemies at a distance.
   logicComponents:
   - GuidAssignmentFailed: 0
     GUID: c1e4d0f00ef9d4a419fd9bd69d1c084c

@@ -1,3 +1,4 @@
+using Gameplay.ScrolledObjects;
 using UnityEngine;
 
 namespace Gameplay.Weapons.WeaponLogic
@@ -53,9 +54,14 @@ namespace Gameplay.Weapons.WeaponLogic
         
         public void HitHandler(object sender, Collider2D other, WeaponInstance instance)
         {
-            for (int i = 0; i < components.Length; i++)
+            ScrolledObjectView SO = other.gameObject.GetComponentInParent<ScrolledObjectView>();
+
+            if (SO != null && SO.Active)
             {
-                components[i].HitHandler(sender, other, instance);
+                for (int i = 0; i < components.Length; i++)
+                {
+                    components[i].HitHandler(SO, instance);
+                }
             }
         }
     }
