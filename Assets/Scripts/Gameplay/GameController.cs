@@ -1,5 +1,7 @@
 using System;
 using Gameplay.Player;
+using Gameplay.ScrolledObjects.Enemy;
+using Gameplay.ScrolledObjects.Pickup;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -8,33 +10,43 @@ namespace Gameplay
 {
     public class GameController : IStartable, ITickable, IFixedTickable, IDisposable
     {
-        [Inject] private readonly EnemiesController _enemiesController;
-        [Inject] private readonly PlayerController _playerController;
+        [Inject] private readonly EnemiesController enemiesController;
+        [Inject] private readonly PickupsController pickupsController;
+        [Inject] private readonly PlayerController playerController;
 
         public void Start()
         {
-            _enemiesController.Initialize();
-            _enemiesController.EnemyKilled += EnemyKilledHandler;
+            enemiesController.Initialize();
+            enemiesController.EnemyKilled += EnemyKilledHandler;
+            
+            pickupsController.Initialize();
         }
 
         public void Tick()
         {
-            _enemiesController.DoUpdate();
+            enemiesController.DoUpdate();
+            pickupsController.DoUpdate();
         }
 
         public void FixedTick()
         {
-            _enemiesController.DoFixedUpdate();
+            enemiesController.DoFixedUpdate();
+            pickupsController.DoFixedUpdate();
         }
 
         public void Dispose()
         {
-            _enemiesController.EnemyKilled -= EnemyKilledHandler;
+            enemiesController.EnemyKilled -= EnemyKilledHandler;
         }
 
-        private void EnemyKilledHandler(object sender, int value)
+        private void EnemyKilledHandler(int value, Vector3 position)
         {
-            _playerController.ChangePlayerXP(value);
+            pickupsController.SpawnPickup(position, value, PickupType.XP);
+        }
+
+        private void XPGainedHandler(int value)
+        {
+            playerController.ChangePlayerXP(value);
         }
     }
 }

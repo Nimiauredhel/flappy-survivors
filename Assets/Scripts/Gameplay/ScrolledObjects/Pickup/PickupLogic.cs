@@ -1,17 +1,22 @@
 using System;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 namespace Gameplay.ScrolledObjects.Pickup
 {
-    [Serializable]
     public class PickupLogic : IScrolledObjectLogic
     {
-        [SerializeField] private PickupType type;
-        [SerializeField] private int value;
-        [SerializeField] private float lifetime;
+        private PickupType type;
+        private int value;
+        private float lifetime;
 
         private float elapsedTime = 0.0f;
+
+        public PickupLogic(PickupType type, int value, float lifetime)
+        {
+            this.type = type;
+            this.value = value;
+            this.lifetime = lifetime;
+        }
 
         public void ScrolledObjectUpdate(ScrolledObjectView view)
         {
@@ -25,7 +30,7 @@ namespace Gameplay.ScrolledObjects.Pickup
 
         public void ScrolledObjectFixedUpdate(ScrolledObjectView view)
         {
-            
+            view.transform.Translate((new Vector2(-7.0f, 0.0f) * Time.fixedDeltaTime));
         }
 
         public void OnHitByWeapon(ScrolledObjectView view, float damage)
@@ -56,9 +61,10 @@ namespace Gameplay.ScrolledObjects.Pickup
             view.Deactivate();
         }
 
-        public void OnActivate()
+        public void OnActivate(int newValue)
         {
             elapsedTime = 0.0f;
+            value = newValue;
         }
 
         public void OnDeactivate()

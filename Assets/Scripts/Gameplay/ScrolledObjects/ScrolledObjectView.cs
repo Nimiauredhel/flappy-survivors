@@ -1,17 +1,17 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Gameplay.ScrolledObjects
 {
     public class ScrolledObjectView : MonoBehaviour
     {
         public bool Active => active;
-        private bool active = false;
-        
+
+        [SerializeField] private Collider2D hurtBox;
         [SerializeField] private SpriteRenderer graphic;
         [SerializeField] private GameObject deathEffect;
 
+        private bool active = false;
         private IScrolledObjectLogic logic;
 
         public void Initialize(IScrolledObjectLogic injectedLogic)
@@ -39,10 +39,11 @@ namespace Gameplay.ScrolledObjects
             logic.OnHitByPlayer(this, hpAction, xpAction);
         }
 
-        public void Activate()
+        public void Activate(int value)
         {
-            logic.OnActivate();
+            logic.OnActivate(value);
             graphic.gameObject.SetActive(true);
+            hurtBox.enabled = true;
             deathEffect.SetActive(false);
             active = true;
         }
@@ -56,6 +57,7 @@ namespace Gameplay.ScrolledObjects
 
             logic.OnDeactivate();
             graphic.gameObject.SetActive(false);
+            hurtBox.enabled = false;
             active = false;
         }
     }

@@ -4,16 +4,15 @@ using Random = UnityEngine.Random;
 
 namespace Gameplay.ScrolledObjects.Enemy
 {
-    [Serializable]
     public class EnemyLogic : IScrolledObjectLogic
     {
-        private event EventHandler<int> EnemyKilled; 
+        private event Action<int, Vector3> EnemyKilled; 
         
-        [SerializeField] private EnemyStats stats;
+        private EnemyStats stats;
 
         private float currentHP;
         
-        public EnemyLogic(EnemyStats stats, EventHandler<int> killedHandler)
+        public EnemyLogic(EnemyStats stats, Action<int, Vector3> killedHandler)
         {
             this.stats = stats;
             EnemyKilled += killedHandler;
@@ -36,7 +35,7 @@ namespace Gameplay.ScrolledObjects.Enemy
             if (currentHP <= 0.0f)
             {
                 currentHP = 0.0f;
-                EnemyKilled?.Invoke(view, stats.XPValue);
+                EnemyKilled?.Invoke(stats.XPValue, view.transform.position);
                 view.Deactivate(true);
             }
         }
@@ -46,7 +45,7 @@ namespace Gameplay.ScrolledObjects.Enemy
             hpAction?.Invoke(-stats.Power);
         }
 
-        public void OnActivate()
+        public void OnActivate(int value = 0)
         {
             currentHP = Random.Range(stats.MinHP, stats.MaxHP);
         }

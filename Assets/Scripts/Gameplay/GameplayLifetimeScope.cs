@@ -1,5 +1,7 @@
 using Gameplay.Configuration;
 using Gameplay.Player;
+using Gameplay.ScrolledObjects.Enemy;
+using Gameplay.ScrolledObjects.Pickup;
 using UnityEngine;
 using UnityEngine.Serialization;
 using VContainer;
@@ -12,7 +14,8 @@ namespace Gameplay
         [SerializeField] private TouchReceiver touchReceiver;
         [SerializeField] private PlayerView playerView;
         [SerializeField] private PlayerUIView playerUIView;
-        [FormerlySerializedAs("objectMover")] [SerializeField] private EnemiesController enemiesController;
+        [SerializeField] private EnemiesController enemiesController;
+        [SerializeField] private PickupsController pickupsController;
         [SerializeField] private PlayerWeaponsComponent playerWeapons;
         [SerializeField] private PlayerCharacterConfiguration characterConfig;
         [SerializeField] private PlayerMovementConfiguration playerMovementConfig;
@@ -23,6 +26,7 @@ namespace Gameplay
             builder.RegisterComponent(playerView);
             builder.RegisterComponent(playerUIView);
             builder.RegisterComponent(enemiesController);
+            builder.RegisterComponent(pickupsController);
             builder.RegisterComponent(playerWeapons);
             builder.RegisterComponent(characterConfig);
             builder.RegisterComponent(playerMovementConfig);

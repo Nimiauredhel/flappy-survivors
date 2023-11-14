@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784304a9eb760da41873c958bacbcffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hurtBox: {fileID: 338935626127746454}
   graphic: {fileID: 4426572431478108249}
   deathEffect: {fileID: 3847479776899742560}
 --- !u!95 &1646345818551329705

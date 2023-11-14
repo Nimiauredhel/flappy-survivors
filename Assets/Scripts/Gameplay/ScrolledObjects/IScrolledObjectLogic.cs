@@ -12,7 +12,7 @@ namespace Gameplay.ScrolledObjects
 
         public void OnHitByPlayer(ScrolledObjectView view, Action<float> hpAction, Action<int> xpAction);
 
-        public void OnActivate();
+        public void OnActivate(int value);
 
         public void OnDeactivate();
     }

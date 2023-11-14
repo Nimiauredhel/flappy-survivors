@@ -8,9 +8,9 @@ namespace Gameplay.Configuration
     public class PickupConfiguration : ScriptableObject
     {
         public PickupType Type => type;
-        public ScrolledObjectView ViewPrefab => viewPrefab;
+        public Sprite PickupSprite => pickupSprite;
 
         [SerializeField] private PickupType type;
-        [SerializeField] private ScrolledObjectView viewPrefab;
+        [SerializeField] private Sprite pickupSprite;
     }
 }

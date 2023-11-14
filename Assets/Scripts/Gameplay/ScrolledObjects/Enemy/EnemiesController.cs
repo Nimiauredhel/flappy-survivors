@@ -1,20 +1,17 @@
 using System;
 using System.Collections.Generic;
 using Gameplay.Configuration;
-using Gameplay.ScrolledObjects;
-using Gameplay.ScrolledObjects.Enemy;
 using UnityEngine;
 using UnityEngine.Pool;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-namespace Gameplay
+namespace Gameplay.ScrolledObjects.Enemy
 {
     public class EnemiesController : MonoBehaviour
     {
-        public event EventHandler<int> EnemyKilled;
+        public event Action<int, Vector3> EnemyKilled;
 
-        [SerializeField] private int poolSize;
+        [SerializeField] private int poolSize = 100;
         [SerializeField] private float startX, endX, minY, maxY;
         [SerializeField] private float maxSpawnGap, minSpawnGap;
         [SerializeField] private EnemyConfiguration enemyConfig;
@@ -31,22 +28,23 @@ namespace Gameplay
 
         public void DoUpdate()
         {
-            for (int i = 0; i < activeEnemies.Count; i++)
+            for (int i = activeEnemies.Count - 1; i >= 0; i--)
             {
                 if (activeEnemies[i].transform.position.x <= endX)
                 {
                     activeEnemies[i].Deactivate();
                 }
                 
-                if (!activeEnemies[i].Active)
+                if (activeEnemies[i].Active)
                 {
-                    pooledEnemies.Release(activeEnemies[i]);
+                    activeEnemies[i].ScrolledObjectUpdate();
                 }
-            }
-        
-            for (int i = 0; i < activeEnemies.Count; i++)
-            {
-                activeEnemies[i].ScrolledObjectUpdate();
+                else
+                {
+                    ScrolledObjectView toRemove = activeEnemies[i];
+                    activeEnemies.Remove(toRemove);
+                    pooledEnemies.Release(toRemove);
+                }
             }
             
             if (spawnCooldown <= 0.0f)
@@ -67,9 +65,9 @@ namespace Gameplay
             }
         }
 
-        private void EnemyKilledForwarder(object sender, int value)
+        private void EnemyKilledForwarder(int value, Vector3 position)
         {
-            EnemyKilled?.Invoke(sender, value);
+            EnemyKilled?.Invoke(value, position);
         }
 
         private ScrolledObjectView CreateEnemy()
@@ -84,7 +82,7 @@ namespace Gameplay
         {
             spawnCooldown = maxSpawnGap;
             spawnedEnemy.transform.position = new Vector3(startX, Random.Range(minY, maxY));
-            spawnedEnemy.Activate();
+            spawnedEnemy.Activate(0);
             activeEnemies.Add(spawnedEnemy);
         }
 
