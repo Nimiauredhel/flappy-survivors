@@ -61,7 +61,10 @@ namespace Gameplay
 
         public void DoFixedUpdate()
         {
-        
+            for (int i = 0; i < activeEnemies.Count; i++)
+            {
+                activeEnemies[i].ScrolledObjectFixedUpdate();
+            }
         }
 
         private void EnemyKilledForwarder(object sender, int value)

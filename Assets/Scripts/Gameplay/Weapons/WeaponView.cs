@@ -12,7 +12,7 @@ namespace Gameplay.Weapons
 
         [SerializeField] private SpriteRenderer graphic;
         [SerializeField] private Collider2D hitbox;
-        
+
         public void OnTriggerEnter2D(Collider2D other)
         {
             TriggerEnter?.Invoke(this, other);

@@ -31,13 +31,14 @@ namespace Gameplay.Player
         private Tweener ySpeedTweener;
         private Tweener xSpeedTweener;
         private Tweener rotationTweener;
+        private Vector2 movementVector = new Vector2();
 
         #region Player State Machine
 
         private class PlayerState
         {
-            private Vector2 movementVector = new Vector2();
-        
+            private protected static WeaponType validWeaponType = WeaponType.None;
+            
             public virtual void ClimbCommand(PlayerController player)
             {
                 player.SetNewState(player._climbState);
@@ -50,7 +51,7 @@ namespace Gameplay.Player
 
             public virtual void EnterState(PlayerController player)
             {
-            
+                validWeaponType = WeaponType.None;
             }
 
             public virtual void UpdateState(PlayerController player)
@@ -60,31 +61,8 @@ namespace Gameplay.Player
 
             public virtual void FixedUpdateState(PlayerController player)
             {
-                float xSpeed = 0.0f;
-                float ySpeed = 0.0f;
-            
-                if ((player.model.CurrentXSpeed > 0.0f && player.view.Body.position.x > player.movementConfig.MaxX)
-                    || (player.model.CurrentXSpeed < 0.0f && player.view.Body.position.x < player.movementConfig.MinX))
-                {
-                    xSpeed = 0.0f;
-                }
-                else
-                {
-                    xSpeed = player.model.CurrentXSpeed;
-                }
-            
-                if ((player.model.CurrentYSpeed > 0.0f && player.view.Body.position.y > player.movementConfig.MaxY)
-                    || (player.model.CurrentYSpeed < 0.0f && player.view.Body.position.y < player.movementConfig.MinY))
-                {
-                    ySpeed = 0.0f;
-                }
-                else
-                {
-                    ySpeed = player.model.CurrentYSpeed;
-                }
-
-                movementVector.Set(xSpeed, ySpeed);
-                player.view.Body.MovePosition(player.view.Body.position + (movementVector * Time.fixedDeltaTime));
+                player.HandleMovement();
+                player.weapons.WeaponsFixedUpdate(validWeaponType);
             }
 
             public virtual void ExitState(PlayerController player)
@@ -102,6 +80,7 @@ namespace Gameplay.Player
             
             public override void EnterState(PlayerController player)
             {
+                validWeaponType = WeaponType.None;
                 player.SetNeutral();
             }
 
@@ -120,12 +99,13 @@ namespace Gameplay.Player
 
             public override void EnterState(PlayerController player)
             {
+                validWeaponType = WeaponType.Climbing;
                 player.SetGoUp();
             }
 
             public override void UpdateState(PlayerController player)
             {
-                player.weapons.WeaponsUpdate(WeaponType.Climbing);
+                player.weapons.WeaponsUpdate(validWeaponType);
             }
         }
 
@@ -138,12 +118,13 @@ namespace Gameplay.Player
 
             public override void EnterState(PlayerController player)
             {
+                validWeaponType = WeaponType.Diving;
                 player.SetGoDown();
             }
         
             public override void UpdateState(PlayerController player)
             {
-                player.weapons.WeaponsUpdate(WeaponType.Diving);
+                player.weapons.WeaponsUpdate(validWeaponType);
             }
         }
 
@@ -153,13 +134,14 @@ namespace Gameplay.Player
             
             public override void EnterState(PlayerController player)
             {
+                validWeaponType = WeaponType.Both;
                 timeToDive = player.movementConfig.NeutralDuration;
                 player.SetNeutral();
             }
 
             public override void UpdateState(PlayerController player)
             {
-                player.weapons.WeaponsUpdate(WeaponType.Both);
+                player.weapons.WeaponsUpdate(validWeaponType);
                 
                 if (timeToDive <= 0.0f)
                 {
@@ -221,6 +203,35 @@ namespace Gameplay.Player
         {
             model.ChangeXP(value);
             uiView.UpdatePlayerXPView(model.TotalXP/1000.0f);
+        }
+
+        private void HandleMovement()
+        {
+            float xSpeed = 0.0f;
+            float ySpeed = 0.0f;
+            
+            if ((model.CurrentXSpeed > 0.0f && view.Body.position.x > movementConfig.MaxX)
+                || (model.CurrentXSpeed < 0.0f && view.Body.position.x < movementConfig.MinX))
+            {
+                xSpeed = 0.0f;
+            }
+            else
+            {
+                xSpeed = model.CurrentXSpeed;
+            }
+            
+            if ((model.CurrentYSpeed > 0.0f && view.Body.position.y > movementConfig.MaxY)
+                || (model.CurrentYSpeed < 0.0f && view.Body.position.y < movementConfig.MinY))
+            {
+                ySpeed = 0.0f;
+            }
+            else
+            {
+                ySpeed = model.CurrentYSpeed;
+            }
+
+            movementVector.Set(xSpeed, ySpeed);
+            view.Body.MovePosition(view.Body.position + (movementVector * Time.fixedDeltaTime));
         }
 
         private void PointerDownHandler(object sender, PointerEventData eventData)

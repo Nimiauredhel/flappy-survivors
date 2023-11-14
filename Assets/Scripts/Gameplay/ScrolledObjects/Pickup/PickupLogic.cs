@@ -23,6 +23,11 @@ namespace Gameplay.ScrolledObjects.Pickup
             }
         }
 
+        public void ScrolledObjectFixedUpdate(ScrolledObjectView view)
+        {
+            
+        }
+
         public void OnHitByWeapon(ScrolledObjectView view, float damage)
         {
             

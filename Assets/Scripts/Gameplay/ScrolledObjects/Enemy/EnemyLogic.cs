@@ -21,7 +21,12 @@ namespace Gameplay.ScrolledObjects.Enemy
 
         public void ScrolledObjectUpdate(ScrolledObjectView view)
         {
-            view.transform.Translate((new Vector2(-stats.Speed, 0.0f) * Time.deltaTime));
+            
+        }
+
+        public void ScrolledObjectFixedUpdate(ScrolledObjectView view)
+        {
+            view.transform.Translate((new Vector2(-stats.Speed, 0.0f) * Time.fixedDeltaTime));
         }
 
         public void OnHitByWeapon(ScrolledObjectView view, float damage)

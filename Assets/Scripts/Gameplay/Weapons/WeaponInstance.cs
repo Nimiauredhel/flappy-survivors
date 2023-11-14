@@ -47,6 +47,12 @@ namespace Gameplay.Weapons
 
         public void WeaponUpdate(WeaponType validType)
         {
+            logic.OnUpdate(this);
+            uiView.UpdateCooldownIndicator(1.0f-(Status.timeSinceActivated/Stats.Cooldown));
+        }
+
+        public void WeaponFixedUpdate(WeaponType validType)
+        {
             bool activated = false;
             
             if (Stats.Type == validType || Stats.Type == WeaponType.Both)
@@ -68,10 +74,10 @@ namespace Gameplay.Weapons
             }
             else
             {
-                Status.timeSinceActivated += Time.deltaTime;
+                Status.timeSinceActivated += Time.fixedDeltaTime;
             }
             
-            uiView.UpdateCooldownIndicator(1.0f-(Status.timeSinceActivated/Stats.Cooldown));
+            logic.OnFixedUpdate(this);
         }
 
         private void HitHandler(object sender, Collider2D other)

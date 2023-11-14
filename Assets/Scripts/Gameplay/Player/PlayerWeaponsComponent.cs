@@ -47,5 +47,15 @@ namespace Gameplay.Player
                 weapon.WeaponUpdate(validType);
             }
         }
+
+        public void WeaponsFixedUpdate(WeaponType validType)
+        {
+            if (weapons == null || weapons.Count == 0) return;
+            
+            foreach (WeaponInstance weapon in weapons)
+            {
+                weapon.WeaponFixedUpdate(validType);
+            }
+        }
     }
 }

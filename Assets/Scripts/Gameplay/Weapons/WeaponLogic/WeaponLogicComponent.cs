@@ -10,6 +10,10 @@ namespace Gameplay.Weapons.WeaponLogic
         
         public virtual void OnDispose(WeaponInstance instance){}
         
+        public virtual void OnUpdate(WeaponInstance instance){}
+        
+        public virtual void OnFixedUpdate(WeaponInstance instance){}
+        
         public virtual void Draw(WeaponInstance instance){}
         
         public virtual void Sheathe(WeaponInstance instance){}

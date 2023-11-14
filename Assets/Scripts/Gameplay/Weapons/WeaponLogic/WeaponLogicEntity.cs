@@ -36,6 +36,22 @@ namespace Gameplay.Weapons.WeaponLogic
             }
         }
 
+        public void OnUpdate(WeaponInstance instance)
+        {
+            for (int i = 0; i < components.Length; i++)
+            {
+                components[i].OnUpdate(instance);
+            }
+        }
+        
+        public void OnFixedUpdate(WeaponInstance instance)
+        {
+            for (int i = 0; i < components.Length; i++)
+            {
+                components[i].OnFixedUpdate(instance);
+            }
+        }
+
         public void Draw(WeaponInstance instance)
         {
             for (int i = 0; i < components.Length; i++)

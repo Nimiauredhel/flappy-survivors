@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86aad4624c266fb4cbfb61dede14d80a, type: 3}
-  m_Name: KillSphere1
+  m_Name: KillSphere3
   m_EditorClassIdentifier: 
   stats:
     weaponType: 1
     power: 5
     speed: 0
-    duration: 2
-    area: 1
+    duration: 3
+    area: 1.5
     cooldown: 3
     amount: 0
     name: Kill Sphere
-    description: Emit a lethal force field as you ascend.
+    description: Increased duration by 50%.
   logicComponents:
   - GuidAssignmentFailed: 0
     GUID: 2bc05b5214594004c992c29dc20c245e
@@ -29,4 +29,4 @@ MonoBehaviour:
     _suppressLogs: 0
   viewPrefab: {fileID: 7273189750282731730, guid: 88067083801288347b4eccaf1932aa93, type: 3}
   iconSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  nextLevel: {fileID: 11400000, guid: a670862317ea26447b2d02f6b84c9d39, type: 2}
+  nextLevel: {fileID: 0}
