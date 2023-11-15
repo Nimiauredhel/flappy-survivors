@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86aad4624c266fb4cbfb61dede14d80a, type: 3}
   m_Name: BattleAxe1
   m_EditorClassIdentifier: 
+  commonness: 100
   stats:
     weaponType: 2
     power: 5
@@ -20,6 +21,7 @@ MonoBehaviour:
     area: 1
     cooldown: 3
     amount: 0
+    hits: 0
     name: Battle Axe
     description: Smite foes from above with a short but powerful blow.
   logicComponents:

@@ -38,7 +38,7 @@ namespace Gameplay.ScrolledObjects.Pickup
             
         }
 
-        public void OnHitByPlayer(ScrolledObjectView view, Action<float> hpAction, Action<int> xpAction)
+        public void OnHitByPlayer(ScrolledObjectView view, Action<int> hpAction, Action<int> xpAction)
         {
             switch (type)
             {

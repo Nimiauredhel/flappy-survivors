@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86aad4624c266fb4cbfb61dede14d80a, type: 3}
   m_Name: Shuriken3
   m_EditorClassIdentifier: 
+  commonness: 100
   stats:
     weaponType: 2
     power: 4
@@ -20,9 +21,9 @@ MonoBehaviour:
     area: 1
     cooldown: 2
     amount: 5
-    hits: 3
+    hits: 5
     name: Shuriken
-    description: +2 projectiles. Goes through two enemies.
+    description: +2 projectiles. Goes through four enemies.
   logicComponents:
   - GuidAssignmentFailed: 0
     GUID: c1e4d0f00ef9d4a419fd9bd69d1c084c

@@ -7,15 +7,15 @@ namespace Gameplay.ScrolledObjects.Enemy
     public class EnemyStats
     {
         public int XPValue => xpValue;
-        public float MaxHP => maxHP;
-        public float MinHP => minHP;
-        public float Power => power;
+        public int MaxHP => maxHP;
+        public int MinHP => minHP;
+        public int Power => power;
         public float Speed => speed;
     
         [SerializeField] private int xpValue;
-        [SerializeField] private float maxHP;
-        [SerializeField] private float minHP;
-        [SerializeField] private float power;
+        [SerializeField] private int maxHP;
+        [SerializeField] private int minHP;
+        [SerializeField] private int power;
         [SerializeField] private float speed;
     }
 }

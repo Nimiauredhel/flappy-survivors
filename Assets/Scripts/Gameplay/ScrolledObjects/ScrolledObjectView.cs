@@ -35,7 +35,7 @@ namespace Gameplay.ScrolledObjects
             logic.OnHitByWeapon(this, damage);
         }
 
-        public void HitByPlayer(Action<float> hpAction, Action<int> xpAction)
+        public void HitByPlayer(Action<int> hpAction, Action<int> xpAction)
         {
             logic.OnHitByPlayer(this, hpAction, xpAction);
         }

@@ -183,8 +183,11 @@ namespace Gameplay.Player
             _touchReceiver.PointerUp += PointerUpHandler;
             view.TriggerEntered += TriggerEnterHandler;
             
-            uiView.UpdatePlayerHealthView(model.CurrentHealth/model.MaxHealth);
+            uiView.UpdatePlayerHealthView((float)model.CurrentHealth/model.MaxHealth);
             uiView.UpdatePlayerXPView(0.0f);
+            
+            model.HealthPercentChanged += uiView.UpdatePlayerHealthView;
+            model.XPPercentChanged += uiView.UpdatePlayerXPView;
         }
 
         public void Dispose()
@@ -202,7 +205,6 @@ namespace Gameplay.Player
         public void ChangePlayerXP(int value)
         {
             model.ChangeXP(value);
-            uiView.UpdatePlayerXPView(model.TotalXP/1000.0f);
         }
 
         private void HandleMovement()
@@ -254,10 +256,9 @@ namespace Gameplay.Player
             }
         }
 
-        private void ChangePlayerHealth(float amount)
+        private void ChangePlayerHealth(int amount)
         {
             model.ChangeHealth(amount);
-            uiView.UpdatePlayerHealthView(model.CurrentHealth/model.MaxHealth);
 
             if (model.CurrentHealth <= 0.0f)
             {
