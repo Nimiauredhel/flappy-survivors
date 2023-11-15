@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1991763639318509366}
   - component: {fileID: 3773853861227537915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 3428615867705913178}
   - component: {fileID: 6852141923137497810}
   - component: {fileID: 7033941635718982139}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 7702927511180078301}
   - component: {fileID: 5719603026876396363}
   - component: {fileID: 982779209933678457}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}

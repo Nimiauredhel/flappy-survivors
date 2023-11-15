@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7242481672232222567}
   - component: {fileID: 4426572431478108249}
   - component: {fileID: 338935626127746454}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: -1032148392928579942}
   - component: {fileID: 1646345818551329705}
   - component: {fileID: 4859928808271287688}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XPPickupView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,8 +283,16 @@ PrefabInstance:
       value: Explosion
       objectReference: {fileID: 0}
     - target: {fileID: 4942721070776471051, guid: cbe840fbe2bc205408de519743c81691, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942721070776471051, guid: cbe840fbe2bc205408de519743c81691, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790381420710915819, guid: cbe840fbe2bc205408de519743c81691, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

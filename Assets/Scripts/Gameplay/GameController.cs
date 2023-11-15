@@ -5,6 +5,7 @@ using Gameplay.ScrolledObjects.Pickup;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
+using Random = UnityEngine.Random;
 
 namespace Gameplay
 {
@@ -41,7 +42,12 @@ namespace Gameplay
 
         private void EnemyKilledHandler(int value, Vector3 position)
         {
-            pickupsController.SpawnPickup(position, value, PickupType.XP);
+            int xpValue = Random.Range(0, value);
+
+            if (xpValue > 0)
+            {
+                pickupsController.SpawnPickup(position, xpValue, PickupType.XP);
+            }
         }
 
         private void XPGainedHandler(int value)

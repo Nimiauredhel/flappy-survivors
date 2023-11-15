@@ -188,6 +188,7 @@ namespace Gameplay.Player
             
             model.HealthPercentChanged += uiView.UpdatePlayerHealthView;
             model.XPPercentChanged += uiView.UpdatePlayerXPView;
+            model.LeveledUp += uiView.UpdatePlayerCurrentLevelText;
         }
 
         public void Dispose()

@@ -15,6 +15,8 @@ namespace Gameplay.Weapons
 
         public void OnTriggerEnter2D(Collider2D other)
         {
+            if (Physics.GetIgnoreLayerCollision(gameObject.layer, other.gameObject.layer)) return;
+            
             TriggerEnter?.Invoke(this, other);
         }
         

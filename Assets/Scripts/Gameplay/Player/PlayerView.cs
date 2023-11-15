@@ -18,6 +18,8 @@ namespace Gameplay.Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (Physics.GetIgnoreLayerCollision(gameObject.layer, other.gameObject.layer)) return;
+            
             TriggerEntered?.Invoke(this, other);
         }
     }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186488152535884853}
   - component: {fileID: 6966358250206230266}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 59687893081121107}
   - component: {fileID: 7273189750282731730}
   - component: {fileID: 5494598786590864023}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BasicProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8942638852904126325}
   - component: {fileID: 6718569727245811768}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}

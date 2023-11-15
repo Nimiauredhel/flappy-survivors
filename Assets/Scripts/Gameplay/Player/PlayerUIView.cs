@@ -3,14 +3,18 @@ using Gameplay.Weapons;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Threading.Tasks;
+using TMPro;
 
 namespace Gameplay.Player
 {
     public class PlayerUIView : MonoBehaviour
     {
+        private const string LVL_TEXT_FORMAT = "LVL {0}";
+        
         [SerializeField] private Slider healthSlider;
         [SerializeField] private Slider xpSlider;
-
+        [SerializeField] private TextMeshProUGUI currentLevelText;
+        
         [SerializeField] private LayoutGroup weaponIconParent;
         [SerializeField] private WeaponUIView weaponIconPrefab;
 
@@ -24,6 +28,11 @@ namespace Gameplay.Player
         public void UpdatePlayerXPView(float percent)
         {
             xpSlider.value = percent;
+        }
+
+        public void UpdatePlayerCurrentLevelText(int currentLevel)
+        {
+            currentLevelText.text = string.Format(LVL_TEXT_FORMAT, currentLevel.ToString());
         }
 
         public void UpdateWeaponCooldownView(int index, float percent)
