@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.Configuration;
+using Configuration;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Pool;

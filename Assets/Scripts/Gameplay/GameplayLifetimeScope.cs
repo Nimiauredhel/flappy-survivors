@@ -1,4 +1,4 @@
-using Gameplay.Configuration;
+using Configuration;
 using Gameplay.Player;
 using Gameplay.ScrolledObjects.Enemy;
 using Gameplay.ScrolledObjects.Pickup;

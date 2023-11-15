@@ -2,7 +2,7 @@
 using Gameplay.ScrolledObjects.Enemy;
 using UnityEngine;
 
-namespace Gameplay.Configuration
+namespace Configuration
 {
     [CreateAssetMenu(fileName = "Enemy Config", menuName = "Config/Enemy Config", order = 0)]
     public class EnemyConfiguration : ScriptableObject

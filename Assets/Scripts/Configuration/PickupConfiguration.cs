@@ -1,8 +1,7 @@
-﻿using Gameplay.ScrolledObjects;
-using Gameplay.ScrolledObjects.Pickup;
+﻿using Gameplay.ScrolledObjects.Pickup;
 using UnityEngine;
 
-namespace Gameplay.Configuration
+namespace Configuration
 {
     [CreateAssetMenu(fileName = "Pickup Config", menuName = "Config/Pickup Config", order = 0)]
     public class PickupConfiguration : ScriptableObject

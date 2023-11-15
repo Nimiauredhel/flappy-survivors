@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Configuration;
 using DG.Tweening;
-using Gameplay.Configuration;
 using Gameplay.ScrolledObjects;
 using Gameplay.Weapons;
 using UnityEngine;

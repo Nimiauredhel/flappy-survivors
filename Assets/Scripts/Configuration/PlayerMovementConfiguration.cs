@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Configuration
+namespace Configuration
 {
     [CreateAssetMenu(fileName = "Player Movement Data", menuName = "Data/Player Movement Data", order = 0)]
     public class PlayerMovementConfiguration : ScriptableObject

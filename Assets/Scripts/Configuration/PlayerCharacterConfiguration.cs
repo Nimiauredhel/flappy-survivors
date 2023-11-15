@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Configuration
+namespace Configuration
 {
     [CreateAssetMenu(fileName = "Character Config", menuName = "Config/Character Config", order = 0)]
     public class PlayerCharacterConfiguration : ScriptableObject

@@ -1,9 +1,9 @@
 using Gameplay.Weapons;
 using Gameplay.Weapons.WeaponLogic;
-using UnityEngine;
 using TypeReferences;
+using UnityEngine;
 
-namespace Gameplay.Configuration
+namespace Configuration
 {
     [CreateAssetMenu(fileName = "Weapon Config", menuName = "Config/Weapon Config", order = 0)]
     public class WeaponConfiguration : ScriptableObject
