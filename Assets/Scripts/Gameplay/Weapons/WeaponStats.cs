@@ -24,6 +24,7 @@ namespace Gameplay.Weapons
         public float Area => area;
         public float Cooldown => cooldown;
         public int Amount => amount;
+        public int Hits => hits;
         public string Name => name;
         public string Description => description;
         
@@ -34,6 +35,7 @@ namespace Gameplay.Weapons
         [SerializeField][Range(1.0f, 10.0f)] private float area;
         [SerializeField][Range(1.0f, 30.0f)] private float cooldown;
         [SerializeField][Range(1, 30)] private int amount;
+        [SerializeField] [Range(0, 30)] private int hits;
         
         
         [SerializeField] private string name;

@@ -9,6 +9,7 @@ namespace Gameplay.ScrolledObjects
 
         [SerializeField] private Collider2D hurtBox;
         [SerializeField] private SpriteRenderer graphic;
+        [SerializeField] private Animator animator;
         [SerializeField] private GameObject deathEffect;
 
         private bool active = false;
@@ -46,6 +47,12 @@ namespace Gameplay.ScrolledObjects
             hurtBox.enabled = true;
             deathEffect.SetActive(false);
             active = true;
+
+            if (animator != null)
+            {
+                animator.Rebind();
+                animator.Update(0.0f);
+            }
         }
         
         public void Deactivate(bool dieEffect = false)

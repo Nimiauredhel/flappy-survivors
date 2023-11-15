@@ -20,6 +20,7 @@ MonoBehaviour:
     area: 1
     cooldown: 4
     amount: 3
+    hits: 1
     name: Shuriken
     description: Dispatch enemies at a distance.
   logicComponents:

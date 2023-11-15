@@ -70,14 +70,25 @@ namespace Gameplay.Weapons.WeaponLogic
 
         private async Task FireSingleProjectile(WeaponInstance instance, WeaponView projectile, CancellationTokenSource token)
         {
+            int hits = 0;
+            
             EventHandler<Collider2D> hitAction = delegate(object sender, Collider2D other)
             {
                 ScrolledObjectView SO = other.GetComponentInParent<ScrolledObjectView>();
-
+                
                 if (SO != null)
                 {
+                    if (instance.Stats.Hits > 0)
+                    {
+                        hits++;
+                    }
+                    
                     HitHandler(SO, instance);
-                    token.Cancel();
+                    
+                    if (hits >= instance.Stats.Hits)
+                    {
+                        token.Cancel();
+                    }
                 }
             };
             

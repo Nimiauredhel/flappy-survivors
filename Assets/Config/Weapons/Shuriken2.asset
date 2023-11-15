@@ -20,8 +20,9 @@ MonoBehaviour:
     area: 1
     cooldown: 2
     amount: 3
+    hits: 2
     name: Shuriken
-    description: Halved cooldown time. +1 power.
+    description: Halved cooldown time. +1 power. Goes through one enemy.
   logicComponents:
   - GuidAssignmentFailed: 0
     GUID: c1e4d0f00ef9d4a419fd9bd69d1c084c
