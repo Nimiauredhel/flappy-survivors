@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Gameplay.Weapons
 {
@@ -17,7 +16,6 @@ namespace Gameplay.Weapons
     {
         public WeaponType Type => weaponType;
         
-        
         public float Power => power;
         public float Speed => speed;
         public float Duration => duration;
@@ -29,13 +27,13 @@ namespace Gameplay.Weapons
         public string Description => description;
         
         [SerializeField] private WeaponType weaponType;
-        [SerializeField][Range(1.0f, 30.0f)] private float power;
-        [SerializeField][Range(1.0f, 30.0f)] private float speed;
-        [SerializeField][Range(1.0f, 30.0f)] private float duration;
-        [SerializeField][Range(1.0f, 10.0f)] private float area;
-        [SerializeField][Range(1.0f, 30.0f)] private float cooldown;
-        [SerializeField][Range(1, 30)] private int amount;
-        [SerializeField] [Range(0, 30)] private int hits;
+        [SerializeField][Range(0.0f, 30.0f)] private float power = 1.0f;
+        [SerializeField][Range(0.0f, 30.0f)] private float speed = 1.0f;
+        [SerializeField][Range(0.0f, 30.0f)] private float duration = 1.0f;
+        [SerializeField][Range(0.0f, 10.0f)] private float area = 1.0f;
+        [SerializeField][Range(0.0f, 30.0f)] private float cooldown = 1.0f;
+        [SerializeField][Range(0, 30)] private int amount = 1;
+        [SerializeField] [Range(0, 30)] private int hits = 0;
         
         
         [SerializeField] private string name;

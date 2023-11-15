@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe760dd0a1a22a841a0cbce13e9d1fa6, type: 3}
+  m_Name: Upgrade Tree Config
+  m_EditorClassIdentifier: 
+  upgradeTree:
+    branches:
+    - name: Battle Axe
+      upgradeLevels:
+      - upgradeOptions:
+        - upgradeConfig: {fileID: 11400000, guid: 0e98b4b55b2b8b64583c7d61f3ab666c, type: 2}
+      - upgradeOptions:
+        - upgradeConfig: {fileID: 11400000, guid: a326835469e9a994e9e8bd2ad25e8035, type: 2}
+      - upgradeOptions:
+        - upgradeConfig: {fileID: 11400000, guid: 6c2454643e18071448f7d6fdb98f411c, type: 2}
+    - name: Kill Sphere
+      upgradeLevels:
+      - upgradeOptions:
+        - upgradeConfig: {fileID: 11400000, guid: 6f01e89c960b9634eb5560661d1e1ec2, type: 2}
+      - upgradeOptions:
+        - upgradeConfig: {fileID: 11400000, guid: a670862317ea26447b2d02f6b84c9d39, type: 2}
+      - upgradeOptions:
+        - upgradeConfig: {fileID: 11400000, guid: fb2665bd72c77db42b9b7945d606c723, type: 2}
+    - name: Shuriken
+      upgradeLevels:
+      - upgradeOptions:
+        - upgradeConfig: {fileID: 11400000, guid: b11c7d4fc237bcd4bbec5678e46327fc, type: 2}
+      - upgradeOptions:
+        - upgradeConfig: {fileID: 11400000, guid: 86c55bf32e9d70d459bcd1479effdf90, type: 2}
+      - upgradeOptions:
+        - upgradeConfig: {fileID: 11400000, guid: da896da194a26924f82f63ca7b9e5b97, type: 2}

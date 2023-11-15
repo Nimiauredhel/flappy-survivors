@@ -1,5 +1,7 @@
 using System;
+using Gameplay.Upgrades;
 using UnityEngine;
+using VContainer;
 
 namespace Gameplay.Player
 {
@@ -13,6 +15,7 @@ namespace Gameplay.Player
         public int CurrentHealth => currentHealth;
         public float CurrentXSpeed => currentXSpeed;
         public float CurrentYSpeed => currentYSpeed;
+        public UpgradeTree UpgradeTree => upgradeTree;
 
         public event Action<float> HealthPercentChanged;
         public event Action<float> XPPercentChanged;
@@ -27,6 +30,8 @@ namespace Gameplay.Player
         
         private float currentXSpeed;
         private float currentYSpeed;
+
+        [Inject] private UpgradeTree upgradeTree;
         
         public void SetXSpeed(float value)
         {

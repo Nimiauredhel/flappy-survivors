@@ -2,6 +2,7 @@ using Configuration;
 using Gameplay.Player;
 using Gameplay.ScrolledObjects.Enemy;
 using Gameplay.ScrolledObjects.Pickup;
+using Gameplay.Upgrades;
 using UnityEngine;
 using UnityEngine.Serialization;
 using VContainer;
@@ -19,6 +20,7 @@ namespace Gameplay
         [SerializeField] private PlayerWeaponsComponent playerWeapons;
         [SerializeField] private PlayerCharacterConfiguration characterConfig;
         [SerializeField] private PlayerMovementConfiguration playerMovementConfig;
+        [SerializeField] private UpgradeTreeConfiguration upgradeTreeConfig;
         
         protected override void Configure(IContainerBuilder builder)
         {
@@ -30,7 +32,8 @@ namespace Gameplay
             builder.RegisterComponent(playerWeapons);
             builder.RegisterComponent(characterConfig);
             builder.RegisterComponent(playerMovementConfig);
-            
+            builder.RegisterComponent(upgradeTreeConfig.CloneUpgradeTree());
+
             builder.Register<PlayerModel>(Lifetime.Singleton);
             
             builder.RegisterEntryPoint<PlayerController>().AsSelf();

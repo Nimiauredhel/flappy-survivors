@@ -51,8 +51,8 @@ MonoBehaviour:
   touchReceiver: {fileID: 0}
   playerView: {fileID: 0}
   playerUIView: {fileID: 0}
-  objectMover: {fileID: 0}
-  playerWeapons:
-    weapons: []
+  enemiesController: {fileID: 0}
+  pickupsController: {fileID: 0}
   characterConfig: {fileID: 11400000, guid: c6090626691570544aa583874a1a877e, type: 2}
   playerMovementConfig: {fileID: 11400000, guid: e414032af90abd241a93a779ea55474f, type: 2}
+  upgradeTreeConfig: {fileID: 11400000, guid: b83511e44f3406d49acf0105ff040674, type: 2}

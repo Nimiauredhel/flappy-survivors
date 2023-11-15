@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Configuration;
 using DG.Tweening;
 using Gameplay.ScrolledObjects;
+using Gameplay.Upgrades;
 using Gameplay.Weapons;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -188,7 +189,7 @@ namespace Gameplay.Player
             
             model.HealthPercentChanged += uiView.UpdatePlayerHealthView;
             model.XPPercentChanged += uiView.UpdatePlayerXPView;
-            model.LeveledUp += uiView.UpdatePlayerCurrentLevelText;
+            model.LeveledUp += LevelUpHandler;
         }
 
         public void Dispose()
@@ -255,6 +256,22 @@ namespace Gameplay.Player
             {
                 SO.HitByPlayer(ChangePlayerHealth, ChangePlayerXP);
             }
+        }
+        
+        private void LevelUpHandler(int newLevel)
+        {
+            uiView.UpdatePlayerCurrentLevelText(newLevel);
+
+            List<UpgradeOption> upgradeOptions = model.UpgradeTree.GetAllCurrentOptions();
+
+            string optionsList = string.Empty;
+
+            foreach (UpgradeOption option in upgradeOptions)
+            {
+                optionsList += option.UpgradeConfig.name + "\n";
+            }
+            
+            Debug.Log(optionsList);
         }
 
         private void ChangePlayerHealth(int amount)
