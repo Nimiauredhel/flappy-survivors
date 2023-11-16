@@ -17,6 +17,7 @@ namespace Gameplay
 
         public void Start()
         {
+            Application.targetFrameRate = 60;
             enemiesController.Initialize();
             enemiesController.EnemyKilled += EnemyKilledHandler;
             

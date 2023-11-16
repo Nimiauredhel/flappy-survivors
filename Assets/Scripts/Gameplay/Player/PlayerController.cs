@@ -240,7 +240,8 @@ namespace Gameplay.Player
             }
 
             movementVector.Set(xSpeed, ySpeed);
-            view.Body.MovePosition(view.Body.position + (movementVector * Time.fixedDeltaTime));
+            view.transform.position += (Vector3)movementVector * Time.fixedDeltaTime;
+            //view.Body.MovePosition(view.Body.position + (movementVector * Time.fixedDeltaTime));
         }
 
         private void PointerDownHandler(object sender, PointerEventData eventData)
