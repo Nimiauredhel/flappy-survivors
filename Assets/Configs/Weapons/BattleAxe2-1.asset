@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86aad4624c266fb4cbfb61dede14d80a, type: 3}
-  m_Name: Shuriken2
+  m_Name: BattleAxe2-1
   m_EditorClassIdentifier: 
   commonness: 100
   stats:
     weaponType: 0
-    power: 1
+    power: 0
     speed: 0
-    duration: 0
-    area: 0
-    cooldown: -2
+    duration: 0.4
+    area: 0.25
+    cooldown: 0
     amount: 0
-    hits: 1
-    name: Shuriken
-    description: Halved cooldown time. +1 power. Goes through one enemy.
+    hits: 0
+    name: Battle Axe
+    description: 2x duration, 25% larger area.
   logicComponents: []
-  viewPrefab: {fileID: 7273189750282731730, guid: 9fa645536ef5a6f44899a341fb8462f4, type: 3}
-  iconSprite: {fileID: 21300000, guid: ce648fefb280f1041ba84eb78a18fee4, type: 3}
+  viewPrefab: {fileID: 7273189750282731730, guid: d8c6dc4fb18d63d4782fc70c83cf80a0, type: 3}
+  iconSprite: {fileID: 21300000, guid: 6d18d707b454b8b469fd37fb5c7836f9, type: 3}

@@ -17,24 +17,39 @@ MonoBehaviour:
     - name: Battle Axe
       upgradeLevels:
       - upgradeOptions:
-        - upgradeConfig: {fileID: 11400000, guid: 0e98b4b55b2b8b64583c7d61f3ab666c, type: 2}
+        - Taken: 1
+          upgradeConfig: {fileID: 11400000, guid: 0e98b4b55b2b8b64583c7d61f3ab666c, type: 2}
       - upgradeOptions:
-        - upgradeConfig: {fileID: 11400000, guid: a326835469e9a994e9e8bd2ad25e8035, type: 2}
+        - Taken: 0
+          upgradeConfig: {fileID: 11400000, guid: a326835469e9a994e9e8bd2ad25e8035, type: 2}
+        - Taken: 0
+          upgradeConfig: {fileID: 11400000, guid: aa6256b5148bd544e8089334906ae045, type: 2}
       - upgradeOptions:
-        - upgradeConfig: {fileID: 11400000, guid: 6c2454643e18071448f7d6fdb98f411c, type: 2}
+        - Taken: 0
+          upgradeConfig: {fileID: 11400000, guid: 6c2454643e18071448f7d6fdb98f411c, type: 2}
     - name: Kill Sphere
       upgradeLevels:
       - upgradeOptions:
-        - upgradeConfig: {fileID: 11400000, guid: 6f01e89c960b9634eb5560661d1e1ec2, type: 2}
+        - Taken: 1
+          upgradeConfig: {fileID: 11400000, guid: 6f01e89c960b9634eb5560661d1e1ec2, type: 2}
       - upgradeOptions:
-        - upgradeConfig: {fileID: 11400000, guid: a670862317ea26447b2d02f6b84c9d39, type: 2}
+        - Taken: 1
+          upgradeConfig: {fileID: 11400000, guid: 395e3e392ded57e43aaea75f1ec60778, type: 2}
+        - Taken: 1
+          upgradeConfig: {fileID: 11400000, guid: a670862317ea26447b2d02f6b84c9d39, type: 2}
       - upgradeOptions:
-        - upgradeConfig: {fileID: 11400000, guid: fb2665bd72c77db42b9b7945d606c723, type: 2}
+        - Taken: 0
+          upgradeConfig: {fileID: 11400000, guid: fb2665bd72c77db42b9b7945d606c723, type: 2}
     - name: Shuriken
       upgradeLevels:
       - upgradeOptions:
-        - upgradeConfig: {fileID: 11400000, guid: b11c7d4fc237bcd4bbec5678e46327fc, type: 2}
+        - Taken: 0
+          upgradeConfig: {fileID: 11400000, guid: b11c7d4fc237bcd4bbec5678e46327fc, type: 2}
       - upgradeOptions:
-        - upgradeConfig: {fileID: 11400000, guid: 86c55bf32e9d70d459bcd1479effdf90, type: 2}
+        - Taken: 0
+          upgradeConfig: {fileID: 11400000, guid: e3b432bf5a955e54783ab6ce89638b14, type: 2}
+        - Taken: 0
+          upgradeConfig: {fileID: 11400000, guid: 86c55bf32e9d70d459bcd1479effdf90, type: 2}
       - upgradeOptions:
-        - upgradeConfig: {fileID: 11400000, guid: da896da194a26924f82f63ca7b9e5b97, type: 2}
+        - Taken: 0
+          upgradeConfig: {fileID: 11400000, guid: da896da194a26924f82f63ca7b9e5b97, type: 2}

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86aad4624c266fb4cbfb61dede14d80a, type: 3}
+  m_Name: KillSphere2-1
+  m_EditorClassIdentifier: 
+  commonness: 100
+  stats:
+    weaponType: 0
+    power: 0
+    speed: 0
+    duration: 0
+    area: 0
+    cooldown: -1
+    amount: 0
+    hits: 0
+    name: Kill Sphere
+    description: Cooldown reduced by 1 second.
+  logicComponents: []
+  viewPrefab: {fileID: 7273189750282731730, guid: 88067083801288347b4eccaf1932aa93, type: 3}
+  iconSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
