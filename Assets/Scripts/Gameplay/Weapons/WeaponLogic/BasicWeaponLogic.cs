@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Threading;
 using System.Threading.Tasks;
 using Gameplay.ScrolledObjects;
@@ -12,17 +13,30 @@ namespace Gameplay.Weapons.WeaponLogic
     public class BasicWeaponLogic : WeaponLogicComponent
     {
         private int hits = 0;
-        private CancellationTokenSource attackCancellationTokenSource = new CancellationTokenSource();
+        private float elapsedTime = 0.0f;
+        private Coroutine weaponRoutine = null;
         
         public override void Draw(WeaponInstance instance)
         {
-            AttackAsync(instance);
+            if (weaponRoutine != null)
+            {
+                instance.View.StopCoroutine(weaponRoutine);
+                weaponRoutine = null;
+            }
+            
+            weaponRoutine = instance.View.StartCoroutine(AttackRoutine(instance));
         }
 
         public override void Sheathe(WeaponInstance instance)
         {
-            attackCancellationTokenSource.Cancel();
+            if (weaponRoutine != null)
+            {
+                instance.View.StopCoroutine(weaponRoutine);
+                weaponRoutine = null;
+            }
+            
             hits = 0;
+            elapsedTime = 0.0f;
             instance.View.Graphic.enabled = false;
             instance.View.Hitbox.enabled = false;
         }
@@ -42,12 +56,19 @@ namespace Gameplay.Weapons.WeaponLogic
             }
         }
 
-        private async Task AttackAsync(WeaponInstance instance)
+        private IEnumerator AttackRoutine(WeaponInstance instance)
         {
             hits = 0;
+            elapsedTime = 0.0f;
             instance.View.Graphic.enabled = true;
             instance.View.Hitbox.enabled = true;
-            await Task.Delay(TimeSpan.FromSeconds(instance.Stats.Duration), attackCancellationTokenSource.Token);
+
+            while (elapsedTime <= instance.Stats.Duration)
+            {
+                yield return Constants.WaitForFixedUpdate;
+                elapsedTime += Time.fixedDeltaTime;
+            }
+            
             Sheathe(instance);
         }
     }

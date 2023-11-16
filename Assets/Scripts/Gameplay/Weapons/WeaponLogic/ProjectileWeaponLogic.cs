@@ -16,7 +16,6 @@ namespace Gameplay.Weapons.WeaponLogic
     public class ProjectileWeaponLogic : WeaponLogicComponent
     {
         private ObjectPool<WeaponView> projectilePool;
-        private WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
         private WaitForSeconds projectileGap = new WaitForSeconds(0.15f);
         
         public override void Initialize(WeaponInstance instance)
@@ -95,10 +94,10 @@ namespace Gameplay.Weapons.WeaponLogic
             while (time < instance.Stats.Duration)
             {
                 float fixedDeltaTime = Time.fixedDeltaTime;
-                projectile.transform.position += (Vector3.right * instance.Stats.Speed * fixedDeltaTime);
+                projectile.transform.position += (Vector3.right * (instance.Stats.Speed * fixedDeltaTime));
                 projectile.transform.Rotate(Vector3.forward, 30.0f * instance.Stats.Speed * fixedDeltaTime);
                 time += fixedDeltaTime;
-                yield return waitForFixedUpdate;
+                yield return Constants.WaitForFixedUpdate;
             }
 
             
