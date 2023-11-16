@@ -27,6 +27,8 @@ namespace Gameplay.Player
         [Inject] private readonly PlayerCharacterConfiguration characterConfig;
         [Inject] private readonly PlayerMovementConfiguration movementConfig;
 
+        private readonly ComboService comboService = new ComboService();
+        
         private PlayerState _currentState;
         private ClimbState _climbState = new ClimbState();
         private DiveState _diveState = new DiveState();
@@ -36,6 +38,46 @@ namespace Gameplay.Player
         private Tweener rotationTweener;
         private Vector2 movementVector = new Vector2();
 
+        private class ComboService
+        {
+            public event Action<int> ComboChanged; 
+            
+            public int CurrentCombo => currentCombo;
+            
+            private int currentCombo = 0;
+            private float timeSinceLastKill = 0.0f;
+            private float comboGap = 0.5f;
+
+            public void DoUpdate()
+            {
+                if (currentCombo > 0)
+                {
+                    timeSinceLastKill += Time.deltaTime;
+
+                    if (timeSinceLastKill > comboGap)
+                    {
+                        currentCombo = 0;
+                        ComboChanged?.Invoke(currentCombo);
+                    }
+                }
+            }
+
+            public void ReportKill()
+            {
+                if (timeSinceLastKill <= comboGap + (currentCombo * 0.005f))
+                {
+                    currentCombo++;
+                }
+                else
+                {
+                    currentCombo = 1;
+                }
+
+                timeSinceLastKill = 0.0f;
+                ComboChanged?.Invoke(currentCombo);
+            }
+        }
+        
         #region Player State Machine
 
         private class PlayerState
@@ -171,6 +213,7 @@ namespace Gameplay.Player
         public void Tick()
         {
             _currentState.UpdateState(this);
+            comboService.DoUpdate();
         }
 
         public void FixedTick()
@@ -192,6 +235,8 @@ namespace Gameplay.Player
             model.HealthPercentChanged += uiView.UpdatePlayerHealthView;
             model.XPPercentChanged += uiView.UpdatePlayerXPView;
             model.LeveledUp += LevelUpHandler;
+
+            comboService.ComboChanged += uiView.UpdatePlayerCurrentComboText;
             
             // temporary to allow selecting weapon on startup
             LevelUpHandler(model.CurrentLevel);
@@ -205,6 +250,8 @@ namespace Gameplay.Player
             rotationTweener.Kill();
             xSpeedTweener.Kill();
             ySpeedTweener.Kill();
+            
+            comboService.ComboChanged -= uiView.UpdatePlayerCurrentComboText;
         }
         
         #endregion
@@ -212,6 +259,11 @@ namespace Gameplay.Player
         public void ChangePlayerXP(int value)
         {
             model.ChangeXP(value);
+        }
+
+        public void HandleEnemyKilled()
+        {
+            comboService.ReportKill();
         }
 
         private void HandleMovement()

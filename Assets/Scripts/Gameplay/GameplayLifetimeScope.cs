@@ -19,6 +19,7 @@ namespace Gameplay
         [SerializeField] private EnemiesController enemiesController;
         [SerializeField] private PickupsController pickupsController;
         [SerializeField] private PlayerWeaponsComponent playerWeapons;
+        [SerializeField] private VFXService vfxService;
         [SerializeField] private PlayerCharacterConfiguration characterConfig;
         [SerializeField] private PlayerMovementConfiguration playerMovementConfig;
         [SerializeField] private UpgradeTreeConfiguration upgradeTreeConfig;
@@ -32,6 +33,7 @@ namespace Gameplay
             builder.RegisterComponent(enemiesController);
             builder.RegisterComponent(pickupsController);
             builder.RegisterComponent(playerWeapons);
+            builder.RegisterComponent(vfxService);
             builder.RegisterComponent(characterConfig);
             builder.RegisterComponent(playerMovementConfig);
             builder.RegisterComponent(upgradeTreeConfig.GetFreshUpgradeTree());

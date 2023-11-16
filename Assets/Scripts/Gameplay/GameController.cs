@@ -14,13 +14,16 @@ namespace Gameplay
         [Inject] private readonly EnemiesController enemiesController;
         [Inject] private readonly PickupsController pickupsController;
         [Inject] private readonly PlayerController playerController;
+        [Inject] private readonly VFXService vfxService;
 
         public void Start()
         {
             Application.targetFrameRate = 60;
+            
             enemiesController.Initialize();
             enemiesController.EnemyKilled += EnemyKilledHandler;
             
+            vfxService.Initialize();
             pickupsController.Initialize();
         }
 
@@ -43,17 +46,15 @@ namespace Gameplay
 
         private void EnemyKilledHandler(int value, Vector3 position)
         {
+            vfxService.RequestExplosionAt(position);
+            playerController.HandleEnemyKilled();
+            
             int xpValue = Random.Range(0, value);
-
+            
             if (xpValue > 0)
             {
                 pickupsController.SpawnPickup(position, xpValue, PickupType.XP);
             }
-        }
-
-        private void XPGainedHandler(int value)
-        {
-            playerController.ChangePlayerXP(value);
         }
     }
 }

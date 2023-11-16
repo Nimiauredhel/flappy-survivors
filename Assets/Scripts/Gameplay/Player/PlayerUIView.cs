@@ -1,8 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using Gameplay.Weapons;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Threading.Tasks;
 using TMPro;
 
 namespace Gameplay.Player
@@ -10,10 +10,12 @@ namespace Gameplay.Player
     public class PlayerUIView : MonoBehaviour
     {
         private const string LVL_TEXT_FORMAT = "LVL {0}";
+        private const string COMBO_TEXT_FORMAT = "x{0}";
         
         [SerializeField] private Slider healthSlider;
         [SerializeField] private Slider xpSlider;
         [SerializeField] private TextMeshProUGUI currentLevelText;
+        [SerializeField] private TextMeshProUGUI currentComboText;
         
         [SerializeField] private LayoutGroup weaponIconParent;
         [SerializeField] private WeaponUIView weaponIconPrefab;
@@ -35,11 +37,23 @@ namespace Gameplay.Player
             currentLevelText.text = string.Format(LVL_TEXT_FORMAT, currentLevel.ToString());
         }
 
-        public void UpdateWeaponCooldownView(int index, float percent)
+        public void UpdatePlayerCurrentComboText(int currentCombo)
         {
-            if (weaponIcons == null || weaponIcons.Count <= index) return;
+            if (currentCombo > 1)
+            {
+                if (!currentComboText.enabled)
+                {
+                    currentComboText.enabled = true;
+                }
 
-            weaponIcons[index].UpdateCooldownIndicator(percent);
+                currentComboText.text = string.Format(COMBO_TEXT_FORMAT, currentCombo.ToString());
+            }
+            else
+            {
+                currentComboText.enabled = false;
+            }
+
+            
         }
 
         public WeaponUIView AddOrReplaceWeaponIcon(Sprite iconSprite, WeaponUIView toReplace = null)
@@ -61,13 +75,15 @@ namespace Gameplay.Player
                 weaponIcons[index] = newIcon;
             }
 
+            StartCoroutine(RefreshWeaponsLayout());
+            
             return newIcon;
         }
 
-        public async void RefreshWeaponsLayout()
+        public IEnumerator RefreshWeaponsLayout()
         {
             weaponIconParent.enabled = true;
-            await Task.Yield();
+            yield return null;
             weaponIconParent.enabled = false;
         }
     }
