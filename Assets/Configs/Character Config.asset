@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce719fa9491e61d4fb38e27d29e1073e, type: 3}
   m_Name: Character Config
   m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 11400000, guid: 0e98b4b55b2b8b64583c7d61f3ab666c, type: 2}
-  - {fileID: 11400000, guid: 6f01e89c960b9634eb5560661d1e1ec2, type: 2}
-  - {fileID: 11400000, guid: b11c7d4fc237bcd4bbec5678e46327fc, type: 2}
+  weapons: []

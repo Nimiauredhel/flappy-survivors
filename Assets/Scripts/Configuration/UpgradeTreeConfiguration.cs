@@ -6,9 +6,10 @@ namespace Configuration
     [CreateAssetMenu(fileName = "Upgrade Tree Config", menuName = "Config/Upgrade Tree Config", order = 0)]
     public class UpgradeTreeConfiguration : ScriptableObject
     {
-        public UpgradeTree CloneUpgradeTree()
+        public UpgradeTree GetFreshUpgradeTree()
         {
-            return upgradeTree.Clone();
+            upgradeTree.ResetUpgradeTree();
+            return upgradeTree;
         }
 
         [SerializeField] private UpgradeTree upgradeTree;

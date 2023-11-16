@@ -8,6 +8,11 @@ namespace Gameplay.Weapons.WeaponLogic
     {
         public static WeaponLogicEntity BuildWeaponLogicEntity(TypeReference[] componentTypes)
         {
+            return new WeaponLogicEntity(BuildWeaponLogicComponents(componentTypes).ToArray());
+        }
+
+        public static List<WeaponLogicComponent> BuildWeaponLogicComponents(TypeReference[] componentTypes)
+        {
             List<WeaponLogicComponent> components = new List<WeaponLogicComponent>(4);
 
             for (int i = 0; i < componentTypes.Length; i++)
@@ -16,7 +21,7 @@ namespace Gameplay.Weapons.WeaponLogic
                 components.Add(componentInstance as WeaponLogicComponent);
             }
 
-            return new WeaponLogicEntity(components.ToArray());
+            return components;
         }
     }
 }

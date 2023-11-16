@@ -7,10 +7,9 @@ namespace Gameplay.Upgrades
     [Serializable]
     public class UpgradeOption
     {
-        public bool Taken => taken;
+        public bool Taken = false;
         public WeaponConfiguration UpgradeConfig => upgradeConfig;
         
-        private bool taken = false;
         [SerializeField] private WeaponConfiguration upgradeConfig;
     }
 }

@@ -13,7 +13,6 @@ namespace Configuration
         public WeaponView ViewPrefab => viewPrefab;
         public TypeReference[] LogicComponents => logicComponents;
         public Sprite IconSprite => iconSprite;
-        public WeaponConfiguration NextLevel => nextLevel;
 
         [SerializeField][Range(1, 100)] private int commonness = 100;
         [SerializeField] private WeaponStats stats;
@@ -21,6 +20,5 @@ namespace Configuration
         [SerializeField] private TypeReference[] logicComponents;
         [SerializeField] private WeaponView viewPrefab;
         [SerializeField] private Sprite iconSprite;
-        [SerializeField] private WeaponConfiguration nextLevel;
     }
 }

@@ -7,18 +7,20 @@ namespace Gameplay.Upgrades
     [Serializable]
     public class UpgradeTree
     {
-        public UpgradeBranch[] Branches => branches;
-        
         [SerializeField] private UpgradeBranch[] branches;
 
-        public UpgradeTree Clone()
+        public void ResetUpgradeTree()
         {
-            UpgradeTree clone = new UpgradeTree();
-            
-            clone.branches = new UpgradeBranch[this.branches.Length];
-            this.branches.CopyTo(clone.branches, 0);
-
-            return clone;
+            foreach (UpgradeBranch branch in branches)
+            {
+                foreach (UpgradeLevel upgradeLevel in branch.UpgradeLevels)
+                {
+                    foreach (UpgradeOption upgradeOption in upgradeLevel.UpgradeOptions)
+                    {
+                        upgradeOption.Taken = false;
+                    }
+                }
+            }
         }
 
         public List<UpgradeOption> GetAllCurrentOptions()

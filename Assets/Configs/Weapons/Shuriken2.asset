@@ -12,22 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86aad4624c266fb4cbfb61dede14d80a, type: 3}
   m_Name: Shuriken2
   m_EditorClassIdentifier: 
+  commonness: 100
   stats:
-    weaponType: 2
-    power: 4
-    speed: 16
-    duration: 3
-    area: 1
-    cooldown: 2
-    amount: 3
-    hits: 2
+    weaponType: 0
+    power: 1
+    speed: 0
+    duration: 0
+    area: 0
+    cooldown: -2
+    amount: 0
+    hits: 1
     name: Shuriken
     description: Halved cooldown time. +1 power. Goes through one enemy.
-  logicComponents:
-  - GuidAssignmentFailed: 0
-    GUID: c1e4d0f00ef9d4a419fd9bd69d1c084c
-    _typeNameAndAssembly: Gameplay.Weapons.WeaponLogic.ProjectileWeaponLogic, Assembly-CSharp
-    _suppressLogs: 0
+  logicComponents: []
   viewPrefab: {fileID: 7273189750282731730, guid: 9fa645536ef5a6f44899a341fb8462f4, type: 3}
   iconSprite: {fileID: 21300000, guid: ce648fefb280f1041ba84eb78a18fee4, type: 3}
-  nextLevel: {fileID: 11400000, guid: da896da194a26924f82f63ca7b9e5b97, type: 2}

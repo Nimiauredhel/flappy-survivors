@@ -14,21 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonness: 100
   stats:
-    weaponType: 2
-    power: 4
-    speed: 16
-    duration: 3
-    area: 1
-    cooldown: 2
-    amount: 5
-    hits: 5
+    weaponType: 0
+    power: 0
+    speed: 0
+    duration: 0
+    area: 0
+    cooldown: 0
+    amount: 2
+    hits: 3
     name: Shuriken
-    description: +2 projectiles. Goes through four enemies.
-  logicComponents:
-  - GuidAssignmentFailed: 0
-    GUID: c1e4d0f00ef9d4a419fd9bd69d1c084c
-    _typeNameAndAssembly: Gameplay.Weapons.WeaponLogic.ProjectileWeaponLogic, Assembly-CSharp
-    _suppressLogs: 0
+    description: +2 projectiles. Goes through three more enemies.
+  logicComponents: []
   viewPrefab: {fileID: 7273189750282731730, guid: 9fa645536ef5a6f44899a341fb8462f4, type: 3}
   iconSprite: {fileID: 21300000, guid: ce648fefb280f1041ba84eb78a18fee4, type: 3}
-  nextLevel: {fileID: 0}

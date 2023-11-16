@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Gameplay.ScrolledObjects;
 using UnityEngine;
 
@@ -10,6 +11,15 @@ namespace Gameplay.Weapons.WeaponLogic
         public WeaponLogicEntity(WeaponLogicComponent[] components)
         {
             this.components = components;
+        }
+
+        public void IncorporateLogicUpgrade(List<WeaponLogicComponent> upgradeComponents)
+        {
+            List<WeaponLogicComponent> newList = new List<WeaponLogicComponent>(components.Length + upgradeComponents.Count);
+            newList.AddRange(components);
+            newList.AddRange(upgradeComponents);
+
+            components = newList.ToArray();
         }
 
         public bool Initialize(WeaponInstance instance)

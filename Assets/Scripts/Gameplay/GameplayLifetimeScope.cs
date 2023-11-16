@@ -34,7 +34,7 @@ namespace Gameplay
             builder.RegisterComponent(playerWeapons);
             builder.RegisterComponent(characterConfig);
             builder.RegisterComponent(playerMovementConfig);
-            builder.RegisterComponent(upgradeTreeConfig.CloneUpgradeTree());
+            builder.RegisterComponent(upgradeTreeConfig.GetFreshUpgradeTree());
 
             builder.Register<PlayerModel>(Lifetime.Singleton);
             

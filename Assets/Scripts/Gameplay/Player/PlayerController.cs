@@ -192,6 +192,9 @@ namespace Gameplay.Player
             model.HealthPercentChanged += uiView.UpdatePlayerHealthView;
             model.XPPercentChanged += uiView.UpdatePlayerXPView;
             model.LeveledUp += LevelUpHandler;
+            
+            // temporary to allow selecting weapon on startup
+            LevelUpHandler(model.CurrentLevel);
         }
 
         public void Dispose()
@@ -277,14 +280,23 @@ namespace Gameplay.Player
                 shortList.Add(option);
                 allCurrentOptions.Remove(option);
             }
-            
-            upgradesUIView.gameObject.SetActive(true);
-            upgradesUIView.DisplayUpgradesDialog(shortList, SelectedUpgradeHandler);
+
+            if (shortList.Count > 0)
+            {
+                upgradesUIView.gameObject.SetActive(true);
+                upgradesUIView.DisplayUpgradesDialog(shortList, SelectedUpgradeHandler);
+            }
+            else
+            {
+                Time.timeScale = 1.0f;
+            }
         }
 
         private void SelectedUpgradeHandler(UpgradeOption selectedOption)
         {
             Time.timeScale = 1.0f;
+            selectedOption.Taken = true;
+            weapons.AddOrUpgradeWeapon(view.Graphic.transform, selectedOption.UpgradeConfig, uiView);
         }
 
         private void ChangePlayerHealth(int amount)

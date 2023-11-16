@@ -10,7 +10,6 @@ namespace Gameplay.Weapons
         public readonly WeaponView View;
         public readonly WeaponStats Stats;
         public readonly WeaponStatus Status;
-        public readonly WeaponConfiguration NextLevel;
         
         private readonly WeaponLogicEntity logic;
         private readonly WeaponUIView uiView;
@@ -26,7 +25,7 @@ namespace Gameplay.Weapons
         }
 
         public WeaponInstance(WeaponView view, WeaponStats stats, WeaponLogicEntity logic,
-            WeaponConfiguration nextLevel, WeaponUIView uiView)
+            WeaponUIView uiView)
         {
             View = view;
             Stats = stats;
@@ -80,6 +79,13 @@ namespace Gameplay.Weapons
             }
             
             logic.OnFixedUpdate(this);
+        }
+
+        public void ApplyUpgrade(WeaponConfiguration upgradeConfig)
+        {
+            Stats.ApplyUpgrade(upgradeConfig.Stats);
+            View.SetHitArea(Stats.Area);
+            logic.IncorporateLogicUpgrade(WeaponLogicBuilder.BuildWeaponLogicComponents(upgradeConfig.LogicComponents));
         }
 
         private void HitHandler(object sender, Collider2D other)
