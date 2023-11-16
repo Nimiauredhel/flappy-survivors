@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using VContainer;
 using VContainer.Unity;
+using Random = UnityEngine.Random;
 
 namespace Gameplay.Player
 {
@@ -20,6 +21,7 @@ namespace Gameplay.Player
         [Inject] private readonly TouchReceiver _touchReceiver;
         [Inject] private readonly PlayerView view;
         [Inject] private readonly PlayerUIView uiView;
+        [Inject] private readonly UpgradesUIView upgradesUIView;
         [Inject] private readonly PlayerModel model;
         [Inject] private readonly PlayerWeaponsComponent weapons;
         [Inject] private readonly PlayerCharacterConfiguration characterConfig;
@@ -260,18 +262,29 @@ namespace Gameplay.Player
         
         private void LevelUpHandler(int newLevel)
         {
+            Time.timeScale = 0.0f;
+            
             uiView.UpdatePlayerCurrentLevelText(newLevel);
 
-            List<UpgradeOption> upgradeOptions = model.UpgradeTree.GetAllCurrentOptions();
-
-            string optionsList = string.Empty;
-
-            foreach (UpgradeOption option in upgradeOptions)
+            List<UpgradeOption> allCurrentOptions = model.UpgradeTree.GetAllCurrentOptions();
+            List<UpgradeOption> shortList = new List<UpgradeOption>(4);
+            
+            for (int i = 0; i < 3; i++)
             {
-                optionsList += option.UpgradeConfig.name + "\n";
+                if (allCurrentOptions.Count <= 0) break;
+                
+                UpgradeOption option = allCurrentOptions[Random.Range(0, allCurrentOptions.Count)];
+                shortList.Add(option);
+                allCurrentOptions.Remove(option);
             }
             
-            Debug.Log(optionsList);
+            upgradesUIView.gameObject.SetActive(true);
+            upgradesUIView.DisplayUpgradesDialog(shortList, SelectedUpgradeHandler);
+        }
+
+        private void SelectedUpgradeHandler(UpgradeOption selectedOption)
+        {
+            Time.timeScale = 1.0f;
         }
 
         private void ChangePlayerHealth(int amount)

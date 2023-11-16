@@ -15,6 +15,7 @@ namespace Gameplay
         [SerializeField] private TouchReceiver touchReceiver;
         [SerializeField] private PlayerView playerView;
         [SerializeField] private PlayerUIView playerUIView;
+        [SerializeField] private UpgradesUIView upgradesUIView;
         [SerializeField] private EnemiesController enemiesController;
         [SerializeField] private PickupsController pickupsController;
         [SerializeField] private PlayerWeaponsComponent playerWeapons;
@@ -27,6 +28,7 @@ namespace Gameplay
             builder.RegisterComponent(touchReceiver);
             builder.RegisterComponent(playerView);
             builder.RegisterComponent(playerUIView);
+            builder.RegisterComponent(upgradesUIView);
             builder.RegisterComponent(enemiesController);
             builder.RegisterComponent(pickupsController);
             builder.RegisterComponent(playerWeapons);

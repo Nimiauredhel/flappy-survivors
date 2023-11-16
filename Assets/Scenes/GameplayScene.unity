@@ -694,6 +694,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3808482197361992687}
     - target: {fileID: 6086592239576207485, guid: 75775b164519e2246a01c17626daa837, type: 3}
+      propertyPath: upgradesUIView
+      value: 
+      objectReference: {fileID: 4732591126790484286}
+    - target: {fileID: 6086592239576207485, guid: 75775b164519e2246a01c17626daa837, type: 3}
       propertyPath: enemiesController
       value: 
       objectReference: {fileID: 1656706223}
@@ -973,6 +977,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d952156b5538d9e42844b136fb539b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4732591126790484286 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6470767034313979961, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
+  m_PrefabInstance: {fileID: 4732591126790484284}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee8bcd6df32bd44d9db0a4826be296d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5873517716494778206
