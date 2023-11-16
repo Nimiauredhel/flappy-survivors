@@ -44,14 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c9debc06d37384dbc8112d7c74ed86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeObjects: []
-  pooledObjects: []
-  toRemove: []
   poolSize: 100
   startX: 24
   endX: -24
   minY: -7
   maxY: 7
-  maxSpawnGap: 1.5
-  minSpawnGap: 0.25
-  objectPrefab: {fileID: -1032148392928579942, guid: 2f8ce556b6252b044822f6850129f3a5, type: 3}
+  maxSpawnGap: 0.75
+  minSpawnGap: 0.1
+  enemyConfig: {fileID: 11400000, guid: 27800374413169842a1697941995eb90, type: 2}

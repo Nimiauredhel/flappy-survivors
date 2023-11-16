@@ -80,7 +80,7 @@ namespace Gameplay.ScrolledObjects.Enemy
 
         private void OnGetEnemy(ScrolledObjectView spawnedEnemy)
         {
-            spawnCooldown = maxSpawnGap;
+            spawnCooldown = Random.Range(minSpawnGap, maxSpawnGap);
             spawnedEnemy.transform.position = new Vector3(startX, Random.Range(minY, maxY));
             spawnedEnemy.Activate(0);
             activeEnemies.Add(spawnedEnemy);
