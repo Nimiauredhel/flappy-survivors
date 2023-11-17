@@ -1,19 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEditor;
 
 public static class BuildUtils
 {
-    private const string BUILD_FOLDER = "F:/Builds/FlappySurvivors/";
-    private const string BUILD_NAME_FORMAT = "Flappy Survivors {0} {1}/FlappySurvivors{2}";
+    private const string BUILD_FOLDER = "Build/";
+    private const string ANDROID_FOLDER = "Android/";
+    private const string WEBGL_FOLDER = "WEBGL/";
+    private const string BUILD_NAME_FORMAT = "FlappySurvivors{0}";
     
     [MenuItem("Build/Android")]
     public static void BuildForAndroid()
     {
         // Get filename.
-        string path = BUILD_FOLDER + string.Format(BUILD_NAME_FORMAT, Application.version, DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss"), ".apk");
+        string path = BUILD_FOLDER + ANDROID_FOLDER + string.Format(BUILD_NAME_FORMAT, ".apk");
         string[] levels = new string[] {"Assets/Scenes/GameplayScene.unity"};
 
         // Build player.
@@ -24,7 +22,7 @@ public static class BuildUtils
     public static void BuildForWebGL()
     {
         // Get filename.
-        string path = BUILD_FOLDER + string.Format(BUILD_NAME_FORMAT, Application.version, DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss"), "/");
+        string path = BUILD_FOLDER + WEBGL_FOLDER + string.Format(BUILD_NAME_FORMAT, "/");
         string[] levels = new string[] {"Assets/Scenes/GameplayScene.unity"};
 
         // Build player.
