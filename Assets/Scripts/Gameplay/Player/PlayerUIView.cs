@@ -24,11 +24,13 @@ namespace Gameplay.Player
         
         public void UpdatePlayerHealthView(float percent)
         {
+            if (healthSlider.value == percent) return;
             healthSlider.value = percent;
         }
         
         public void UpdatePlayerXPView(float percent)
         {
+            if (xpSlider.value == percent) return;
             xpSlider.value = percent;
         }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Gameplay.Player;
 using Gameplay.ScrolledObjects.Enemy;
 using Gameplay.ScrolledObjects.Pickup;
@@ -16,9 +17,13 @@ namespace Gameplay
         [Inject] private readonly PlayerController playerController;
         [Inject] private readonly VFXService vfxService;
 
+        private Stack<PickupDropOrder> xpComboBalloon = new Stack<PickupDropOrder>(32);
+        
         public void Start()
         {
             Application.targetFrameRate = 60;
+
+            playerController.ComboBreak += ComboBrokenHandler;
             
             enemiesController.Initialize();
             enemiesController.EnemyKilled += EnemyKilledHandler;
@@ -53,8 +58,18 @@ namespace Gameplay
             
             if (xpValue > 0)
             {
-                pickupsController.SpawnPickup(position, xpValue, PickupType.XP);
+                xpComboBalloon.Push(new PickupDropOrder(xpValue, position));
             }
+        }
+
+        private void ComboBrokenHandler(int brokenCombo)
+        {
+            Stack<PickupDropOrder> xpToDrop = new Stack<PickupDropOrder>(xpComboBalloon);
+            xpComboBalloon.Clear();
+
+            float xpComboModifier = Constants.Map(1, 100, 1.0f, 2.0f, brokenCombo);
+            
+            pickupsController.SpawnPickups(xpToDrop, PickupType.XP);
         }
     }
 }

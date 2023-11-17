@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Configuration;
 using DG.Tweening;
@@ -11,7 +12,8 @@ namespace Gameplay.ScrolledObjects.Pickup
     public class PickupsController : MonoBehaviour
     {
         private static readonly Vector3 SPAWN_INITIAL_SCALE = new Vector3(0.0f, 0.0f, 1.0f);
-        private static readonly Vector3 SPAWN_POSITION_OFFSET = new Vector3(10.0f, 0.0f, 0.0f); 
+        private static readonly Vector3 SPAWN_POSITION_OFFSET = new Vector3(10.0f, 0.0f, 0.0f);
+        private static readonly WaitForSeconds WaitForSpawnGap = new WaitForSeconds(0.25f);
         
         [SerializeField] private int poolSize = 100;
         [SerializeField] private PickupConfiguration pickupConfig;
@@ -59,7 +61,17 @@ namespace Gameplay.ScrolledObjects.Pickup
                 activePickups[i].ScrolledObjectFixedUpdate();
             }
         }
-        
+
+        public void SpawnPickups(Stack<PickupDropOrder> pickupOrders, PickupType type)
+        {
+            StartCoroutine(SpawnPickupsRoutine(pickupOrders, type));
+        }
+
+        public void SpawnPickup(PickupDropOrder order, PickupType type)
+        {
+            SpawnPickup(order.Position, order.Value, type);
+        }
+
         public void SpawnPickup(Vector3 position, int value, PickupType type)
         {
             ScrolledObjectView spawnedPickup;
@@ -100,6 +112,17 @@ namespace Gameplay.ScrolledObjects.Pickup
             createdPickup.Initialize(new PickupLogic(pickupConfig.Type, 0, 5.0f));
             createdPickup.Deactivate();
             return createdPickup;
+        }
+
+        private IEnumerator SpawnPickupsRoutine(Stack<PickupDropOrder> pickupOrders, PickupType type)
+        {
+            yield return null;
+
+            while (pickupOrders.Count > 0)
+            {
+                SpawnPickup(pickupOrders.Pop(), type);
+                yield return WaitForSpawnGap;
+            }
         }
     }
 }

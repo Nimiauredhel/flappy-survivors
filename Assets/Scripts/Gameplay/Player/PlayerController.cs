@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Configuration;
 using DG.Tweening;
@@ -18,6 +19,8 @@ namespace Gameplay.Player
         private static readonly int CLIMBING_HASH = Animator.StringToHash("Climbing");
         private static readonly int DIVING_HASH = Animator.StringToHash("Diving");
 
+        public event Action<int> ComboBreak; 
+        
         [Inject] private readonly TouchReceiver _touchReceiver;
         [Inject] private readonly PlayerView view;
         [Inject] private readonly PlayerUIView uiView;
@@ -37,16 +40,16 @@ namespace Gameplay.Player
         private Tweener xSpeedTweener;
         private Tweener rotationTweener;
         private Vector2 movementVector = new Vector2();
-
+        
         private class ComboService
         {
-            public event Action<int> ComboChanged; 
+            private const float COMBO_GAP = 0.5f;
             
-            public int CurrentCombo => currentCombo;
+            public event Action<int, int> ComboChanged; 
             
             private int currentCombo = 0;
+            private int previousCombo = 0;
             private float timeSinceLastKill = 0.0f;
-            private float comboGap = 0.5f;
 
             public void DoUpdate()
             {
@@ -54,17 +57,18 @@ namespace Gameplay.Player
                 {
                     timeSinceLastKill += Time.deltaTime;
 
-                    if (timeSinceLastKill > comboGap)
+                    if (timeSinceLastKill > COMBO_GAP)
                     {
-                        currentCombo = 0;
-                        ComboChanged?.Invoke(currentCombo);
+                        ComboBreak();
                     }
                 }
             }
 
             public void ReportKill()
             {
-                if (timeSinceLastKill <= comboGap + (currentCombo * 0.005f))
+                previousCombo = currentCombo;
+                
+                if (timeSinceLastKill <= COMBO_GAP + (currentCombo * 0.005f))
                 {
                     currentCombo++;
                 }
@@ -74,10 +78,20 @@ namespace Gameplay.Player
                 }
 
                 timeSinceLastKill = 0.0f;
-                ComboChanged?.Invoke(currentCombo);
+
+                if (currentCombo != previousCombo)
+                {
+                    ComboChanged?.Invoke(currentCombo, previousCombo);
+                }
+            }
+
+            private void ComboBreak()
+            {
+                currentCombo = 0;
+                ComboChanged?.Invoke(currentCombo, previousCombo);
             }
         }
-        
+
         #region Player State Machine
 
         private class PlayerState
@@ -236,7 +250,7 @@ namespace Gameplay.Player
             model.XPPercentChanged += uiView.UpdatePlayerXPView;
             model.LeveledUp += LevelUpHandler;
 
-            comboService.ComboChanged += uiView.UpdatePlayerCurrentComboText;
+            comboService.ComboChanged += HandleComboChanged;
             
             // temporary to allow selecting weapon on startup
             LevelUpHandler(model.CurrentLevel);
@@ -250,22 +264,14 @@ namespace Gameplay.Player
             rotationTweener.Kill();
             xSpeedTweener.Kill();
             ySpeedTweener.Kill();
-            
-            comboService.ComboChanged -= uiView.UpdatePlayerCurrentComboText;
+
+            comboService.ComboChanged -= HandleComboChanged;
         }
         
         #endregion
 
-        public void ChangePlayerXP(int value)
-        {
-            model.ChangeXP(value);
-        }
-
-        public void HandleEnemyKilled()
-        {
-            comboService.ReportKill();
-        }
-
+        #region Movement
+        
         private void HandleMovement()
         {
             float xSpeed = 0.0f;
@@ -304,6 +310,28 @@ namespace Gameplay.Player
         private void PointerUpHandler(object sender, PointerEventData eventData)
         {
             _currentState.DiveCommand(this);
+        }
+        
+        #endregion
+        
+        public void HandleEnemyKilled()
+        {
+            comboService.ReportKill();
+        }
+
+        private void HandleComboChanged(int currentCombo, int previousCombo)
+        {
+            uiView.UpdatePlayerCurrentComboText(currentCombo);
+
+            if (currentCombo == 0)
+            {
+                ComboBreak?.Invoke(previousCombo);
+            }
+        }
+
+        private void ChangePlayerXP(int value)
+        {
+            model.ChangeXP(value);
         }
         
         private void TriggerEnterHandler(object sender, Collider2D other)
