@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Configuration;
+using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -9,6 +10,9 @@ namespace Gameplay.ScrolledObjects.Pickup
 {
     public class PickupsController : MonoBehaviour
     {
+        private static readonly Vector3 SPAWN_INITIAL_SCALE = new Vector3(0.0f, 0.0f, 1.0f);
+        private static readonly Vector3 SPAWN_POSITION_OFFSET = new Vector3(10.0f, 0.0f, 0.0f); 
+        
         [SerializeField] private int poolSize = 100;
         [SerializeField] private PickupConfiguration pickupConfig;
         [SerializeField] private ScrolledObjectView pickupPrefab;
@@ -63,12 +67,30 @@ namespace Gameplay.ScrolledObjects.Pickup
 
             if (spawnedPickup != null)
             {
+                
+                Vector3 targetPosition = position + SPAWN_POSITION_OFFSET;
                 Vector3 targetScale =
                     Vector3.one * Constants.Map(minPickupValue, maxPickupValue, minPickupScale, maxPickupScale, value);
-                spawnedPickup.transform.localScale = targetScale;
-                spawnedPickup.transform.position = position + (Vector3.right * 10.0f);
+
+                Transform spawnedPickupTransform = spawnedPickup.transform;
+                spawnedPickupTransform.localScale = SPAWN_INITIAL_SCALE;
+                spawnedPickupTransform.position = position;
+                
+                Sequence spawnSequence = DOTween.Sequence();
+                spawnSequence.Append(spawnedPickupTransform.DOScale(targetScale, 0.5f));
+                spawnSequence.Join(spawnedPickupTransform.DOMove(targetPosition, 0.75f));
+                
                 spawnedPickup.Activate(value);
-                activePickups.Add(spawnedPickup);
+                
+                spawnSequence.AppendCallback(delegate
+                {
+                    if (spawnedPickup.Active)
+                    {
+                        activePickups.Add(spawnedPickup);
+                    }
+                });
+
+                spawnSequence.Play();
             }
         }
 
