@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Gameplay.Weapons;
@@ -11,17 +12,32 @@ namespace Gameplay.Player
     {
         private const string LVL_TEXT_FORMAT = "LVL {0}";
         private const string COMBO_TEXT_FORMAT = "x{0}";
+
+        private static readonly string[] TIMER_FORMATS = new string[3]
+        {
+            @"mm\:ss",
+            @"m\:ss",
+            @"%s"
+        };
         
         [SerializeField] private Slider healthSlider;
         [SerializeField] private Slider xpSlider;
+        [SerializeField] private TextMeshProUGUI timerText;
         [SerializeField] private TextMeshProUGUI currentLevelText;
         [SerializeField] private TextMeshProUGUI currentComboText;
         
         [SerializeField] private LayoutGroup weaponIconParent;
         [SerializeField] private WeaponUIView weaponIconPrefab;
-
-        private List<WeaponUIView> weaponIcons = new List<WeaponUIView>(4);
         
+        private List<WeaponUIView> weaponIcons = new List<WeaponUIView>(4);
+
+        public void UpdateTimerText(int timeInSeconds)
+        {
+            TimeSpan timerTimespan = TimeSpan.FromSeconds(timeInSeconds);
+            int selectedFormat = timerTimespan.Minutes > 9 ? 0 : timerTimespan.Minutes > 0 ? 1 : 2;
+            timerText.text = TimeSpan.FromSeconds(timeInSeconds).ToString(TIMER_FORMATS[selectedFormat]);
+        }
+
         public void UpdatePlayerHealthView(float percent)
         {
             if (healthSlider.value == percent) return;

@@ -254,6 +254,8 @@ namespace Gameplay.Player
             
             // temporary to allow selecting weapon on startup
             LevelUpHandler(model.CurrentLevel);
+
+            uiView.StartCoroutine(TimerRoutine());
         }
 
         public void Dispose()
@@ -431,6 +433,21 @@ namespace Gameplay.Player
             xSpeedTweener = DOTween.To(() => model.CurrentXSpeed, x => model.SetXSpeed(x), 0.05f, 0.5f);
             rotationTweener?.Kill();
             rotationTweener = view.Graphic.DORotate(Vector3.zero, 0.5f);
+        }
+
+        private IEnumerator TimerRoutine()
+        {
+            WaitForSeconds second = new WaitForSeconds(1);
+            int secondsLeft = 5 * 60 ;
+
+            while (secondsLeft > 0)
+            {
+                uiView.UpdateTimerText(secondsLeft);
+                secondsLeft--;
+                yield return second;
+            }
+            
+            Die();
         }
     }
 }
