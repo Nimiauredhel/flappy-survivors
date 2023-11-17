@@ -13,6 +13,11 @@ namespace Gameplay.ScrolledObjects.Pickup
         [SerializeField] private PickupConfiguration pickupConfig;
         [SerializeField] private ScrolledObjectView pickupPrefab;
 
+        private int minPickupValue = 1;
+        private int maxPickupValue = 100;
+        private float minPickupScale = 1.0f;
+        private float maxPickupScale = 1.5f;
+
         private List<ScrolledObjectView> activePickups = new List<ScrolledObjectView>(16);
         private ObjectPool<ScrolledObjectView> pooledPickups;
 
@@ -58,6 +63,9 @@ namespace Gameplay.ScrolledObjects.Pickup
 
             if (spawnedPickup != null)
             {
+                Vector3 targetScale =
+                    Vector3.one * Constants.Map(minPickupValue, maxPickupValue, minPickupScale, maxPickupScale, value);
+                spawnedPickup.transform.localScale = targetScale;
                 spawnedPickup.transform.position = position + (Vector3.right * 10.0f);
                 spawnedPickup.Activate(value);
                 activePickups.Add(spawnedPickup);
