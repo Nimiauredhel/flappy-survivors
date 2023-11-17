@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86aad4624c266fb4cbfb61dede14d80a, type: 3}
-  m_Name: Shuriken3
+  m_Name: Shuriken3-1
   m_EditorClassIdentifier: 
   commonness: 100
   stats:
@@ -21,9 +21,9 @@ MonoBehaviour:
     area: 0
     cooldown: 0
     amount: 2
-    hits: 3
+    hits: 0
     name: Shuriken
-    description: +2 projectiles. Goes through three more enemies.
+    description: +2 projectiles.
   logicComponents: []
   viewPrefab: {fileID: 7273189750282731730, guid: 9fa645536ef5a6f44899a341fb8462f4, type: 3}
   iconSprite: {fileID: 21300000, guid: ce648fefb280f1041ba84eb78a18fee4, type: 3}
