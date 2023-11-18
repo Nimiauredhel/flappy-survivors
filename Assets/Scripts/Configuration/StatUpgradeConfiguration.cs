@@ -9,7 +9,8 @@ namespace Configuration
     {
 
         public PlayerStats Stats => stats;
-        
+
+        [SerializeField] private int levelRequirement = 1;
         [SerializeField] private int commonness = 100;
         [SerializeField] private new string name;
         [SerializeField] private string description;
@@ -34,6 +35,11 @@ namespace Configuration
         public string Description()
         {
             return description;
+        }
+
+        public int LevelRequirement()
+        {
+            return levelRequirement;
         }
 
         public int Commonness()

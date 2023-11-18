@@ -14,6 +14,7 @@ namespace Configuration
         public TypeReference[] LogicComponents => logicComponents;
         public Sprite IconSprite => iconSprite;
 
+        [SerializeField] private int levelRequirement = 1;
         [SerializeField][Range(1, 100)] private int commonness = 100;
         [SerializeField] private WeaponStats stats;
         [Inherits(typeof(WeaponLogicComponent))]
@@ -38,6 +39,11 @@ namespace Configuration
         public string Description()
         {
             return stats.Description;
+        }
+        
+        public int LevelRequirement()
+        {
+            return levelRequirement;
         }
 
         public int Commonness()

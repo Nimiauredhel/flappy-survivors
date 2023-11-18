@@ -7,6 +7,7 @@ namespace Gameplay.Upgrades
     [Serializable]
     public class UpgradeOption
     {
+        public int LevelRequirement => upgradeConfig.Value.LevelRequirement();
         [HideInInspector]
         public string name;
         [HideInInspector]
@@ -34,6 +35,7 @@ namespace Gameplay.Upgrades
         public Sprite Icon();
         public string Name();
         public string Description();
+        public int LevelRequirement();
         public int Commonness();
     }
 }

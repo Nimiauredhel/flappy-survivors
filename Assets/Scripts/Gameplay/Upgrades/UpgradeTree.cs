@@ -50,7 +50,7 @@ namespace Gameplay.Upgrades
             }
         }
 
-        public List<UpgradeOption> GetAllCurrentOptions()
+        public List<UpgradeOption> GetAllCurrentOptions(int currentLevel)
         {
             List<UpgradeOption> currentOptions = new List<UpgradeOption>(16);
             UpgradeBranch currentBranch = null;
@@ -73,7 +73,7 @@ namespace Gameplay.Upgrades
                 {
                     for (int j = 0; j < currentLevelOfBranch.UpgradeOptions.Length; j++)
                     {
-                        if (!currentLevelOfBranch.UpgradeOptions[j].Taken)
+                        if (!currentLevelOfBranch.UpgradeOptions[j].Taken && currentLevel >= currentLevelOfBranch.UpgradeOptions[j].LevelRequirement)
                         {
                             currentOptions.Add(currentLevelOfBranch.UpgradeOptions[j]);
                         }

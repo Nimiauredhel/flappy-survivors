@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66bfb0f10d275b44978d5fa63e66d05, type: 3}
   m_Name: MaxHealthUp10
   m_EditorClassIdentifier: 
+  levelRequirement: 2
   commonness: 100
   name: Max Health Up
   description: Increase Max Health by 10.

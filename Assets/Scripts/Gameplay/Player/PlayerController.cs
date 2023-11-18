@@ -353,7 +353,7 @@ namespace Gameplay.Player
             
             uiView.UpdatePlayerCurrentLevelText(newLevel);
 
-            List<UpgradeOption> allCurrentOptions = model.UpgradeTree.GetAllCurrentOptions();
+            List<UpgradeOption> allCurrentOptions = model.UpgradeTree.GetAllCurrentOptions(model.CurrentLevel);
             List<UpgradeOption> shortList = new List<UpgradeOption>(4);
             
             for (int i = 0; i < 3; i++)
