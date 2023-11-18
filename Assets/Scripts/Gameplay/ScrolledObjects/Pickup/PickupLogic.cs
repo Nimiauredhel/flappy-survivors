@@ -1,13 +1,14 @@
 using System;
+using Configuration;
 using UnityEngine;
 
 namespace Gameplay.ScrolledObjects.Pickup
 {
     public class PickupLogic : IScrolledObjectLogic
     {
-        private PickupType type;
+        private readonly PickupType type;
         private int value;
-        private float lifetime;
+        private readonly float lifetime;
 
         private float elapsedTime = 0.0f;
 
@@ -33,9 +34,9 @@ namespace Gameplay.ScrolledObjects.Pickup
             view.transform.Translate((new Vector2(-7.0f, 0.0f) * Time.fixedDeltaTime));
         }
 
-        public void OnHitByWeapon(ScrolledObjectView view, float damage)
+        public void OnHitByWeapon(ScrolledObjectView view, int damage)
         {
-            
+            Debug.LogWarning("Pickup hit by weapon. This shouldn't happen.");
         }
 
         public void OnHitByPlayer(ScrolledObjectView view, Action<int> hpAction, Action<int> xpAction)
@@ -49,6 +50,8 @@ namespace Gameplay.ScrolledObjects.Pickup
                     break;
                 case PickupType.Health:
                     hpAction?.Invoke(value);
+                    break;
+                case PickupType.Upgrade:
                     break;
                 case PickupType.Gold:
                     break;

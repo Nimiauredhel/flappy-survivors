@@ -2,6 +2,6 @@
 {
     public enum PickupType
     {
-        None, XP, Health, Gold, Chest
+        None, XP, Health, Upgrade, Gold, Chest
     }
 }

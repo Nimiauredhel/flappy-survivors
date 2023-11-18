@@ -6,50 +6,74 @@ using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.Serialization;
 
 namespace Gameplay.ScrolledObjects.Pickup
 {
     public class PickupsController : MonoBehaviour
     {
+        private const int MIN_PICKUP_VALUE = 1;
+        private const int MAX_PICKUP_VALUE = 100;
+        private const float MIN_PICKUP_SCALE = 1.0f;
+        private const float MAX_PICKUP_SCALE = 1.5f;
         private static readonly Vector3 SPAWN_INITIAL_SCALE = new Vector3(0.0f, 0.0f, 1.0f);
         private static readonly Vector3 SPAWN_POSITION_OFFSET = new Vector3(10.0f, 0.0f, 0.0f);
         private static readonly WaitForSeconds WaitForSpawnGap = new WaitForSeconds(0.25f);
         
         [SerializeField] private int poolSize = 100;
-        [SerializeField] private PickupConfiguration pickupConfig;
-        [SerializeField] private ScrolledObjectView pickupPrefab;
+        [SerializeField] private ScrolledObjectView xpPickupPrefab;
+        [SerializeField] private ScrolledObjectView healthPickupPrefab;
 
-        private int minPickupValue = 1;
-        private int maxPickupValue = 100;
-        private float minPickupScale = 1.0f;
-        private float maxPickupScale = 1.5f;
-
-        private List<ScrolledObjectView> activePickups = new List<ScrolledObjectView>(16);
-        private ObjectPool<ScrolledObjectView> pooledPickups;
+        private List<KeyValuePair<PickupType, ScrolledObjectView>> activePickups = new List<KeyValuePair<PickupType, ScrolledObjectView>>(16);
+        private ObjectPool<ScrolledObjectView> pooledXPPickups;
+        private ObjectPool<ScrolledObjectView> pooledHealthPickups;
 
         public void Initialize()
         {
-            pooledPickups = new ObjectPool<ScrolledObjectView>(CreatePickup, null, null, null, true, poolSize);
+            pooledXPPickups = new ObjectPool<ScrolledObjectView>(CreateXPPickup, null, null, null, true, poolSize);
+            pooledHealthPickups = new ObjectPool<ScrolledObjectView>(CreateHealthPickup, null, null, null, true, poolSize);
         }
         
         public void DoUpdate()
         {
             for (int i = activePickups.Count - 1; i >= 0; i--)
             {
-                if (activePickups[i].transform.position.x <= -24.0f)
+                ScrolledObjectView activePickup = activePickups[i].Value;
+                
+                if (activePickup.transform.position.x <= -24.0f)
                 {
-                    activePickups[i].Deactivate();
+                    activePickup.Deactivate();
                 }
                 
-                if (activePickups[i].Active)
+                if (activePickup.Active)
                 {
-                    activePickups[i].ScrolledObjectUpdate();
+                    activePickup.ScrolledObjectUpdate();
                 }
                 else
                 {
-                    ScrolledObjectView toRemove = activePickups[i];
+                    KeyValuePair<PickupType, ScrolledObjectView> toRemove = activePickups[i];
+
                     activePickups.Remove(toRemove);
-                    pooledPickups.Release(toRemove);
+                    
+                    switch (toRemove.Key)
+                    {
+                        case PickupType.None:
+                            break;
+                        case PickupType.XP:
+                            pooledXPPickups.Release(toRemove.Value);
+                            break;
+                        case PickupType.Health:
+                            pooledHealthPickups.Release(toRemove.Value);
+                            break;
+                        case PickupType.Upgrade:
+                            break;
+                        case PickupType.Gold:
+                            break;
+                        case PickupType.Chest:
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
                 }
             }
         }
@@ -58,13 +82,13 @@ namespace Gameplay.ScrolledObjects.Pickup
         {
             for (int i = 0; i < activePickups.Count; i++)
             {
-                activePickups[i].ScrolledObjectFixedUpdate();
+                activePickups[i].Value.ScrolledObjectFixedUpdate();
             }
         }
 
-        public void SpawnPickups(Stack<PickupDropOrder> pickupOrders, PickupType type)
+        public void SpawnPickups(Stack<PickupDropOrder> pickupOrders, float comboModifier)
         {
-            StartCoroutine(SpawnPickupsRoutine(pickupOrders, type));
+            StartCoroutine(SpawnPickupsRoutine(pickupOrders, comboModifier));
         }
 
         public void SpawnPickup(PickupDropOrder order, PickupType type)
@@ -74,15 +98,33 @@ namespace Gameplay.ScrolledObjects.Pickup
 
         public void SpawnPickup(Vector3 position, int value, PickupType type)
         {
-            ScrolledObjectView spawnedPickup;
-            pooledPickups.Get(out spawnedPickup);
+            ScrolledObjectView spawnedPickup = null;
+
+            switch (type)
+            {
+                case PickupType.None:
+                    break;
+                case PickupType.XP:
+                    pooledXPPickups.Get(out spawnedPickup);
+                    break;
+                case PickupType.Health:
+                    pooledHealthPickups.Get(out spawnedPickup);
+                    break;
+                case PickupType.Upgrade:
+                    break;
+                case PickupType.Gold:
+                    break;
+                case PickupType.Chest:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+            }
 
             if (spawnedPickup != null)
             {
-                
                 Vector3 targetPosition = position + SPAWN_POSITION_OFFSET;
                 Vector3 targetScale =
-                    Vector3.one * Constants.Map(minPickupValue, maxPickupValue, minPickupScale, maxPickupScale, value);
+                    Vector3.one * Constants.Map(MIN_PICKUP_VALUE, MAX_PICKUP_VALUE, MIN_PICKUP_SCALE, MAX_PICKUP_SCALE, value);
 
                 Transform spawnedPickupTransform = spawnedPickup.transform;
                 spawnedPickupTransform.localScale = SPAWN_INITIAL_SCALE;
@@ -98,29 +140,75 @@ namespace Gameplay.ScrolledObjects.Pickup
                 {
                     if (spawnedPickup.Active)
                     {
-                        activePickups.Add(spawnedPickup);
+                        activePickups.Add(new KeyValuePair<PickupType, ScrolledObjectView>(type, spawnedPickup));
                     }
                 });
 
                 spawnSequence.Play();
             }
+            else
+            {
+                Debug.LogWarning("Null pickup.");
+            }
         }
 
-        private ScrolledObjectView CreatePickup()
+        private ScrolledObjectView CreateXPPickup()
         {
-            ScrolledObjectView createdPickup = Instantiate(pickupPrefab, Vector3.up * 500.0f, quaternion.identity);
-            createdPickup.Initialize(new PickupLogic(pickupConfig.Type, 0, 5.0f));
-            createdPickup.Deactivate();
-            return createdPickup;
+            return CreatePickup(PickupType.XP);
+        }
+        
+        private ScrolledObjectView CreateHealthPickup()
+        {
+            return CreatePickup(PickupType.Health);
         }
 
-        private IEnumerator SpawnPickupsRoutine(Stack<PickupDropOrder> pickupOrders, PickupType type)
+        private ScrolledObjectView CreatePickup(PickupType type)
         {
+            ScrolledObjectView selectedPrefab = null;
+
+            switch (type)
+            {
+                case PickupType.None:
+                    break;
+                case PickupType.XP:
+                    selectedPrefab = xpPickupPrefab;
+                    break;
+                case PickupType.Health:
+                    selectedPrefab = healthPickupPrefab;
+                    break;
+                case PickupType.Upgrade:
+                    break;
+                case PickupType.Gold:
+                    break;
+                case PickupType.Chest:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+            }
+
+            if (selectedPrefab != null)
+            {
+                ScrolledObjectView createdPickup = Instantiate(selectedPrefab, Vector3.up * 500.0f, quaternion.identity);
+                createdPickup.Initialize(new PickupLogic(type, 1, 5.0f));
+                createdPickup.Deactivate();
+                return createdPickup;
+            }
+            else
+            {
+                Debug.LogWarning("Pickup instantiation failed!");
+                return null;
+            }
+        }
+
+        private IEnumerator SpawnPickupsRoutine(Stack<PickupDropOrder> pickupOrders, float comboModifier)
+        {
+            PickupDropOrder currentOrder;
             yield return null;
 
             while (pickupOrders.Count > 0)
             {
-                SpawnPickup(pickupOrders.Pop(), type);
+                currentOrder = pickupOrders.Pop();
+                SpawnPickup(currentOrder.Position, Mathf.FloorToInt(currentOrder.Value * comboModifier), currentOrder.Type);
                 yield return WaitForSpawnGap;
             }
         }

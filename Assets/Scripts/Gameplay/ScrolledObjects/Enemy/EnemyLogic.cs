@@ -8,9 +8,8 @@ namespace Gameplay.ScrolledObjects.Enemy
     {
         private event Action<int, Vector3> EnemyKilled; 
         
+        private int currentHP;
         private EnemyStats stats;
-
-        private float currentHP;
         
         public EnemyLogic(EnemyStats stats, Action<int, Vector3> killedHandler)
         {
@@ -28,14 +27,23 @@ namespace Gameplay.ScrolledObjects.Enemy
             view.transform.Translate((new Vector2(-stats.Speed, 0.0f) * Time.fixedDeltaTime));
         }
 
-        public void OnHitByWeapon(ScrolledObjectView view, float damage)
+        public void OnHitByWeapon(ScrolledObjectView view, int damage)
         {
             currentHP -= damage;
 
             if (currentHP <= 0.0f)
             {
-                currentHP = 0.0f;
-                EnemyKilled?.Invoke(stats.XPValue, view.transform.position);
+                int overkill = damage - stats.MaxHP;
+                int pickupValue = stats.XPValue;
+                
+                if (overkill > stats.MaxHP || Random.Range(0.0f, 1.0f) > 0.85f)
+                {
+                    pickupValue *= -2;
+                }
+                
+                EnemyKilled?.Invoke(pickupValue, view.transform.position);
+                
+                currentHP = 0;
                 view.Deactivate(true);
             }
         }

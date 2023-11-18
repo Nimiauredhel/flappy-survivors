@@ -10,6 +10,11 @@ namespace Gameplay.Player
         
         [SerializeField] private int maxHealth = 100;
 
+        public PlayerStats(PlayerStats original)
+        {
+            maxHealth = original.maxHealth;
+        }
+
         public void UpgradeStats(PlayerStats upgradeStats)
         {
             maxHealth += upgradeStats.maxHealth;

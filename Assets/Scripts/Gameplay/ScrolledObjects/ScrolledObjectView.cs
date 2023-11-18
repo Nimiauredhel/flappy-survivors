@@ -29,7 +29,7 @@ namespace Gameplay.ScrolledObjects
             logic.ScrolledObjectFixedUpdate(this);
         }
 
-        public void HitByWeapon(float damage)
+        public void HitByWeapon(int damage)
         {
             logic.OnHitByWeapon(this, damage);
         }

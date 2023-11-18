@@ -37,7 +37,7 @@ namespace Gameplay.Player
 
         public void InitializeModel(PlayerCharacterConfiguration config)
         {
-            this.stats = config.Stats;
+            this.stats = config.GetStats;
             upgradeTree = config.GetUpgradeTree;
         }
 

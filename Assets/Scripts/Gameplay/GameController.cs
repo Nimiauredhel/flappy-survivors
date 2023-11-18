@@ -17,7 +17,7 @@ namespace Gameplay
         [Inject] private readonly PlayerController playerController;
         [Inject] private readonly VFXService vfxService;
 
-        private Stack<PickupDropOrder> xpComboBalloon = new Stack<PickupDropOrder>(32);
+        private Stack<PickupDropOrder> comboBalloon = new Stack<PickupDropOrder>(32);
         
         public void Start()
         {
@@ -53,23 +53,35 @@ namespace Gameplay
         {
             vfxService.RequestExplosionAt(position);
             playerController.HandleEnemyKilled();
-            
-            int xpValue = Random.Range(0, value);
-            
-            if (xpValue > 0)
+
+            if (value != 0)
             {
-                xpComboBalloon.Push(new PickupDropOrder(xpValue, position));
+                PickupType type;
+
+                if (value < 0)
+                {
+                    type = PickupType.Health;
+                    value *= -1;
+                }
+                else
+                {
+                    type = PickupType.XP;
+                }
+
+                int pickupValue = Random.Range(Mathf.CeilToInt(value * 0.55f), value);
+                comboBalloon.Push(new PickupDropOrder(pickupValue, type, position));
             }
         }
 
         private void ComboBrokenHandler(int brokenCombo)
         {
-            Stack<PickupDropOrder> xpToDrop = new Stack<PickupDropOrder>(xpComboBalloon);
-            xpComboBalloon.Clear();
+            Debug.Log(brokenCombo);
+            Stack<PickupDropOrder> pickupsToDrop = new Stack<PickupDropOrder>(comboBalloon);
+            comboBalloon.Clear();
 
-            float xpComboModifier = Constants.Map(1, 100, 1.0f, 2.0f, brokenCombo);
+            float comboModifier = Constants.Map(0, 100, 1.0f, 2.0f, brokenCombo);
             
-            pickupsController.SpawnPickups(xpToDrop, PickupType.XP);
+            pickupsController.SpawnPickups(pickupsToDrop, comboModifier);
         }
     }
 }
