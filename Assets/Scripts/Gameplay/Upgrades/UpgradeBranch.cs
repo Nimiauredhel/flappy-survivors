@@ -10,6 +10,11 @@ namespace Gameplay.Upgrades
         
         [SerializeField] private string name;
         [SerializeField] private UpgradeLevel[] upgradeLevels;
-        
+
+        public void SetName(string name)
+        {
+            this.name = name;
+        }
+
     }
 }

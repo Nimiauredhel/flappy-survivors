@@ -16,46 +16,107 @@ MonoBehaviour:
     branches:
     - name: Battle Axe
       upgradeLevels:
-      - upgradeOptions:
-        - Taken: 0
-          upgradeConfig: {fileID: 11400000, guid: 0e98b4b55b2b8b64583c7d61f3ab666c, type: 2}
-      - upgradeOptions:
-        - Taken: 0
-          upgradeConfig: {fileID: 11400000, guid: a326835469e9a994e9e8bd2ad25e8035, type: 2}
-        - Taken: 0
-          upgradeConfig: {fileID: 11400000, guid: aa6256b5148bd544e8089334906ae045, type: 2}
-      - upgradeOptions:
-        - Taken: 0
-          upgradeConfig: {fileID: 11400000, guid: 6c2454643e18071448f7d6fdb98f411c, type: 2}
+      - name: Level 0
+        upgradeOptions:
+        - name: Smite foes from above with a short but powerful blow.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 0e98b4b55b2b8b64583c7d61f3ab666c, type: 2}
+      - name: Level 1
+        upgradeOptions:
+        - name: 2x duration, 25% larger area.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: a326835469e9a994e9e8bd2ad25e8035, type: 2}
+        - name: Reduced cooldown by 1 second.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: aa6256b5148bd544e8089334906ae045, type: 2}
+      - name: Level 2
+        upgradeOptions:
+        - name: Skips the cooldown when you hit an enemy.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 6c2454643e18071448f7d6fdb98f411c, type: 2}
     - name: Kill Sphere
       upgradeLevels:
-      - upgradeOptions:
-        - Taken: 0
-          upgradeConfig: {fileID: 11400000, guid: 6f01e89c960b9634eb5560661d1e1ec2, type: 2}
-      - upgradeOptions:
-        - Taken: 0
-          upgradeConfig: {fileID: 11400000, guid: 395e3e392ded57e43aaea75f1ec60778, type: 2}
-        - Taken: 0
-          upgradeConfig: {fileID: 11400000, guid: a670862317ea26447b2d02f6b84c9d39, type: 2}
-      - upgradeOptions:
-        - Taken: 0
-          upgradeConfig: {fileID: 11400000, guid: fb2665bd72c77db42b9b7945d606c723, type: 2}
+      - name: Level 0
+        upgradeOptions:
+        - name: Emit a lethal force field as you ascend.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 6f01e89c960b9634eb5560661d1e1ec2, type: 2}
+      - name: Level 1
+        upgradeOptions:
+        - name: Cooldown reduced by 1 second.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 395e3e392ded57e43aaea75f1ec60778, type: 2}
+        - name: 1.5x area of effect.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: a670862317ea26447b2d02f6b84c9d39, type: 2}
+      - name: Level 2
+        upgradeOptions:
+        - name: Increased duration by 50%.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: fb2665bd72c77db42b9b7945d606c723, type: 2}
     - name: Shuriken
       upgradeLevels:
-      - upgradeOptions:
-        - Taken: 1
-          upgradeConfig: {fileID: 11400000, guid: b11c7d4fc237bcd4bbec5678e46327fc, type: 2}
-      - upgradeOptions:
-        - Taken: 1
-          upgradeConfig: {fileID: 11400000, guid: e3b432bf5a955e54783ab6ce89638b14, type: 2}
-        - Taken: 1
-          upgradeConfig: {fileID: 11400000, guid: 86c55bf32e9d70d459bcd1479effdf90, type: 2}
-        - Taken: 1
-          upgradeConfig: {fileID: 11400000, guid: 77a42c2899e8610488864d1aec307e4d, type: 2}
-        - Taken: 1
-          upgradeConfig: {fileID: 11400000, guid: 5494c4eacbe477f4cad94398133f75ed, type: 2}
-      - upgradeOptions:
-        - Taken: 1
-          upgradeConfig: {fileID: 11400000, guid: 71b0803f5367c1640b3d247e838c289e, type: 2}
-        - Taken: 1
-          upgradeConfig: {fileID: 11400000, guid: da896da194a26924f82f63ca7b9e5b97, type: 2}
+      - name: Level 0
+        upgradeOptions:
+        - name: Dispatch enemies at a distance.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: b11c7d4fc237bcd4bbec5678e46327fc, type: 2}
+      - name: Level 1
+        upgradeOptions:
+        - name: -1 cooldown time.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: e3b432bf5a955e54783ab6ce89638b14, type: 2}
+        - name: +1 projectile.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 86c55bf32e9d70d459bcd1479effdf90, type: 2}
+        - name: Goes through one enemy.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 77a42c2899e8610488864d1aec307e4d, type: 2}
+        - name: +1 power.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 5494c4eacbe477f4cad94398133f75ed, type: 2}
+      - name: Level 2
+        upgradeOptions:
+        - name: +2 projectiles.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 71b0803f5367c1640b3d247e838c289e, type: 2}
+        - name: Goes through two more enemies.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: da896da194a26924f82f63ca7b9e5b97, type: 2}
+    - name: Max Health Up
+      upgradeLevels:
+      - name: Level 0
+        upgradeOptions:
+        - name: Increase Max Health by 10.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 65d691839b711e648b55e0f7a61f97eb, type: 2}
+        - name: Increase Max Health by 10.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 65d691839b711e648b55e0f7a61f97eb, type: 2}
+        - name: Increase Max Health by 10.
+          Taken: 1
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 65d691839b711e648b55e0f7a61f97eb, type: 2}
+      - name: Level 1
+        upgradeOptions:
+        - name: Increase Max Health by 20.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: f51fdff6fa4621246963cb4992d56ed8, type: 2}

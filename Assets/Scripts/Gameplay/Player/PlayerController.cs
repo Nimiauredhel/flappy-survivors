@@ -238,7 +238,8 @@ namespace Gameplay.Player
         public void Start()
         {
             SetNewState(new InitialState());
-            weapons.InitializeWeapons(view.Graphic.transform, characterConfig.Weapons, uiView);
+            weapons.InitializeWeapons(view.Graphic.transform, characterConfig.StartingWeapons, uiView);
+            model.InitializeModel(characterConfig);
             _touchReceiver.PointerDown += PointerDownHandler;
             _touchReceiver.PointerUp += PointerUpHandler;
             view.TriggerEntered += TriggerEnterHandler;
@@ -379,7 +380,35 @@ namespace Gameplay.Player
         {
             Time.timeScale = 1.0f;
             selectedOption.Taken = true;
-            weapons.AddOrUpgradeWeapon(view.Graphic.transform, selectedOption.UpgradeConfig, uiView);
+
+            switch (selectedOption.UpgradeConfig.Type())
+            {
+                case UpgradeType.None:
+                    break;
+                
+                case UpgradeType.Stats:
+                    StatUpgradeConfiguration statConfig = selectedOption.UpgradeConfig as StatUpgradeConfiguration;
+                    
+                    if (statConfig != null)
+                    {
+                        model.UpgradeStats(statConfig.Stats);
+                    }
+                    break;
+                
+                case UpgradeType.Weapon:
+                    WeaponConfiguration weaponConfig = selectedOption.UpgradeConfig as WeaponConfiguration;
+                    
+                    if (weaponConfig != null)
+                    {
+                        weapons.AddOrUpgradeWeapon(view.Graphic.transform, weaponConfig, uiView);
+                    }
+                    break;
+                
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            
+            
         }
 
         private void ChangePlayerHealth(int amount)

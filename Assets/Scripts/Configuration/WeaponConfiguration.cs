@@ -1,3 +1,4 @@
+using Gameplay.Upgrades;
 using Gameplay.Weapons;
 using Gameplay.Weapons.WeaponLogic;
 using TypeReferences;
@@ -6,9 +7,8 @@ using UnityEngine;
 namespace Configuration
 {
     [CreateAssetMenu(fileName = "Weapon Config", menuName = "Config/Weapon Config", order = 0)]
-    public class WeaponConfiguration : ScriptableObject
+    public class WeaponConfiguration : ScriptableObject, IUpgrade
     {
-        public int Commonness => commonness;
         public WeaponStats Stats => stats;
         public WeaponView ViewPrefab => viewPrefab;
         public TypeReference[] LogicComponents => logicComponents;
@@ -20,5 +20,29 @@ namespace Configuration
         [SerializeField] private TypeReference[] logicComponents;
         [SerializeField] private WeaponView viewPrefab;
         [SerializeField] private Sprite iconSprite;
+        public UpgradeType Type()
+        {
+            return UpgradeType.Weapon;
+        }
+
+        public Sprite Icon()
+        {
+            return iconSprite;
+        }
+
+        public string Name()
+        {
+            return stats.Name;
+        }
+
+        public string Description()
+        {
+            return stats.Description;
+        }
+
+        public int Commonness()
+        {
+            return commonness;
+        }
     }
 }

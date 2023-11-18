@@ -1,5 +1,5 @@
 ﻿using System;
-using Configuration;
+using AYellowpaper;
 using UnityEngine;
 
 namespace Gameplay.Upgrades
@@ -8,9 +8,32 @@ namespace Gameplay.Upgrades
     public class UpgradeOption
     {
         [HideInInspector]
+        public string name;
+        [HideInInspector]
         public bool Taken = false;
-        public WeaponConfiguration UpgradeConfig => upgradeConfig;
+        public IUpgrade UpgradeConfig => upgradeConfig.Value;
         
-        [SerializeField] private WeaponConfiguration upgradeConfig;
+        [SerializeField] private InterfaceReference<IUpgrade, ScriptableObject> upgradeConfig;
+        
+        public void SetName(string newName)
+        {
+            this.name = newName;
+        }
+    }
+
+    public enum  UpgradeType
+    {
+        None,
+        Stats,
+        Weapon
+    }
+    
+    public interface IUpgrade
+    {
+        public UpgradeType Type();
+        public Sprite Icon();
+        public string Name();
+        public string Description();
+        public int Commonness();
     }
 }

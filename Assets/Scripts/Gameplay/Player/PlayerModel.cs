@@ -1,4 +1,5 @@
 using System;
+using Configuration;
 using Gameplay.Upgrades;
 using UnityEngine;
 using VContainer;
@@ -11,7 +12,7 @@ namespace Gameplay.Player
         public int TotalXP => totalXp;
         public int NextLevelXPReq => nextLevelXpReq;
         public int PreviousLevelXPReq => previousLevelXpReq;
-        public int MaxHealth => maxHealth;
+        public int MaxHealth => stats.MaxHealth;
         public int CurrentHealth => currentHealth;
         public float CurrentXSpeed => currentXSpeed;
         public float CurrentYSpeed => currentYSpeed;
@@ -25,14 +26,21 @@ namespace Gameplay.Player
         private int totalXp = 0;
         private int nextLevelXpReq = 5;
         private int previousLevelXpReq = 0;
-        private int maxHealth = 100;
+        
         private int currentHealth = 100;
         
         private float currentXSpeed;
         private float currentYSpeed;
 
-        [Inject] private UpgradeTree upgradeTree;
-        
+        private PlayerStats stats;
+        private UpgradeTree upgradeTree;
+
+        public void InitializeModel(PlayerCharacterConfiguration config)
+        {
+            this.stats = config.Stats;
+            upgradeTree = config.GetUpgradeTree;
+        }
+
         public void SetXSpeed(float value)
         {
             currentXSpeed = value;
@@ -45,9 +53,9 @@ namespace Gameplay.Player
 
         public void ChangeHealth(int value)
         {
-            currentHealth = Mathf.Clamp(currentHealth + value, 0, maxHealth);
+            currentHealth = Mathf.Clamp(currentHealth + value, 0, stats.MaxHealth);
 
-            float healthPercent = Mathf.InverseLerp(0, maxHealth, currentHealth);
+            float healthPercent = Mathf.InverseLerp(0, stats.MaxHealth, currentHealth);
             HealthPercentChanged?.Invoke(healthPercent);
         }
 
@@ -62,6 +70,13 @@ namespace Gameplay.Player
 
             float xpPercent = Mathf.InverseLerp(previousLevelXpReq, nextLevelXpReq, totalXp);
             XPPercentChanged?.Invoke(xpPercent);
+        }
+
+        public void UpgradeStats(PlayerStats upgradeStats)
+        {
+            stats.UpgradeStats(upgradeStats);
+            // change health by 0 to trigger the UI update
+            ChangeHealth(0);
         }
 
         private void LevelUp()

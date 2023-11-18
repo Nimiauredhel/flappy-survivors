@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Gameplay.Upgrades
@@ -8,7 +9,33 @@ namespace Gameplay.Upgrades
     public class UpgradeTree
     {
         [SerializeField] private UpgradeBranch[] branches;
-
+        
+        /// <summary>
+        /// Sets the names of all Upgrade Tree elements to be editor-friendly.
+        /// Not optimized for runtime!!
+        /// </summary>
+        public void ValidateUpgradeTree()
+        {
+            foreach (UpgradeBranch branch in branches)
+            {
+                if (branch.UpgradeLevels == null || branch.UpgradeLevels.Length == 0) continue;
+                
+                for(int i = 0; i < branch.UpgradeLevels.Length; i++)
+                {
+                    branch.UpgradeLevels[i].SetName("Level " + i);
+                    
+                    if (branch.UpgradeLevels[i].UpgradeOptions == null || branch.UpgradeLevels[i].UpgradeOptions.Length == 0) continue;
+                    
+                    foreach (UpgradeOption upgradeOption in branch.UpgradeLevels[i].UpgradeOptions)
+                    {
+                        if (upgradeOption.UpgradeConfig == null) continue;
+                        upgradeOption.SetName(upgradeOption.UpgradeConfig.Description());
+                        branch.SetName(upgradeOption.UpgradeConfig.Name());
+                    }
+                }
+            }
+        }
+        
         public void ResetUpgradeTree()
         {
             foreach (UpgradeBranch branch in branches)

@@ -17,8 +17,8 @@ namespace Gameplay.Upgrades
                 UpgradeOption option = options[i];
                 UpgradesUIButton button = upgradeButtons[i];
 
-                button.Image.sprite = option.UpgradeConfig.IconSprite;
-                button.Text.text = option.UpgradeConfig.Stats.Description;
+                button.Image.sprite = option.UpgradeConfig.Icon();
+                button.Text.text = option.UpgradeConfig.Description();
                     
                 button.Button.onClick.AddListener(delegate { OnUpgradeSelected(option, selectionCallback); });
                 

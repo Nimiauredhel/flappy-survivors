@@ -1,3 +1,4 @@
+using System;
 using Gameplay.Upgrades;
 using UnityEngine;
 
@@ -13,5 +14,13 @@ namespace Configuration
         }
 
         [SerializeField] private UpgradeTree upgradeTree;
+
+        private void OnValidate()
+        {
+            if (upgradeTree != null)
+            {
+                upgradeTree.ValidateUpgradeTree();
+            }
+        }
     }
 }
