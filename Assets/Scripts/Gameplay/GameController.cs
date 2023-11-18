@@ -75,7 +75,6 @@ namespace Gameplay
 
         private void ComboBrokenHandler(int brokenCombo)
         {
-            Debug.Log(brokenCombo);
             Stack<PickupDropOrder> pickupsToDrop = new Stack<PickupDropOrder>(comboBalloon);
             comboBalloon.Clear();
 
