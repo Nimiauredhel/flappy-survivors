@@ -1,5 +1,6 @@
 using System;
 using Configuration;
+using Gameplay.Upgrades;
 using UnityEngine;
 
 namespace Gameplay.ScrolledObjects.Pickup
@@ -7,12 +8,12 @@ namespace Gameplay.ScrolledObjects.Pickup
     public class PickupLogic : IScrolledObjectLogic
     {
         private readonly PickupType type;
-        private int value;
+        private object value;
         private readonly float lifetime;
 
         private float elapsedTime = 0.0f;
 
-        public PickupLogic(PickupType type, int value, float lifetime)
+        public PickupLogic(PickupType type, object value, float lifetime)
         {
             this.type = type;
             this.value = value;
@@ -39,19 +40,20 @@ namespace Gameplay.ScrolledObjects.Pickup
             Debug.LogWarning("Pickup hit by weapon. This shouldn't happen.");
         }
 
-        public void OnHitByPlayer(ScrolledObjectView view, Action<int> hpAction, Action<int> xpAction)
+        public void OnHitByPlayer(ScrolledObjectView view, Action<int> hpAction, Action<int> xpAction, Action<UpgradeOption> upgradeAction)
         {
             switch (type)
             {
                 case PickupType.None:
                     break;
                 case PickupType.XP:
-                    xpAction?.Invoke(value);
+                    xpAction?.Invoke((int)value);
                     break;
                 case PickupType.Health:
-                    hpAction?.Invoke(value);
+                    hpAction?.Invoke((int)value);
                     break;
                 case PickupType.Upgrade:
+                    upgradeAction?.Invoke((UpgradeOption)value);
                     break;
                 case PickupType.Gold:
                     break;
@@ -64,13 +66,36 @@ namespace Gameplay.ScrolledObjects.Pickup
             view.Deactivate();
         }
 
-        public void OnActivate(int newValue)
+        public void OnActivate(ScrolledObjectView view, object newValue)
         {
             elapsedTime = 0.0f;
             value = newValue;
+
+            switch (type)
+            {
+                case PickupType.None:
+                    break;
+                case PickupType.XP:
+                    break;
+                case PickupType.Health:
+                    break;
+                case PickupType.Upgrade:
+                    UpgradeOption upgrade = (UpgradeOption)newValue;
+
+                    view.SecondaryGraphic.sprite = upgrade.UpgradeConfig.Icon();
+                    view.Text.text = upgrade.UpgradeConfig.Description();
+                    
+                    break;
+                case PickupType.Gold:
+                    break;
+                case PickupType.Chest:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
-        public void OnDeactivate()
+        public void OnDeactivate(ScrolledObjectView view)
         {
             
         }

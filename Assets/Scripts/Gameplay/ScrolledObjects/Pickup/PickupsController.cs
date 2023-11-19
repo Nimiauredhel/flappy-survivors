@@ -16,13 +16,14 @@ namespace Gameplay.ScrolledObjects.Pickup
         private const int MAX_PICKUP_VALUE = 100;
         private const float MIN_PICKUP_SCALE = 1.0f;
         private const float MAX_PICKUP_SCALE = 1.5f;
+        private const float SPAWN_GAP = 0.25f;
         private static readonly Vector3 SPAWN_INITIAL_SCALE = new Vector3(0.0f, 0.0f, 1.0f);
         private static readonly Vector3 SPAWN_POSITION_OFFSET = new Vector3(10.0f, 0.0f, 0.0f);
-        private static readonly WaitForSeconds WaitForSpawnGap = new WaitForSeconds(0.25f);
         
         [SerializeField] private int poolSize = 100;
         [SerializeField] private ScrolledObjectView xpPickupPrefab;
         [SerializeField] private ScrolledObjectView healthPickupPrefab;
+        [SerializeField] private ScrolledObjectView upgradePickupPrefab;
 
         private List<KeyValuePair<PickupType, ScrolledObjectView>> activePickups = new List<KeyValuePair<PickupType, ScrolledObjectView>>(16);
         private ObjectPool<ScrolledObjectView> pooledXPPickups;
@@ -66,6 +67,7 @@ namespace Gameplay.ScrolledObjects.Pickup
                             pooledHealthPickups.Release(toRemove.Value);
                             break;
                         case PickupType.Upgrade:
+                            Destroy(toRemove.Value.gameObject);
                             break;
                         case PickupType.Gold:
                             break;
@@ -88,15 +90,39 @@ namespace Gameplay.ScrolledObjects.Pickup
 
         public void SpawnPickups(Stack<PickupDropOrder> pickupOrders, float comboModifier)
         {
-            StartCoroutine(SpawnPickupsRoutine(pickupOrders, comboModifier));
+            StartCoroutine(SpawnPickupsRoutine(pickupOrders, comboModifier, SPAWN_GAP));
         }
 
-        public void SpawnPickup(PickupDropOrder order, PickupType type)
+        public ScrolledObjectView[] SpawnAndReturnPickups(Stack<PickupDropOrder> pickupOrders, float comboModifier)
         {
-            SpawnPickup(order.Position, order.Value, type);
+            ScrolledObjectView[] spawnedPickups = new ScrolledObjectView[pickupOrders.Count];
+            PickupDropOrder currentOrder;
+            object currentValue;
+            int index = 0;
+
+            while (pickupOrders.Count > 0)
+            {
+                currentOrder = pickupOrders.Pop();
+                currentValue = currentOrder.Value;
+
+                if (currentValue is int valueInt)
+                {
+                    currentValue = Mathf.FloorToInt(valueInt * comboModifier);
+                }
+
+                spawnedPickups[index] = SpawnPickup(currentOrder.Position, currentValue, currentOrder.Type);
+                index++;
+            }
+
+            return spawnedPickups;
         }
 
-        public void SpawnPickup(Vector3 position, int value, PickupType type)
+        public ScrolledObjectView SpawnPickup(PickupDropOrder order, PickupType type)
+        {
+            return SpawnPickup(order.Position, order.Value, type);
+        }
+
+        public ScrolledObjectView SpawnPickup(Vector3 position, object value, PickupType type)
         {
             ScrolledObjectView spawnedPickup = null;
 
@@ -111,6 +137,7 @@ namespace Gameplay.ScrolledObjects.Pickup
                     pooledHealthPickups.Get(out spawnedPickup);
                     break;
                 case PickupType.Upgrade:
+                    spawnedPickup = CreatePickup(PickupType.Upgrade);
                     break;
                 case PickupType.Gold:
                     break;
@@ -122,9 +149,16 @@ namespace Gameplay.ScrolledObjects.Pickup
 
             if (spawnedPickup != null)
             {
+                int sizeValue = 1;
+
+                if (value is int valueInt)
+                {
+                    sizeValue = valueInt;
+                }
+
                 Vector3 targetPosition = position + SPAWN_POSITION_OFFSET;
                 Vector3 targetScale =
-                    Vector3.one * Constants.Map(MIN_PICKUP_VALUE, MAX_PICKUP_VALUE, MIN_PICKUP_SCALE, MAX_PICKUP_SCALE, value);
+                    Vector3.one * Constants.Map(MIN_PICKUP_VALUE, MAX_PICKUP_VALUE, MIN_PICKUP_SCALE, MAX_PICKUP_SCALE, sizeValue);
 
                 Transform spawnedPickupTransform = spawnedPickup.transform;
                 spawnedPickupTransform.localScale = SPAWN_INITIAL_SCALE;
@@ -145,10 +179,12 @@ namespace Gameplay.ScrolledObjects.Pickup
                 });
 
                 spawnSequence.Play();
+                return spawnedPickup;
             }
             else
             {
                 Debug.LogWarning("Null pickup.");
+                return null;
             }
         }
 
@@ -177,6 +213,7 @@ namespace Gameplay.ScrolledObjects.Pickup
                     selectedPrefab = healthPickupPrefab;
                     break;
                 case PickupType.Upgrade:
+                    selectedPrefab = upgradePickupPrefab;
                     break;
                 case PickupType.Gold:
                     break;
@@ -200,16 +237,25 @@ namespace Gameplay.ScrolledObjects.Pickup
             }
         }
 
-        private IEnumerator SpawnPickupsRoutine(Stack<PickupDropOrder> pickupOrders, float comboModifier)
+        private IEnumerator SpawnPickupsRoutine(Stack<PickupDropOrder> pickupOrders, float comboModifier, float spawnGap)
         {
+            WaitForSeconds waitForSpawnGap = new WaitForSeconds(spawnGap);
             PickupDropOrder currentOrder;
+            object currentValue;
             yield return null;
 
             while (pickupOrders.Count > 0)
             {
                 currentOrder = pickupOrders.Pop();
-                SpawnPickup(currentOrder.Position, Mathf.FloorToInt(currentOrder.Value * comboModifier), currentOrder.Type);
-                yield return WaitForSpawnGap;
+                currentValue = currentOrder.Value;
+
+                if (currentValue is int valueInt)
+                {
+                    currentValue = Mathf.FloorToInt(valueInt * comboModifier);
+                }
+
+                SpawnPickup(currentOrder.Position, currentValue, currentOrder.Type);
+                yield return waitForSpawnGap;
             }
         }
     }

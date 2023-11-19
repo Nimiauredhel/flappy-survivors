@@ -1,4 +1,5 @@
 using System;
+using Gameplay.Upgrades;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -48,17 +49,17 @@ namespace Gameplay.ScrolledObjects.Enemy
             }
         }
 
-        public void OnHitByPlayer(ScrolledObjectView view, Action<int> hpAction, Action<int> xpAction)
+        public void OnHitByPlayer(ScrolledObjectView view, Action<int> hpAction, Action<int> xpAction, Action<UpgradeOption> upgradeOption)
         {
             hpAction?.Invoke(-stats.Power);
         }
 
-        public void OnActivate(int value = 0)
+        public void OnActivate(ScrolledObjectView view, object value)
         {
             currentHP = Random.Range(stats.MinHP, stats.MaxHP);
         }
 
-        public void OnDeactivate()
+        public void OnDeactivate(ScrolledObjectView view)
         {
             
         }

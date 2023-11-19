@@ -20,7 +20,6 @@ namespace Gameplay.Player
 
         public event Action<float> HealthPercentChanged;
         public event Action<float> XPPercentChanged;
-        public event Action<int> LeveledUp;
         
         private int currentLevel = 1;
         private int totalXp = 0;
@@ -59,13 +58,15 @@ namespace Gameplay.Player
             HealthPercentChanged?.Invoke(healthPercent);
         }
 
-        public void ChangeXP(int value)
+        public void ChangeXP(int value, out bool levelUp)
         {
+            levelUp = false;
             totalXp += value;
 
             if (totalXp >= nextLevelXpReq)
             {
-                LevelUp();
+                levelUp = true;
+                PerformLevelUp();
             }
 
             float xpPercent = Mathf.InverseLerp(previousLevelXpReq, nextLevelXpReq, totalXp);
@@ -79,7 +80,7 @@ namespace Gameplay.Player
             ChangeHealth(0);
         }
 
-        private void LevelUp()
+        private void PerformLevelUp()
         {
             currentLevel++;
 
@@ -89,8 +90,6 @@ namespace Gameplay.Player
                              + (ClampLevel(currentLevel - 1) * 10)
                              + (ClampLevel(currentLevel - 20) * 3) 
                              + (ClampLevel(currentLevel - 40) * 3);
-            
-            LeveledUp?.Invoke(currentLevel);
         }
 
         private int ClampLevel(int value)

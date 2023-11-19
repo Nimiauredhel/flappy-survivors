@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Configuration;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Pool;
 using Random = UnityEngine.Random;
@@ -10,7 +11,7 @@ namespace Gameplay.ScrolledObjects.Enemy
     public class EnemiesController : MonoBehaviour
     {
         public event Action<int, Vector3> EnemyKilled;
-
+        
         [SerializeField] private int poolSize = 100;
         [SerializeField] private float startX, endX, minY, maxY;
         [SerializeField] private float maxSpawnGap, minSpawnGap;
@@ -26,7 +27,7 @@ namespace Gameplay.ScrolledObjects.Enemy
             pooledEnemies = new ObjectPool<ScrolledObjectView>(CreateEnemy, OnGetEnemy, OnReturnEnemy, null, true, poolSize);
         }
 
-        public void DoUpdate()
+        public void DoUpdate(bool canSpawn)
         {
             for (int i = activeEnemies.Count - 1; i >= 0; i--)
             {
@@ -46,14 +47,17 @@ namespace Gameplay.ScrolledObjects.Enemy
                     pooledEnemies.Release(toRemove);
                 }
             }
-            
-            if (spawnCooldown <= 0.0f)
+
+            if (canSpawn)
             {
-                pooledEnemies.Get();
-            }
-            else
-            {
-                spawnCooldown -= Time.deltaTime;
+                if (spawnCooldown <= 0.0f)
+                {
+                    pooledEnemies.Get();
+                }
+                else
+                {
+                    spawnCooldown -= Time.deltaTime;
+                }
             }
         }
 
@@ -82,7 +86,7 @@ namespace Gameplay.ScrolledObjects.Enemy
         {
             spawnCooldown = Random.Range(minSpawnGap, maxSpawnGap);
             spawnedEnemy.transform.position = new Vector3(startX, Random.Range(minY, maxY));
-            spawnedEnemy.Activate(0);
+            spawnedEnemy.Activate(null);
             activeEnemies.Add(spawnedEnemy);
         }
 

@@ -60,6 +60,7 @@ MonoBehaviour:
   vfxService: {fileID: 6848576409715824879}
   characterConfig: {fileID: 11400000, guid: c6090626691570544aa583874a1a877e, type: 2}
   playerMovementConfig: {fileID: 11400000, guid: e414032af90abd241a93a779ea55474f, type: 2}
+  upgradeTreeConfig: {fileID: 11400000, guid: b83511e44f3406d49acf0105ff040674, type: 2}
 --- !u!1001 &2374477979370377932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80,6 +81,10 @@ PrefabInstance:
       propertyPath: healthPickupPrefab
       value: 
       objectReference: {fileID: -1032148392928579942, guid: 61410369850e0754d95e73b0358a97e8, type: 3}
+    - target: {fileID: 6829292468732312346, guid: b19bd373725b9b243aed38bfe6499e70, type: 3}
+      propertyPath: upgradePickupPrefab
+      value: 
+      objectReference: {fileID: 2728240214457466254, guid: 0a9dd8ec5f61d0a4ea886428d0b22f39, type: 3}
     - target: {fileID: 7720813000921127985, guid: b19bd373725b9b243aed38bfe6499e70, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

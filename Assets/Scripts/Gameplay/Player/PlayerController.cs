@@ -14,12 +14,13 @@ using Random = UnityEngine.Random;
 
 namespace Gameplay.Player
 {
-    public class PlayerController : IStartable, ITickable, IFixedTickable, IDisposable
+    public class PlayerController
     {
         private static readonly int CLIMBING_HASH = Animator.StringToHash("Climbing");
         private static readonly int DIVING_HASH = Animator.StringToHash("Diving");
 
-        public event Action<int> ComboBreak; 
+        public event Action<int> ComboBreak;
+        public event Action<int> LevelUp;
         
         [Inject] private readonly TouchReceiver _touchReceiver;
         [Inject] private readonly PlayerView view;
@@ -224,18 +225,18 @@ namespace Gameplay.Player
 
         #region Lifetime Scope Events
         
-        public void Tick()
+        public void DoUpdate()
         {
             _currentState.UpdateState(this);
             comboService.DoUpdate();
         }
 
-        public void FixedTick()
+        public void DoFixedUpdate()
         {
             _currentState.FixedUpdateState(this);
         }
 
-        public void Start()
+        public void Initialize()
         {
             SetNewState(new InitialState());
             weapons.InitializeWeapons(view.Graphic.transform, characterConfig.StartingWeapons, uiView);
@@ -249,17 +250,12 @@ namespace Gameplay.Player
             
             model.HealthPercentChanged += uiView.UpdatePlayerHealthView;
             model.XPPercentChanged += uiView.UpdatePlayerXPView;
-            model.LeveledUp += LevelUpHandler;
-
             comboService.ComboChanged += HandleComboChanged;
-            
-            // temporary to allow selecting weapon on startup
-            LevelUpHandler(model.CurrentLevel);
 
             uiView.StartCoroutine(TimerRoutine());
         }
 
-        public void Dispose()
+        public void OnDispose()
         {
             _touchReceiver.PointerDown -= PointerDownHandler;
             _touchReceiver.PointerUp -= PointerUpHandler;
@@ -268,6 +264,8 @@ namespace Gameplay.Player
             xSpeedTweener.Kill();
             ySpeedTweener.Kill();
 
+            model.HealthPercentChanged -= uiView.UpdatePlayerHealthView;
+            model.XPPercentChanged -= uiView.UpdatePlayerXPView;
             comboService.ComboChanged -= HandleComboChanged;
         }
         
@@ -334,46 +332,29 @@ namespace Gameplay.Player
 
         private void ChangePlayerXP(int value)
         {
-            model.ChangeXP(value);
+            bool levelUp = false;
+            model.ChangeXP(value, out levelUp);
+
+            if (levelUp)
+            {
+                LevelUpHandler();
+            }
         }
         
         private void TriggerEnterHandler(object sender, Collider2D other)
         {
             ScrolledObjectView SO = other.gameObject.GetComponentInParent<ScrolledObjectView>();
-
+            
             if (SO != null && SO.Active)
             {
-                SO.HitByPlayer(ChangePlayerHealth, ChangePlayerXP);
+                SO.HitByPlayer(ChangePlayerHealth, ChangePlayerXP, SelectedUpgradeHandler);
             }
         }
         
-        private void LevelUpHandler(int newLevel)
+        private void LevelUpHandler()
         {
-            Time.timeScale = 0.0f;
-            
-            uiView.UpdatePlayerCurrentLevelText(newLevel);
-
-            List<UpgradeOption> allCurrentOptions = model.UpgradeTree.GetAllCurrentOptions(model.CurrentLevel);
-            List<UpgradeOption> shortList = new List<UpgradeOption>(4);
-            
-            for (int i = 0; i < 3; i++)
-            {
-                if (allCurrentOptions.Count <= 0) break;
-                
-                UpgradeOption option = allCurrentOptions[Random.Range(0, allCurrentOptions.Count)];
-                shortList.Add(option);
-                allCurrentOptions.Remove(option);
-            }
-
-            if (shortList.Count > 0)
-            {
-                upgradesUIView.gameObject.SetActive(true);
-                upgradesUIView.DisplayUpgradesDialog(shortList, SelectedUpgradeHandler);
-            }
-            else
-            {
-                Time.timeScale = 1.0f;
-            }
+            uiView.UpdatePlayerCurrentLevelText(model.CurrentLevel);
+            LevelUp?.Invoke(model.CurrentLevel);
         }
 
         private void SelectedUpgradeHandler(UpgradeOption selectedOption)
