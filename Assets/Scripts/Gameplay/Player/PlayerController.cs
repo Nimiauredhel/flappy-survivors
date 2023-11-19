@@ -54,13 +54,16 @@ namespace Gameplay.Player
 
             public void DoUpdate()
             {
-                if (currentCombo > 0)
+                if (GameModel.CurrentGamePhase == GamePhase.HordePhase)
                 {
-                    timeSinceLastKill += Time.deltaTime;
-
-                    if (timeSinceLastKill > COMBO_GAP)
+                    if (currentCombo > 0)
                     {
-                        ComboBreak();
+                        timeSinceLastKill += Time.deltaTime;
+
+                        if (timeSinceLastKill > COMBO_GAP)
+                        {
+                            ComboBreak();
+                        }
                     }
                 }
             }
@@ -222,8 +225,6 @@ namespace Gameplay.Player
         }
 
         #endregion
-
-        #region Lifetime Scope Events
         
         public void DoUpdate()
         {
@@ -268,8 +269,6 @@ namespace Gameplay.Player
             model.XPPercentChanged -= uiView.UpdatePlayerXPView;
             comboService.ComboChanged -= HandleComboChanged;
         }
-        
-        #endregion
 
         #region Movement
         
@@ -452,6 +451,11 @@ namespace Gameplay.Player
 
             while (secondsLeft > 0)
             {
+                while (GameModel.CurrentGamePhase != GamePhase.HordePhase)
+                {
+                    yield return null;
+                }
+
                 uiView.UpdateTimerText(secondsLeft);
                 secondsLeft--;
                 yield return second;

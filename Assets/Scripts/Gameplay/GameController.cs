@@ -14,13 +14,13 @@ namespace Gameplay
 {
     public class GameController : IStartable, ITickable, IFixedTickable, IDisposable
     {
+        [Inject] private readonly GameModel gameModel;
         [Inject] private readonly EnemiesController enemiesController;
         [Inject] private readonly PickupsController pickupsController;
         [Inject] private readonly PlayerController playerController;
         [Inject] private readonly VFXService vfxService;
         [Inject] private UpgradeTree upgradeTree;
-
-        private bool allowEnemiesToSpawn = false;
+        
         private Stack<PickupDropOrder> comboBalloon = new Stack<PickupDropOrder>(32);
 
         private AudioSource musicSource;
@@ -29,6 +29,8 @@ namespace Gameplay
         {
             Application.targetFrameRate = 60;
 
+            gameModel.Initialize();
+            
             playerController.ComboBreak += ComboBrokenHandler;
             playerController.LevelUp += LevelUpHandler;
             
@@ -39,7 +41,6 @@ namespace Gameplay
             vfxService.Initialize();
             pickupsController.Initialize();
             
-            allowEnemiesToSpawn = true;
             SetMusic(true);
             
             LevelUpHandler(1);
@@ -48,7 +49,7 @@ namespace Gameplay
         public void Tick()
         {
             playerController.DoUpdate();
-            enemiesController.DoUpdate(allowEnemiesToSpawn);
+            enemiesController.DoUpdate();
             pickupsController.DoUpdate();
         }
 
@@ -104,10 +105,12 @@ namespace Gameplay
 
         private void LevelUpHandler(int newLevel)
         {
-            allowEnemiesToSpawn = false;
+            gameModel.SetGamePhase(GamePhase.UpgradePhase);
             SetMusic(false);
             
-            Vector3[] positions = new[] { new Vector3(25, 5), new Vector3(25, 0), new Vector3(25, -5) };
+            pickupsController.PurgeAllPickups(true);
+            
+            Vector3[] positions = new[] { new Vector3(25, 5), new Vector3(25, -1), new Vector3(25, -7) };
             List<UpgradeOption> allCurrentOptions = upgradeTree.GetAllCurrentOptions(newLevel);
             Stack<PickupDropOrder> shortList = new Stack<PickupDropOrder>(4);
             
@@ -132,9 +135,9 @@ namespace Gameplay
 
         private void FinishUpgradePhase(ScrolledObjectView[] upgradePickups)
         {
-            if (allowEnemiesToSpawn) return;
+            if (GameModel.CurrentGamePhase != GamePhase.UpgradePhase) return;
 
-            allowEnemiesToSpawn = true;
+            gameModel.SetGamePhase(GamePhase.HordePhase);
             SetMusic(true);
 
             for (int i = 0; i < upgradePickups.Length; i++)

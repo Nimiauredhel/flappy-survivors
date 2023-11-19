@@ -48,7 +48,14 @@ namespace Gameplay.ScrolledObjects.Pickup
                 
                 if (activePickup.Active)
                 {
-                    activePickup.ScrolledObjectUpdate();
+                    if (GameModel.CurrentGamePhase == GamePhase.UpgradePhase && activePickups[i].Key != PickupType.Upgrade)
+                    {
+                        activePickup.Deactivate();
+                    }
+                    else
+                    {
+                        activePickup.ScrolledObjectUpdate();
+                    }
                 }
                 else
                 {
@@ -188,6 +195,14 @@ namespace Gameplay.ScrolledObjects.Pickup
             }
         }
 
+        public void PurgeAllPickups(bool dieEffect = false)
+        {
+            foreach (KeyValuePair<PickupType, ScrolledObjectView> pickup in activePickups)
+            {
+                pickup.Value.Deactivate(dieEffect);
+            }
+        }
+        
         private ScrolledObjectView CreateXPPickup()
         {
             return CreatePickup(PickupType.XP);

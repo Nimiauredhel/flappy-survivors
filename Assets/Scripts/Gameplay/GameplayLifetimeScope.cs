@@ -38,8 +38,10 @@ namespace Gameplay
             builder.RegisterComponent(playerMovementConfig);
             builder.RegisterComponent(upgradeTreeConfig.GetFreshUpgradeTree());
 
+            builder.Register<GameModel>(Lifetime.Singleton);
             builder.Register<PlayerController>(Lifetime.Singleton);
             builder.Register<PlayerModel>(Lifetime.Singleton);
+            
             builder.RegisterEntryPoint<GameController>();
         }
     }

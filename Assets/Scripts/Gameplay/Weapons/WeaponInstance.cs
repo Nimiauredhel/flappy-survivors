@@ -48,12 +48,18 @@ namespace Gameplay.Weapons
 
         public void WeaponUpdate(WeaponType validType)
         {
+            // Skip this if Game Phase is either Intro or Upgrading
+            if ((int)GameModel.CurrentGamePhase < 2) return;
+            
             logic.OnUpdate(this);
             uiView.UpdateCooldownIndicator(1.0f-(Status.timeSinceActivated/Stats.Cooldown));
         }
 
         public void WeaponFixedUpdate(WeaponType validType)
         {
+            // Skip this if Game Phase is either Intro or Upgrading
+            if ((int)GameModel.CurrentGamePhase < 2) return;
+            
             bool activated = false;
             
             if (Stats.Type == validType || Stats.Type == WeaponType.Both)

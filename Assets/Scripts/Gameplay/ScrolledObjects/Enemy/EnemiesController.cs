@@ -27,7 +27,7 @@ namespace Gameplay.ScrolledObjects.Enemy
             pooledEnemies = new ObjectPool<ScrolledObjectView>(CreateEnemy, OnGetEnemy, OnReturnEnemy, null, true, poolSize);
         }
 
-        public void DoUpdate(bool canSpawn)
+        public void DoUpdate()
         {
             for (int i = activeEnemies.Count - 1; i >= 0; i--)
             {
@@ -48,7 +48,7 @@ namespace Gameplay.ScrolledObjects.Enemy
                 }
             }
 
-            if (canSpawn)
+            if (GameModel.CurrentGamePhase == GamePhase.HordePhase)
             {
                 if (spawnCooldown <= 0.0f)
                 {
