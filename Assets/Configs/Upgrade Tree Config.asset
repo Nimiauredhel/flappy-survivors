@@ -67,7 +67,7 @@ MonoBehaviour:
       - name: Level 0
         upgradeOptions:
         - name: Dispatch enemies at a distance.
-          Taken: 0
+          Taken: 1
           upgradeConfig:
             _underlyingValue: {fileID: 11400000, guid: b11c7d4fc237bcd4bbec5678e46327fc, type: 2}
       - name: Level 1
@@ -106,17 +106,41 @@ MonoBehaviour:
           Taken: 0
           upgradeConfig:
             _underlyingValue: {fileID: 11400000, guid: 65d691839b711e648b55e0f7a61f97eb, type: 2}
+      - name: Level 1
+        upgradeOptions:
         - name: Increase Max Health by 10.
           Taken: 0
           upgradeConfig:
             _underlyingValue: {fileID: 11400000, guid: 65d691839b711e648b55e0f7a61f97eb, type: 2}
-        - name: Increase Max Health by 10.
-          Taken: 1
-          upgradeConfig:
-            _underlyingValue: {fileID: 11400000, guid: 65d691839b711e648b55e0f7a61f97eb, type: 2}
-      - name: Level 1
+      - name: Level 2
         upgradeOptions:
         - name: Increase Max Health by 20.
           Taken: 0
           upgradeConfig:
             _underlyingValue: {fileID: 11400000, guid: f51fdff6fa4621246963cb4992d56ed8, type: 2}
+      - name: Level 3
+        upgradeOptions:
+        - name: Increase Max Health by 20.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: f51fdff6fa4621246963cb4992d56ed8, type: 2}
+    - name: Magnet Up
+      upgradeLevels:
+      - name: Level 0
+        upgradeOptions:
+        - name: Increases magnet strength by 1.
+          Taken: 1
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: c1bae599d639a6c42b650f8ef9d1d47f, type: 2}
+      - name: Level 1
+        upgradeOptions:
+        - name: Increases magnet strength by 1.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: c1bae599d639a6c42b650f8ef9d1d47f, type: 2}
+      - name: Level 2
+        upgradeOptions:
+        - name: Increases magnet strength by 2.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 08012c93dfef4f748b0445968f404dbe, type: 2}

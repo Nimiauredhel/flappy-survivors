@@ -15,11 +15,13 @@ namespace Gameplay.Player
         public PlayerStats(PlayerStats original)
         {
             maxHealth = original.maxHealth;
+            magnetStrength = original.magnetStrength;
         }
 
         public void UpgradeStats(PlayerStats upgradeStats)
         {
             maxHealth += upgradeStats.maxHealth;
+            magnetStrength += upgradeStats.magnetStrength;
         }
     }
 }
