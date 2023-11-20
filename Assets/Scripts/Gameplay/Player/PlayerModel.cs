@@ -16,6 +16,7 @@ namespace Gameplay.Player
         public int CurrentHealth => currentHealth;
         public float CurrentXSpeed => currentXSpeed;
         public float CurrentYSpeed => currentYSpeed;
+        public float MagnetStrength => stats.MagnetStrength;
         public UpgradeTree UpgradeTree => upgradeTree;
 
         public event Action<float> HealthPercentChanged;

@@ -7,8 +7,10 @@ namespace Gameplay.Player
     public class PlayerStats
     {
         public int MaxHealth => maxHealth;
+        public float MagnetStrength => magnetStrength;
         
         [SerializeField] private int maxHealth = 100;
+        [SerializeField] private float magnetStrength = 3.0f;
 
         public PlayerStats(PlayerStats original)
         {

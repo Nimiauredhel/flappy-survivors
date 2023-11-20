@@ -14,7 +14,7 @@ namespace Gameplay.Player
     {
         [SerializeField] private List<WeaponInstance> weapons = new List<WeaponInstance>(8);
 
-        public void InitializeWeapons(Transform weaponParent, WeaponConfiguration[] configs, PlayerUIView uiView)
+        public void Initialize(Transform weaponParent, WeaponConfiguration[] configs, PlayerUIView uiView)
         {
             foreach (WeaponConfiguration config in configs)
             {

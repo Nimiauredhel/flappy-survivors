@@ -32,6 +32,7 @@ namespace Gameplay.Player
         [Inject] private readonly PlayerCharacterConfiguration characterConfig;
         [Inject] private readonly PlayerMovementConfiguration movementConfig;
 
+        private readonly PlayerMagnetComponent magnet = new PlayerMagnetComponent();
         private readonly ComboService comboService = new ComboService();
         
         private PlayerState _currentState;
@@ -236,15 +237,17 @@ namespace Gameplay.Player
         public void DoFixedUpdate()
         {
             _currentState.FixedUpdateState(this);
+            magnet.DoFixedUpdate(model.MagnetStrength);
         }
 
         public void Initialize()
         {
             SetNewState(new InitialState());
-            
-            weapons.InitializeWeapons(view.Graphic.transform, characterConfig.StartingWeapons, uiView);
+
             model.InitializeModel(characterConfig);
             view.Initialize();
+            weapons.Initialize(view.Graphic.transform, characterConfig.StartingWeapons, uiView);
+            magnet.Initialize(view.Graphic.transform);
             
             _touchReceiver.PointerDown += PointerDownHandler;
             _touchReceiver.PointerUp += PointerUpHandler;

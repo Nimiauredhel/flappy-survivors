@@ -46,7 +46,7 @@ namespace Gameplay.ScrolledObjects
 
         public void HitByWeapon(int damage)
         {
-            Flash();
+            ShowDamage(damage);
             logic.OnHitByWeapon(this, damage);
         }
 
@@ -83,27 +83,34 @@ namespace Gameplay.ScrolledObjects
             Deactivated?.Invoke();
         }
         
-        public void Flash()
+        public void ShowDamage(int damage)
         {
             if (flashRoutine != null)
             {
                 StopCoroutine(flashRoutine);
             }
 
-            flashRoutine = StartCoroutine(FlashRoutine());
+            flashRoutine = StartCoroutine(ShowDamageRoutine(damage));
         }
         
-        private IEnumerator FlashRoutine()
+        private IEnumerator ShowDamageRoutine(int damage)
         {
-            
             float halfDuration = 0.15f;
             float time = 0.0f;
+            float percent;
+            float whiteValue;
             
+            text.text = damage.ToString();
+            text.alpha = 0.0f;
+            text.gameObject.SetActive(true);
+
             //in
             while (time < halfDuration)
             {
-                float value = Mathf.Lerp(0.0f, 0.85f, time / halfDuration);
-                SetWhiteAmount(value);
+                percent = time / halfDuration;
+                text.alpha = percent;
+                whiteValue = Mathf.Lerp(0.0f, 0.85f, percent);
+                SetWhiteAmount(whiteValue);
                 yield return null;
                 time += Time.deltaTime;
             }
@@ -112,11 +119,15 @@ namespace Gameplay.ScrolledObjects
             time = 0.0f;
             while (time < halfDuration)
             {
-                float value = Mathf.Lerp(0.85f, 0.0f, time / halfDuration);
-                SetWhiteAmount(value);
+                percent = time / halfDuration;
+                text.alpha = 1.0f - percent;
+                whiteValue = Mathf.Lerp(0.85f, 0.0f, percent);
+                SetWhiteAmount(whiteValue);
                 yield return null;
                 time += Time.deltaTime;
             }
+
+            text.gameObject.SetActive(false);
         }
 
         private void SetWhiteAmount(float amount)
