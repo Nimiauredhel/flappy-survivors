@@ -105,11 +105,6 @@ namespace Gameplay
 
         private void LevelUpHandler(int newLevel)
         {
-            gameModel.SetGamePhase(GamePhase.UpgradePhase);
-            SetMusic(false);
-            
-            pickupsController.PurgeAllPickups(true);
-            
             Vector3[] positions = new[] { new Vector3(25, 5), new Vector3(25, -1), new Vector3(25, -7) };
             List<UpgradeOption> allCurrentOptions = upgradeTree.GetAllCurrentOptions(newLevel);
             Stack<PickupDropOrder> shortList = new Stack<PickupDropOrder>(4);
@@ -122,14 +117,22 @@ namespace Gameplay
                 shortList.Push(new PickupDropOrder(option, PickupType.Upgrade, positions[i]));
                 allCurrentOptions.Remove(option);
             }
-            
-            ScrolledObjectView[] upgradePickups = pickupsController.SpawnAndReturnPickups(shortList, 0.0f);
 
-            
-            
-            for (int i = 0; i < upgradePickups.Length; i++)
+            if (shortList.Count > 0)
             {
-                upgradePickups[i].Deactivated += delegate { FinishUpgradePhase(upgradePickups); };
+                gameModel.SetGamePhase(GamePhase.UpgradePhase);
+                SetMusic(false);
+            
+                pickupsController.PurgeAllPickups(true);
+                
+                ScrolledObjectView[] upgradePickups = pickupsController.SpawnAndReturnPickups(shortList, 0.0f);
+
+                Action finishUpgradeAction = delegate { FinishUpgradePhase(upgradePickups); };
+            
+                for (int i = 0; i < upgradePickups.Length; i++)
+                {
+                    upgradePickups[i].Deactivated += finishUpgradeAction;
+                }
             }
         }
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Basic Enemy
   m_EditorClassIdentifier: 
   stats:
-    xpValue: 2
+    xpValue: 1
     maxHP: 5
     minHP: 1
     power: 5

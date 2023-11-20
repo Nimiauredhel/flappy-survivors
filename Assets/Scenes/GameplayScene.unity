@@ -490,6 +490,10 @@ PrefabInstance:
       propertyPath: upgradesUIView
       value: 
       objectReference: {fileID: 1356646638}
+    - target: {fileID: 6086592239576207485, guid: 75775b164519e2246a01c17626daa837, type: 3}
+      propertyPath: upgradeTreeConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: b83511e44f3406d49acf0105ff040674, type: 2}
     - target: {fileID: 7482715668597420255, guid: 75775b164519e2246a01c17626daa837, type: 3}
       propertyPath: m_Name
       value: GameplayLifetimeScope
