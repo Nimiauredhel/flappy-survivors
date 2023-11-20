@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Gameplay.Upgrades;
 using TMPro;
 using UnityEngine;
@@ -23,10 +24,14 @@ namespace Gameplay.ScrolledObjects
 
         private bool active = false;
         private IScrolledObjectLogic logic;
+        private MaterialPropertyBlock materialPropertyBlock;
+        private Coroutine flashRoutine = null;
 
         public void Initialize(IScrolledObjectLogic injectedLogic)
         {
             logic = injectedLogic;
+            materialPropertyBlock = new MaterialPropertyBlock();
+            graphic.GetPropertyBlock(materialPropertyBlock);
         }
 
         public void ScrolledObjectUpdate()
@@ -41,6 +46,7 @@ namespace Gameplay.ScrolledObjects
 
         public void HitByWeapon(int damage)
         {
+            Flash();
             logic.OnHitByWeapon(this, damage);
         }
 
@@ -63,6 +69,8 @@ namespace Gameplay.ScrolledObjects
             }
             
             Activated?.Invoke();
+            
+            SetWhiteAmount(0);
         }
         
         public void Deactivate(bool dieEffect = false)
@@ -73,6 +81,50 @@ namespace Gameplay.ScrolledObjects
             active = false;
             
             Deactivated?.Invoke();
+        }
+        
+        public void Flash()
+        {
+            if (flashRoutine != null)
+            {
+                StopCoroutine(flashRoutine);
+            }
+
+            flashRoutine = StartCoroutine(FlashRoutine());
+        }
+        
+        private IEnumerator FlashRoutine()
+        {
+            
+            float halfDuration = 0.15f;
+            float time = 0.0f;
+            
+            //in
+            while (time < halfDuration)
+            {
+                float value = Mathf.Lerp(0.0f, 0.85f, time / halfDuration);
+                SetWhiteAmount(value);
+                yield return null;
+                time += Time.deltaTime;
+            }
+            
+            //out
+            time = 0.0f;
+            while (time < halfDuration)
+            {
+                float value = Mathf.Lerp(0.85f, 0.0f, time / halfDuration);
+                SetWhiteAmount(value);
+                yield return null;
+                time += Time.deltaTime;
+            }
+        }
+
+        private void SetWhiteAmount(float amount)
+        {
+            string propertyString = "_FlashAmount";
+            materialPropertyBlock.SetFloat(propertyString, amount);
+            graphic.SetPropertyBlock(materialPropertyBlock);
+            //graphic.sharedMaterial.SetFloat(propertyString, amount);
         }
     }
 }

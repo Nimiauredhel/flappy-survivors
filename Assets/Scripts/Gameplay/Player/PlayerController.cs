@@ -21,6 +21,7 @@ namespace Gameplay.Player
 
         public event Action<int> ComboBreak;
         public event Action<int> LevelUp;
+        public event Action<int> PlayerDamaged; 
         
         [Inject] private readonly TouchReceiver _touchReceiver;
         [Inject] private readonly PlayerView view;
@@ -240,8 +241,11 @@ namespace Gameplay.Player
         public void Initialize()
         {
             SetNewState(new InitialState());
+            
             weapons.InitializeWeapons(view.Graphic.transform, characterConfig.StartingWeapons, uiView);
             model.InitializeModel(characterConfig);
+            view.Initialize();
+            
             _touchReceiver.PointerDown += PointerDownHandler;
             _touchReceiver.PointerUp += PointerUpHandler;
             view.TriggerEntered += TriggerEnterHandler;
@@ -349,7 +353,7 @@ namespace Gameplay.Player
                 SO.HitByPlayer(ChangePlayerHealth, ChangePlayerXP, SelectedUpgradeHandler);
             }
         }
-        
+
         private void LevelUpHandler()
         {
             uiView.UpdatePlayerCurrentLevelText(model.CurrentLevel);
@@ -394,10 +398,23 @@ namespace Gameplay.Player
         private void ChangePlayerHealth(int amount)
         {
             model.ChangeHealth(amount);
-
+            
+            if (amount < 0)
+            {
+                OnPlayerWasDamaged(amount);
+            }
+        }
+        
+        private void OnPlayerWasDamaged(int damage)
+        {
             if (model.CurrentHealth <= 0.0f)
             {
                 Die();
+            }
+            else
+            {
+                view.Flash();
+                PlayerDamaged?.Invoke(damage);
             }
         }
 
@@ -412,7 +429,7 @@ namespace Gameplay.Player
             ySpeedTweener = DOTween.To(() => model.CurrentYSpeed, y => model.SetYSpeed(y), movementConfig.ClimbSpeed, movementConfig.ClimbAccelTime);
         
             rotationTweener?.Kill();
-            rotationTweener = view.Graphic.DORotate(new Vector3(0.0f, 0.0f, 35.0f), movementConfig.ClimbAccelTime);
+            rotationTweener = view.Graphic.transform.DORotate(new Vector3(0.0f, 0.0f, 35.0f), movementConfig.ClimbAccelTime);
         
             xSpeedTweener?.Kill();
             xSpeedTweener = DOTween.To(() => model.CurrentXSpeed, x => model.SetXSpeed(x), -movementConfig.ReverseSpeed, movementConfig.ClimbAccelTime);
@@ -426,7 +443,7 @@ namespace Gameplay.Player
             ySpeedTweener = DOTween.To(() => model.CurrentYSpeed, y => model.SetYSpeed(y), -movementConfig.DiveSpeed, movementConfig.DiveAccelTime);
         
             rotationTweener?.Kill();
-            rotationTweener = view.Graphic.DORotate(new Vector3(0.0f, 0.0f, -35.0f), movementConfig.DiveAccelTime);
+            rotationTweener = view.Graphic.transform.DORotate(new Vector3(0.0f, 0.0f, -35.0f), movementConfig.DiveAccelTime);
         
             xSpeedTweener?.Kill();
             xSpeedTweener = DOTween.To(() => model.CurrentXSpeed, x => model.SetXSpeed(x), movementConfig.ForwardSpeed, movementConfig.DiveAccelTime);
@@ -441,7 +458,7 @@ namespace Gameplay.Player
             xSpeedTweener?.Kill();
             xSpeedTweener = DOTween.To(() => model.CurrentXSpeed, x => model.SetXSpeed(x), 0.05f, 0.5f);
             rotationTweener?.Kill();
-            rotationTweener = view.Graphic.DORotate(Vector3.zero, 0.5f);
+            rotationTweener = view.Graphic.transform.DORotate(Vector3.zero, 0.5f);
         }
 
         private IEnumerator TimerRoutine()

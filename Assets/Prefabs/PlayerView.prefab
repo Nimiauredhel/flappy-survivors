@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerBody: {fileID: 3428615867705913178}
-  _playerGraphic: {fileID: 7702927511180078301}
+  _playerGraphic: {fileID: 5719603026876396363}
   _playerAnimator: {fileID: 982779209933678457}
 --- !u!61 &7033941635718982139
 BoxCollider2D:
@@ -321,7 +321,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 192eb2d55044f5e4e907b6fc5936d1f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

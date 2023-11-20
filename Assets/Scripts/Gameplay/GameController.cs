@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using Gameplay.Player;
 using Gameplay.ScrolledObjects;
 using Gameplay.ScrolledObjects.Enemy;
@@ -24,15 +25,18 @@ namespace Gameplay
         private Stack<PickupDropOrder> comboBalloon = new Stack<PickupDropOrder>(32);
 
         private AudioSource musicSource;
+        private Camera gameplayCamera;
         
         public void Start()
         {
             Application.targetFrameRate = 60;
-
+            gameplayCamera = Camera.main;
+            
             gameModel.Initialize();
             
             playerController.ComboBreak += ComboBrokenHandler;
             playerController.LevelUp += LevelUpHandler;
+            playerController.PlayerDamaged += PlayerDamagedHandler;
             
             enemiesController.Initialize();
             enemiesController.EnemyKilled += EnemyKilledHandler;
@@ -91,6 +95,12 @@ namespace Gameplay
                 int pickupValue = Random.Range(Mathf.CeilToInt(value * 0.55f), value);
                 comboBalloon.Push(new PickupDropOrder(pickupValue, type, position));
             }
+        }
+        
+        private void PlayerDamagedHandler(int damage)
+        {
+            Vector3 strength = new Vector3(1, 1, 0) * (damage / 10.0f);
+            gameplayCamera.DOShakePosition(0.25f, strength);
         }
 
         private void ComboBrokenHandler(int brokenCombo)

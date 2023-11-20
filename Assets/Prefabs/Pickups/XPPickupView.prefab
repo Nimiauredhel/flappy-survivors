@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 192eb2d55044f5e4e907b6fc5936d1f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -309,7 +309,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hurtBox: {fileID: 338935626127746454}
   graphic: {fileID: 4426572431478108249}
+  secondaryGraphic: {fileID: 0}
   animator: {fileID: 1646345818551329705}
+  text: {fileID: 0}
 --- !u!95 &1646345818551329705
 Animator:
   serializedVersion: 5
