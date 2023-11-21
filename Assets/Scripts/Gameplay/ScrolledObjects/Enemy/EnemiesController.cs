@@ -1,7 +1,8 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Configuration;
-using UnityEditor;
+using Gameplay.Level;
 using UnityEngine;
 using UnityEngine.Pool;
 using Random = UnityEngine.Random;
@@ -14,58 +15,89 @@ namespace Gameplay.ScrolledObjects.Enemy
         
         [SerializeField] private int poolSize = 100;
         [SerializeField] private float startX, endX, minY, maxY;
-        [SerializeField] private float maxSpawnGap, minSpawnGap;
-        [SerializeField] private EnemyConfiguration enemyConfig;
-
-        private float spawnCooldown = 0.0f;
+        [SerializeField] private EnemyRegistry enemyRegistry;
     
-        private ObjectPool<ScrolledObjectView> pooledEnemies;
-        private List<ScrolledObjectView> activeEnemies = new List<ScrolledObjectView>(50);
-        
+        private ObjectPool<ScrolledObjectView>[] enemyPools;
+        private List<ScrolledObjectView>[] activeEnemyLists;
+
         public void Initialize()
         {
-            pooledEnemies = new ObjectPool<ScrolledObjectView>(CreateEnemy, OnGetEnemy, OnReturnEnemy, null, true, poolSize);
+            int numOfTypes = enemyRegistry.EnemyTypes.Length;
+            
+            activeEnemyLists = new System.Collections.Generic.List<ScrolledObjectView>[numOfTypes];
+
+            for (int i = 0; i < activeEnemyLists.Length; i++)
+            {
+                activeEnemyLists[i] = new List<ScrolledObjectView>(8);
+            }
+
+            enemyPools = new ObjectPool<ScrolledObjectView>[numOfTypes];
+            Func<ScrolledObjectView> createEnemyOfType;
+            Action<ScrolledObjectView> onGetEnemyOfType;
+            Action<ScrolledObjectView> onReturnEnemyOfType;
+
+            for (int i = 0; i < enemyPools.Length; i++)
+            {
+                int index = i;
+                createEnemyOfType = delegate { return CreateEnemy(index); };
+                onGetEnemyOfType = delegate(ScrolledObjectView view) { OnGetEnemy(index, view); };
+                onReturnEnemyOfType = delegate(ScrolledObjectView view) { OnReturnEnemy(index, view); };
+                
+                enemyPools[i] = new ObjectPool<ScrolledObjectView>(createEnemyOfType, onGetEnemyOfType, onReturnEnemyOfType, null, true, poolSize);
+            }
         }
 
         public void DoUpdate()
         {
-            for (int i = activeEnemies.Count - 1; i >= 0; i--)
+            for (int i = 0; i < activeEnemyLists.Length; i++)
             {
-                if (activeEnemies[i].transform.position.x <= endX)
+                for (int j = activeEnemyLists[i].Count - 1; j >= 0; j--)
                 {
-                    activeEnemies[i].Deactivate();
-                }
-                
-                if (activeEnemies[i].Active)
-                {
-                    activeEnemies[i].ScrolledObjectUpdate();
-                }
-                else
-                {
-                    ScrolledObjectView toRemove = activeEnemies[i];
-                    activeEnemies.Remove(toRemove);
-                    pooledEnemies.Release(toRemove);
-                }
-            }
+                    ScrolledObjectView currentObject = activeEnemyLists[i][j];
+                    
+                    if (currentObject.transform.position.x <= endX)
+                    {
+                        currentObject.Deactivate();
+                    }
 
-            if (GameModel.CurrentGamePhase == GamePhase.HordePhase)
-            {
-                if (spawnCooldown <= 0.0f)
-                {
-                    pooledEnemies.Get();
-                }
-                else
-                {
-                    spawnCooldown -= Time.deltaTime;
+                    if (currentObject.Active)
+                    {
+                        currentObject.ScrolledObjectUpdate();
+                    }
+                    else
+                    {
+                        activeEnemyLists[i].Remove(currentObject);
+                        enemyPools[i].Release(currentObject);
+                    }
                 }
             }
         }
 
         public void DoFixedUpdate()
         {
-            for (int i = 0; i < activeEnemies.Count; i++)
+            for (int i = 0; i < activeEnemyLists.Length; i++)
             {
-                activeEnemies[i].ScrolledObjectFixedUpdate();
+                for (int j = 0; j < activeEnemyLists[i].Count; j++)
+                {
+                    activeEnemyLists[i][j].ScrolledObjectFixedUpdate();
+                }
+            }
+
+        }
+
+        public void RequestEnemyBurst(BurstDefinition burstDefinition)
+        {
+            StartCoroutine(EnemyBurstRoutine(burstDefinition));
+        }
+
+        private IEnumerator EnemyBurstRoutine(BurstDefinition burstDefinition)
+        {
+            WaitForSeconds spawnGap = new WaitForSeconds(burstDefinition.enemySpawnGap);
+
+            for (int i = 0; i < burstDefinition.enemyAmount; i++)
+            {
+                enemyPools[burstDefinition.enemyId].Get();
+                yield return spawnGap;
             }
         }
 
@@ -74,25 +106,26 @@ namespace Gameplay.ScrolledObjects.Enemy
             EnemyKilled?.Invoke(value, position);
         }
 
-        private ScrolledObjectView CreateEnemy()
+        private ScrolledObjectView CreateEnemy(int enemyId)
         {
+            EnemyConfiguration enemyConfig = enemyRegistry.EnemyTypes[enemyId];
+            
             EnemyLogic createdLogic = new EnemyLogic(enemyConfig.Stats, EnemyKilledForwarder);
             ScrolledObjectView createdView = Instantiate<ScrolledObjectView>(enemyConfig.ViewPrefab, new Vector3(startX, 0.0f, 0.0f), Quaternion.identity, transform);
             createdView.Initialize(createdLogic);
             return createdView;
         }
 
-        private void OnGetEnemy(ScrolledObjectView spawnedEnemy)
+        private void OnGetEnemy(int enemyId, ScrolledObjectView spawnedEnemy)
         {
-            spawnCooldown = Random.Range(minSpawnGap, maxSpawnGap);
             spawnedEnemy.transform.position = new Vector3(startX, Random.Range(minY, maxY));
             spawnedEnemy.Activate(null);
-            activeEnemies.Add(spawnedEnemy);
+            activeEnemyLists[enemyId].Add(spawnedEnemy);
         }
 
-        private void OnReturnEnemy(ScrolledObjectView returnedEnemy)
+        private void OnReturnEnemy(int enemyId, ScrolledObjectView returnedEnemy)
         {
-            activeEnemies.Remove(returnedEnemy);
+            activeEnemyLists[enemyId].Remove(returnedEnemy);
         }
     }
 }

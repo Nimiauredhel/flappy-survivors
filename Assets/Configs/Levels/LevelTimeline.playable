@@ -1,0 +1,3383 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8846498057578985871
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 189.78333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-8793078212739151169
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 51.833333333333336
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-8738780413015833482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 193.53333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-8647505467321187613
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 292.73333333333335
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-8577549950181939253
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 123.08333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-8495830073893267584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 112.45
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-8369594072141461647
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 206.95
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-8190751357921619395
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 248.36666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 8
+    enemySpawnGap: 0.1
+--- !u!114 &-8048497346483597394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 130.78333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-8034887350384282465
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 88.6
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-7894869272151361814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 61.5
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-7661789650515514097
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 266.78333333333336
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.1
+--- !u!114 &-7512474174969245387
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 105.86666666666666
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-7432494174991561288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 210.76666666666668
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-7430646800566786854
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 98.3
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-6920074996728979358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 4
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-6784737568652131593
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 66.85
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-6662795713070014752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 132.78333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-6599701869727462604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 139.1
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.25
+--- !u!114 &-6564076933301321320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 244.36666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 8
+    enemySpawnGap: 0.1
+--- !u!114 &-6550780971985038899
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 49.833333333333336
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-6531787022201662388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 171.05
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-6350865519073946761
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 180.73333333333332
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-6311588071450959089
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 135.1
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.25
+--- !u!114 &-6109810278424154886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 39.03333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-6035814601961330692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 33.03333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 0}
+--- !u!114 &-5933639811326902099
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 270.78333333333336
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.1
+--- !u!114 &-5576243594695482495
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 285.23333333333335
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-5512782990138094845
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 227.13333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 7
+    enemySpawnGap: 0.1
+--- !u!114 &-5507018990561357947
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 201.61666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-5268880066461662700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 225.61666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-5188674041452048352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 152.68333333333334
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.25
+--- !u!114 &-5173019348771527655
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 197.53333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-5163486388171535206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 187.78333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-4862880011290850049
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06f3805b04d4dccb458fd5716987594, type: 3}
+  m_Name: Burst Signal Receiver Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects:
+    - {fileID: -1759538440198409129}
+    - {fileID: -1872998229893727536}
+    - {fileID: -6920074996728979358}
+    - {fileID: -832319540711005052}
+    - {fileID: 5077226083184280416}
+    - {fileID: -889278021351985239}
+    - {fileID: 8918623307359293791}
+    - {fileID: -2159937658492999647}
+    - {fileID: 8807751481261139382}
+    - {fileID: 8725035850276956284}
+    - {fileID: 5474943618770890555}
+    - {fileID: -2997906598035535216}
+    - {fileID: -4383900128198808174}
+    - {fileID: 8189472989499580709}
+    - {fileID: -4420911626865963709}
+    - {fileID: 883079788149202720}
+    - {fileID: -1109648649563303100}
+    - {fileID: 960919859820726520}
+    - {fileID: 592795546151524177}
+    - {fileID: 6960537020298876104}
+    - {fileID: -3040411358703425274}
+    - {fileID: 5398658341959405595}
+    - {fileID: -6109810278424154886}
+    - {fileID: 1458769214795449157}
+    - {fileID: 362160731465100287}
+    - {fileID: 3429289681518158066}
+    - {fileID: 7625671725545451432}
+    - {fileID: 1288960630766156876}
+    - {fileID: -6550780971985038899}
+    - {fileID: -8793078212739151169}
+    - {fileID: -1856284920212006256}
+    - {fileID: -3580753957176174508}
+    - {fileID: 4724433495196045567}
+    - {fileID: -3239230086408575440}
+    - {fileID: -7894869272151361814}
+    - {fileID: 8124982962679673074}
+    - {fileID: -1316587527277044301}
+    - {fileID: -6784737568652131593}
+    - {fileID: 4035731191061955713}
+    - {fileID: -2814646299515948627}
+    - {fileID: 8370950724412056833}
+    - {fileID: 2702536447345561767}
+    - {fileID: 6940635782884558582}
+    - {fileID: 7941177702076114305}
+    - {fileID: 2316835875685287025}
+    - {fileID: 4942384130434411186}
+    - {fileID: 30489892997163769}
+    - {fileID: -2015054679482951485}
+    - {fileID: -8034887350384282465}
+    - {fileID: 742131983645166467}
+    - {fileID: -3831261002998086064}
+    - {fileID: 1430364088567532960}
+    - {fileID: 5050916810363826834}
+    - {fileID: -7430646800566786854}
+    - {fileID: 2936589633151279117}
+    - {fileID: -3939894577904168053}
+    - {fileID: -4593564552586031557}
+    - {fileID: -7512474174969245387}
+    - {fileID: -332138076722276117}
+    - {fileID: -519392570077207982}
+    - {fileID: -4139409259680100677}
+    - {fileID: -8495830073893267584}
+    - {fileID: -1585371750733111151}
+    - {fileID: 7882535300628284454}
+    - {fileID: -4640577632510999170}
+    - {fileID: 1520196239869738861}
+    - {fileID: -3081468771435539442}
+    - {fileID: -8577549950181939253}
+    - {fileID: 2547482104033656455}
+    - {fileID: 1835779677105135119}
+    - {fileID: 4469079823799187117}
+    - {fileID: -8048497346483597394}
+    - {fileID: -6662795713070014752}
+    - {fileID: -6311588071450959089}
+    - {fileID: 5707463073946547599}
+    - {fileID: -6599701869727462604}
+    - {fileID: 7111459141860550785}
+    - {fileID: 8533590538785169373}
+    - {fileID: 1144182104286285442}
+    - {fileID: -2318045202563189227}
+    - {fileID: 5077219452041521609}
+    - {fileID: -4047821535501640346}
+    - {fileID: -5188674041452048352}
+    - {fileID: -1867195191467151109}
+    - {fileID: 5281576495079235665}
+    - {fileID: -3505909034429651486}
+    - {fileID: -3943116774345404063}
+    - {fileID: 5146239830221434663}
+    - {fileID: 8675308724029788989}
+    - {fileID: -1554530128905992267}
+    - {fileID: 4740785731307354743}
+    - {fileID: -6531787022201662388}
+    - {fileID: 386268399604079402}
+    - {fileID: -4450991306033872058}
+    - {fileID: 4401600856297457490}
+    - {fileID: 3202193717923525082}
+    - {fileID: -6350865519073946761}
+    - {fileID: -3144047079224610445}
+    - {fileID: -123211941107660055}
+    - {fileID: -1561495451869601887}
+    - {fileID: -5163486388171535206}
+    - {fileID: -8846498057578985871}
+    - {fileID: 5199794806963391546}
+    - {fileID: -8738780413015833482}
+    - {fileID: 7844907459293820059}
+    - {fileID: -5173019348771527655}
+    - {fileID: 5565084458300730695}
+    - {fileID: -5507018990561357947}
+    - {fileID: -2027088296709866108}
+    - {fileID: -2161078329977783486}
+    - {fileID: -8369594072141461647}
+    - {fileID: 1288299115792546979}
+    - {fileID: -7432494174991561288}
+    - {fileID: -4842430220992612945}
+    - {fileID: 6733884590522779683}
+    - {fileID: 5747775760950738838}
+    - {fileID: 858842795533567824}
+    - {fileID: -792713797612376820}
+    - {fileID: 5861159996644119973}
+    - {fileID: -4295267409345481038}
+    - {fileID: -5268880066461662700}
+    - {fileID: -5512782990138094845}
+    - {fileID: -2090538984735425890}
+    - {fileID: -3088597981880750747}
+    - {fileID: 8682788543655263384}
+    - {fileID: 2565478301505208957}
+    - {fileID: -935620891027657995}
+    - {fileID: 6043585418086668971}
+    - {fileID: -4395040826491152429}
+    - {fileID: -3118002466449580592}
+    - {fileID: -6564076933301321320}
+    - {fileID: -1671415538662745206}
+    - {fileID: -8190751357921619395}
+    - {fileID: -3629143716063196332}
+    - {fileID: -3130191239136422849}
+    - {fileID: -1431302556796079080}
+    - {fileID: 5299900998251605367}
+    - {fileID: -4427867177062847500}
+    - {fileID: -3875069451390162065}
+    - {fileID: 8234369510761354838}
+    - {fileID: 2630034017079574744}
+    - {fileID: 1521179995096841404}
+    - {fileID: -7661789650515514097}
+    - {fileID: -4166860159672613238}
+    - {fileID: -5933639811326902099}
+    - {fileID: 2137029842037029049}
+    - {fileID: -4107919782527331982}
+    - {fileID: 6188491638071369634}
+    - {fileID: -1152983766654818800}
+    - {fileID: -4083793509267972322}
+    - {fileID: 312301969382537534}
+    - {fileID: 1977779476499394456}
+    - {fileID: -5576243594695482495}
+    - {fileID: 1277816695115570214}
+    - {fileID: 903158181382122512}
+    - {fileID: 5502500569213282150}
+    - {fileID: -8647505467321187613}
+--- !u!114 &-4842430220992612945
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 212.76666666666668
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-4640577632510999170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 117.56666666666666
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-4593564552586031557
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 103.86666666666666
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-4450991306033872058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 175.05
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-4427867177062847500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 257.48333333333335
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 9
+    enemySpawnGap: 0.1
+--- !u!114 &-4420911626865963709
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 24.933333333333334
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-4395040826491152429
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 240.86666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 8
+    enemySpawnGap: 0.1
+--- !u!114 &-4383900128198808174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 21.983333333333334
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-4295267409345481038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 223.61666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-4166860159672613238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 268.78333333333336
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.1
+--- !u!114 &-4139409259680100677
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 110.98333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-4107919782527331982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 274.35
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-4083793509267972322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 279.85
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-4047821535501640346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 150.93333333333334
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.25
+--- !u!114 &-3943116774345404063
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 161.03333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-3939894577904168053
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 101.86666666666666
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-3875069451390162065
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 259.48333333333335
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 9
+    enemySpawnGap: 0.1
+--- !u!114 &-3831261002998086064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 92.1
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-3629143716063196332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 249.98333333333332
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 9
+    enemySpawnGap: 0.1
+--- !u!114 &-3580753957176174508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 55.7
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-3505909034429651486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 159.03333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-3239230086408575440
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 59.7
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-3144047079224610445
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 182.31666666666666
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-3130191239136422849
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 251.98333333333332
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 9
+    enemySpawnGap: 0.1
+--- !u!114 &-3118002466449580592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 242.86666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 8
+    enemySpawnGap: 0.1
+--- !u!114 &-3088597981880750747
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 231.13333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 7
+    enemySpawnGap: 0.1
+--- !u!114 &-3081468771435539442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 121.56666666666666
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-3040411358703425274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 35.63333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-2997906598035535216
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 19.983333333333334
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-2814646299515948627
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 70.85
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-2318045202563189227
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 146.93333333333334
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.25
+--- !u!114 &-2161078329977783486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 204.95
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-2159937658492999647
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 12.583333333333334
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-2090538984735425890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 229.13333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 7
+    enemySpawnGap: 0.1
+--- !u!114 &-2027088296709866108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 203.61666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-2015054679482951485
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 86.6
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-1872998229893727536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 2
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-1867195191467151109
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 154.68333333333334
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.25
+--- !u!114 &-1856284920212006256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 53.833333333333336
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-1759538440198409129
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5dda2f6d17f1af41b3d12da64999dc5, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 10.266666666666667
+  <parent>k__BackingField: {fileID: -4862880011290850049}
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.1
+--- !u!114 &-1671415538662745206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 246.36666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 8
+    enemySpawnGap: 0.1
+--- !u!114 &-1585371750733111151
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 114.45
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-1561495451869601887
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 186.31666666666666
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-1554530128905992267
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 167.35
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-1431302556796079080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 253.98333333333332
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 9
+    enemySpawnGap: 0.1
+--- !u!114 &-1316587527277044301
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 65.5
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-1152983766654818800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 277.85
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-1109648649563303100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 28.166666666666668
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &-935620891027657995
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 236.63333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 7
+    enemySpawnGap: 0.1
+--- !u!114 &-889278021351985239
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 11.133333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-832319540711005052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 6
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-792713797612376820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 220.11666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &-519392570077207982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 108.98333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-332138076722276117
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 106.98333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &-123211941107660055
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 184.31666666666666
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
+  m_Name: LevelTimeline
+  m_EditorClassIdentifier: 
+  m_Version: 0
+  m_Tracks:
+  - {fileID: -4862880011290850049}
+  m_FixedDuration: 300
+  m_EditorSettings:
+    m_Framerate: 60
+    m_ScenePreview: 1
+  m_DurationMode: 1
+  m_MarkerTrack: {fileID: 7830602046109682852}
+--- !u!114 &30489892997163769
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 84.6
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &312301969382537534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 281.85
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &362160731465100287
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 43.03333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &386268399604079402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 173.05
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &592795546151524177
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 32.16666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &742131983645166467
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 90.1
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &858842795533567824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 218.11666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &883079788149202720
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 26.933333333333334
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &903158181382122512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 288.73333333333335
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &960919859820726520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 30.166666666666668
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &1144182104286285442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 145.01666666666668
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.1
+--- !u!114 &1277816695115570214
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 287.23333333333335
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &1288299115792546979
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 208.95
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &1288960630766156876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 48.71666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &1430364088567532960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 94.1
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &1458769214795449157
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 41.03333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &1520196239869738861
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 119.56666666666666
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &1521179995096841404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 265.28333333333336
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.1
+--- !u!114 &1835779677105135119
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 127.08333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &1977779476499394456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 283.23333333333335
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &2137029842037029049
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 272.35
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &2316835875685287025
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 80.96666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &2547482104033656455
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 125.08333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &2565478301505208957
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 234.63333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 7
+    enemySpawnGap: 0.1
+--- !u!114 &2630034017079574744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 263.28333333333336
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.1
+--- !u!114 &2702536447345561767
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 74.76666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &2936589633151279117
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 100.3
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &3202193717923525082
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 178.73333333333332
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &3429289681518158066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 44.71666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &4035731191061955713
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 68.85
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &4401600856297457490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 176.73333333333332
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &4469079823799187117
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 128.78333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &4724433495196045567
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 57.7
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &4740785731307354743
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 169.35
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &4942384130434411186
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 82.96666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &5050916810363826834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 96.3
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &5077219452041521609
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 148.93333333333334
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.25
+--- !u!114 &5077226083184280416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 9.133333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &5146239830221434663
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 163.03333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &5199794806963391546
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 191.78333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &5281576495079235665
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 156.68333333333334
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.25
+--- !u!114 &5299900998251605367
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 255.48333333333332
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 9
+    enemySpawnGap: 0.1
+--- !u!114 &5398658341959405595
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 37.63333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &5474943618770890555
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 17.983333333333334
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &5502500569213282150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 290.73333333333335
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &5565084458300730695
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 199.61666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &5707463073946547599
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 137.1
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.25
+--- !u!114 &5747775760950738838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 216.11666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &5861159996644119973
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 221.61666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &6043585418086668971
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 238.86666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 8
+    enemySpawnGap: 0.1
+--- !u!114 &6188491638071369634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 276.35
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &6733884590522779683
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 214.76666666666668
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &6940635782884558582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 76.76666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &6960537020298876104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 33.63333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &7111459141860550785
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 141.01666666666668
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.1
+--- !u!114 &7625671725545451432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 46.71666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &7830602046109682852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a16748d9461eae46a725db9776d5390, type: 3}
+  m_Name: Markers
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
+--- !u!114 &7844907459293820059
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 195.53333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &7882535300628284454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 116.45
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 6
+    enemySpawnGap: 0.1
+--- !u!114 &7941177702076114305
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 78.96666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &8124982962679673074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 63.5
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &8189472989499580709
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 22.933333333333334
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &8234369510761354838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 261.28333333333336
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.1
+--- !u!114 &8370950724412056833
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 72.76666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 4
+    enemySpawnGap: 0.1
+--- !u!114 &8533590538785169373
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 143.01666666666668
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.1
+--- !u!114 &8675308724029788989
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 165.35
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &8682788543655263384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 232.63333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 7
+    enemySpawnGap: 0.1
+--- !u!114 &8725035850276956284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 16.583333333333332
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &8807751481261139382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 14.583333333333332
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1
+--- !u!114 &8918623307359293791
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 7.133333333333334
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 2
+    enemySpawnGap: 0.1

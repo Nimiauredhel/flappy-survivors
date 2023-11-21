@@ -7,6 +7,7 @@ using Gameplay.ScrolledObjects.Enemy;
 using Gameplay.ScrolledObjects.Pickup;
 using Gameplay.Upgrades;
 using UnityEngine;
+using UnityEngine.Playables;
 using VContainer;
 using VContainer.Unity;
 using Random = UnityEngine.Random;
@@ -15,11 +16,13 @@ namespace Gameplay
 {
     public class GameController : IStartable, ITickable, IFixedTickable, IDisposable
     {
-        [Inject] private readonly GameModel gameModel;
         [Inject] private readonly EnemiesController enemiesController;
         [Inject] private readonly PickupsController pickupsController;
         [Inject] private readonly PlayerController playerController;
         [Inject] private readonly VFXService vfxService;
+        [Inject] private readonly PlayableDirector levelDirector;
+        
+        [Inject] private readonly GameModel gameModel;
         [Inject] private UpgradeTree upgradeTree;
         
         private Stack<PickupDropOrder> comboBalloon = new Stack<PickupDropOrder>(32);
@@ -33,7 +36,9 @@ namespace Gameplay
             gameplayCamera = Camera.main;
             
             gameModel.Initialize();
+            gameModel.GamePhaseChanged += PhaseChangedHandler;
             
+            playerController.Initialize();
             playerController.ComboBreak += ComboBrokenHandler;
             playerController.LevelUp += LevelUpHandler;
             playerController.PlayerDamaged += PlayerDamagedHandler;
@@ -41,7 +46,6 @@ namespace Gameplay
             enemiesController.Initialize();
             enemiesController.EnemyKilled += EnemyKilledHandler;
             
-            playerController.Initialize();
             vfxService.Initialize();
             pickupsController.Initialize();
             
@@ -131,7 +135,6 @@ namespace Gameplay
             if (shortList.Count > 0)
             {
                 gameModel.SetGamePhase(GamePhase.UpgradePhase);
-                SetMusic(false);
             
                 pickupsController.PurgeAllPickups(true);
                 
@@ -151,7 +154,6 @@ namespace Gameplay
             if (GameModel.CurrentGamePhase != GamePhase.UpgradePhase) return;
 
             gameModel.SetGamePhase(GamePhase.HordePhase);
-            SetMusic(true);
 
             for (int i = 0; i < upgradePickups.Length; i++)
             {
@@ -177,6 +179,29 @@ namespace Gameplay
                 ? Resources.Load<AudioClip>("Music/Fighting")
                 : Resources.Load<AudioClip>("Music/Upgrading");
             musicSource.Play();
+        }
+
+        private void PhaseChangedHandler(GamePhase newPhase)
+        {
+            switch (newPhase)
+            {
+                case GamePhase.IntroPhase:
+                    break;
+                case GamePhase.UpgradePhase:
+                    Debug.Log("Upgrade phase.");
+                    SetMusic(false);
+                    levelDirector.Pause();
+                    break;
+                case GamePhase.HordePhase:
+                    Debug.Log("Horde phase.");
+                    SetMusic(true);
+                    levelDirector.Play();
+                    break;
+                case GamePhase.BossPhase:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(newPhase), newPhase, null);
+            }
         }
     }
 }

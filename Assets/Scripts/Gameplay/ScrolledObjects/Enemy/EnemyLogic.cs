@@ -31,7 +31,7 @@ namespace Gameplay.ScrolledObjects.Enemy
         public void OnHitByWeapon(ScrolledObjectView view, int damage)
         {
             currentHP -= damage;
-
+            
             if (currentHP <= 0.0f)
             {
                 int overkill = damage - stats.MaxHP;

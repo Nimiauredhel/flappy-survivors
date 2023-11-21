@@ -4,6 +4,7 @@ using Gameplay.ScrolledObjects.Enemy;
 using Gameplay.ScrolledObjects.Pickup;
 using Gameplay.Upgrades;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.Serialization;
 using VContainer;
 using VContainer.Unity;
@@ -16,13 +17,17 @@ namespace Gameplay
         [SerializeField] private PlayerView playerView;
         [SerializeField] private PlayerUIView playerUIView;
         [SerializeField] private UpgradesUIView upgradesUIView;
+        
         [SerializeField] private EnemiesController enemiesController;
         [SerializeField] private PickupsController pickupsController;
         [SerializeField] private PlayerWeaponsComponent playerWeapons;
         [SerializeField] private VFXService vfxService;
+        [SerializeField] private PlayableDirector levelDirector;
+        
         [SerializeField] private PlayerCharacterConfiguration characterConfig;
         [SerializeField] private PlayerMovementConfiguration playerMovementConfig;
         [SerializeField] private UpgradeTreeConfiguration upgradeTreeConfig;
+        
         
         protected override void Configure(IContainerBuilder builder)
         {
@@ -30,10 +35,13 @@ namespace Gameplay
             builder.RegisterComponent(playerView);
             builder.RegisterComponent(playerUIView);
             builder.RegisterComponent(upgradesUIView);
+            
             builder.RegisterComponent(enemiesController);
             builder.RegisterComponent(pickupsController);
             builder.RegisterComponent(playerWeapons);
             builder.RegisterComponent(vfxService);
+            builder.RegisterComponent(levelDirector);
+            
             builder.RegisterComponent(characterConfig);
             builder.RegisterComponent(playerMovementConfig);
             builder.RegisterComponent(upgradeTreeConfig.GetFreshUpgradeTree());
