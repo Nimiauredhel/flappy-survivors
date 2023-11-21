@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
+using DG.Tweening;
 using Gameplay.Upgrades;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Splines;
 
 namespace Gameplay.ScrolledObjects
 {
@@ -15,8 +17,10 @@ namespace Gameplay.ScrolledObjects
 
         public SpriteRenderer SecondaryGraphic => secondaryGraphic;
         public TextMeshPro Text => text;
+        public Rigidbody2D Body => body;
         
         [SerializeField] private Collider2D hurtBox;
+        [SerializeField] private Rigidbody2D body;
         [SerializeField] private SpriteRenderer graphic;
         [SerializeField] private SpriteRenderer secondaryGraphic;
         [SerializeField] private Animator animator;
@@ -32,6 +36,11 @@ namespace Gameplay.ScrolledObjects
             logic = injectedLogic;
             materialPropertyBlock = new MaterialPropertyBlock();
             graphic.GetPropertyBlock(materialPropertyBlock);
+        }
+
+        public void SetPath(Spline path)
+        {
+            logic.SetPath(path);
         }
 
         public void ScrolledObjectUpdate()

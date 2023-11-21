@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Splines;
 
 namespace Gameplay.Level
 {
@@ -8,6 +9,8 @@ namespace Gameplay.Level
     {
         public int enemyId;
         public int enemyAmount;
+        public int pathId;
         public float enemySpawnGap;
+        
     }
 }

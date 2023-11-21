@@ -1,6 +1,8 @@
 using System;
 using Gameplay.Upgrades;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Splines;
 using Random = UnityEngine.Random;
 
 namespace Gameplay.ScrolledObjects.Enemy
@@ -10,7 +12,10 @@ namespace Gameplay.ScrolledObjects.Enemy
         private event Action<int, Vector3> EnemyKilled; 
         
         private int currentHP;
+        private float elapsedTime = 0.0f;
+        private float expectedTime;
         private EnemyStats stats;
+        private Spline path = null;
         
         public EnemyLogic(EnemyStats stats, Action<int, Vector3> killedHandler)
         {
@@ -25,7 +30,20 @@ namespace Gameplay.ScrolledObjects.Enemy
 
         public void ScrolledObjectFixedUpdate(ScrolledObjectView view)
         {
-            view.transform.Translate((new Vector2(-stats.Speed, 0.0f) * Time.fixedDeltaTime));
+            if (path == null)
+            {
+                view.Body.MovePosition(view.Body.position + new Vector2(-stats.Speed, 0.0f) * Time.fixedDeltaTime);
+            }
+            else
+            {
+                elapsedTime += Time.fixedDeltaTime;
+                float percent = elapsedTime / expectedTime;
+                Vector2 targetPosition = path.EvaluatePosition(percent).xy;
+                Vector3 targetRotation = -path.EvaluateAcceleration(percent).zzy;
+                targetPosition += Constants.STAGE_OFFSET;
+                view.Body.MovePosition(targetPosition);
+                view.transform.rotation = (Quaternion.Euler(targetRotation));
+            }
         }
 
         public void OnHitByWeapon(ScrolledObjectView view, int damage)
@@ -56,12 +74,20 @@ namespace Gameplay.ScrolledObjects.Enemy
 
         public void OnActivate(ScrolledObjectView view, object value)
         {
+            elapsedTime = 0.0f;
+            expectedTime = Constants.STAGE_WIDTH / stats.Speed;
             currentHP = Random.Range(stats.MinHP, stats.MaxHP);
         }
 
         public void OnDeactivate(ScrolledObjectView view)
         {
-            
+            elapsedTime = 0.0f;
+            path = null;
+        }
+
+        public void SetPath(Spline path)
+        {
+            this.path = path;
         }
     }
 }

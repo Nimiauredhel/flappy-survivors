@@ -5,6 +5,8 @@ using Configuration;
 using Gameplay.Level;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.Serialization;
+using UnityEngine.Splines;
 using Random = UnityEngine.Random;
 
 namespace Gameplay.ScrolledObjects.Enemy
@@ -16,6 +18,7 @@ namespace Gameplay.ScrolledObjects.Enemy
         [SerializeField] private int poolSize = 100;
         [SerializeField] private float startX, endX, minY, maxY;
         [SerializeField] private EnemyRegistry enemyRegistry;
+        [SerializeField] private SplineContainer paths;
     
         private ObjectPool<ScrolledObjectView>[] enemyPools;
         private List<ScrolledObjectView>[] activeEnemyLists;
@@ -96,7 +99,8 @@ namespace Gameplay.ScrolledObjects.Enemy
 
             for (int i = 0; i < burstDefinition.enemyAmount; i++)
             {
-                enemyPools[burstDefinition.enemyId].Get();
+                ScrolledObjectView enemy = enemyPools[burstDefinition.enemyId].Get();
+                enemy.SetPath(paths.Splines[burstDefinition.pathId]);
                 yield return spawnGap;
             }
         }

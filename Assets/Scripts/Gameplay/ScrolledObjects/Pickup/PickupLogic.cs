@@ -2,6 +2,8 @@ using System;
 using Configuration;
 using Gameplay.Upgrades;
 using UnityEngine;
+using UnityEngine.Splines;
+using UnityEngine.UIElements;
 
 namespace Gameplay.ScrolledObjects.Pickup
 {
@@ -9,30 +11,32 @@ namespace Gameplay.ScrolledObjects.Pickup
     {
         private readonly PickupType type;
         private object value;
-        private readonly float lifetime;
 
         private float elapsedTime = 0.0f;
+        private Spline path;
 
-        public PickupLogic(PickupType type, object value, float lifetime)
+        public PickupLogic(PickupType type, object value)
         {
             this.type = type;
             this.value = value;
-            this.lifetime = lifetime;
         }
 
         public void ScrolledObjectUpdate(ScrolledObjectView view)
         {
-            elapsedTime = Time.deltaTime;
-
-            if (elapsedTime >= lifetime)
-            {
-                view.Deactivate();
-            }
+            
         }
 
         public void ScrolledObjectFixedUpdate(ScrolledObjectView view)
         {
-            view.transform.Translate((new Vector2(-7.0f, 0.0f) * Time.fixedDeltaTime));
+            if (path == null)
+            {
+                view.Body.MovePosition(view.Body.position + new Vector2(-7.0f, 0.0f) * Time.fixedDeltaTime);
+            }
+            else
+            {
+                elapsedTime += Time.fixedDeltaTime;
+                view.Body.MovePosition(path.EvaluatePosition(elapsedTime).xy);
+            }
         }
 
         public void OnHitByWeapon(ScrolledObjectView view, int damage)
@@ -97,7 +101,12 @@ namespace Gameplay.ScrolledObjects.Pickup
 
         public void OnDeactivate(ScrolledObjectView view)
         {
-            
+            path = null;
+        }
+        
+        public void SetPath(Spline path)
+        {
+            this.path = path;
         }
     }
 }

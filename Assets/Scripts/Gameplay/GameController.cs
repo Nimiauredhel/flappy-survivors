@@ -112,7 +112,7 @@ namespace Gameplay
             Stack<PickupDropOrder> pickupsToDrop = new Stack<PickupDropOrder>(comboBalloon);
             comboBalloon.Clear();
 
-            float comboModifier = Constants.Map(0, 100, 1.0f, 2.0f, brokenCombo);
+            float comboModifier = Constants.MapFloat(0, 100, 1.0f, 2.0f, brokenCombo);
             
             pickupsController.SpawnPickups(pickupsToDrop, comboModifier);
         }
@@ -188,12 +188,10 @@ namespace Gameplay
                 case GamePhase.IntroPhase:
                     break;
                 case GamePhase.UpgradePhase:
-                    Debug.Log("Upgrade phase.");
                     SetMusic(false);
                     levelDirector.Pause();
                     break;
                 case GamePhase.HordePhase:
-                    Debug.Log("Horde phase.");
                     SetMusic(true);
                     levelDirector.Play();
                     break;

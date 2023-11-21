@@ -1,5 +1,6 @@
 using System;
 using Gameplay.Upgrades;
+using UnityEngine.Splines;
 
 namespace Gameplay.ScrolledObjects
 {
@@ -16,5 +17,7 @@ namespace Gameplay.ScrolledObjects
         public void OnActivate(ScrolledObjectView view, object value);
 
         public void OnDeactivate(ScrolledObjectView view);
+
+        public void SetPath(Spline path);
     }
 }

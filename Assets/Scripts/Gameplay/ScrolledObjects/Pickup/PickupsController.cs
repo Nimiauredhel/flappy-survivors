@@ -165,7 +165,7 @@ namespace Gameplay.ScrolledObjects.Pickup
 
                 Vector3 targetPosition = position + SPAWN_POSITION_OFFSET;
                 Vector3 targetScale =
-                    Vector3.one * Constants.Map(MIN_PICKUP_VALUE, MAX_PICKUP_VALUE, MIN_PICKUP_SCALE, MAX_PICKUP_SCALE, sizeValue);
+                    Vector3.one * Constants.MapFloat(MIN_PICKUP_VALUE, MAX_PICKUP_VALUE, MIN_PICKUP_SCALE, MAX_PICKUP_SCALE, sizeValue);
 
                 Transform spawnedPickupTransform = spawnedPickup.transform;
                 spawnedPickupTransform.localScale = SPAWN_INITIAL_SCALE;
@@ -241,7 +241,7 @@ namespace Gameplay.ScrolledObjects.Pickup
             if (selectedPrefab != null)
             {
                 ScrolledObjectView createdPickup = Instantiate(selectedPrefab, Vector3.up * 500.0f, quaternion.identity);
-                createdPickup.Initialize(new PickupLogic(type, 1, 5.0f));
+                createdPickup.Initialize(new PickupLogic(type, 1));
                 createdPickup.Deactivate();
                 return createdPickup;
             }
