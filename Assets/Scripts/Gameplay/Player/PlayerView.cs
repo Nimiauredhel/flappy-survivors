@@ -8,6 +8,8 @@ namespace Gameplay.Player
 {
     public class PlayerView : MonoBehaviour
     {
+        private static readonly int FLASH_AMOUNT_ID = Shader.PropertyToID("_FlashAmount");
+        
         public event EventHandler<Collider2D> TriggerEntered; 
         public Rigidbody2D Body => _playerBody;
         public SpriteRenderer Graphic => _playerGraphic;
@@ -67,12 +69,13 @@ namespace Gameplay.Player
                 yield return null;
                 time += Time.deltaTime;
             }
+            
+            SetWhiteAmount(0.0f);
         }
 
         private void SetWhiteAmount(float amount)
         {
-            string propertyString = "_FlashAmount";
-            materialPropertyBlock.SetFloat(propertyString, amount);
+            materialPropertyBlock.SetFloat(FLASH_AMOUNT_ID, amount);
             _playerGraphic.SetPropertyBlock(materialPropertyBlock);
             //_playerGraphic.sharedMaterial.SetFloat(propertyString, amount);
         }

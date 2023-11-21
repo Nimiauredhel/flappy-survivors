@@ -38,6 +38,14 @@ namespace Gameplay.ScrolledObjects.Enemy
             {
                 elapsedTime += Time.fixedDeltaTime;
                 float percent = elapsedTime / expectedTime;
+
+                //failsafe for when the spline messes with the pooling
+                if (percent > 3.0f)
+                {
+                    view.Deactivate();
+                    return;
+                }
+
                 Vector2 targetPosition = path.EvaluatePosition(percent).xy;
                 Vector3 targetRotation = -path.EvaluateAcceleration(percent).zzy;
                 targetPosition += Constants.STAGE_OFFSET;

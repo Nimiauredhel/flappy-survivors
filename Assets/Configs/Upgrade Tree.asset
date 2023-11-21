@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe760dd0a1a22a841a0cbce13e9d1fa6, type: 3}
-  m_Name: Upgrade Tree Config
+  m_Name: Upgrade Tree
   m_EditorClassIdentifier: 
   upgradeTree:
     branches:

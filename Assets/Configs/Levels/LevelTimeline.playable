@@ -479,7 +479,7 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    enemyId: 1
     enemyAmount: 30
     pathId: 1
     enemySpawnGap: 0.2
@@ -941,7 +941,7 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    enemyId: 1
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
@@ -1230,7 +1230,7 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    enemyId: 1
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
@@ -1619,7 +1619,7 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    enemyId: 1
     enemyAmount: 10
     pathId: 2
     enemySpawnGap: 0.2
@@ -2523,7 +2523,7 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    enemyId: 1
     enemyAmount: 30
     pathId: 1
     enemySpawnGap: 0.2
@@ -2607,7 +2607,7 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    enemyId: 1
     enemyAmount: 30
     pathId: 2
     enemySpawnGap: 0.2
@@ -3069,7 +3069,7 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    enemyId: 1
     enemyAmount: 10
     pathId: 3
     enemySpawnGap: 0.2
@@ -3450,7 +3450,7 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    enemyId: 1
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
@@ -4227,7 +4227,7 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    enemyId: 1
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
@@ -4983,7 +4983,7 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    enemyId: 1
     enemyAmount: 30
     pathId: 0
     enemySpawnGap: 0.2
@@ -5468,7 +5468,7 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    enemyId: 1
     enemyAmount: 30
     pathId: 0
     enemySpawnGap: 0.2
@@ -5972,7 +5972,7 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    enemyId: 1
     enemyAmount: 30
     pathId: 2
     enemySpawnGap: 0.2
@@ -6226,7 +6226,7 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    enemyId: 1
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0

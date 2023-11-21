@@ -9,9 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 813b5117768b4ac29466205be67cfdcb, type: 3}
-  m_Name: Enemy Registry
+  m_Script: {fileID: 11500000, guid: fdb59a28d22e4154a189b32f098cab55, type: 3}
+  m_Name: Bigger Enemy
   m_EditorClassIdentifier: 
-  enemyTypes:
-  - {fileID: 11400000, guid: 27800374413169842a1697941995eb90, type: 2}
-  - {fileID: 11400000, guid: b266000898748ef41a1f6dffde86d33e, type: 2}
+  stats:
+    xpValue: 5
+    maxHP: 10
+    minHP: 5
+    power: 10
+    speed: 7
+  viewPrefab: {fileID: -1032148392928579942, guid: 2be593ba1a60dba4f8fdb8ee41f7dac1, type: 3}

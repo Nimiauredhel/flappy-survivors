@@ -10,6 +10,8 @@ namespace Gameplay.ScrolledObjects
 {
     public class ScrolledObjectView : MonoBehaviour
     {
+        private static readonly int FLASH_AMOUNT_ID = Shader.PropertyToID("_FlashAmount");
+        
         public event Action Activated;
         public event Action Deactivated;
         
@@ -136,13 +138,13 @@ namespace Gameplay.ScrolledObjects
                 time += Time.deltaTime;
             }
 
+            SetWhiteAmount(0.0f);
             text.gameObject.SetActive(false);
         }
 
         private void SetWhiteAmount(float amount)
         {
-            string propertyString = "_FlashAmount";
-            materialPropertyBlock.SetFloat(propertyString, amount);
+            materialPropertyBlock.SetFloat(FLASH_AMOUNT_ID, amount);
             graphic.SetPropertyBlock(materialPropertyBlock);
             //graphic.sharedMaterial.SetFloat(propertyString, amount);
         }
