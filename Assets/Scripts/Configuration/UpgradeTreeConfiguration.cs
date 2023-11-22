@@ -14,6 +14,7 @@ namespace Configuration
 
         [SerializeField] private UpgradeTree upgradeTree;
 
+        #if UNITY_EDITOR
         private void OnValidate()
         {
             if (upgradeTree != null)
@@ -21,5 +22,6 @@ namespace Configuration
                 upgradeTree.ValidateUpgradeTree();
             }
         }
+        #endif
     }
 }
