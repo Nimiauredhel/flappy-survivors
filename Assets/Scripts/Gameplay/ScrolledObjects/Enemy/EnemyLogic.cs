@@ -25,7 +25,7 @@ namespace Gameplay.ScrolledObjects.Enemy
 
         public void ScrolledObjectUpdate(ScrolledObjectView view)
         {
-            
+            elapsedTime += Time.deltaTime;
         }
 
         public void ScrolledObjectFixedUpdate(ScrolledObjectView view)
@@ -36,7 +36,7 @@ namespace Gameplay.ScrolledObjects.Enemy
             }
             else
             {
-                elapsedTime += Time.fixedDeltaTime;
+                
                 float percent = elapsedTime / expectedTime;
 
                 //failsafe for when the spline messes with the pooling

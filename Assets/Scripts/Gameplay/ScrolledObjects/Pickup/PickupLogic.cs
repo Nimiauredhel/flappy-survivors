@@ -23,7 +23,7 @@ namespace Gameplay.ScrolledObjects.Pickup
 
         public void ScrolledObjectUpdate(ScrolledObjectView view)
         {
-            
+            elapsedTime += Time.deltaTime;
         }
 
         public void ScrolledObjectFixedUpdate(ScrolledObjectView view)
@@ -34,7 +34,6 @@ namespace Gameplay.ScrolledObjects.Pickup
             }
             else
             {
-                elapsedTime += Time.fixedDeltaTime;
                 view.Body.MovePosition(path.EvaluatePosition(elapsedTime).xy);
             }
         }

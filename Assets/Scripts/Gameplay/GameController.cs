@@ -50,7 +50,7 @@ namespace Gameplay
             pickupsController.Initialize();
             
             SetMusic(true);
-            
+            gameModel.SetGamePhase(GamePhase.HordePhase);
             LevelUpHandler(1);
         }
 
@@ -59,6 +59,8 @@ namespace Gameplay
             playerController.DoUpdate();
             enemiesController.DoUpdate();
             pickupsController.DoUpdate();
+
+            Physics2D.Simulate(Time.deltaTime);
         }
 
         public void FixedTick()

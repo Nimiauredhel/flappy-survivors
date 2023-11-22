@@ -303,10 +303,10 @@ namespace Gameplay.Player
             {
                 ySpeed = model.CurrentYSpeed;
             }
-
+            
             movementVector.Set(xSpeed, ySpeed);
-            view.transform.position += (Vector3)movementVector * Time.fixedDeltaTime;
-            //view.Body.MovePosition(view.Body.position + (movementVector * Time.fixedDeltaTime));
+            movementVector *= Time.fixedDeltaTime;
+            view.Body.MovePosition(view.Body.position + movementVector);
         }
 
         private void PointerDownHandler(object sender, PointerEventData eventData)
