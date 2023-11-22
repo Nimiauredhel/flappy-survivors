@@ -1,7 +1,6 @@
 using Gameplay.Player;
 using Gameplay.Upgrades;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Configuration
 {
@@ -10,10 +9,17 @@ namespace Configuration
     {
         public PlayerStats GetStats => new PlayerStats(stats);
         public WeaponConfiguration[] StartingWeapons => startingWeapons;
-        public UpgradeTree GetUpgradeTree => upgradeTree.GetFreshUpgradeTree();
+        public UpgradeTree GetUpgradeTree => upgradeTree;
 
         [SerializeField] private PlayerStats stats;
-        [SerializeField] private WeaponConfiguration[] startingWeapons;
-        [SerializeField] private UpgradeTreeConfiguration upgradeTree;
+        private WeaponConfiguration[] startingWeapons;
+        private UpgradeTree upgradeTree;
+
+        public void Initialize(PlayerStats newStats, WeaponConfiguration[] newStartingWeapons, UpgradeTree newUpgradeTree)
+        {
+            this.stats = newStats;
+            this.startingWeapons = newStartingWeapons;
+            this.upgradeTree = newUpgradeTree;
+        }
     }
 }

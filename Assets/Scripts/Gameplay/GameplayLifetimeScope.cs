@@ -24,9 +24,7 @@ namespace Gameplay
         [SerializeField] private VFXService vfxService;
         [SerializeField] private PlayableDirector levelDirector;
         
-        [SerializeField] private PlayerCharacterConfiguration characterConfig;
         [SerializeField] private PlayerMovementConfiguration playerMovementConfig;
-        [SerializeField] private UpgradeTreeConfiguration upgradeTreeConfig;
         
         
         protected override void Configure(IContainerBuilder builder)
@@ -42,9 +40,7 @@ namespace Gameplay
             builder.RegisterComponent(vfxService);
             builder.RegisterComponent(levelDirector);
             
-            builder.RegisterComponent(characterConfig);
             builder.RegisterComponent(playerMovementConfig);
-            builder.RegisterComponent(upgradeTreeConfig.GetFreshUpgradeTree());
 
             builder.Register<GameModel>(Lifetime.Singleton);
             builder.Register<PlayerController>(Lifetime.Singleton);

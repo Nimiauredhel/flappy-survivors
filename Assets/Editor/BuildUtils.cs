@@ -12,10 +12,9 @@ public static class BuildUtils
     {
         // Get filename.
         string path = BUILD_FOLDER + ANDROID_FOLDER + string.Format(BUILD_NAME_FORMAT, ".apk");
-        string[] levels = new string[] {"Assets/Scenes/GameplayScene.unity"};
 
         // Build player.
-        BuildPipeline.BuildPlayer(levels, path, BuildTarget.Android, BuildOptions.None);
+        BuildPipeline.BuildPlayer(GetScenes(), path, BuildTarget.Android, BuildOptions.None);
     }
 
 	[MenuItem("Build/WebGL")]
@@ -23,9 +22,19 @@ public static class BuildUtils
     {
         // Get filename.
         string path = BUILD_FOLDER + WEBGL_FOLDER + string.Format(BUILD_NAME_FORMAT, "/");
-        string[] levels = new string[] {"Assets/Scenes/GameplayScene.unity"};
 
         // Build player.
-        BuildPipeline.BuildPlayer(levels, path, BuildTarget.WebGL, BuildOptions.None);
+        BuildPipeline.BuildPlayer(GetScenes(), path, BuildTarget.WebGL, BuildOptions.None);
+    }
+
+    private static string[] GetScenes()
+    {
+        string[] scenes = new string[]
+        {
+            "Assets/Scenes/Menu.unity",
+            "Assets/Scenes/Gameplay.unity"
+        };
+
+        return scenes;
     }
 }

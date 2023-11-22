@@ -29,11 +29,12 @@ namespace Gameplay.Player
         [Inject] private readonly UpgradesUIView upgradesUIView;
         [Inject] private readonly PlayerModel model;
         [Inject] private readonly PlayerWeaponsComponent weapons;
-        [Inject] private readonly PlayerCharacterConfiguration characterConfig;
         [Inject] private readonly PlayerMovementConfiguration movementConfig;
-
+        
         private readonly PlayerMagnetComponent magnet = new PlayerMagnetComponent();
         private readonly ComboService comboService = new ComboService();
+        
+        private PlayerCharacterConfiguration characterConfig;
         
         private PlayerState _currentState;
         private ClimbState _climbState = new ClimbState();
@@ -244,6 +245,8 @@ namespace Gameplay.Player
         {
             SetNewState(new InitialState());
 
+            characterConfig = ConfigSelectionMediator.GetCharacterConfiguration();
+            
             model.InitializeModel(characterConfig);
             view.Initialize();
             weapons.Initialize(view.Graphic.transform, characterConfig.StartingWeapons, uiView);
@@ -423,7 +426,7 @@ namespace Gameplay.Player
 
         private void Die()
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
         }
 
         private void SetGoUp()

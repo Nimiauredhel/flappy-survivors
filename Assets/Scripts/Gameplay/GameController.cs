@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Configuration;
 using DG.Tweening;
 using Gameplay.Player;
 using Gameplay.ScrolledObjects;
@@ -23,17 +24,19 @@ namespace Gameplay
         [Inject] private readonly PlayableDirector levelDirector;
         
         [Inject] private readonly GameModel gameModel;
-        [Inject] private UpgradeTree upgradeTree;
         
-        private Stack<PickupDropOrder> comboBalloon = new Stack<PickupDropOrder>(32);
-
+        private UpgradeTree upgradeTree;
         private AudioSource musicSource;
         private Camera gameplayCamera;
+        
+        private Stack<PickupDropOrder> comboBalloon = new Stack<PickupDropOrder>(32);
         
         public void Start()
         {
             Application.targetFrameRate = 60;
             gameplayCamera = Camera.main;
+
+            upgradeTree = ConfigSelectionMediator.GetUpgradeTree();
             
             gameModel.Initialize();
             gameModel.GamePhaseChanged += PhaseChangedHandler;
@@ -51,7 +54,6 @@ namespace Gameplay
             
             SetMusic(true);
             gameModel.SetGamePhase(GamePhase.HordePhase);
-            LevelUpHandler(1);
         }
 
         public void Tick()
