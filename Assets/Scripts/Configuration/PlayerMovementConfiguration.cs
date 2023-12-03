@@ -6,6 +6,8 @@ namespace Configuration
     public class PlayerMovementConfiguration : ScriptableObject
     {
         public float NeutralDuration => neutralDuration;
+        public float FlinchDuration => flinchDuration;
+        public float DyingDuration => dyingDuration;
         public float ClimbSpeed => climbSpeed;
         public float DiveSpeed => diveSpeed;
         public float ClimbAccelTime => climbAccelTime;
@@ -18,6 +20,8 @@ namespace Configuration
         public float MinY => minY;
 
         [SerializeField] private float neutralDuration;
+        [SerializeField] private float flinchDuration;
+        [SerializeField] private float dyingDuration;
         [SerializeField] private float climbSpeed;
         [SerializeField] private float diveSpeed;
         [SerializeField] private float climbAccelTime;

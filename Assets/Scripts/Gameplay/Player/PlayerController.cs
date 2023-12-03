@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using Configuration;
 using DG.Tweening;
 using Gameplay.ScrolledObjects;
@@ -9,8 +8,6 @@ using Gameplay.Weapons;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using VContainer;
-using VContainer.Unity;
-using Random = UnityEngine.Random;
 
 namespace Gameplay.Player
 {
@@ -18,6 +15,9 @@ namespace Gameplay.Player
     {
         private static readonly int CLIMBING_HASH = Animator.StringToHash("Climbing");
         private static readonly int DIVING_HASH = Animator.StringToHash("Diving");
+        private static readonly int HOVERING_HASH = Animator.StringToHash("Hovering");
+        private static readonly int HURT_HASH = Animator.StringToHash("Hurt");
+        private static readonly int DYING_HASH = Animator.StringToHash("Dying");
 
         public event Action<int> ComboBreak;
         public event Action<int> LevelUp;
@@ -40,6 +40,9 @@ namespace Gameplay.Player
         private ClimbState _climbState = new ClimbState();
         private DiveState _diveState = new DiveState();
         private NeutralState _neutralState = new NeutralState();
+        private HurtState _hurtState = new HurtState();
+        private DyingState _dyingState = new DyingState();
+        
         private Tweener ySpeedTweener;
         private Tweener xSpeedTweener;
         private Tweener rotationTweener;
@@ -216,6 +219,78 @@ namespace Gameplay.Player
                 else
                 {
                     timeToDive -= Time.deltaTime;
+                }
+            }
+        }
+        
+        private class HurtState : PlayerState
+        {
+            private float timeToRecover = 0.0f;
+
+            public override void ClimbCommand(PlayerController player)
+            {
+                
+            }
+
+            public override void DiveCommand(PlayerController player)
+            {
+                
+            }
+
+            public override void EnterState(PlayerController player)
+            {
+                validWeaponType = WeaponType.None;
+                timeToRecover = player.movementConfig.FlinchDuration;
+                player.SetHurt();
+            }
+
+            public override void UpdateState(PlayerController player)
+            {
+                player.weapons.WeaponsUpdate(validWeaponType);
+                
+                if (timeToRecover <= 0.0f)
+                {
+                    player.SetNewState(player._neutralState);
+                }
+                else
+                {
+                    timeToRecover -= Time.deltaTime;
+                }
+            }
+        }
+        
+        private class DyingState : PlayerState
+        {
+            private float timeToDie = 0.0f;
+            
+            public override void ClimbCommand(PlayerController player)
+            {
+                
+            }
+
+            public override void DiveCommand(PlayerController player)
+            {
+                
+            }
+            
+            public override void EnterState(PlayerController player)
+            {
+                validWeaponType = WeaponType.None;
+                timeToDie = player.movementConfig.DyingDuration;
+                player.SetDying();
+            }
+
+            public override void UpdateState(PlayerController player)
+            {
+                player.weapons.WeaponsUpdate(validWeaponType);
+                
+                if (timeToDie <= 0.0f)
+                {
+                    player.Die();
+                }
+                else
+                {
+                    timeToDie -= Time.deltaTime;
                 }
             }
         }
@@ -415,11 +490,12 @@ namespace Gameplay.Player
         {
             if (model.CurrentHealth <= 0.0f)
             {
-                Die();
+                SetNewState(_dyingState);
             }
             else
             {
                 view.Flash();
+                SetNewState(_hurtState);
                 PlayerDamaged?.Invoke(damage);
             }
         }
@@ -465,6 +541,32 @@ namespace Gameplay.Player
             xSpeedTweener = DOTween.To(() => model.CurrentXSpeed, x => model.SetXSpeed(x), 0.05f, 0.5f);
             rotationTweener?.Kill();
             rotationTweener = view.Graphic.transform.DORotate(Vector3.zero, 0.5f);
+            
+            view.Animator.Play(HOVERING_HASH);
+        }
+
+        private void SetHurt()
+        {
+            ySpeedTweener?.Kill();
+            ySpeedTweener = DOTween.To(() => model.CurrentYSpeed, y => model.SetYSpeed(y), -movementConfig.ClimbSpeed, 0.25f);
+            xSpeedTweener?.Kill();
+            xSpeedTweener = DOTween.To(() => model.CurrentXSpeed, x => model.SetXSpeed(x), -movementConfig.ForwardSpeed, 0.25f);
+            rotationTweener?.Kill();
+            rotationTweener = view.Graphic.transform.DORotate(Vector3.zero, 0.25f);
+            
+            view.Animator.Play(HURT_HASH);
+        }
+        
+        private void SetDying()
+        {
+            ySpeedTweener?.Kill();
+            ySpeedTweener = DOTween.To(() => model.CurrentYSpeed, y => model.SetYSpeed(y), -movementConfig.ClimbSpeed, 0.25f);
+            xSpeedTweener?.Kill();
+            xSpeedTweener = DOTween.To(() => model.CurrentXSpeed, x => model.SetXSpeed(x), -movementConfig.ForwardSpeed, 0.25f);
+            rotationTweener?.Kill();
+            rotationTweener = view.Graphic.transform.DORotate(Vector3.zero, 0.25f);
+            
+            view.Animator.Play(DYING_HASH);
         }
 
         private IEnumerator TimerRoutine()
