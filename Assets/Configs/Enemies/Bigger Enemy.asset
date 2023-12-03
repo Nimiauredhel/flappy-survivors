@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bigger Enemy
   m_EditorClassIdentifier: 
   stats:
-    xpValue: 5
+    xpValue: 10
     maxHP: 10
     minHP: 6
     power: 10

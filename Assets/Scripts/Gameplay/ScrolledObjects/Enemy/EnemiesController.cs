@@ -5,7 +5,6 @@ using Configuration;
 using Gameplay.Level;
 using UnityEngine;
 using UnityEngine.Pool;
-using UnityEngine.Serialization;
 using UnityEngine.Splines;
 using Random = UnityEngine.Random;
 

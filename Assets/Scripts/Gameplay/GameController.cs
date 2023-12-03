@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Configuration;
 using DG.Tweening;
+using Gameplay.Level;
 using Gameplay.Player;
 using Gameplay.ScrolledObjects;
 using Gameplay.ScrolledObjects.Enemy;
@@ -92,10 +93,11 @@ namespace Gameplay
             TimelineAsset timeline = ConfigSelectionMediator.GetLevelConfig().Timeline;
             levelDirector.playableAsset = timeline;
             PlayableBinding[] bindings = timeline.outputs.ToArray();
+            BurstSignalReceiver receiver = enemiesController.GetComponent<BurstSignalReceiver>();
 
             for (int i = 0; i < bindings.Length; i++)
             {
-                levelDirector.SetGenericBinding(bindings[i].sourceObject, enemiesController);
+                levelDirector.SetGenericBinding(bindings[i].sourceObject, receiver);
             }
         }
 

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdb59a28d22e4154a189b32f098cab55, type: 3}
-  m_Name: Basic Enemy
+  m_Name: Medium Enemy
   m_EditorClassIdentifier: 
   stats:
-    xpValue: 1
-    maxHP: 5
-    minHP: 1
-    power: 4
-    speed: 14
-  viewPrefab: {fileID: -1032148392928579942, guid: 2f8ce556b6252b044822f6850129f3a5, type: 3}
+    xpValue: 5
+    maxHP: 6
+    minHP: 4
+    power: 7
+    speed: 10.5
+  viewPrefab: {fileID: -1032148392928579942, guid: 37408543d97f7e14a8bb90024cf72130, type: 3}
