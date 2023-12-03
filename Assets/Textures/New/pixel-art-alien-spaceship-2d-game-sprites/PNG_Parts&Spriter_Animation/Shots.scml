@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11" pixel_mode="1">
+    <folder id="0" name="Shots/Shot1">
+        <file id="0" name="Shots/Shot1/shot1_1.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="Shots/Shot1/shot1_2.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="Shots/Shot1/shot1_3.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="Shots/Shot1/shot1_4.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="Shots/Shot1/shot1_exp1.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="Shots/Shot1/shot1_exp2.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="Shots/Shot1/shot1_exp3.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="7" name="Shots/Shot1/shot1_exp4.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="8" name="Shots/Shot1/shot1_exp5.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <folder id="1" name="Shots/Shot2">
+        <file id="0" name="Shots/Shot2/shot2_1.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="Shots/Shot2/shot2_2.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="Shots/Shot2/shot2_3.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="Shots/Shot2/shot2_5.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="Shots/Shot2/shot2_4.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="Shots/Shot2/shot2_6.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="Shots/Shot2/shot2_exp1.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="7" name="Shots/Shot2/shot2_exp2.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="8" name="Shots/Shot2/shot2_exp3.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="9" name="Shots/Shot2/shot2_exp5.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="10" name="Shots/Shot2/shot2_exp6.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+        <file id="11" name="Shots/Shot2/shot2_exp4.png" width="64" height="64" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <folder id="2" name="Shots/Shot3">
+        <file id="0" name="Shots/Shot3/Shot3_1.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="Shots/Shot3/Shot3_2.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="Shots/Shot3/Shot3_4.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="Shots/Shot3/Shot3_3.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="Shots/Shot3/Shot3_5.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="Shots/Shot3/Shot3_6.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="Shots/Shot3/Shot3_asset.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="7" name="Shots/Shot3/Shot3_exp1.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="8" name="Shots/Shot3/Shot3_exp2.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="9" name="Shots/Shot3/Shot3_exp3.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="10" name="Shots/Shot3/Shot3_exp4.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="11" name="Shots/Shot3/Shot3_exp5.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="12" name="Shots/Shot3/Shot3_exp6.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="13" name="Shots/Shot3/Shot3_exp7.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <folder id="3" name="Shots/Shot4">
+        <file id="0" name="Shots/Shot4/Shot4_1.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="Shots/Shot4/Shot4_5.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="Shots/Shot4/Shot4_asset.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="Shots/Shot4/Shot4_exp_1.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="Shots/Shot4/Shot4_exp_2.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="Shots/Shot4/Shot4_2.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="Shots/Shot4/Shot4_3.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="7" name="Shots/Shot4/Shot4_4.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="8" name="Shots/Shot4/Shot4_exp_3.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="9" name="Shots/Shot4/Shot4_exp_4.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="10" name="Shots/Shot4/Shot4_exp_5.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="11" name="Shots/Shot4/Shot4_exp_6.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <folder id="4" name="Shots/Shot5">
+        <file id="0" name="Shots/Shot5/Shot5_1.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="Shots/Shot5/Shot5_2.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="Shots/Shot5/Shot5_4.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="Shots/Shot5/Shot5_3.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="Shots/Shot5/Shot5_exp_2.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="Shots/Shot5/Shot5_exp_1.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="Shots/Shot5/Shot5_asset.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="7" name="Shots/Shot5/Shot5_exp_3.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="8" name="Shots/Shot5/Shot5_exp_4.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="9" name="Shots/Shot5/Shot5_exp_6.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="10" name="Shots/Shot5/Shot5_exp_5.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="11" name="Shots/Shot5/Shot5_exp_7.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="12" name="Shots/Shot5/Shot5_exp_8.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <folder id="5" name="Shots/Shot6">
+        <file id="0" name="Shots/Shot6/Shot_1.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="Shots/Shot6/Shot_3.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="Shots/Shot6/Shot_2.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="Shots/Shot6/Shot_5.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="Shots/Shot6/Shot_4.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="Shots/Shot6/Shot_asset.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="Shots/Shot6/Shot_exp_1.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="7" name="Shots/Shot6/Shot_exp_2.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="8" name="Shots/Shot6/Shot_exp_3.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="9" name="Shots/Shot6/Shot_exp_4.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="10" name="Shots/Shot6/Shot_exp_5.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="11" name="Shots/Shot6/Shot_exp_6.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="12" name="Shots/Shot6/Shot_exp_7.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="13" name="Shots/Shot6/Shot_exp_8.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <entity id="0" name="entity_000">
+        <animation id="0" name="Shot1" length="300" interval="100" looping="false">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="100">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="201">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="300">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="shot1_1">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="-8" y="30" angle="0"/>
+                </key>
+                <key id="1" time="100" spin="0">
+                    <object folder="0" file="1" x="-8" y="30" angle="0"/>
+                </key>
+                <key id="2" time="201" spin="0">
+                    <object folder="0" file="2" x="-8" y="30" angle="0"/>
+                </key>
+                <key id="3" time="300" spin="0">
+                    <object folder="0" file="3" x="-8" y="30" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="Shot1_exp" length="400" interval="100" looping="false">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="99">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="197">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="299">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+                <key id="4" time="389">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="shot1_1">
+                <key id="0" spin="0">
+                    <object folder="0" file="4" x="-8" y="30" angle="0"/>
+                </key>
+                <key id="1" time="99" spin="0">
+                    <object folder="0" file="5" x="-8" y="30" angle="0"/>
+                </key>
+                <key id="2" time="197" spin="0">
+                    <object folder="0" file="6" x="-8" y="30" angle="0"/>
+                </key>
+                <key id="3" time="299" spin="0">
+                    <object folder="0" file="7" x="-8" y="30" angle="0"/>
+                </key>
+                <key id="4" time="389" spin="0">
+                    <object folder="0" file="8" x="-8" y="30" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="2" name="Shot2" length="500" interval="100" looping="false">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="101">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="201">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="300">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+                <key id="4" time="397">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                </key>
+                <key id="5" time="500">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="shot2_1">
+                <key id="0" spin="0">
+                    <object folder="1" file="0" x="-9" y="33" angle="0"/>
+                </key>
+                <key id="1" time="101" spin="0">
+                    <object folder="1" file="1" x="-8" y="33" angle="0"/>
+                </key>
+                <key id="2" time="201" spin="0">
+                    <object folder="1" file="2" x="-8" y="33" angle="0"/>
+                </key>
+                <key id="3" time="300" spin="0">
+                    <object folder="1" file="4" x="-8" y="33" angle="0"/>
+                </key>
+                <key id="4" time="397" spin="0">
+                    <object folder="1" file="3" x="-8" y="33" angle="0"/>
+                </key>
+                <key id="5" time="500" spin="0">
+                    <object folder="1" file="5" x="-8" y="33" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="3" name="Shot2_exp" length="500" interval="100" looping="false">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="96">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="201">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="301">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+                <key id="4" time="398">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                </key>
+                <key id="5" time="497">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="shot2_1">
+                <key id="0" spin="0">
+                    <object folder="1" file="6" x="-9" y="33" angle="0"/>
+                </key>
+                <key id="1" time="96" spin="0">
+                    <object folder="1" file="7" x="-9" y="33" angle="0"/>
+                </key>
+                <key id="2" time="201" spin="0">
+                    <object folder="1" file="8" x="-9" y="33" angle="0"/>
+                </key>
+                <key id="3" time="301" spin="0">
+                    <object folder="1" file="11" x="-9" y="33" angle="0"/>
+                </key>
+                <key id="4" time="398" spin="0">
+                    <object folder="1" file="9" x="-9" y="33" angle="0"/>
+                </key>
+                <key id="5" time="497" spin="0">
+                    <object folder="1" file="10" x="-9" y="33" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="4" name="Shot3" length="500" interval="100" looping="false">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="100">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="198">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="298">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+                <key id="4" time="397">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                </key>
+                <key id="5" time="499">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="Shot3_1">
+                <key id="0" spin="0">
+                    <object folder="2" file="0" x="-31" y="70" angle="0"/>
+                </key>
+                <key id="1" time="100" spin="0">
+                    <object folder="2" file="1" x="-31" y="70" angle="0"/>
+                </key>
+                <key id="2" time="198" spin="0">
+                    <object folder="2" file="3" x="-31" y="70" angle="0"/>
+                </key>
+                <key id="3" time="298" spin="0">
+                    <object folder="2" file="2" x="-31" y="70" angle="0"/>
+                </key>
+                <key id="4" time="397" spin="0">
+                    <object folder="2" file="4" x="-31" y="70" angle="0"/>
+                </key>
+                <key id="5" time="499" spin="0">
+                    <object folder="2" file="5" x="-31" y="70" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="5" name="Shot3_exp" length="600" interval="100" looping="false">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="101">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="201">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="300">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+                <key id="4" time="400">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                </key>
+                <key id="5" time="491">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                </key>
+                <key id="6" time="590">
+                    <object_ref id="0" timeline="0" key="6" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="Shot3_1">
+                <key id="0" spin="0">
+                    <object folder="2" file="7" x="-31" y="70" angle="0"/>
+                </key>
+                <key id="1" time="101" spin="0">
+                    <object folder="2" file="8" x="-31" y="70" angle="0"/>
+                </key>
+                <key id="2" time="201" spin="0">
+                    <object folder="2" file="9" x="-31" y="70" angle="0"/>
+                </key>
+                <key id="3" time="300" spin="0">
+                    <object folder="2" file="10" x="-31" y="70" angle="0"/>
+                </key>
+                <key id="4" time="400" spin="0">
+                    <object folder="2" file="11" x="-31" y="70" angle="0"/>
+                </key>
+                <key id="5" time="491" spin="0">
+                    <object folder="2" file="12" x="-31" y="70" angle="0"/>
+                </key>
+                <key id="6" time="590" spin="0">
+                    <object folder="2" file="13" x="-31" y="70" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="6" name="Shot4" length="400" interval="100" looping="false">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="103">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="200">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="298">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+                <key id="4" time="400">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="Shot4_1">
+                <key id="0" spin="0">
+                    <object folder="3" file="0" x="-133" y="130" angle="0"/>
+                </key>
+                <key id="1" time="103" spin="0">
+                    <object folder="3" file="5" x="-133" y="130" angle="0"/>
+                </key>
+                <key id="2" time="200" spin="0">
+                    <object folder="3" file="6" x="-133" y="130" angle="0"/>
+                </key>
+                <key id="3" time="298" spin="0">
+                    <object folder="3" file="7" x="-133" y="130" angle="0"/>
+                </key>
+                <key id="4" time="400" spin="0">
+                    <object folder="3" file="1" x="-133" y="130" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="7" name="Shot4_exp" length="500" interval="100" looping="false">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="100">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="204">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="297">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+                <key id="4" time="401">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                </key>
+                <key id="5" time="498">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="Shot4_1">
+                <key id="0" spin="0">
+                    <object folder="3" file="3" x="-133" y="130" angle="0"/>
+                </key>
+                <key id="1" time="100" spin="0">
+                    <object folder="3" file="4" x="-133" y="130" angle="0"/>
+                </key>
+                <key id="2" time="204" spin="0">
+                    <object folder="3" file="8" x="-133" y="130" angle="0"/>
+                </key>
+                <key id="3" time="297" spin="0">
+                    <object folder="3" file="9" x="-133" y="130" angle="0"/>
+                </key>
+                <key id="4" time="401" spin="0">
+                    <object folder="3" file="10" x="-133" y="130" angle="0"/>
+                </key>
+                <key id="5" time="498" spin="0">
+                    <object folder="3" file="11" x="-133" y="130" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="8" name="Shot5" length="300" interval="100" looping="false">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="103">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="198">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="299">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="Shot5_1">
+                <key id="0" spin="0">
+                    <object folder="4" file="0" x="-73" y="66" angle="0"/>
+                </key>
+                <key id="1" time="103" spin="0">
+                    <object folder="4" file="1" x="-73" y="66" angle="0"/>
+                </key>
+                <key id="2" time="198" spin="0">
+                    <object folder="4" file="3" x="-73" y="66" angle="0"/>
+                </key>
+                <key id="3" time="299" spin="0">
+                    <object folder="4" file="2" x="-73" y="66" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="9" name="Shot5_exp" length="700" interval="100" looping="false">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="98">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="199">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="299">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+                <key id="4" time="400">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                </key>
+                <key id="5" time="498">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                </key>
+                <key id="6" time="599">
+                    <object_ref id="0" timeline="0" key="6" z_index="0"/>
+                </key>
+                <key id="7" time="697">
+                    <object_ref id="0" timeline="0" key="7" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="Shot5_1">
+                <key id="0" spin="0">
+                    <object folder="4" file="5" x="-73" y="66" angle="0"/>
+                </key>
+                <key id="1" time="98" spin="0">
+                    <object folder="4" file="4" x="-73" y="66" angle="0"/>
+                </key>
+                <key id="2" time="199" spin="0">
+                    <object folder="4" file="7" x="-73" y="66" angle="0"/>
+                </key>
+                <key id="3" time="299" spin="0">
+                    <object folder="4" file="8" x="-73" y="66" angle="0"/>
+                </key>
+                <key id="4" time="400" spin="0">
+                    <object folder="4" file="10" x="-73" y="66" angle="0"/>
+                </key>
+                <key id="5" time="498" spin="0">
+                    <object folder="4" file="9" x="-73" y="66" angle="0"/>
+                </key>
+                <key id="6" time="599" spin="0">
+                    <object folder="4" file="11" x="-73" y="66" angle="0"/>
+                </key>
+                <key id="7" time="697" spin="0">
+                    <object folder="4" file="12" x="-73" y="66" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="10" name="Shot6" length="400" interval="100" looping="false">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="104">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="200">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="299">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+                <key id="4" time="398">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="Shot_1">
+                <key id="0" spin="0">
+                    <object folder="5" file="0" x="-133" y="148" angle="0"/>
+                </key>
+                <key id="1" time="104" spin="0">
+                    <object folder="5" file="2" x="-133" y="148" angle="0"/>
+                </key>
+                <key id="2" time="200" spin="0">
+                    <object folder="5" file="1" x="-133" y="148" angle="0"/>
+                </key>
+                <key id="3" time="299" spin="0">
+                    <object folder="5" file="4" x="-133" y="148" angle="0"/>
+                </key>
+                <key id="4" time="398" spin="0">
+                    <object folder="5" file="3" x="-133" y="148" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="11" name="Shot6_exp" length="800" interval="100" looping="false">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="101">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="202">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="298">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+                <key id="4" time="401">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                </key>
+                <key id="5" time="503">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                </key>
+                <key id="6" time="597">
+                    <object_ref id="0" timeline="0" key="6" z_index="0"/>
+                </key>
+                <key id="7" time="702">
+                    <object_ref id="0" timeline="0" key="7" z_index="0"/>
+                </key>
+                <key id="8" time="798">
+                    <object_ref id="0" timeline="0" key="8" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="Shot_1">
+                <key id="0" spin="0">
+                    <object folder="5" file="5" x="-133" y="148" angle="0"/>
+                </key>
+                <key id="1" time="101" spin="0">
+                    <object folder="5" file="6" x="-133" y="148" angle="0"/>
+                </key>
+                <key id="2" time="202" spin="0">
+                    <object folder="5" file="7" x="-133" y="148" angle="0"/>
+                </key>
+                <key id="3" time="298" spin="0">
+                    <object folder="5" file="8" x="-133" y="148" angle="0"/>
+                </key>
+                <key id="4" time="401" spin="0">
+                    <object folder="5" file="9" x="-133" y="148" angle="0"/>
+                </key>
+                <key id="5" time="503" spin="0">
+                    <object folder="5" file="10" x="-133" y="148" angle="0"/>
+                </key>
+                <key id="6" time="597" spin="0">
+                    <object folder="5" file="11" x="-133" y="148" angle="0"/>
+                </key>
+                <key id="7" time="702" spin="0">
+                    <object folder="5" file="12" x="-133" y="148" angle="0"/>
+                </key>
+                <key id="8" time="798" spin="0">
+                    <object folder="5" file="13" x="-133" y="148" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

@@ -1,5 +1,11 @@
-Flappy Grumpy Bird Sprite Sheets by bevoulin.com
+Harpy 2D Pixel Art by Mattz Art
+Space Pirates Game Sprites - Pixel Art by Free Game Assets
+Alien Spaceship 2D Sprites Pixel Art by Free Game Assets
+
 Sky Backdrop by bart
 Explosion by Cuzco
 Boom Pack 2 by dklon
 Pixel Weapons (demo) by Gabe Hess
+
+Removed:
+Flappy Grumpy Bird Sprite Sheets by bevoulin.com

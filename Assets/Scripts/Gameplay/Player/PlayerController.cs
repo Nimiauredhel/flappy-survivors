@@ -229,12 +229,18 @@ namespace Gameplay.Player
 
             public override void ClimbCommand(PlayerController player)
             {
-                
+                if (timeToRecover <= 0.0f)
+                {
+                    player.SetNewState(player._climbState);
+                }
             }
 
             public override void DiveCommand(PlayerController player)
             {
-                
+                if (timeToRecover <= 0.0f)
+                {
+                    player.SetNewState(player._diveState);
+                }
             }
 
             public override void EnterState(PlayerController player)
@@ -250,7 +256,7 @@ namespace Gameplay.Player
                 
                 if (timeToRecover <= 0.0f)
                 {
-                    player.SetNewState(player._neutralState);
+                    
                 }
                 else
                 {
@@ -548,7 +554,7 @@ namespace Gameplay.Player
         private void SetHurt()
         {
             ySpeedTweener?.Kill();
-            ySpeedTweener = DOTween.To(() => model.CurrentYSpeed, y => model.SetYSpeed(y), -movementConfig.ClimbSpeed, 0.25f);
+            ySpeedTweener = DOTween.To(() => model.CurrentYSpeed, y => model.SetYSpeed(y), -movementConfig.ClimbSpeed/2, 0.25f);
             xSpeedTweener?.Kill();
             xSpeedTweener = DOTween.To(() => model.CurrentXSpeed, x => model.SetXSpeed(x), -movementConfig.ForwardSpeed, 0.25f);
             rotationTweener?.Kill();

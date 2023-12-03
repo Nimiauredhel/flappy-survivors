@@ -646,9 +646,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5600330180552089277, guid: 75775b164519e2246a01c17626daa837, type: 3}
+      propertyPath: minY
+      value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600330180552089277, guid: 75775b164519e2246a01c17626daa837, type: 3}
       propertyPath: paths
       value: 
       objectReference: {fileID: 1615771974}
+    - target: {fileID: 5600330180552089277, guid: 75775b164519e2246a01c17626daa837, type: 3}
+      propertyPath: startX
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6086592239576207485, guid: 75775b164519e2246a01c17626daa837, type: 3}
       propertyPath: playerView
       value: 

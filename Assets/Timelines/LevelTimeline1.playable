@@ -480,9 +480,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 1
-    enemyAmount: 30
+    enemyAmount: 25
     pathId: 1
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.51
 --- !u!114 &-7308128227925411095
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -566,7 +566,7 @@ MonoBehaviour:
     enemyId: 0
     enemyAmount: 30
     pathId: 2
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.26
 --- !u!114 &-7076327913068551830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -669,9 +669,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 0
-    enemyAmount: 30
+    enemyAmount: 25
     pathId: 2
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.23
 --- !u!114 &-6769622829800169375
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2524,9 +2524,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 1
-    enemyAmount: 30
+    enemyAmount: 25
     pathId: 1
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.54
 --- !u!114 &-2308606982971241526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2587,9 +2587,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 1
-    enemyAmount: 10
+    enemyAmount: 5
     pathId: 3
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
 --- !u!114 &-2149427301980924839
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2608,9 +2608,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 1
-    enemyAmount: 30
+    enemyAmount: 25
     pathId: 2
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.52
 --- !u!114 &-2130585337492166496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2755,9 +2755,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 0
-    enemyAmount: 30
+    enemyAmount: 25
     pathId: 0
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.24
 --- !u!114 &-1639685301766677937
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2839,9 +2839,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 0
-    enemyAmount: 10
+    enemyAmount: 8
     pathId: 1
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
 --- !u!114 &-1426594163297915327
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2881,9 +2881,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 0
-    enemyAmount: 30
+    enemyAmount: 25
     pathId: 1
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.22
 --- !u!114 &-1303418928299358519
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3283,9 +3283,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 1
-    enemyAmount: 10
+    enemyAmount: 5
     pathId: 2
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
 --- !u!114 &142061098234535358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3682,9 +3682,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 2
-    enemyAmount: 10
+    enemyAmount: 2
     pathId: 3
-    enemySpawnGap: 0.2
+    enemySpawnGap: 2
 --- !u!114 &1742433346605733067
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4417,9 +4417,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 1
-    enemyAmount: 10
+    enemyAmount: 5
     pathId: 2
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
 --- !u!114 &4156220724456596672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4732,9 +4732,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 0
-    enemyAmount: 30
+    enemyAmount: 25
     pathId: 1
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.25
 --- !u!114 &5420459436432913217
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4795,9 +4795,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 1
-    enemyAmount: 10
+    enemyAmount: 5
     pathId: 3
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
 --- !u!114 &5570421033585349665
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4816,9 +4816,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 2
-    enemyAmount: 10
+    enemyAmount: 2
     pathId: 3
-    enemySpawnGap: 0.2
+    enemySpawnGap: 2
 --- !u!114 &5584679448328921841
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4984,9 +4984,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 1
-    enemyAmount: 30
+    enemyAmount: 25
     pathId: 0
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.53
 --- !u!114 &5942135889481399755
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5225,9 +5225,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 2
-    enemyAmount: 10
+    enemyAmount: 2
     pathId: 2
-    enemySpawnGap: 0.2
+    enemySpawnGap: 3
 --- !u!114 &6176526421105828465
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5469,9 +5469,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 1
-    enemyAmount: 30
+    enemyAmount: 25
     pathId: 0
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
 --- !u!114 &6707772813931133011
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5511,9 +5511,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 0
-    enemyAmount: 30
+    enemyAmount: 25
     pathId: 0
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.21
 --- !u!114 &6765355432307303857
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5868,9 +5868,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 2
-    enemyAmount: 10
+    enemyAmount: 2
     pathId: 2
-    enemySpawnGap: 0.2
+    enemySpawnGap: 3
 --- !u!114 &7537332752032655986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5931,9 +5931,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 0
-    enemyAmount: 10
+    enemyAmount: 8
     pathId: 0
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
 --- !u!114 &7681024685085792377
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5973,9 +5973,9 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     enemyId: 1
-    enemyAmount: 30
+    enemyAmount: 25
     pathId: 2
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.55
 --- !u!114 &7830602046109682852
 MonoBehaviour:
   m_ObjectHideFlags: 1
