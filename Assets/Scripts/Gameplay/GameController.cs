@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Configuration;
 using DG.Tweening;
 using Gameplay.Player;
@@ -9,6 +10,7 @@ using Gameplay.ScrolledObjects.Pickup;
 using Gameplay.Upgrades;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Timeline;
 using VContainer;
 using VContainer.Unity;
 using Random = UnityEngine.Random;
@@ -30,7 +32,9 @@ namespace Gameplay
         private Camera gameplayCamera;
         
         private Stack<PickupDropOrder> comboBalloon = new Stack<PickupDropOrder>(32);
-        
+
+        #region Life Cycle
+
         public void Start()
         {
             Application.targetFrameRate = 60;
@@ -38,13 +42,12 @@ namespace Gameplay
 
             upgradeTree = ConfigSelectionMediator.GetUpgradeTree();
             
-            gameModel.Initialize();
+            InitLevelTimeline();
+            
+            gameModel.Initialize((float)levelDirector.duration);
             gameModel.GamePhaseChanged += PhaseChangedHandler;
             
-            playerController.Initialize();
-            playerController.ComboBreak += ComboBrokenHandler;
-            playerController.LevelUp += LevelUpHandler;
-            playerController.PlayerDamaged += PlayerDamagedHandler;
+            InitPlayerController();
             
             enemiesController.Initialize();
             enemiesController.EnemyKilled += EnemyKilledHandler;
@@ -52,7 +55,6 @@ namespace Gameplay
             vfxService.Initialize();
             pickupsController.Initialize();
             
-            SetMusic(true);
             gameModel.SetGamePhase(GamePhase.HordePhase);
         }
 
@@ -80,6 +82,32 @@ namespace Gameplay
             
             enemiesController.EnemyKilled -= EnemyKilledHandler;
         }
+
+        #endregion
+        
+        #region Initialization
+
+        private void InitLevelTimeline()
+        {
+            TimelineAsset timeline = ConfigSelectionMediator.GetLevelConfig().Timeline;
+            levelDirector.playableAsset = timeline;
+            PlayableBinding[] bindings = timeline.outputs.ToArray();
+
+            for (int i = 0; i < bindings.Length; i++)
+            {
+                levelDirector.SetGenericBinding(bindings[i].sourceObject, enemiesController);
+            }
+        }
+
+        private void InitPlayerController()
+        {
+            playerController.Initialize();
+            playerController.ComboBreak += ComboBrokenHandler;
+            playerController.LevelUp += LevelUpHandler;
+            playerController.PlayerDamaged += PlayerDamagedHandler;
+        }
+
+        #endregion
 
         private void EnemyKilledHandler(int value, Vector3 position)
         {

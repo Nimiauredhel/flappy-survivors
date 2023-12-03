@@ -470,17 +470,17 @@ namespace Gameplay.Player
         private IEnumerator TimerRoutine()
         {
             WaitForSeconds second = new WaitForSeconds(1);
-            int secondsLeft = 5 * 60 ;
-
-            while (secondsLeft > 0)
+            
+            while (GameModel.TimeLeft > 0)
             {
                 while (GameModel.CurrentGamePhase != GamePhase.HordePhase)
                 {
                     yield return null;
                 }
-
-                uiView.UpdateTimerText(secondsLeft);
-                secondsLeft--;
+                
+                GameModel.ChangeTimeLeft(-1.0f);
+                uiView.UpdateTimerText((int)GameModel.TimeLeft);
+                
                 yield return second;
             }
             

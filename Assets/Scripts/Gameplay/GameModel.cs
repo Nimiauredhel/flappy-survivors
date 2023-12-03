@@ -5,15 +5,18 @@ namespace Gameplay
     public class GameModel
     {
         public static GamePhase CurrentGamePhase => instance.currentGamePhase;
+        public static float TimeLeft => instance.timeLeft;
         
-        private GamePhase currentGamePhase = GamePhase.IntroPhase;
-
-        private static GameModel instance;
-
         public Action<GamePhase> GamePhaseChanged;
         
-        public void Initialize()
+        private GamePhase currentGamePhase = GamePhase.IntroPhase;
+        
+        private static GameModel instance;
+        private float timeLeft;
+        
+        public void Initialize(float levelDuration)
         {
+            timeLeft = levelDuration;
             instance = this;
         }
 
@@ -21,6 +24,11 @@ namespace Gameplay
         {
             currentGamePhase = newPhase;
             GamePhaseChanged?.Invoke(currentGamePhase);
+        }
+
+        public static void ChangeTimeLeft(float delta)
+        {
+            instance.timeLeft += delta;
         }
     }
 }
