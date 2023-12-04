@@ -17,14 +17,14 @@ MonoBehaviour:
   stats:
     weaponType: 0
     power: 0
+    amount: 2
+    hits: 0
     speed: 0
     duration: 0
     area: 0
     cooldown: 0
-    amount: 2
-    hits: 0
     name: Shuriken
     description: +2 projectiles.
   logicComponents: []
   viewPrefab: {fileID: 7273189750282731730, guid: 9fa645536ef5a6f44899a341fb8462f4, type: 3}
-  iconSprite: {fileID: 21300000, guid: ce648fefb280f1041ba84eb78a18fee4, type: 3}
+  iconSprite: {fileID: 21300000, guid: a99b43d6c1c611c478e43a642ab51167, type: 3}

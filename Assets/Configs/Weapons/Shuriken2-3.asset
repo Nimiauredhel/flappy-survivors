@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86aad4624c266fb4cbfb61dede14d80a, type: 3}
   m_Name: Shuriken2-3
   m_EditorClassIdentifier: 
+  levelRequirement: 1
   commonness: 100
   stats:
     weaponType: 0
     power: 0
+    amount: 0
+    hits: 1
     speed: 0
     duration: 0
     area: 0
     cooldown: 0
-    amount: 0
-    hits: 1
     name: Shuriken
     description: Goes through one enemy.
   logicComponents: []
   viewPrefab: {fileID: 7273189750282731730, guid: 9fa645536ef5a6f44899a341fb8462f4, type: 3}
-  iconSprite: {fileID: 21300000, guid: ce648fefb280f1041ba84eb78a18fee4, type: 3}
+  iconSprite: {fileID: 21300000, guid: a99b43d6c1c611c478e43a642ab51167, type: 3}

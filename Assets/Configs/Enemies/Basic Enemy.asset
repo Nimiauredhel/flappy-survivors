@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
     xpValue: 1
-    maxHP: 5
+    maxHP: 4
     minHP: 1
     power: 4
     speed: 14
