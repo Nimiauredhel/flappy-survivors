@@ -26,7 +26,6 @@ namespace Gameplay.Player
         [Inject] private readonly TouchReceiver _touchReceiver;
         [Inject] private readonly PlayerView view;
         [Inject] private readonly PlayerUIView uiView;
-        [Inject] private readonly UpgradesUIView upgradesUIView;
         [Inject] private readonly PlayerModel model;
         [Inject] private readonly PlayerWeaponsComponent weapons;
         [Inject] private readonly PlayerMovementConfiguration movementConfig;
