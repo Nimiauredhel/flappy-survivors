@@ -299,7 +299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hurtBox: {fileID: 1571920496407732294}
   body: {fileID: 4859928808271287688}
-  graphic: {fileID: 4426572431478108249}
+  graphics:
+  - {fileID: 4426572431478108249}
   secondaryGraphic: {fileID: 0}
   animator: {fileID: 1646345818551329705}
   text: {fileID: 0}

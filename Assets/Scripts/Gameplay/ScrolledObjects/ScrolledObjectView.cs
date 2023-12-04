@@ -23,7 +23,7 @@ namespace Gameplay.ScrolledObjects
         
         [SerializeField] private Collider2D hurtBox;
         [SerializeField] private Rigidbody2D body;
-        [SerializeField] private SpriteRenderer graphic;
+        [SerializeField] private SpriteRenderer[] graphics;
         [SerializeField] private SpriteRenderer secondaryGraphic;
         [SerializeField] private Animator animator;
         [SerializeField] private TextMeshPro text;
@@ -36,8 +36,12 @@ namespace Gameplay.ScrolledObjects
         public void Initialize(IScrolledObjectLogic injectedLogic)
         {
             logic = injectedLogic;
-            materialPropertyBlock = new MaterialPropertyBlock();
-            graphic.GetPropertyBlock(materialPropertyBlock);
+            
+            if (graphics.Length > 0)
+            {
+                materialPropertyBlock = new MaterialPropertyBlock();
+                graphics[0].GetPropertyBlock(materialPropertyBlock);
+            }
         }
 
         public void SetPath(Spline path)
@@ -69,7 +73,12 @@ namespace Gameplay.ScrolledObjects
         public void Activate(object value)
         {
             logic.OnActivate(this, value);
-            graphic.gameObject.SetActive(true);
+
+            for (int i = 0; i < graphics.Length; i++)
+            {
+                graphics[i].gameObject.SetActive(true);
+            }
+            
             hurtBox.enabled = true;
             active = true;
 
@@ -87,7 +96,12 @@ namespace Gameplay.ScrolledObjects
         public void Deactivate(bool dieEffect = false)
         {
             logic.OnDeactivate(this);
-            graphic.gameObject.SetActive(false);
+            
+            for (int i = 0; i < graphics.Length; i++)
+            {
+                graphics[i].gameObject.SetActive(false);
+            }
+            
             hurtBox.enabled = false;
             active = false;
             
@@ -145,8 +159,11 @@ namespace Gameplay.ScrolledObjects
         private void SetWhiteAmount(float amount)
         {
             materialPropertyBlock.SetFloat(FLASH_AMOUNT_ID, amount);
-            graphic.SetPropertyBlock(materialPropertyBlock);
-            //graphic.sharedMaterial.SetFloat(propertyString, amount);
+            
+            for (int i = 0; i < graphics.Length; i++)
+            {
+                graphics[i].SetPropertyBlock(materialPropertyBlock);
+            }
         }
     }
 }
