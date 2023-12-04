@@ -75,7 +75,7 @@ namespace Gameplay.ScrolledObjects.Enemy
             }
         }
 
-        public void OnHitByPlayer(ScrolledObjectView view, Action<int> hpAction, Action<int> xpAction, Action<UpgradeOption> upgradeOption)
+        public void OnHitPlayer(ScrolledObjectView view, Action<int> hpAction, Action<int> xpAction, Action<UpgradeOption> upgradeOption)
         {
             hpAction?.Invoke(-stats.Power);
         }

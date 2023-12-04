@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using Gameplay.Upgrades;
 using TMPro;
@@ -21,9 +22,10 @@ namespace Gameplay.ScrolledObjects
         public TextMeshPro Text => text;
         public Rigidbody2D Body => body;
         
-        [SerializeField] private Collider2D hurtBox;
-        [SerializeField] private Rigidbody2D body;
+        [SerializeField] private HitTrigger[] hurtBoxes;
+        [SerializeField] private HitTrigger[] hitBoxes;
         [SerializeField] private SpriteRenderer[] graphics;
+        [SerializeField] private Rigidbody2D body;
         [SerializeField] private SpriteRenderer secondaryGraphic;
         [SerializeField] private Animator animator;
         [SerializeField] private TextMeshPro text;
@@ -59,17 +61,6 @@ namespace Gameplay.ScrolledObjects
             logic.ScrolledObjectFixedUpdate(this);
         }
 
-        public void HitByWeapon(int damage)
-        {
-            ShowDamage(damage);
-            logic.OnHitByWeapon(this, damage);
-        }
-
-        public void HitByPlayer(Action<int> hpAction, Action<int> xpAction, Action<UpgradeOption> upgradeAction)
-        {
-            logic.OnHitByPlayer(this, hpAction, xpAction, upgradeAction);
-        }
-
         public void Activate(object value)
         {
             logic.OnActivate(this, value);
@@ -79,7 +70,8 @@ namespace Gameplay.ScrolledObjects
                 graphics[i].gameObject.SetActive(true);
             }
             
-            hurtBox.enabled = true;
+            SetHurtboxEnabled(true);
+            SetHitboxEnabled(true);
             active = true;
 
             if (animator != null)
@@ -102,10 +94,22 @@ namespace Gameplay.ScrolledObjects
                 graphics[i].gameObject.SetActive(false);
             }
             
-            hurtBox.enabled = false;
+            SetHurtboxEnabled(false);
+            SetHitboxEnabled(false);
             active = false;
             
             Deactivated?.Invoke();
+        }
+        
+        public void HitByWeapon(int damage)
+        {
+            ShowDamage(damage);
+            logic.OnHitByWeapon(this, damage);
+        }
+
+        public void HitPlayer(Action<int> hpAction, Action<int> xpAction, Action<UpgradeOption> upgradeAction)
+        {
+            logic.OnHitPlayer(this, hpAction, xpAction, upgradeAction);
         }
         
         public void ShowDamage(int damage)
@@ -165,5 +169,51 @@ namespace Gameplay.ScrolledObjects
                 graphics[i].SetPropertyBlock(materialPropertyBlock);
             }
         }
+
+        private void SetHurtboxEnabled(bool value)
+        {
+            for (int i = 0; i < hurtBoxes.Length; i++)
+            {
+                hurtBoxes[i].gameObject.SetActive(value);
+            }
+        }
+        
+        private void SetHitboxEnabled(bool value)
+        {
+            for (int i = 0; i < hitBoxes.Length; i++)
+            {
+                hitBoxes[i].gameObject.SetActive(value);
+            }
+        }
+        
+        #if UNITY_EDITOR
+
+        private void OnValidate()
+        {
+            if (hitBoxes.Length == 0 || hurtBoxes.Length == 0)
+            {
+                HitTrigger[] hitTriggers = GetComponentsInChildren<HitTrigger>();
+
+                List<HitTrigger> hits = new List<HitTrigger>();
+                List<HitTrigger> hurts = new List<HitTrigger>();
+
+                foreach (HitTrigger trigger in hitTriggers)
+                {
+                    if (trigger.gameObject.name.Contains("Hitbox"))
+                    {
+                        hits.Add(trigger);
+                    }
+                    else if (trigger.gameObject.name.Contains("Hurtbox"))
+                    {
+                        hurts.Add(trigger);
+                    }
+                }
+
+                hitBoxes = hits.ToArray();
+                hurtBoxes = hurts.ToArray();
+            }
+        }
+
+        #endif
     }
 }

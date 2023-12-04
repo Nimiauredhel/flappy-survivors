@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7242481672232222567}
   - component: {fileID: 4426572431478108249}
   - component: {fileID: 9198684520066769571}
+  - component: {fileID: 3320934428090580650}
   m_Layer: 10
   m_Name: Graphic
   m_TagString: Untagged
@@ -121,6 +122,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
+--- !u!114 &3320934428090580650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2350598143440965704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ca1faa1dbe719458399109be9d049b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitReceiver: {fileID: -1032148392928579942}
 --- !u!1 &5685050216162055333
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,10 +311,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784304a9eb760da41873c958bacbcffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hurtBox: {fileID: 9198684520066769571}
-  body: {fileID: 4859928808271287688}
+  hurtBoxes: []
+  hitBoxes: []
   graphics:
   - {fileID: 4426572431478108249}
+  body: {fileID: 4859928808271287688}
   secondaryGraphic: {fileID: 0}
   animator: {fileID: 1646345818551329705}
   text: {fileID: 0}

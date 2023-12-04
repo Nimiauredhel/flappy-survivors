@@ -433,11 +433,11 @@ namespace Gameplay.Player
         
         private void TriggerEnterHandler(object sender, Collider2D other)
         {
-            ScrolledObjectView SO = other.gameObject.GetComponentInParent<ScrolledObjectView>();
+            HitTrigger hitTrigger = other.gameObject.GetComponent<HitTrigger>();
             
-            if (SO != null && SO.Active)
+            if (hitTrigger != null && hitTrigger.enabled)
             {
-                SO.HitByPlayer(ChangePlayerHealth, ChangePlayerXP, SelectedUpgradeHandler);
+                hitTrigger.HitReceiver.HitPlayer(ChangePlayerHealth, ChangePlayerXP, SelectedUpgradeHandler);
             }
         }
 

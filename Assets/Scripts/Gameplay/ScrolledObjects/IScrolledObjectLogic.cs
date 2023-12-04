@@ -12,7 +12,7 @@ namespace Gameplay.ScrolledObjects
 
         public void OnHitByWeapon(ScrolledObjectView view, int damage);
 
-        public void OnHitByPlayer(ScrolledObjectView view, Action<int> hpAction, Action<int> xpAction, Action<UpgradeOption> upgradeAction);
+        public void OnHitPlayer(ScrolledObjectView view, Action<int> hpAction, Action<int> xpAction, Action<UpgradeOption> upgradeAction);
         
         public void OnActivate(ScrolledObjectView view, object value);
 

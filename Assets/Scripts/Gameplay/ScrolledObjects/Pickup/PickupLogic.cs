@@ -43,7 +43,7 @@ namespace Gameplay.ScrolledObjects.Pickup
             Debug.LogWarning("Pickup hit by weapon. This shouldn't happen.");
         }
 
-        public void OnHitByPlayer(ScrolledObjectView view, Action<int> hpAction, Action<int> xpAction, Action<UpgradeOption> upgradeAction)
+        public void OnHitPlayer(ScrolledObjectView view, Action<int> hpAction, Action<int> xpAction, Action<UpgradeOption> upgradeAction)
         {
             switch (type)
             {

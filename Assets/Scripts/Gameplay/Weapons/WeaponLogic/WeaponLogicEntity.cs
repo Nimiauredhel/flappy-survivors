@@ -80,13 +80,13 @@ namespace Gameplay.Weapons.WeaponLogic
         
         public void HitHandler(object sender, Collider2D other, WeaponInstance instance)
         {
-            ScrolledObjectView SO = other.gameObject.GetComponentInParent<ScrolledObjectView>();
+            HitTrigger hitTrigger = other.gameObject.GetComponent<HitTrigger>();
 
-            if (SO != null && SO.Active)
+            if (hitTrigger != null && hitTrigger.HitReceiver != null)
             {
                 for (int i = 0; i < components.Length; i++)
                 {
-                    components[i].HitHandler(SO, instance);
+                    components[i].HitHandler(hitTrigger.HitReceiver, instance);
                 }
             }
         }
