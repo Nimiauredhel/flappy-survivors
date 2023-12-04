@@ -19,4 +19,4 @@ MonoBehaviour:
   stats:
     maxHealth: 0
     magnetStrength: 2
-  icon: {fileID: 21300000, guid: 0e5671eb04d130f4882f1978f5424785, type: 3}
+  icon: {fileID: 21300000, guid: 40a485a7ed35f5045a1575830fd58486, type: 3}

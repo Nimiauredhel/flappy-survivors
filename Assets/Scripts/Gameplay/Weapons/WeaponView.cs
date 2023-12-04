@@ -9,9 +9,11 @@ namespace Gameplay.Weapons
 
         public SpriteRenderer Graphic => graphic;
         public Collider2D Hitbox => hitbox;
+        public Animator Animator => animator;
 
         [SerializeField] private SpriteRenderer graphic;
         [SerializeField] private Collider2D hitbox;
+        [SerializeField] private Animator animator;
 
         public void OnTriggerEnter2D(Collider2D other)
         {

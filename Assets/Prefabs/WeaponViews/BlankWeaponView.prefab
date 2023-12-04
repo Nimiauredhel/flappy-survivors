@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 59687893081121107}
   - component: {fileID: 7273189750282731730}
   - component: {fileID: 5494598786590864023}
+  - component: {fileID: 2309130748778954965}
   m_Layer: 7
   m_Name: BlankWeaponView
   m_TagString: Untagged
@@ -126,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   graphic: {fileID: 6718569727245811768}
   hitbox: {fileID: 3927184976782666978}
+  animator: {fileID: 0}
 --- !u!50 &5494598786590864023
 Rigidbody2D:
   serializedVersion: 4
@@ -153,6 +155,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &2309130748778954965
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3786677948436477324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da44342f041635342b4ee23aaa8d1af6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8311246857055642984
 GameObject:
   m_ObjectHideFlags: 0

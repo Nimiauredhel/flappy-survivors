@@ -38,6 +38,10 @@ MonoBehaviour:
           Taken: 0
           upgradeConfig:
             _underlyingValue: {fileID: 11400000, guid: 6c2454643e18071448f7d6fdb98f411c, type: 2}
+        - name: Power +3.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 6d9a1b578d1088543abfc582ff2daae0, type: 2}
     - name: Kill Sphere
       upgradeLevels:
       - name: Level 0

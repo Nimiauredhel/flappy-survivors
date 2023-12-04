@@ -37,6 +37,8 @@ namespace Gameplay.Weapons.WeaponLogic
             
             hits = 0;
             elapsedTime = 0.0f;
+            instance.View.Animator.Rebind();
+            instance.View.Animator.Update(0.0f);
             instance.View.Graphic.enabled = false;
             instance.View.Hitbox.enabled = false;
         }

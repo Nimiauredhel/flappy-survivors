@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86aad4624c266fb4cbfb61dede14d80a, type: 3}
-  m_Name: KillSphere2-1
+  m_Name: BattleAxe3-2
   m_EditorClassIdentifier: 
-  levelRequirement: 1
+  levelRequirement: 10
   commonness: 100
   stats:
     weaponType: 0
-    power: 0
+    power: 3
     amount: 0
     hits: 0
     speed: 0
     duration: 0
     area: 0
-    cooldown: -1
-    name: Kill Sphere
-    description: Cooldown reduced by 1 second.
+    cooldown: 0
+    name: Battle Axe
+    description: Power +3.
   logicComponents: []
-  viewPrefab: {fileID: 7273189750282731730, guid: 88067083801288347b4eccaf1932aa93, type: 3}
-  iconSprite: {fileID: 21300000, guid: e0987a7b03b8a484799f2e47241c5f38, type: 3}
+  viewPrefab: {fileID: 7273189750282731730, guid: d8c6dc4fb18d63d4782fc70c83cf80a0, type: 3}
+  iconSprite: {fileID: 21300000, guid: a3d76346c656a9840bf67587ca40d379, type: 3}
