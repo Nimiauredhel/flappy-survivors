@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Configuration;
 using DG.Tweening;
+using DG.Tweening.Core;
 using Gameplay.Level;
 using Gameplay.Player;
 using Gameplay.ScrolledObjects;
@@ -14,6 +15,7 @@ using UnityEngine.Playables;
 using UnityEngine.Timeline;
 using VContainer;
 using VContainer.Unity;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 namespace Gameplay
@@ -31,6 +33,7 @@ namespace Gameplay
         private UpgradeTree upgradeTree;
         private AudioSource musicSource;
         private Camera gameplayCamera;
+        private Tween cameraShake = null;
         
         private Stack<PickupDropOrder> comboBalloon = new Stack<PickupDropOrder>(32);
 
@@ -40,10 +43,11 @@ namespace Gameplay
         {
             Application.targetFrameRate = 60;
             gameplayCamera = Camera.main;
-
+            cameraShake = DOTween.Sequence();
+            
             upgradeTree = ConfigSelectionMediator.GetUpgradeTree();
             
-            InitLevelTimeline();
+            InitializeLevel();
             
             gameModel.Initialize((float)levelDirector.duration);
             gameModel.GamePhaseChanged += PhaseChangedHandler;
@@ -88,9 +92,11 @@ namespace Gameplay
         
         #region Initialization
 
-        private void InitLevelTimeline()
+        private void InitializeLevel()
         {
-            TimelineAsset timeline = ConfigSelectionMediator.GetLevelConfig().Timeline;
+            LevelConfiguration levelConfig = ConfigSelectionMediator.GetLevelConfig();
+            
+            TimelineAsset timeline = levelConfig.Timeline;
             levelDirector.playableAsset = timeline;
             PlayableBinding[] bindings = timeline.outputs.ToArray();
             BurstSignalReceiver receiver = enemiesController.GetComponent<BurstSignalReceiver>();
@@ -99,6 +105,8 @@ namespace Gameplay
             {
                 levelDirector.SetGenericBinding(bindings[i].sourceObject, receiver);
             }
+
+            Object.Instantiate(levelConfig.BackgroundAsset);
         }
 
         private void InitPlayerController()
@@ -137,8 +145,12 @@ namespace Gameplay
         
         private void PlayerDamagedHandler(int damage)
         {
+            if (cameraShake != null) cameraShake.Kill(true);
+            
             Vector3 strength = new Vector3(1, 1, 0) * (damage / 10.0f);
-            gameplayCamera.DOShakePosition(0.25f, strength);
+            
+            cameraShake = gameplayCamera.DOShakePosition(0.25f, strength);
+            cameraShake.onComplete += () => cameraShake.Rewind();
         }
 
         private void ComboBrokenHandler(int brokenCombo)

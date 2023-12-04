@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Test Level
   m_EditorClassIdentifier: 
   name: Test Level
-  thumbnail: {fileID: 21300000, guid: bc55ec2c314d0ec40a1dc38e14020b4c, type: 3}
+  thumbnail: {fileID: 21300000, guid: a343623974495b34fa2bd92ed9824323, type: 3}
   timeline: {fileID: 11400000, guid: 57ece4394606de94ca56d863421caee4, type: 2}
+  backgroundAsset: {fileID: 5647197508514708505, guid: b3d430240693f6d4eaf46b7bba25a41b, type: 3}

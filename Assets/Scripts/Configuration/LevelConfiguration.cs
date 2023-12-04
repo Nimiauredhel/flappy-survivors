@@ -10,9 +10,11 @@ namespace Configuration
         public Sprite Thumbnail => thumbnail;
         public float RunTime => (float)timeline.duration;
         public TimelineAsset Timeline => timeline;
+        public GameObject BackgroundAsset => backgroundAsset;
 
         [SerializeField] private new string name;
         [SerializeField] private Sprite thumbnail;
         [SerializeField] private TimelineAsset timeline;
+        [SerializeField] private GameObject backgroundAsset;
     }
 }
