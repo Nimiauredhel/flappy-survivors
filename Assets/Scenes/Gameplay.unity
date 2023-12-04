@@ -432,17 +432,6 @@ MonoBehaviour:
     m_FixedHeight: 50
     m_StretchWidth: 1
     m_StretchHeight: 1
---- !u!114 &1356646638 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6470767034313979961, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
-  m_PrefabInstance: {fileID: 4732591126790484284}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ee8bcd6df32bd44d9db0a4826be296d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1601345072
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,7 +665,7 @@ PrefabInstance:
     - target: {fileID: 6086592239576207485, guid: 75775b164519e2246a01c17626daa837, type: 3}
       propertyPath: upgradesUIView
       value: 
-      objectReference: {fileID: 1356646638}
+      objectReference: {fileID: 0}
     - target: {fileID: 7482715668597420255, guid: 75775b164519e2246a01c17626daa837, type: 3}
       propertyPath: m_Name
       value: GameplayLifetimeScope
