@@ -9,7 +9,7 @@ namespace Gameplay.ScrolledObjects.Enemy
 {
     public class EnemyLogic : IScrolledObjectLogic
     {
-        private event Action<int, Vector3> EnemyKilled; 
+        private event Action<bool, int, Vector3> EnemyHit; 
         
         private int currentHP;
         private float elapsedTime = 0.0f;
@@ -17,10 +17,10 @@ namespace Gameplay.ScrolledObjects.Enemy
         private EnemyStats stats;
         private Spline path = null;
         
-        public EnemyLogic(EnemyStats stats, Action<int, Vector3> killedHandler)
+        public EnemyLogic(EnemyStats stats, Action<bool, int, Vector3> hitHandler)
         {
             this.stats = stats;
-            EnemyKilled += killedHandler;
+            EnemyHit += hitHandler;
         }
 
         public void ScrolledObjectUpdate(ScrolledObjectView view)
@@ -57,22 +57,25 @@ namespace Gameplay.ScrolledObjects.Enemy
         public void OnHitByWeapon(ScrolledObjectView view, int damage)
         {
             currentHP -= damage;
+            int value = damage;
+            bool killed = false;
             
             if (currentHP <= 0.0f)
             {
+                killed = true;
                 int overkill = damage - stats.MaxHP;
-                int pickupValue = stats.XPValue;
+                value = stats.XPValue;
                 
                 if (overkill > stats.MaxHP || Random.Range(0.0f, 1.0f) > 0.85f)
                 {
-                    pickupValue *= -2;
+                    value *= -2;
                 }
-                
-                EnemyKilled?.Invoke(pickupValue, view.transform.position);
                 
                 currentHP = 0;
                 view.Deactivate(true);
             }
+            
+            EnemyHit?.Invoke(killed, value, view.transform.position);
         }
 
         public void OnHitPlayer(ScrolledObjectView view, Action<int> hpAction, Action<int> xpAction, Action<UpgradeOption> upgradeOption)

@@ -32,7 +32,6 @@ namespace Gameplay
         [Inject] private readonly GameModel gameModel;
         
         private UpgradeTree upgradeTree;
-        private AudioSource musicSource;
         private Camera gameplayCamera;
         private Tween cameraShake = null;
         
@@ -56,7 +55,7 @@ namespace Gameplay
             InitPlayerController();
             
             enemiesController.Initialize();
-            enemiesController.EnemyKilled += EnemyKilledHandler;
+            enemiesController.EnemyHit += EnemyHitHandler;
             
             vfxService.Initialize();
             audioManager.Initialize();
@@ -87,7 +86,7 @@ namespace Gameplay
             playerController.ComboBreak -= ComboBrokenHandler;
             playerController.LevelUp -= LevelUpHandler;
             
-            enemiesController.EnemyKilled -= EnemyKilledHandler;
+            enemiesController.EnemyHit -= EnemyHitHandler;
         }
 
         #endregion
@@ -121,27 +120,35 @@ namespace Gameplay
 
         #endregion
 
-        private void EnemyKilledHandler(int value, Vector3 position)
+        private void EnemyHitHandler(bool killed, int value, Vector3 position)
         {
-            vfxService.RequestExplosionAt(position);
-            playerController.HandleEnemyKilled();
-
-            if (value != 0)
+            if (killed)
             {
-                PickupType type;
+                vfxService.RequestExplosionAt(position);
+                audioManager.PlayEnemyDestroyed();
+                playerController.HandleEnemyKilled();
 
-                if (value < 0)
+                if (value != 0)
                 {
-                    type = PickupType.Health;
-                    value *= -1;
-                }
-                else
-                {
-                    type = PickupType.XP;
-                }
+                    PickupType type;
 
-                int pickupValue = Random.Range(Mathf.CeilToInt(value * 0.55f), value);
-                comboBalloon.Push(new PickupDropOrder(pickupValue, type, position));
+                    if (value < 0)
+                    {
+                        type = PickupType.Health;
+                        value *= -1;
+                    }
+                    else
+                    {
+                        type = PickupType.XP;
+                    }
+
+                    int pickupValue = Random.Range(Mathf.CeilToInt(value * 0.55f), value);
+                    comboBalloon.Push(new PickupDropOrder(pickupValue, type, position));
+                }
+            }
+            else
+            {
+                audioManager.PlayEnemyHit();
             }
         }
         
@@ -210,23 +217,6 @@ namespace Gameplay
                     upgradePickups[i].Deactivate();
                 }
             }
-        }
-
-        private void SetMusic(bool fighting)
-        {
-            if (musicSource == null)
-            {
-                GameObject go = new GameObject();
-                musicSource = go.AddComponent<AudioSource>();
-                go.name = "MusicSource";
-            }
-
-            musicSource.Stop();
-            musicSource.loop = true;
-            musicSource.clip = fighting
-                ? Resources.Load<AudioClip>("Music/Fighting")
-                : Resources.Load<AudioClip>("Music/Upgrading");
-            musicSource.Play();
         }
 
         private void PhaseChangedHandler(GamePhase newPhase)

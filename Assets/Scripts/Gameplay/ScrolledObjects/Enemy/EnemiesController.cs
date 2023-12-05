@@ -12,7 +12,7 @@ namespace Gameplay.ScrolledObjects.Enemy
 {
     public class EnemiesController : MonoBehaviour
     {
-        public event Action<int, Vector3> EnemyKilled;
+        public event Action<bool, int, Vector3> EnemyHit;
         
         [SerializeField] private int poolSize = 100;
         [SerializeField] private float startX, endX, minY, maxY;
@@ -104,16 +104,16 @@ namespace Gameplay.ScrolledObjects.Enemy
             }
         }
 
-        private void EnemyKilledForwarder(int value, Vector3 position)
+        private void EnemyHitForwarder(bool killed, int damage, Vector3 position)
         {
-            EnemyKilled?.Invoke(value, position);
+            EnemyHit?.Invoke(killed, damage, position);
         }
 
         private ScrolledObjectView CreateEnemy(int enemyId)
         {
             EnemyConfiguration enemyConfig = enemyRegistry.EnemyTypes[enemyId];
             
-            EnemyLogic createdLogic = new EnemyLogic(enemyConfig.Stats, EnemyKilledForwarder);
+            EnemyLogic createdLogic = new EnemyLogic(enemyConfig.Stats, EnemyHitForwarder);
             ScrolledObjectView createdView = Instantiate<ScrolledObjectView>(enemyConfig.ViewPrefab, new Vector3(startX, 0.0f, 0.0f), Quaternion.identity, transform);
             createdView.Initialize(createdLogic);
             return createdView;

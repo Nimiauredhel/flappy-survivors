@@ -66,6 +66,7 @@ namespace Gameplay.ScrolledObjects.Pickup
                     throw new ArgumentOutOfRangeException();
             }
             
+            GameplayAudioManager.Instance.PlayPickupCollected();
             view.Deactivate();
         }
 
@@ -96,6 +97,8 @@ namespace Gameplay.ScrolledObjects.Pickup
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+            
+            GameplayAudioManager.Instance.PlayPickupSpawned();
         }
 
         public void OnDeactivate(ScrolledObjectView view)

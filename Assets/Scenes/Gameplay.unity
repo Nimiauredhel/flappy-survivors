@@ -509,7 +509,35 @@ MonoBehaviour:
       Data2: 1303908805
       Data3: 1235257256
       Data4: -715890828
-    Path: event:/GameplayMusic
+    Path: event:/Music/GameplayMusic
+  enemyHitReference:
+    Guid:
+      Data1: -968680502
+      Data2: 1126685805
+      Data3: -1343319411
+      Data4: 368640854
+    Path: event:/SFX/EnemyHit
+  enemyDestroyedReference:
+    Guid:
+      Data1: 1910793103
+      Data2: 1208041094
+      Data3: 1233697703
+      Data4: 715414236
+    Path: event:/SFX/EnemyDestroyed
+  pickupSpawnedReference:
+    Guid:
+      Data1: -1469555162
+      Data2: 1304285733
+      Data3: -1133716584
+      Data4: 1326857222
+    Path: event:/SFX/PickupSpawned
+  pickupCollectedReference:
+    Guid:
+      Data1: -1784872936
+      Data2: 1123058040
+      Data3: 239420068
+      Data4: -1144695461
+    Path: event:/SFX/PickupCollected
 --- !u!4 &1656253317
 Transform:
   m_ObjectHideFlags: 0
