@@ -2386,6 +2386,13 @@ MonoBehaviour:
   - {fileID: 228445446}
   - {fileID: 226956603}
   - {fileID: 355059492}
+  mainMenuMusicReference:
+    Guid:
+      Data1: 1365035346
+      Data2: 1111472498
+      Data3: 1311476628
+      Data4: -1332938950
+    Path: event:/Music/MenuMusic
 --- !u!1 &4812485038892756975
 GameObject:
   m_ObjectHideFlags: 0

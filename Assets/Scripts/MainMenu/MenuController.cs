@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Configuration;
+using FMOD.Studio;
+using FMODUnity;
 using Gameplay.Upgrades;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VContainer;
 using VContainer.Unity;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace MainMenu
 {
@@ -17,11 +20,15 @@ namespace MainMenu
         [Inject] private readonly PlayerCharacterConfiguration defaultPlayerConfig;
 
         private UpgradeTree currentUpgradeTree;
+        private EventInstance mainMenuMusicInstance;
         
         public void Start()
         {
             InitLevelOptions();
             InitLoadoutOptions();
+
+            mainMenuMusicInstance = RuntimeManager.CreateInstance(view.MainMenuMusicReference);
+            mainMenuMusicInstance.start();
         }
 
         private void InitLevelOptions()
@@ -43,6 +50,9 @@ namespace MainMenu
 
         private void LoadoutSelectedHandler(UpgradeOption selectedUpgrade)
         {
+            mainMenuMusicInstance.stop(STOP_MODE.ALLOWFADEOUT);
+            mainMenuMusicInstance.release();
+            
             selectedUpgrade.Taken = true;
             WeaponConfiguration[] startingWeapons = new WeaponConfiguration[1]{(WeaponConfiguration)selectedUpgrade.UpgradeConfig};
             PlayerCharacterConfiguration newPlayerConfig =

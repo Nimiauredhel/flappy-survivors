@@ -1,4 +1,5 @@
 using Configuration;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Serialization;
 using VContainer;
@@ -8,7 +9,7 @@ namespace MainMenu
 {
     public class MainMenuLifetimeScope : LifetimeScope
     {
-        [FormerlySerializedAs("menuLoadoutsUIView")] [SerializeField] private MenuUIView menuUIView;
+        [SerializeField] private MenuUIView menuUIView;
         [SerializeField] private UpgradeTreeConfiguration upgradeTreeConfig;
         [SerializeField] private LevelRegistry levelRegistry;
         [SerializeField] private PlayerCharacterConfiguration defaultCharacterConfig;
