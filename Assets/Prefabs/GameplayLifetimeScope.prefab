@@ -54,14 +54,12 @@ MonoBehaviour:
   touchReceiver: {fileID: 0}
   playerView: {fileID: 0}
   playerUIView: {fileID: 0}
-  upgradesUIView: {fileID: 0}
   enemiesController: {fileID: 5600330180552089277}
   pickupsController: {fileID: 9094265686977538518}
   vfxService: {fileID: 6848576409715824879}
   levelDirector: {fileID: 0}
-  characterConfig: {fileID: 11400000, guid: c6090626691570544aa583874a1a877e, type: 2}
   playerMovementConfig: {fileID: 11400000, guid: e414032af90abd241a93a779ea55474f, type: 2}
-  upgradeTreeConfig: {fileID: 11400000, guid: b83511e44f3406d49acf0105ff040674, type: 2}
+  audioServiceInstance: {fileID: 11400000, guid: c10fdeece09f4e94992c1e5577379e3a, type: 2}
 --- !u!1001 &2374477979370377932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225,6 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 4942721070776471051, guid: cbe840fbe2bc205408de519743c81691, type: 3}
+  damageTextPrefab: {fileID: 8223370719577550048, guid: 0b81428dc4afc3f429a4d690ec7815f1, type: 3}
 --- !u!4 &8065848699420797386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1025188191440729954, guid: 5725ab516c3a74c46964561db78ea474, type: 3}
@@ -243,8 +242,12 @@ PrefabInstance:
       value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 2701603590806665382, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
+      propertyPath: minY
+      value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2701603590806665382, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
       propertyPath: startX
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2701603590806665382, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
       propertyPath: enemyRegistry

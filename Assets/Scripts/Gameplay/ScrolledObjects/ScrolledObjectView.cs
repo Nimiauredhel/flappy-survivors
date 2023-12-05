@@ -19,8 +19,8 @@ namespace Gameplay.ScrolledObjects
         public bool Active => active;
 
         public SpriteRenderer SecondaryGraphic => secondaryGraphic;
-        public TextMeshPro Text => text;
         public Rigidbody2D Body => body;
+        public TextMeshPro Text => text;
         
         [SerializeField] private HitTrigger[] hurtBoxes;
         [SerializeField] private HitTrigger[] hitBoxes;
@@ -128,16 +128,11 @@ namespace Gameplay.ScrolledObjects
             float time = 0.0f;
             float percent;
             float whiteValue;
-            
-            text.text = damage.ToString();
-            text.alpha = 0.0f;
-            text.gameObject.SetActive(true);
 
             //in
             while (time < halfDuration)
             {
                 percent = time / halfDuration;
-                text.alpha = percent;
                 whiteValue = Mathf.Lerp(0.0f, 0.85f, percent);
                 SetWhiteAmount(whiteValue);
                 yield return null;
@@ -149,7 +144,6 @@ namespace Gameplay.ScrolledObjects
             while (time < halfDuration)
             {
                 percent = time / halfDuration;
-                text.alpha = 1.0f - percent;
                 whiteValue = Mathf.Lerp(0.85f, 0.0f, percent);
                 SetWhiteAmount(whiteValue);
                 yield return null;
@@ -157,7 +151,6 @@ namespace Gameplay.ScrolledObjects
             }
 
             SetWhiteAmount(0.0f);
-            text.gameObject.SetActive(false);
         }
 
         private void SetWhiteAmount(float amount)

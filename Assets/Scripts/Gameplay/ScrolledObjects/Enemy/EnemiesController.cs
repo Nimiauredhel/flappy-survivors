@@ -12,7 +12,7 @@ namespace Gameplay.ScrolledObjects.Enemy
 {
     public class EnemiesController : MonoBehaviour
     {
-        public event Action<bool, int, Vector3> EnemyHit;
+        public event Action<bool, int, int, Vector3> EnemyHit;
         
         [SerializeField] private int poolSize = 100;
         [SerializeField] private float startX, endX, minY, maxY;
@@ -104,9 +104,9 @@ namespace Gameplay.ScrolledObjects.Enemy
             }
         }
 
-        private void EnemyHitForwarder(bool killed, int damage, Vector3 position)
+        private void EnemyHitForwarder(bool killed, int damage, int value, Vector3 position)
         {
-            EnemyHit?.Invoke(killed, damage, position);
+            EnemyHit?.Invoke(killed, damage, value, position);
         }
 
         private ScrolledObjectView CreateEnemy(int enemyId)

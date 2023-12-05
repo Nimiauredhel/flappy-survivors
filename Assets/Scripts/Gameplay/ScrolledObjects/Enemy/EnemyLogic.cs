@@ -9,7 +9,7 @@ namespace Gameplay.ScrolledObjects.Enemy
 {
     public class EnemyLogic : IScrolledObjectLogic
     {
-        private event Action<bool, int, Vector3> EnemyHit; 
+        private event Action<bool, int, int, Vector3> EnemyHit; 
         
         private int currentHP;
         private float elapsedTime = 0.0f;
@@ -17,7 +17,7 @@ namespace Gameplay.ScrolledObjects.Enemy
         private EnemyStats stats;
         private Spline path = null;
         
-        public EnemyLogic(EnemyStats stats, Action<bool, int, Vector3> hitHandler)
+        public EnemyLogic(EnemyStats stats, Action<bool, int, int, Vector3> hitHandler)
         {
             this.stats = stats;
             EnemyHit += hitHandler;
@@ -57,14 +57,13 @@ namespace Gameplay.ScrolledObjects.Enemy
         public void OnHitByWeapon(ScrolledObjectView view, int damage)
         {
             currentHP -= damage;
-            int value = damage;
+            int value = stats.XPValue;
             bool killed = false;
             
             if (currentHP <= 0.0f)
             {
                 killed = true;
                 int overkill = damage - stats.MaxHP;
-                value = stats.XPValue;
                 
                 if (overkill > stats.MaxHP || Random.Range(0.0f, 1.0f) > 0.85f)
                 {
@@ -75,7 +74,7 @@ namespace Gameplay.ScrolledObjects.Enemy
                 view.Deactivate(true);
             }
             
-            EnemyHit?.Invoke(killed, value, view.transform.position);
+            EnemyHit?.Invoke(killed, damage, value, view.transform.position);
         }
 
         public void OnHitPlayer(ScrolledObjectView view, Action<int> hpAction, Action<int> xpAction, Action<UpgradeOption> upgradeOption)

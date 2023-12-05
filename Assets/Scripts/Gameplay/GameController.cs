@@ -123,8 +123,10 @@ namespace Gameplay
 
         #endregion
 
-        private void EnemyHitHandler(bool killed, int value, Vector3 position)
+        private void EnemyHitHandler(bool killed, int damage, int value, Vector3 position)
         {
+            vfxService.RequestDamageTextAt(damage, position);
+            
             if (killed)
             {
                 vfxService.RequestExplosionAt(position);
