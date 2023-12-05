@@ -27,6 +27,7 @@ namespace Gameplay
         [Inject] private readonly PlayerController playerController;
         [Inject] private readonly VFXService vfxService;
         [Inject] private readonly PlayableDirector levelDirector;
+        [Inject] private readonly GameplayAudioManager audioManager;
         
         [Inject] private readonly GameModel gameModel;
         
@@ -58,6 +59,7 @@ namespace Gameplay
             enemiesController.EnemyKilled += EnemyKilledHandler;
             
             vfxService.Initialize();
+            audioManager.Initialize();
             pickupsController.Initialize();
             
             gameModel.SetGamePhase(GamePhase.HordePhase);
@@ -229,16 +231,16 @@ namespace Gameplay
 
         private void PhaseChangedHandler(GamePhase newPhase)
         {
+            audioManager.HandlePhaseChange(newPhase);
+            
             switch (newPhase)
             {
                 case GamePhase.IntroPhase:
                     break;
                 case GamePhase.UpgradePhase:
-                    SetMusic(false);
                     levelDirector.Pause();
                     break;
                 case GamePhase.HordePhase:
-                    SetMusic(true);
                     levelDirector.Play();
                     break;
                 case GamePhase.BossPhase:

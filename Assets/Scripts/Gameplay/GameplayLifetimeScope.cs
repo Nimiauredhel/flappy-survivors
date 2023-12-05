@@ -20,6 +20,7 @@ namespace Gameplay
         [SerializeField] private EnemiesController enemiesController;
         [SerializeField] private PickupsController pickupsController;
         [SerializeField] private PlayerWeaponsComponent playerWeapons;
+        [SerializeField] private GameplayAudioManager gameplayAudioManager;
         [SerializeField] private VFXService vfxService;
         [SerializeField] private PlayableDirector levelDirector;
         
@@ -35,6 +36,7 @@ namespace Gameplay
             builder.RegisterComponent(enemiesController);
             builder.RegisterComponent(pickupsController);
             builder.RegisterComponent(playerWeapons);
+            builder.RegisterComponent(gameplayAudioManager);
             builder.RegisterComponent(vfxService);
             builder.RegisterComponent(levelDirector);
             
