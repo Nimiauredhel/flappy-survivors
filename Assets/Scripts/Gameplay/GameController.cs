@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Audio;
 using Configuration;
 using DG.Tweening;
 using DG.Tweening.Core;
@@ -27,7 +28,6 @@ namespace Gameplay
         [Inject] private readonly PlayerController playerController;
         [Inject] private readonly VFXService vfxService;
         [Inject] private readonly PlayableDirector levelDirector;
-        [Inject] private readonly GameplayAudioManager audioManager;
         
         [Inject] private readonly GameModel gameModel;
         
@@ -58,8 +58,9 @@ namespace Gameplay
             enemiesController.EnemyHit += EnemyHitHandler;
             
             vfxService.Initialize();
-            audioManager.Initialize();
             pickupsController.Initialize();
+            
+            AudioService.Instance.PlayGameplayMusic();
             
             gameModel.SetGamePhase(GamePhase.HordePhase);
         }
@@ -82,6 +83,8 @@ namespace Gameplay
 
         public void Dispose()
         {
+            AudioService.Instance.ReleaseGameplayMusic();
+            
             playerController.OnDispose();
             playerController.ComboBreak -= ComboBrokenHandler;
             playerController.LevelUp -= LevelUpHandler;
@@ -125,7 +128,7 @@ namespace Gameplay
             if (killed)
             {
                 vfxService.RequestExplosionAt(position);
-                audioManager.PlayEnemyDestroyed();
+                AudioService.Instance.PlayEnemyDestroyed();
                 playerController.HandleEnemyKilled();
 
                 if (value != 0)
@@ -148,7 +151,7 @@ namespace Gameplay
             }
             else
             {
-                audioManager.PlayEnemyHit();
+                AudioService.Instance.PlayEnemyHit();
             }
         }
         
@@ -221,7 +224,7 @@ namespace Gameplay
 
         private void PhaseChangedHandler(GamePhase newPhase)
         {
-            audioManager.HandlePhaseChange(newPhase);
+            AudioService.Instance.HandlePhaseChange(newPhase);
             
             switch (newPhase)
             {

@@ -1,3 +1,4 @@
+using Audio;
 using Configuration;
 using FMODUnity;
 using UnityEngine;
@@ -13,9 +14,12 @@ namespace MainMenu
         [SerializeField] private UpgradeTreeConfiguration upgradeTreeConfig;
         [SerializeField] private LevelRegistry levelRegistry;
         [SerializeField] private PlayerCharacterConfiguration defaultCharacterConfig;
+        [SerializeField] private AudioService audioServiceInstance;
         
         protected override void Configure(IContainerBuilder builder)
         {
+            audioServiceInstance.Initialize();
+            
             builder.RegisterComponent(menuUIView);
             builder.RegisterComponent(upgradeTreeConfig);
             builder.RegisterComponent(levelRegistry);

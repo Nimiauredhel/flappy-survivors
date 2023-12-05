@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using Configuration;
 using FMOD.Studio;
 using FMODUnity;
@@ -26,9 +27,8 @@ namespace MainMenu
         {
             InitLevelOptions();
             InitLoadoutOptions();
-
-            mainMenuMusicInstance = RuntimeManager.CreateInstance(view.MainMenuMusicReference);
-            mainMenuMusicInstance.start();
+            
+            AudioService.Instance.PlayMainMenuMusic();
         }
 
         private void InitLevelOptions()
@@ -50,8 +50,7 @@ namespace MainMenu
 
         private void LoadoutSelectedHandler(UpgradeOption selectedUpgrade)
         {
-            mainMenuMusicInstance.stop(STOP_MODE.ALLOWFADEOUT);
-            mainMenuMusicInstance.release();
+            AudioService.Instance.ReleaseMainMenuMusic();
             
             selectedUpgrade.Taken = true;
             WeaponConfiguration[] startingWeapons = new WeaponConfiguration[1]{(WeaponConfiguration)selectedUpgrade.UpgradeConfig};

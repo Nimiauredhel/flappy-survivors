@@ -1,11 +1,10 @@
+using Audio;
 using Configuration;
 using Gameplay.Player;
 using Gameplay.ScrolledObjects.Enemy;
 using Gameplay.ScrolledObjects.Pickup;
-using Gameplay.Upgrades;
 using UnityEngine;
 using UnityEngine.Playables;
-using UnityEngine.Serialization;
 using VContainer;
 using VContainer.Unity;
 
@@ -20,15 +19,18 @@ namespace Gameplay
         [SerializeField] private EnemiesController enemiesController;
         [SerializeField] private PickupsController pickupsController;
         [SerializeField] private PlayerWeaponsComponent playerWeapons;
-        [SerializeField] private GameplayAudioManager gameplayAudioManager;
         [SerializeField] private VFXService vfxService;
         [SerializeField] private PlayableDirector levelDirector;
         
         [SerializeField] private PlayerMovementConfiguration playerMovementConfig;
         
+        [SerializeField] private AudioService audioServiceInstance;
+        
         
         protected override void Configure(IContainerBuilder builder)
         {
+            audioServiceInstance.Initialize();
+            
             builder.RegisterComponent(touchReceiver);
             builder.RegisterComponent(playerView);
             builder.RegisterComponent(playerUIView);
@@ -36,7 +38,6 @@ namespace Gameplay
             builder.RegisterComponent(enemiesController);
             builder.RegisterComponent(pickupsController);
             builder.RegisterComponent(playerWeapons);
-            builder.RegisterComponent(gameplayAudioManager);
             builder.RegisterComponent(vfxService);
             builder.RegisterComponent(levelDirector);
             

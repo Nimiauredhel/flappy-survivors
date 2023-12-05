@@ -474,85 +474,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1656253315
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1656253317}
-  - component: {fileID: 1656253316}
-  m_Layer: 0
-  m_Name: GameplayAudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1656253316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656253315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfa7fd34410241a6bd43a39f47cc6d1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameplayMusicReference:
-    Guid:
-      Data1: -840486014
-      Data2: 1303908805
-      Data3: 1235257256
-      Data4: -715890828
-    Path: event:/Music/GameplayMusic
-  enemyHitReference:
-    Guid:
-      Data1: -968680502
-      Data2: 1126685805
-      Data3: -1343319411
-      Data4: 368640854
-    Path: event:/SFX/EnemyHit
-  enemyDestroyedReference:
-    Guid:
-      Data1: 1910793103
-      Data2: 1208041094
-      Data3: 1233697703
-      Data4: 715414236
-    Path: event:/SFX/EnemyDestroyed
-  pickupSpawnedReference:
-    Guid:
-      Data1: -1469555162
-      Data2: 1304285733
-      Data3: -1133716584
-      Data4: 1326857222
-    Path: event:/SFX/PickupSpawned
-  pickupCollectedReference:
-    Guid:
-      Data1: -1784872936
-      Data2: 1123058040
-      Data3: 239420068
-      Data4: -1144695461
-    Path: event:/SFX/PickupCollected
---- !u!4 &1656253317
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656253315}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4886475, y: 3.7659156, z: 1.3103037}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1883166113 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6852141923137497810, guid: 5a510ed3e69732345984b06c044d0e37, type: 3}
@@ -645,9 +566,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6086592239576207485, guid: 75775b164519e2246a01c17626daa837, type: 3}
+      propertyPath: audioServiceInstance
+      value: 
+      objectReference: {fileID: 11400000, guid: c10fdeece09f4e94992c1e5577379e3a, type: 2}
+    - target: {fileID: 6086592239576207485, guid: 75775b164519e2246a01c17626daa837, type: 3}
       propertyPath: gameplayAudioManager
       value: 
-      objectReference: {fileID: 1656253316}
+      objectReference: {fileID: 0}
     - target: {fileID: 7482715668597420255, guid: 75775b164519e2246a01c17626daa837, type: 3}
       propertyPath: m_Name
       value: GameplayLifetimeScope
@@ -922,4 +847,3 @@ SceneRoots:
   - {fileID: 878932751}
   - {fileID: 1644456562}
   - {fileID: 3893543820988027460}
-  - {fileID: 1656253317}

@@ -1,4 +1,5 @@
 using System;
+using Audio;
 using Configuration;
 using Gameplay.Upgrades;
 using UnityEngine;
@@ -66,7 +67,7 @@ namespace Gameplay.ScrolledObjects.Pickup
                     throw new ArgumentOutOfRangeException();
             }
             
-            GameplayAudioManager.Instance.PlayPickupCollected();
+            AudioService.Instance.PlayPickupCollected();
             view.Deactivate();
         }
 
@@ -98,7 +99,7 @@ namespace Gameplay.ScrolledObjects.Pickup
                     throw new ArgumentOutOfRangeException();
             }
             
-            GameplayAudioManager.Instance.PlayPickupSpawned();
+            AudioService.Instance.PlayPickupSpawned();
         }
 
         public void OnDeactivate(ScrolledObjectView view)

@@ -11,13 +11,9 @@ namespace MainMenu
 {
     public class MenuUIView : MonoBehaviour
     {
-        public EventReference MainMenuMusicReference => mainMenuMusicReference;
-        
         [SerializeField] private LevelUIToggle[] levelToggles;
-        
         [SerializeField] private Slider loadingBar;
         [SerializeField] private LoadoutUIButton[] upgradeButtons;
-        [SerializeField] private EventReference mainMenuMusicReference;
         
         public void DisplayLevelsDialog(LevelConfiguration[] options, Action<LevelConfiguration> selectionCallback)
         {

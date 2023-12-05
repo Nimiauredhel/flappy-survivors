@@ -1,26 +1,51 @@
-﻿using FMOD.Studio;
+using FMOD.Studio;
 using FMODUnity;
+using Gameplay;
 using UnityEngine;
-using STOP_MODE = FMOD.Studio.STOP_MODE;
 
-namespace Gameplay
+namespace Audio
 {
-    public class GameplayAudioManager : MonoBehaviour
+    [CreateAssetMenu(fileName = "Audio Service Asset", menuName = "Config/Audio Service Asset", order = 0)]
+    public class AudioService : ScriptableObject
     {
         [SerializeField] private EventReference gameplayMusicReference;
+        [SerializeField] private EventReference mainMenuMusicReference;
+        
         [SerializeField] private EventReference enemyHitReference;
         [SerializeField] private EventReference enemyDestroyedReference;
         [SerializeField] private EventReference pickupSpawnedReference;
         [SerializeField] private EventReference pickupCollectedReference;
 
         private EventInstance gameplayMusicInstance;
+        private EventInstance mainMenuMusicInstance;
 
-        public static GameplayAudioManager Instance;
+        public static AudioService Instance;
 
         public void Initialize()
         {
             Instance = this;
+        }
+
+        public void PlayGameplayMusic()
+        {
             gameplayMusicInstance = StartNewEvent(gameplayMusicReference);
+        }
+
+        public void ReleaseGameplayMusic()
+        {
+            gameplayMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            gameplayMusicInstance.release();
+        }
+
+        public void PlayMainMenuMusic()
+        {
+            mainMenuMusicInstance = StartNewEvent(mainMenuMusicReference);
+        }
+
+        public void ReleaseMainMenuMusic()
+        {
+            mainMenuMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            mainMenuMusicInstance.release();
         }
 
         public void PlayEnemyHit()
@@ -53,12 +78,6 @@ namespace Gameplay
             EventInstance newInstance = RuntimeManager.CreateInstance(reference);
             newInstance.start();
             return newInstance;
-        }
-
-        private void OnDestroy()
-        {
-            gameplayMusicInstance.stop(STOP_MODE.ALLOWFADEOUT);
-            gameplayMusicInstance.release();
         }
     }
 }
