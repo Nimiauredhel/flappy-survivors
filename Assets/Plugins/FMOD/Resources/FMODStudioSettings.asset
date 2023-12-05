@@ -225,8 +225,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: E:/FMOD/Projects/Flappy Survivors/Flappy Survivors.fspro
-  sourceBankPath: E:/FMOD/Projects/Flappy Survivors/Build
+  sourceProjectPath: FMOD Project/Flappy Survivors.fspro
+  sourceBankPath: FMOD Project/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -264,7 +264,7 @@ MonoBehaviour:
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
   CurrentVersion: 131609
-  HideSetupWizard: 0
+  HideSetupWizard: 1
   LastEventReferenceScanVersion: 131609
   Platforms:
   - {fileID: 7518859830240140265}

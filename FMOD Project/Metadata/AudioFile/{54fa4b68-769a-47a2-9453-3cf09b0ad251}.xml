@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{54fa4b68-769a-47a2-9453-3cf09b0ad251}">
+		<property name="assetPath">
+			<value>SFX/explosion_4.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.70140589569160994</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b0a20c78-d213-4bd0-a0cd-7519813873ae}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{9634f78b-a80e-4c14-930a-4cc817bd0781}">
+		<property name="assetPath">
+			<value>Music/Outside.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>52.897959183673471</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b0a20c78-d213-4bd0-a0cd-7519813873ae}</destination>
+		</relationship>
+	</object>
+</objects>
