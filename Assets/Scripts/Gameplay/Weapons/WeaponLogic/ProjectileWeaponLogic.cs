@@ -19,7 +19,7 @@ namespace Gameplay.Weapons.WeaponLogic
         private ObjectPool<WeaponView> projectilePool;
         private const float projectileGap = 0.15f;
 
-        private Dictionary<WeaponView, CancellationTokenSource> projectileRoutines = new Dictionary<WeaponView, CancellationTokenSource>();
+        private List<CancellationTokenSource> projectileTokenSources = new List<CancellationTokenSource>(8);
         
         public override void Initialize(WeaponInstance instance)
         {
@@ -28,6 +28,12 @@ namespace Gameplay.Weapons.WeaponLogic
 
         public override void OnDispose(WeaponInstance instance)
         {
+            foreach (CancellationTokenSource tokenSource in projectileTokenSources)
+            {
+                tokenSource.Cancel();
+                tokenSource.Dispose();
+            }
+            
             projectilePool.Dispose();
         }
 
@@ -46,7 +52,7 @@ namespace Gameplay.Weapons.WeaponLogic
             hitObject.HitByWeapon(instance.Stats.Power);
         }
 
-        private async void FireMultipleProjectiles(WeaponInstance instance)
+        private async Awaitable FireMultipleProjectiles(WeaponInstance instance)
         {
             for (int i = 0; i < instance.Stats.Amount; i++)
             {
@@ -54,52 +60,53 @@ namespace Gameplay.Weapons.WeaponLogic
 
                 if (projectile != null)
                 {
-                    CheckAndCancelAwaitables(projectile);
                     projectile.transform.position = instance.View.transform.position;
                     projectile.SetHitArea(instance.Stats.Area);
                     projectile.Graphic.enabled = true;
                     projectile.Hitbox.enabled = true;
+                    projectile.gameObject.SetActive(true);
                     projectile.transform.Rotate(Vector3.forward, Random.Range(-180.0f, 180.0f));
 
-                    CancellationTokenSource newToken = new CancellationTokenSource();
-                    projectileRoutines.Add(projectile, newToken);
-                    FireSingleProjectile(instance, projectile, newToken.Token);
+                    CancellationTokenSource newTokenSource = new CancellationTokenSource();
+                    projectileTokenSources.Add(newTokenSource);
+                    FireSingleProjectile(instance, projectile, newTokenSource);
                     await Awaitable.WaitForSecondsAsync(projectileGap);
                 }
             }
         }
 
-        private async Task FireSingleProjectile(WeaponInstance instance, WeaponView projectile, CancellationToken token)
+        private async Task FireSingleProjectile(WeaponInstance instance, WeaponView projectile, CancellationTokenSource tokenSource)
         {
+            int hits = 0;
+        
+            EventHandler<Collider2D> hitAction = delegate(object sender, Collider2D other)
+            {
+                ScrolledObjectView SO = other.GetComponentInParent<ScrolledObjectView>();
+            
+                if (SO != null)
+                {
+                    if (instance.Stats.Hits > 0)
+                    {
+                        hits++;
+                    }
+                
+                    HitHandler(SO, instance);
+                
+                    if (hits >= instance.Stats.Hits)
+                    {
+                        tokenSource.Cancel();
+                        //projectilePool.Release(projectile);
+                    }
+                }
+            };
+        
+            projectile.TriggerEnter += hitAction;
+        
+            float time = 0.0f;
+
             try
             {
-                int hits = 0;
-            
-                EventHandler<Collider2D> hitAction = delegate(object sender, Collider2D other)
-                {
-                    ScrolledObjectView SO = other.GetComponentInParent<ScrolledObjectView>();
-                
-                    if (SO != null)
-                    {
-                        if (instance.Stats.Hits > 0)
-                        {
-                            hits++;
-                        }
-                    
-                        HitHandler(SO, instance);
-                    
-                        if (hits >= instance.Stats.Hits)
-                        {
-                            projectilePool.Release(projectile);
-                        }
-                    }
-                };
-            
-                projectile.TriggerEnter += hitAction;
-            
-                float time = 0.0f;
-            
-                while (!token.IsCancellationRequested && time < instance.Stats.Duration)
+                while (!tokenSource.IsCancellationRequested && time < instance.Stats.Duration)
                 {
                     float fixedDeltaTime = Time.fixedDeltaTime;
                     projectile.transform.position += (Vector3.right * (instance.Stats.Speed * fixedDeltaTime));
@@ -107,7 +114,7 @@ namespace Gameplay.Weapons.WeaponLogic
                     time += fixedDeltaTime;
                     await Awaitable.FixedUpdateAsync();
                 }
-            
+
                 projectilePool.Release(projectile);
             }
             catch (OperationCanceledException e)
@@ -115,6 +122,12 @@ namespace Gameplay.Weapons.WeaponLogic
                 projectilePool.Release(projectile);
                 Console.WriteLine(e);
                 throw;
+            }
+            finally
+            {
+                projectilePool.Release(projectile);
+                projectileTokenSources.Remove(tokenSource);
+                tokenSource.Cancel();
             }
         }
         
@@ -128,24 +141,10 @@ namespace Gameplay.Weapons.WeaponLogic
 
         private void ReleaseProjectile(WeaponView projectile)
         {
-            CheckAndCancelAwaitables(projectile);
             projectile.ResetEventSubscription();
             projectile.Graphic.enabled = false;
             projectile.Hitbox.enabled = false;
-        }
-
-        private void CheckAndCancelAwaitables(WeaponView projectile)
-        {
-            if (projectileRoutines.ContainsKey(projectile))
-            {
-                if (!projectileRoutines[projectile].IsCancellationRequested)
-                {
-                    projectileRoutines[projectile].Cancel();
-                }
-                
-                projectileRoutines[projectile].Dispose();
-                projectileRoutines.Remove(projectile);
-            }
+            projectile.gameObject.SetActive(false);
         }
     }
 }
