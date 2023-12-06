@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -41,6 +42,14 @@ namespace Gameplay
         public void RequestExplosionAt(Vector2 position)
         {
             StartCoroutine(ServeExplosion(position));
+        }
+
+        public void RequestExplosionsAt(List<Vector3> positions)
+        {
+            foreach (Vector3 position in positions)
+            {
+                RequestExplosionAt(position);
+            }
         }
 
         public void RequestDamageTextAt(int damage, Vector2 position)

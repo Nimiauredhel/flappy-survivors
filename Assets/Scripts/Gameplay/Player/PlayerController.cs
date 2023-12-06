@@ -345,14 +345,13 @@ namespace Gameplay.Player
             _touchReceiver.PointerUp += PointerUpHandler;
             view.TriggerEntered += TriggerEnterHandler;
             
+            uiView.SetFadeAlpha(1.0f, 0.0f);
             uiView.UpdatePlayerHealthView((float)model.CurrentHealth/model.MaxHealth);
             uiView.UpdatePlayerXPView(0.0f);
             
             model.HealthPercentChanged += uiView.UpdatePlayerHealthView;
             model.XPPercentChanged += uiView.UpdatePlayerXPView;
             comboService.ComboChanged += HandleComboChanged;
-
-            uiView.StartCoroutine(TimerRoutine());
         }
 
         public void OnDispose()
@@ -376,8 +375,8 @@ namespace Gameplay.Player
             float xSpeed = 0.0f;
             float ySpeed = 0.0f;
             
-            if ((model.CurrentXSpeed > 0.0f && view.Body.position.x > movementConfig.MaxX)
-                || (model.CurrentXSpeed < 0.0f && view.Body.position.x < movementConfig.MinX))
+            if (!model.Dead && ((model.CurrentXSpeed > 0.0f && view.Body.position.x > movementConfig.MaxX)
+                || (model.CurrentXSpeed < 0.0f && view.Body.position.x < movementConfig.MinX)))
             {
                 xSpeed = 0.0f;
             }
@@ -592,24 +591,6 @@ namespace Gameplay.Player
             view.Animator.Play(DYING_HASH);
         }
 
-        private IEnumerator TimerRoutine()
-        {
-            WaitForSeconds second = new WaitForSeconds(1);
-            
-            while (GameModel.TimeLeft > 0)
-            {
-                while (GameModel.CurrentGamePhase != GamePhase.HordePhase)
-                {
-                    yield return null;
-                }
-                
-                GameModel.ChangeTimeLeft(-1.0f);
-                uiView.UpdateTimerText((int)GameModel.TimeLeft);
-                
-                yield return second;
-            }
-            
-            Die();
-        }
+        
     }
 }

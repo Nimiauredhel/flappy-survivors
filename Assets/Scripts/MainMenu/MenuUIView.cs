@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Gameplay.Upgrades;
 using Configuration;
+using DG.Tweening;
 using FMODUnity;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -11,9 +12,29 @@ namespace MainMenu
 {
     public class MenuUIView : MonoBehaviour
     {
+        [SerializeField] private CanvasGroup mainCanvasGroup;
+        [SerializeField] private Image fadePanel;
+        
         [SerializeField] private LevelUIToggle[] levelToggles;
         [SerializeField] private Slider loadingBar;
         [SerializeField] private LoadoutUIButton[] upgradeButtons;
+        
+        public void SetCanvasAlpha(float value, float duration)
+        {
+            if (duration == 0.0f)
+            {
+                mainCanvasGroup.alpha = value;
+            }
+            else
+            {
+                mainCanvasGroup.DOFade(value, duration);
+            }
+        }
+        
+        public void SetFadeAlpha(float value, float duration)
+        {
+            fadePanel.CrossFadeAlpha(value, duration, true);
+        }
         
         public void DisplayLevelsDialog(LevelConfiguration[] options, Action<LevelConfiguration> selectionCallback)
         {

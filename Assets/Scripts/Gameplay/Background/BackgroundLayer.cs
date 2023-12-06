@@ -13,8 +13,8 @@ namespace Gameplay.Background
         
         [SerializeField] private int layerDepth;
         [SerializeField] private int sortingLayer;
-        [SerializeField][Range(0.0f, 5.0f)] private float scrollSpeed;
-        [SerializeField][Range(0.0f, 5.0f)] private float contrast = 1.0f;
+        [SerializeField][Range(-5.0f, 5.0f)] private float scrollSpeed;
+        [SerializeField][Range(0-5.0f, 5.0f)] private float contrast = 1.0f;
         [SerializeField] private SpriteRenderer[] layerElements;
 
         private MaterialPropertyBlock materialPropertyBlock = null;

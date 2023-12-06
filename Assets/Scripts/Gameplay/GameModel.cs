@@ -22,6 +22,11 @@ namespace Gameplay
             instance = this;
         }
 
+        public void SetWonGame()
+        {
+            won = true;
+        }
+
         public void SetGamePhase(GamePhase newPhase)
         {
             currentGamePhase = newPhase;

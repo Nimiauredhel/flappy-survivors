@@ -33,6 +33,7 @@ namespace Gameplay
         [Inject] private readonly GameModel gameModel;
         
         private UpgradeTree upgradeTree;
+        private EmptyMono emptyMono;
         
         
         private Stack<PickupDropOrder> comboBalloon = new Stack<PickupDropOrder>(32);
@@ -42,6 +43,9 @@ namespace Gameplay
         public void Start()
         {
             Application.targetFrameRate = 60;
+            GameObject tempGO = new GameObject();
+            tempGO.name = "Empty Mono";
+            emptyMono = tempGO.AddComponent<EmptyMono>();
             
             upgradeTree = ConfigSelectionMediator.GetUpgradeTree();
             
@@ -59,8 +63,10 @@ namespace Gameplay
             pickupsController.Initialize();
             
             AudioService.Instance.PlayGameplayMusic();
-            
+            emptyMono.StartCoroutine(TimerRoutine());
             gameModel.SetGamePhase(GamePhase.IntroPhase);
+            
+            playerController.UIView.SetFadeAlpha(0.0f, 2.0f);
         }
 
         public void Tick()
@@ -200,10 +206,7 @@ namespace Gameplay
                 List<Vector3> purgePositions = pickupsController.PurgeAllPickups(PickupType.XP);
                 purgePositions.AddRange(enemiesController.PurgeAllEnemies());
                 
-                foreach (Vector3 position in purgePositions)
-                {
-                    vfxService.RequestExplosionAt(position);
-                }
+                vfxService.RequestExplosionsAt(purgePositions);
                 
                 vfxService.DoCameraShake(purgePositions.Count * 0.1f);
                 
@@ -223,11 +226,15 @@ namespace Gameplay
             if (GameModel.CurrentGamePhase != GamePhase.UpgradePhase) return;
 
             gameModel.SetGamePhase(GamePhase.HordePhase);
-
+            
+            Stack<PickupDropOrder> healthDrops = new Stack<PickupDropOrder>();
+            
             foreach (Vector3 position in purgePositions)
             {
-                pickupsController.SpawnPickup(position, 2, PickupType.Health);
+                healthDrops.Push(new PickupDropOrder(2, PickupType.Health, position));
             }
+            
+            pickupsController.SpawnPickups(healthDrops, 1.0f);
             
             for (int i = 0; i < upgradePickups.Length; i++)
             {
@@ -240,14 +247,26 @@ namespace Gameplay
 
         private void GameOver()
         {
+            playerController.UIView.SetCanvasAlpha(0.0f, 2.5f);
+            
+            List<Vector3> positions = new List<Vector3>();
+            positions = pickupsController.PurgeAllPickups();
+            
+            if (GameModel.Won)
+            {
+                positions.AddRange(enemiesController.PurgeAllEnemies());
+            }
+            
+            vfxService.RequestExplosionsAt(positions);
+
             gameModel.SetGamePhase(GameModel.Won ? GamePhase.YouWin : GamePhase.GameOver);
-            EmptyMono tempMB = new GameObject().AddComponent<EmptyMono>();
-            tempMB.StartCoroutine(GameOverRoutine());
+            emptyMono.StartCoroutine(GameOverRoutine());
         }
         
         private IEnumerator GameOverRoutine()
         {
-            float delay = GameModel.Won ? 15.0f : 5.0f;
+            float delay = GameModel.Won ? 20.0f : 5.0f;
+            playerController.UIView.SetFadeAlpha(1.0f, delay * 0.75f);
             yield return new WaitForSeconds(delay);
             UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
         }
@@ -283,6 +302,30 @@ namespace Gameplay
                 default:
                     throw new ArgumentOutOfRangeException(nameof(newPhase), newPhase, null);
             }
+        }
+        
+        private IEnumerator TimerRoutine()
+        {
+            WaitForSeconds second = new WaitForSeconds(1);
+            
+            while (GameModel.TimeLeft > 0)
+            {
+                while (GameModel.CurrentGamePhase != GamePhase.HordePhase)
+                {
+                    yield return null;
+                }
+                
+                GameModel.ChangeTimeLeft(-1.0f);
+                playerController.UIView.UpdateTimerText((int)GameModel.TimeLeft);
+                
+                yield return second;
+            }
+            
+            gameModel.SetGamePhase(GamePhase.BossPhase);
+
+            yield return new WaitForSeconds(2.0f);
+            gameModel.SetWonGame();
+            GameOver();
         }
     }
 }

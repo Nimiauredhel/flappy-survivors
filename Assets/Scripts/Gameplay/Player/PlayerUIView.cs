@@ -15,6 +15,7 @@ namespace Gameplay.Player
         private const string COMBO_TEXT_FORMAT = "x{0}";
 
         [SerializeField] private CanvasGroup mainCanvasGroup;
+        [SerializeField] private Image fadePanel;
         [SerializeField] private Slider healthSlider;
         [SerializeField] private Slider xpSlider;
         [SerializeField] private TextMeshProUGUI timerText;
@@ -36,6 +37,11 @@ namespace Gameplay.Player
             {
                 mainCanvasGroup.DOFade(value, duration);
             }
+        }
+        
+        public void SetFadeAlpha(float value, float duration)
+        {
+            fadePanel.CrossFadeAlpha(value, duration, true);
         }
 
         public void UpdateTimerText(int timeInSeconds)

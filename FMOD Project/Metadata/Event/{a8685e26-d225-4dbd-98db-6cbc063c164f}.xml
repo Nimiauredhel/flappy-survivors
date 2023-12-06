@@ -97,6 +97,7 @@
 	<object class="MixerBusPanner" id="{862985eb-1690-4285-ab8e-d33025403fcf}" />
 	<object class="MixerBusEffectChain" id="{782dcf97-bcfd-4674-8986-e9313f0af9df}">
 		<relationship name="effects">
+			<destination>{a6cf72d3-8062-4af0-9841-abdd7aa9febe}</destination>
 			<destination>{3c639654-a346-4f63-922b-7367cf735c72}</destination>
 			<destination>{c14663ec-6236-4f58-a235-ba9eee1472b3}</destination>
 			<destination>{e6c7ca31-16d7-4021-8662-50af1f0a54b7}</destination>
@@ -104,6 +105,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{80a04fa7-8429-4bc5-b7c5-d5302ac277ee}" />
 	<object class="MixerBusFader" id="{503ec5c9-83a2-42d5-a29f-8299ae78da48}" />
+	<object class="TremoloEffect" id="{a6cf72d3-8062-4af0-9841-abdd7aa9febe}">
+		<property name="depth">
+			<value>0.50999999</value>
+		</property>
+		<property name="shape">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="ThreeEQEffect" id="{3c639654-a346-4f63-922b-7367cf735c72}">
 		<property name="lowGain">
 			<value>1</value>
@@ -122,7 +131,7 @@
 	</object>
 	<object class="PitchShifterEffect" id="{c14663ec-6236-4f58-a235-ba9eee1472b3}">
 		<property name="pitch">
-			<value>1</value>
+			<value>1.24000001</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{c0213373-7231-4a43-a21d-337cd387c0db}</destination>

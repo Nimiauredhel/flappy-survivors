@@ -90,22 +90,16 @@
 	<object class="MixerBusPanner" id="{d096a813-43b6-4bd4-8078-69022e92c7c7}" />
 	<object class="MixerBusEffectChain" id="{565e10cd-2cf9-4754-91f8-5f07bb39d443}">
 		<relationship name="effects">
+			<destination>{1bb9480c-0866-4e50-a2df-876cd578bb31}</destination>
 			<destination>{6de00ade-701c-4a03-9f4b-f73bd6370916}</destination>
-			<destination>{f6a5e036-4830-41d3-adc8-a87bff9cb657}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{150e55b1-f672-4033-ab25-c30f28233ef5}" />
 	<object class="MixerBusFader" id="{de9e10a4-11fe-484b-b15c-0174dc35d422}" />
-	<object class="MixerBusFader" id="{6de00ade-701c-4a03-9f4b-f73bd6370916}" />
-	<object class="SFXReverbEffect" id="{f6a5e036-4830-41d3-adc8-a87bff9cb657}">
-		<property name="decayTime">
-			<value>5000</value>
-		</property>
-		<property name="lowShelfFrequency">
-			<value>480</value>
-		</property>
-		<property name="wetLevel">
-			<value>-2.5</value>
+	<object class="ChorusEffect" id="{1bb9480c-0866-4e50-a2df-876cd578bb31}">
+		<property name="rate">
+			<value>2</value>
 		</property>
 	</object>
+	<object class="MixerBusFader" id="{6de00ade-701c-4a03-9f4b-f73bd6370916}" />
 </objects>

@@ -115,6 +115,16 @@ namespace Gameplay.ScrolledObjects.Enemy
 
             for (int i = 0; i < burstDefinition.enemyAmount; i++)
             {
+                if (GameModel.CurrentGamePhase == GamePhase.BossPhase)
+                {
+                    break;
+                }
+
+                while (GameModel.CurrentGamePhase != GamePhase.HordePhase)
+                {
+                    yield return null;
+                }
+
                 ScrolledObjectView enemy = enemyPools[burstDefinition.enemyId].Get();
                 enemy.SetPath(paths.Splines[burstDefinition.pathId]);
                 yield return spawnGap;
