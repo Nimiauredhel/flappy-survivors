@@ -195,12 +195,20 @@ namespace Gameplay.ScrolledObjects.Pickup
             }
         }
 
-        public void PurgeAllPickups(bool dieEffect = false)
+        public List<Vector3> PurgeAllPickups(PickupType specificType = PickupType.None)
         {
+            List<Vector3> purgePositions = new List<Vector3>();
+            
             foreach (KeyValuePair<PickupType, ScrolledObjectView> pickup in activePickups)
             {
-                pickup.Value.Deactivate(dieEffect);
+                if (specificType == PickupType.None || pickup.Key == specificType)
+                {
+                    purgePositions.Add(pickup.Value.transform.position);
+                    pickup.Value.Deactivate();
+                }
             }
+
+            return purgePositions;
         }
         
         private ScrolledObjectView CreateXPPickup()

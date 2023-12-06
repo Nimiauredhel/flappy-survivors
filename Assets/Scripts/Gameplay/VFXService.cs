@@ -17,11 +17,25 @@ namespace Gameplay
         
         [SerializeField] private GameObject explosionPrefab;
         [SerializeField] private TextMeshPro damageTextPrefab;
+        
+        private Camera gameplayCamera;
+        private Tween cameraShake = null;
 
         public void Initialize()
         {
+            gameplayCamera = Camera.main;
+            cameraShake = DOTween.Sequence();
             pooledExplosions = new ObjectPool<GameObject>(CreateExplosion);
             pooledDamageText = new ObjectPool<TextMeshPro>(CreateDamageText);
+        }
+
+        public void DoCameraShake(float strength)
+        {
+            if (cameraShake != null) cameraShake.Kill(true);
+
+            Vector3 strengthVector = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0) * strength;
+            cameraShake = gameplayCamera.DOShakePosition(0.25f, strengthVector);
+            cameraShake.onComplete += () => cameraShake.Rewind();
         }
 
         public void RequestExplosionAt(Vector2 position)

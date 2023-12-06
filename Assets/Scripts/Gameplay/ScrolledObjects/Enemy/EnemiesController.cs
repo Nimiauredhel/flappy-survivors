@@ -92,6 +92,23 @@ namespace Gameplay.ScrolledObjects.Enemy
             StartCoroutine(EnemyBurstRoutine(burstDefinition));
         }
 
+        public List<Vector3> PurgeAllEnemies()
+        {
+            List<Vector3> purgePositions = new List<Vector3>();
+            
+            for (int i = 0; i < activeEnemyLists.Length; i++)
+            {
+                for (int j = activeEnemyLists[i].Count - 1; j >= 0; j--)
+                {
+                    ScrolledObjectView currentObject = activeEnemyLists[i][j];
+                    purgePositions.Add(currentObject.transform.position);
+                    currentObject.Deactivate();
+                }
+            }
+
+            return purgePositions;
+        }
+
         private IEnumerator EnemyBurstRoutine(BurstDefinition burstDefinition)
         {
             WaitForSeconds spawnGap = new WaitForSeconds(burstDefinition.enemySpawnGap);

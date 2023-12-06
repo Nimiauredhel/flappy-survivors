@@ -33,8 +33,7 @@ namespace Gameplay
         [Inject] private readonly GameModel gameModel;
         
         private UpgradeTree upgradeTree;
-        private Camera gameplayCamera;
-        private Tween cameraShake = null;
+        
         
         private Stack<PickupDropOrder> comboBalloon = new Stack<PickupDropOrder>(32);
 
@@ -43,8 +42,6 @@ namespace Gameplay
         public void Start()
         {
             Application.targetFrameRate = 60;
-            gameplayCamera = Camera.main;
-            cameraShake = DOTween.Sequence();
             
             upgradeTree = ConfigSelectionMediator.GetUpgradeTree();
             
@@ -165,12 +162,7 @@ namespace Gameplay
         
         private void PlayerDamagedHandler(int damage)
         {
-            if (cameraShake != null) cameraShake.Kill(true);
-            
-            Vector3 strength = new Vector3(1, 1, 0) * (damage / 10.0f);
-            
-            cameraShake = gameplayCamera.DOShakePosition(0.25f, strength);
-            cameraShake.onComplete += () => cameraShake.Rewind();
+            vfxService.DoCameraShake(damage * 0.1f);
         }
 
         private void ComboBrokenHandler(int brokenCombo)
@@ -185,8 +177,6 @@ namespace Gameplay
 
         private void LevelUpHandler(int newLevel)
         {
-            playerController.UIView.SetCanvasAlpha(0.0f, 0.5f);
-            
             Vector3[] positions = new[] { new Vector3(25.0f, 5.5f), new Vector3(25.0f, -0.75f), new Vector3(25.0f, -7.0f) };
             List<UpgradeOption> allCurrentOptions = upgradeTree.GetAllCurrentOptions(newLevel);
             Stack<PickupDropOrder> shortList = new Stack<PickupDropOrder>(4);
@@ -204,11 +194,22 @@ namespace Gameplay
             {
                 gameModel.SetGamePhase(GamePhase.UpgradePhase);
             
-                pickupsController.PurgeAllPickups(true);
+                AudioService.Instance.PlayLevelUp();
+                playerController.UIView.SetCanvasAlpha(0.0f, 0.5f);
+                
+                List<Vector3> purgePositions = pickupsController.PurgeAllPickups(PickupType.XP);
+                purgePositions.AddRange(enemiesController.PurgeAllEnemies());
+                
+                foreach (Vector3 position in purgePositions)
+                {
+                    vfxService.RequestExplosionAt(position);
+                }
+                
+                vfxService.DoCameraShake(purgePositions.Count * 0.1f);
                 
                 ScrolledObjectView[] upgradePickups = pickupsController.SpawnAndReturnPickups(shortList, 0.0f);
 
-                Action finishUpgradeAction = delegate { FinishUpgradePhase(upgradePickups); };
+                Action finishUpgradeAction = delegate { FinishUpgradePhase(upgradePickups, purgePositions); };
             
                 for (int i = 0; i < upgradePickups.Length; i++)
                 {
@@ -217,12 +218,17 @@ namespace Gameplay
             }
         }
 
-        private void FinishUpgradePhase(ScrolledObjectView[] upgradePickups)
+        private void FinishUpgradePhase(ScrolledObjectView[] upgradePickups, List<Vector3> purgePositions)
         {
             if (GameModel.CurrentGamePhase != GamePhase.UpgradePhase) return;
 
             gameModel.SetGamePhase(GamePhase.HordePhase);
 
+            foreach (Vector3 position in purgePositions)
+            {
+                pickupsController.SpawnPickup(position, 2, PickupType.Health);
+            }
+            
             for (int i = 0; i < upgradePickups.Length; i++)
             {
                 if (upgradePickups[i].Active)

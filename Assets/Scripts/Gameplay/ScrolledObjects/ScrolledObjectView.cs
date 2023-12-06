@@ -85,7 +85,7 @@ namespace Gameplay.ScrolledObjects
             SetWhiteAmount(0);
         }
         
-        public void Deactivate(bool dieEffect = false)
+        public void Deactivate()
         {
             logic.OnDeactivate(this);
             

@@ -54,3 +54,10 @@ MonoBehaviour:
       Data3: 239420068
       Data4: -1144695461
     Path: event:/SFX/PickupCollected
+  levelUpReference:
+    Guid:
+      Data1: -1104290328
+      Data2: 1247503779
+      Data3: -1264014966
+      Data4: 1685804818
+    Path: event:/SFX/LevelUp

@@ -71,7 +71,7 @@ namespace Gameplay.ScrolledObjects.Enemy
                 }
                 
                 currentHP = 0;
-                view.Deactivate(true);
+                view.Deactivate();
             }
             
             EnemyHit?.Invoke(killed, damage, value, view.transform.position);

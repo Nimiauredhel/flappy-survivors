@@ -17,6 +17,7 @@ namespace Audio
         [SerializeField] private EventReference enemyDestroyedReference;
         [SerializeField] private EventReference pickupSpawnedReference;
         [SerializeField] private EventReference pickupCollectedReference;
+        [SerializeField] private EventReference levelUpReference;
 
         private EventInstance gameplayMusicInstance;
         private EventInstance mainMenuMusicInstance;
@@ -68,6 +69,11 @@ namespace Audio
         public void PlayPickupCollected()
         {
             RuntimeManager.PlayOneShot(pickupCollectedReference);
+        }
+
+        public void PlayLevelUp()
+        {
+            RuntimeManager.PlayOneShot(levelUpReference);
         }
 
         public void HandlePhaseChange(GamePhase newPhase)
