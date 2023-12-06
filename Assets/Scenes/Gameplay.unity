@@ -711,6 +711,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1730925746918015220, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1878760983404365119, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
       propertyPath: m_Name
       value: GameplayUIViews

@@ -21,6 +21,8 @@ namespace Gameplay.Player
         [SerializeField] private TextMeshProUGUI timerText;
         [SerializeField] private TextMeshProUGUI currentLevelText;
         [SerializeField] private TextMeshProUGUI currentComboText;
+
+        [SerializeField] private TextMeshProUGUI gameOverMessage;
         
         [SerializeField] private LayoutGroup weaponIconParent;
         [SerializeField] private WeaponUIView weaponIconPrefab;
@@ -41,7 +43,15 @@ namespace Gameplay.Player
         
         public void SetFadeAlpha(float value, float duration)
         {
-            fadePanel.CrossFadeAlpha(value, duration, true);
+            fadePanel.DOFade(value, duration);
+        }
+
+        public void ShowGameOverMessage(string message, float delay)
+        {
+            gameOverMessage.text = message;
+            gameOverMessage.alpha = 0.0f;
+            gameOverMessage.gameObject.SetActive(true);
+            gameOverMessage.DOFade(1.0f, delay);
         }
 
         public void UpdateTimerText(int timeInSeconds)

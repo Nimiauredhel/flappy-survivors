@@ -262,7 +262,9 @@ namespace Gameplay
             AsyncOperation loading = SceneManager.LoadSceneAsync("Menu");
             loading.allowSceneActivation = false;
             
-            float delay = GameModel.Won ? 20.0f : 5.0f;
+            float delay = GameModel.Won ? 20.0f : 6.0f;
+            playerController.UIView.ShowGameOverMessage(
+                GameModel.Won ? "You Won" : "You Died", 3.0f);
             playerController.UIView.SetFadeAlpha(1.0f, delay * 0.75f);
             
             await Awaitable.WaitForSecondsAsync(delay);
