@@ -5,6 +5,7 @@ namespace Gameplay
     public class GameModel
     {
         public static GamePhase CurrentGamePhase => instance.currentGamePhase;
+        public static bool Won => instance.won;
         public static float TimeLeft => instance.timeLeft;
         
         public Action<GamePhase> GamePhaseChanged;
@@ -12,6 +13,7 @@ namespace Gameplay
         private GamePhase currentGamePhase = GamePhase.IntroPhase;
         
         private static GameModel instance;
+        private bool won = false;
         private float timeLeft;
         
         public void Initialize(float levelDuration)

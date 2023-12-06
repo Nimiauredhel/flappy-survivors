@@ -5,6 +5,7 @@ using DG.Tweening;
 using Gameplay.ScrolledObjects;
 using Gameplay.Upgrades;
 using Gameplay.Weapons;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using VContainer;
@@ -21,7 +22,9 @@ namespace Gameplay.Player
 
         public event Action<int> ComboBreak;
         public event Action<int> LevelUp;
-        public event Action<int> PlayerDamaged; 
+        public event Action PlayerStartedMoving;
+        public event Action<int> PlayerDamaged;
+        public event Action PlayerDied;
         
         [Inject] private readonly TouchReceiver _touchReceiver;
         [Inject] private readonly PlayerView view;
@@ -148,13 +151,22 @@ namespace Gameplay.Player
             
             public override void EnterState(PlayerController player)
             {
+                player.uiView.SetCanvasAlpha(0.0f, 0.0f);
                 validWeaponType = WeaponType.None;
                 player.SetNeutral();
+                player.model.SetVulnerable(false);
             }
 
             public override void UpdateState(PlayerController player)
             {
                 
+            }
+
+            public override void ExitState(PlayerController player)
+            {
+                player.uiView.SetCanvasAlpha(1.0f, 2.0f);
+                player.PlayerStartedMoving?.Invoke();
+                player.model.SetVulnerable(true);
             }
         }
         
@@ -244,6 +256,7 @@ namespace Gameplay.Player
 
             public override void EnterState(PlayerController player)
             {
+                player.model.SetVulnerable(false);
                 validWeaponType = WeaponType.None;
                 timeToRecover = player.movementConfig.FlinchDuration;
                 player.SetHurt();
@@ -262,12 +275,15 @@ namespace Gameplay.Player
                     timeToRecover -= Time.deltaTime;
                 }
             }
+
+            public override void ExitState(PlayerController player)
+            {
+                player.model.SetVulnerable(true);
+            }
         }
         
         private class DyingState : PlayerState
         {
-            private float timeToDie = 0.0f;
-            
             public override void ClimbCommand(PlayerController player)
             {
                 
@@ -281,22 +297,13 @@ namespace Gameplay.Player
             public override void EnterState(PlayerController player)
             {
                 validWeaponType = WeaponType.None;
-                timeToDie = player.movementConfig.DyingDuration;
                 player.SetDying();
+                player.Die();
             }
 
             public override void UpdateState(PlayerController player)
             {
                 player.weapons.WeaponsUpdate(validWeaponType);
-                
-                if (timeToDie <= 0.0f)
-                {
-                    player.Die();
-                }
-                else
-                {
-                    timeToDie -= Time.deltaTime;
-                }
             }
         }
         
@@ -483,11 +490,16 @@ namespace Gameplay.Player
 
         private void ChangePlayerHealth(int amount)
         {
-            model.ChangeHealth(amount);
-            
-            if (amount < 0)
+            if (amount <= 0)
             {
+                if (!model.Vulnerable) return;
+                
+                model.ChangeHealth(amount);
                 OnPlayerWasDamaged(amount);
+            }
+            else
+            {
+                model.ChangeHealth(amount);
             }
         }
         
@@ -507,7 +519,11 @@ namespace Gameplay.Player
 
         private void Die()
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+            if (model.Dead) return;
+            
+            model.SetVulnerable(false);
+            model.SetDead(true);
+            PlayerDied?.Invoke();
         }
 
         private void SetGoUp()

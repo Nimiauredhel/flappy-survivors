@@ -8,6 +8,8 @@ namespace Audio
     [CreateAssetMenu(fileName = "Audio Service Asset", menuName = "Config/Audio Service Asset", order = 0)]
     public class AudioService : ScriptableObject
     {
+        private const string GAME_PHASE = "GamePhase";
+        
         [SerializeField] private EventReference gameplayMusicReference;
         [SerializeField] private EventReference mainMenuMusicReference;
         
@@ -70,7 +72,7 @@ namespace Audio
 
         public void HandlePhaseChange(GamePhase newPhase)
         {
-            gameplayMusicInstance.setParameterByName("GamePhase", (float)newPhase);
+            gameplayMusicInstance.setParameterByName(GAME_PHASE, (int)newPhase, true);
         }
 
         private EventInstance StartNewEvent(EventReference reference)

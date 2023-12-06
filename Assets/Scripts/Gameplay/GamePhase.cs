@@ -5,6 +5,8 @@
         IntroPhase,
         UpgradePhase,
         HordePhase,
-        BossPhase
+        BossPhase,
+        YouWin,
+        GameOver
     }
 }

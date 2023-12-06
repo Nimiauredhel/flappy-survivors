@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Audio;
@@ -62,7 +63,7 @@ namespace Gameplay
             
             AudioService.Instance.PlayGameplayMusic();
             
-            gameModel.SetGamePhase(GamePhase.HordePhase);
+            gameModel.SetGamePhase(GamePhase.IntroPhase);
         }
 
         public void Tick()
@@ -88,6 +89,9 @@ namespace Gameplay
             playerController.OnDispose();
             playerController.ComboBreak -= ComboBrokenHandler;
             playerController.LevelUp -= LevelUpHandler;
+            playerController.PlayerDamaged -= PlayerDamagedHandler;
+            playerController.PlayerDied -= GameOver;
+            playerController.PlayerStartedMoving -= PlayerStartedMovingHandler;
             
             enemiesController.EnemyHit -= EnemyHitHandler;
         }
@@ -119,6 +123,8 @@ namespace Gameplay
             playerController.ComboBreak += ComboBrokenHandler;
             playerController.LevelUp += LevelUpHandler;
             playerController.PlayerDamaged += PlayerDamagedHandler;
+            playerController.PlayerDied += GameOver;
+            playerController.PlayerStartedMoving += PlayerStartedMovingHandler;
         }
 
         #endregion
@@ -224,6 +230,25 @@ namespace Gameplay
             }
         }
 
+        private void GameOver()
+        {
+            gameModel.SetGamePhase(GameModel.Won ? GamePhase.YouWin : GamePhase.GameOver);
+            EmptyMono tempMB = new GameObject().AddComponent<EmptyMono>();
+            tempMB.StartCoroutine(GameOverRoutine());
+        }
+        
+        private IEnumerator GameOverRoutine()
+        {
+            float delay = GameModel.Won ? 15.0f : 5.0f;
+            yield return new WaitForSeconds(delay);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+        }
+
+        private void PlayerStartedMovingHandler()
+        {
+            gameModel.SetGamePhase(GamePhase.HordePhase);
+        }
+
         private void PhaseChangedHandler(GamePhase newPhase)
         {
             AudioService.Instance.HandlePhaseChange(newPhase);
@@ -239,6 +264,13 @@ namespace Gameplay
                     levelDirector.Play();
                     break;
                 case GamePhase.BossPhase:
+                    levelDirector.Stop();
+                    break;
+                case GamePhase.YouWin:
+                    levelDirector.Stop();
+                    break;
+                case GamePhase.GameOver:
+                    levelDirector.Stop();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(newPhase), newPhase, null);

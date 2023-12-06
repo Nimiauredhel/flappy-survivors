@@ -3,6 +3,7 @@
 public static class Constants
 {
     public const float STAGE_WIDTH = 40.0f;
+    public const float FLOAT_TOLERANCE = 0.01f;
     public static readonly Vector2 STAGE_OFFSET = new Vector2(20.0f, 5.0f);
     public static readonly WaitForFixedUpdate WaitForFixedUpdate = new WaitForFixedUpdate();
 

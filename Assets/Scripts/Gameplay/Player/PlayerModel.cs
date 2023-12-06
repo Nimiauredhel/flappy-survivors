@@ -8,6 +8,8 @@ namespace Gameplay.Player
 {
     public class PlayerModel
     {
+        public bool Vulnerable => vulnerable;
+        public bool Dead => dead;
         public int CurrentLevel => currentLevel;
         public int TotalXP => totalXp;
         public int NextLevelXPReq => nextLevelXpReq;
@@ -21,6 +23,9 @@ namespace Gameplay.Player
 
         public event Action<float> HealthPercentChanged;
         public event Action<float> XPPercentChanged;
+
+        private bool vulnerable = true;
+        private bool dead = false;
         
         private int currentLevel = 1;
         private int totalXp = 0;
@@ -39,6 +44,16 @@ namespace Gameplay.Player
         {
             this.stats = config.GetStats;
             upgradeTree = config.GetUpgradeTree;
+        }
+
+        public void SetVulnerable(bool value)
+        {
+            vulnerable = value;
+        }
+
+        public void SetDead(bool value)
+        {
+            dead = value;
         }
 
         public void SetXSpeed(float value)

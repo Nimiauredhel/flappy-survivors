@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Gameplay.Weapons;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +13,8 @@ namespace Gameplay.Player
     {
         private const string LVL_TEXT_FORMAT = "LVL {0}";
         private const string COMBO_TEXT_FORMAT = "x{0}";
-        
+
+        [SerializeField] private CanvasGroup mainCanvasGroup;
         [SerializeField] private Slider healthSlider;
         [SerializeField] private Slider xpSlider;
         [SerializeField] private TextMeshProUGUI timerText;
@@ -24,6 +26,18 @@ namespace Gameplay.Player
         
         private List<WeaponUIView> weaponIcons = new List<WeaponUIView>(4);
 
+        public void SetCanvasAlpha(float value, float duration)
+        {
+            if (duration == 0.0f)
+            {
+                mainCanvasGroup.alpha = value;
+            }
+            else
+            {
+                mainCanvasGroup.DOFade(value, duration);
+            }
+        }
+
         public void UpdateTimerText(int timeInSeconds)
         {
             TimeSpan timerTimespan = TimeSpan.FromSeconds(timeInSeconds);
@@ -33,13 +47,13 @@ namespace Gameplay.Player
 
         public void UpdatePlayerHealthView(float percent)
         {
-            if (healthSlider.value == percent) return;
+            if (Math.Abs(healthSlider.value - percent) < Constants.FLOAT_TOLERANCE) return;
             healthSlider.value = percent;
         }
         
         public void UpdatePlayerXPView(float percent)
         {
-            if (xpSlider.value == percent) return;
+            if (Math.Abs(xpSlider.value - percent) < Constants.FLOAT_TOLERANCE) return;
             xpSlider.value = percent;
         }
 
