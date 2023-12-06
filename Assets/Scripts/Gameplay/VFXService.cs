@@ -23,6 +23,8 @@ namespace Gameplay
         [SerializeField] private GameObject explosionPrefab;
         [SerializeField] private TextMeshPro damageTextPrefab;
         [SerializeField] private Material sharedSpriteMaterial;
+
+        private float baselineEmission = 1.0f;
         
         private Camera gameplayCamera;
         private Tween cameraShake = null;
@@ -30,10 +32,18 @@ namespace Gameplay
 
         public void Initialize()
         {
+            baselineEmission = 1.0f;
+            sharedSpriteMaterial.SetFloat(EMISSION_HASH, baselineEmission);
             gameplayCamera = Camera.main;
             cameraShake = DOTween.Sequence();
             pooledExplosions = new ObjectPool<GameObject>(CreateExplosion);
             pooledDamageText = new ObjectPool<TextMeshPro>(CreateDamageText);
+        }
+
+        public void ChangeBaselineEmission(float newValue)
+        {
+            baselineEmission = newValue;
+            sharedSpriteMaterial.DOFloat(baselineEmission, EMISSION_HASH, 3.0f);
         }
 
         public void DoCameraShake(float strength)
@@ -90,8 +100,8 @@ namespace Gameplay
                 materialEmission.Kill();
             }
 
-            sharedSpriteMaterial.SetFloat(EMISSION_HASH, 1.25f);
-            materialEmission = sharedSpriteMaterial.DOFloat(1.0f, EMISSION_HASH, duration);
+            sharedSpriteMaterial.SetFloat(EMISSION_HASH, baselineEmission + 0.25f);
+            materialEmission = sharedSpriteMaterial.DOFloat(baselineEmission, EMISSION_HASH, duration);
         }
 
         private async void ServeDamageTextAsync(int damage, Vector2 position)
@@ -138,7 +148,6 @@ namespace Gameplay
 
         private void OnDestroy()
         {
-            sharedSpriteMaterial.color = Color.white;
             sharedSpriteMaterial.SetFloat(EMISSION_HASH, 1.0f);
         }
     }

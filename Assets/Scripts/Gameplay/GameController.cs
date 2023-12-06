@@ -193,6 +193,7 @@ namespace Gameplay
             if (shortList.Count > 0)
             {
                 gameModel.SetGamePhase(GamePhase.UpgradePhase);
+                vfxService.ChangeBaselineEmission(3.0f);
             
                 AudioService.Instance.PlayLevelUp();
                 playerController.UIView.SetCanvasAlpha(0.0f, 0.5f);
@@ -220,6 +221,7 @@ namespace Gameplay
             if (GameModel.CurrentGamePhase != GamePhase.UpgradePhase) return;
 
             gameModel.SetGamePhase(GamePhase.HordePhase);
+            vfxService.ChangeBaselineEmission(1.0f);
             
             Stack<PickupDropOrder> healthDrops = new Stack<PickupDropOrder>();
             
@@ -265,7 +267,14 @@ namespace Gameplay
             float delay = GameModel.Won ? 20.0f : 6.0f;
             playerController.UIView.ShowGameOverMessage(
                 GameModel.Won ? "You Won" : "You Died", 3.0f);
+            
             playerController.UIView.SetFadeAlpha(1.0f, delay * 0.75f);
+            
+            if (!GameModel.Won)
+            {
+                await Awaitable.WaitForSecondsAsync(1);
+                vfxService.ChangeBaselineEmission(100.0f);
+            }
             
             await Awaitable.WaitForSecondsAsync(delay);
             loading.allowSceneActivation = true;
