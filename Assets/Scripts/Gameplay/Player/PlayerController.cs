@@ -240,7 +240,7 @@ namespace Gameplay.Player
 
             public override void ClimbCommand(PlayerController player)
             {
-                if (timeToRecover <= 0.0f)
+                if (timeToRecover <= 0.01f)
                 {
                     player.SetNewState(player._climbState);
                 }
@@ -248,7 +248,7 @@ namespace Gameplay.Player
 
             public override void DiveCommand(PlayerController player)
             {
-                if (timeToRecover <= 0.0f)
+                if (timeToRecover <= 0.01f)
                 {
                     player.SetNewState(player._diveState);
                 }
@@ -266,9 +266,9 @@ namespace Gameplay.Player
             {
                 player.weapons.WeaponsUpdate(validWeaponType);
                 
-                if (timeToRecover <= 0.0f)
+                if (timeToRecover < 0.0f)
                 {
-                    
+                    player.SetNewState(player._neutralState);
                 }
                 else
                 {

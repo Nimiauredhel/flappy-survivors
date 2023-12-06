@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Movement Config
   m_EditorClassIdentifier: 
   neutralDuration: 0.35
-  flinchDuration: 0.05
-  dyingDuration: 1
+  flinchDuration: 0.5
   climbSpeed: 10
   diveSpeed: 20
   climbAccelTime: 0.5
