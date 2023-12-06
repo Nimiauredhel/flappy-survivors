@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Audio;
 using Configuration;
-using DG.Tweening;
-using DG.Tweening.Core;
 using Gameplay.Level;
 using Gameplay.Player;
 using Gameplay.ScrolledObjects;
@@ -14,6 +12,7 @@ using Gameplay.ScrolledObjects.Pickup;
 using Gameplay.Upgrades;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 using VContainer;
 using VContainer.Unity;
@@ -33,8 +32,6 @@ namespace Gameplay
         [Inject] private readonly GameModel gameModel;
         
         private UpgradeTree upgradeTree;
-        private EmptyMono emptyMono;
-        
         
         private Stack<PickupDropOrder> comboBalloon = new Stack<PickupDropOrder>(32);
 
@@ -43,9 +40,6 @@ namespace Gameplay
         public void Start()
         {
             Application.targetFrameRate = 60;
-            GameObject tempGO = new GameObject();
-            tempGO.name = "Empty Mono";
-            emptyMono = tempGO.AddComponent<EmptyMono>();
             
             upgradeTree = ConfigSelectionMediator.GetUpgradeTree();
             
@@ -63,7 +57,7 @@ namespace Gameplay
             pickupsController.Initialize();
             
             AudioService.Instance.PlayGameplayMusic();
-            emptyMono.StartCoroutine(TimerRoutine());
+            TimerRoutine();
             gameModel.SetGamePhase(GamePhase.IntroPhase);
             
             playerController.UIView.SetFadeAlpha(0.0f, 2.0f);
@@ -260,15 +254,19 @@ namespace Gameplay
             vfxService.RequestExplosionsAt(positions);
 
             gameModel.SetGamePhase(GameModel.Won ? GamePhase.YouWin : GamePhase.GameOver);
-            emptyMono.StartCoroutine(GameOverRoutine());
+            GameOverRoutine();
         }
         
-        private IEnumerator GameOverRoutine()
+        private async void GameOverRoutine()
         {
+            AsyncOperation loading = SceneManager.LoadSceneAsync("Menu");
+            loading.allowSceneActivation = false;
+            
             float delay = GameModel.Won ? 20.0f : 5.0f;
             playerController.UIView.SetFadeAlpha(1.0f, delay * 0.75f);
-            yield return new WaitForSeconds(delay);
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+            
+            await Awaitable.WaitForSecondsAsync(delay);
+            loading.allowSceneActivation = true;
         }
 
         private void PlayerStartedMovingHandler()
@@ -304,26 +302,26 @@ namespace Gameplay
             }
         }
         
-        private IEnumerator TimerRoutine()
+        private async void TimerRoutine()
         {
-            WaitForSeconds second = new WaitForSeconds(1);
+            await Awaitable.WaitForSecondsAsync(1);
             
             while (GameModel.TimeLeft > 0)
             {
                 while (GameModel.CurrentGamePhase != GamePhase.HordePhase)
                 {
-                    yield return null;
+                    await Awaitable.NextFrameAsync();
                 }
                 
                 GameModel.ChangeTimeLeft(-1.0f);
                 playerController.UIView.UpdateTimerText((int)GameModel.TimeLeft);
-                
-                yield return second;
+
+                await Awaitable.WaitForSecondsAsync(1);
             }
             
             gameModel.SetGamePhase(GamePhase.BossPhase);
 
-            yield return new WaitForSeconds(2.0f);
+            await Awaitable.WaitForSecondsAsync(2);
             gameModel.SetWonGame();
             GameOver();
         }

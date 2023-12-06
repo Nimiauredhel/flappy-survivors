@@ -14,17 +14,17 @@ namespace Gameplay.Weapons.WeaponLogic
     {
         private int hits = 0;
         private float elapsedTime = 0.0f;
-        private Coroutine weaponRoutine = null;
+        private Awaitable weaponRoutine = null;
         
         public override void Draw(WeaponInstance instance)
         {
             if (weaponRoutine != null)
             {
-                instance.View.StopCoroutine(weaponRoutine);
+                weaponRoutine.Cancel();
                 weaponRoutine = null;
             }
             
-            weaponRoutine = instance.View.StartCoroutine(AttackRoutine(instance));
+            weaponRoutine = AttackRoutine(instance);
         }
 
         public override void Sheathe(WeaponInstance instance)
@@ -58,7 +58,7 @@ namespace Gameplay.Weapons.WeaponLogic
             }
         }
 
-        private IEnumerator AttackRoutine(WeaponInstance instance)
+        private async Awaitable AttackRoutine(WeaponInstance instance)
         {
             hits = 0;
             elapsedTime = 0.0f;
@@ -67,7 +67,7 @@ namespace Gameplay.Weapons.WeaponLogic
 
             while (elapsedTime <= instance.Stats.Duration)
             {
-                yield return Constants.WaitForFixedUpdate;
+                await Awaitable.FixedUpdateAsync();
                 elapsedTime += Time.fixedDeltaTime;
             }
             

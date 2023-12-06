@@ -10,7 +10,7 @@ namespace Gameplay.Player
         private readonly float castGap = 0.5f;
         private Transform playerTransform;
         private Collider2D[] resultsArray;
-        private LayerMask pickupMask;
+        private ContactFilter2D contactFilter;
 
         private HashSet<ScrolledObjectView> currentlyMagnetizedObjects;
 
@@ -18,7 +18,8 @@ namespace Gameplay.Player
         {
             this.playerTransform = playerTransform;
             resultsArray = new Collider2D[20];
-            pickupMask = LayerMask.GetMask("Pickup");
+            contactFilter = new ContactFilter2D().NoFilter();
+            contactFilter.SetLayerMask(LayerMask.GetMask("Pickup"));
             currentlyMagnetizedObjects = new HashSet<ScrolledObjectView>(16);
         }
 
@@ -39,24 +40,23 @@ namespace Gameplay.Player
 
         private void CastMagnetism(float magnetStrength)
         {
-            int numOfResults = Physics2D.OverlapCircleNonAlloc
+            int numOfResults = Physics2D.OverlapCircle
             (
                 playerTransform.position,
                 magnetStrength,
-                resultsArray,
-                pickupMask
+                contactFilter,
+                resultsArray
             );
             
-            ScrolledObjectView result;
+            HitTrigger result;
             
             for (int i = 0; i < numOfResults; i++)
             {
-                result = resultsArray[i].GetComponentInParent<ScrolledObjectView>();
+                result = resultsArray[i].GetComponent<HitTrigger>();
                 
                 if (result != null)
                 {
-                    
-                    currentlyMagnetizedObjects.Add(result);
+                    currentlyMagnetizedObjects.Add(result.HitReceiver);
                 }
             }
         }

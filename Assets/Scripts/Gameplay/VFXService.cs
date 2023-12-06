@@ -13,9 +13,9 @@ namespace Gameplay
     {
         private static readonly int EMISSION_HASH = Shader.PropertyToID("_Emission");
         
-        private static readonly WaitForSeconds WaitForExplosion = new WaitForSeconds(1.0f);
-        private static readonly WaitForSeconds WaitForDamageTextIn = new WaitForSeconds(0.3f);
-        private static readonly WaitForSeconds WaitForDamageTextOut = new WaitForSeconds(0.7f);
+        private const float EXPLOSION_DELAY = 1.0f;
+        private const float WaitForDamageTextIn = 0.3f;
+        private const float WaitForDamageTextOut = 0.7f;
         
         private ObjectPool<GameObject> pooledExplosions;
         private ObjectPool<TextMeshPro> pooledDamageText;
@@ -47,7 +47,7 @@ namespace Gameplay
 
         public void RequestExplosionAt(Vector2 position, bool doLight = true)
         {
-            StartCoroutine(ServeExplosion(position));
+            ServeExplosionAsync(position);
             if (doLight) LightForSeconds(1.5f);
         }
 
@@ -63,10 +63,10 @@ namespace Gameplay
 
         public void RequestDamageTextAt(int damage, Vector2 position)
         {
-            StartCoroutine(ServeDamageText(damage, position));
+            ServeDamageTextAsync(damage, position);
         }
 
-        private IEnumerator ServeExplosion(Vector2 position)
+        private async void ServeExplosionAsync(Vector2 position)
         {
             GameObject explosion;
             pooledExplosions.Get(out explosion);
@@ -75,12 +75,12 @@ namespace Gameplay
             {
                 explosion.transform.position = position;
                 explosion.SetActive(true);
-                yield return WaitForExplosion;
+                await Awaitable.WaitForSecondsAsync(EXPLOSION_DELAY);
                 explosion.SetActive(false);
                 pooledExplosions.Release(explosion);
             }
 
-            yield return null;
+            await Awaitable.NextFrameAsync();
         }
 
         public void LightForSeconds(float duration)
@@ -94,7 +94,7 @@ namespace Gameplay
             materialEmission = sharedSpriteMaterial.DOFloat(1.0f, EMISSION_HASH, duration);
         }
 
-        private IEnumerator ServeDamageText(int damage, Vector2 position)
+        private async void ServeDamageTextAsync(int damage, Vector2 position)
         {
             TextMeshPro damageText;
             pooledDamageText.Get(out damageText);
@@ -112,14 +112,14 @@ namespace Gameplay
                 damageText.DOFade(0.9f, 0.2f);
                 damageText.transform.DOScale(Vector3.one * targetScale, 0.7f);
                 damageText.transform.DOMove(targetPosition, 0.7f);
-                yield return WaitForDamageTextIn;
+                await Awaitable.WaitForSecondsAsync(WaitForDamageTextIn);
                 damageText.DOFade(0.0f, 0.5f);
-                yield return WaitForDamageTextOut;
+                await Awaitable.WaitForSecondsAsync(WaitForDamageTextOut);
                 damageText.gameObject.SetActive(false);
                 pooledDamageText.Release(damageText);
             }
 
-            yield return null;
+            await Awaitable.NextFrameAsync();
         }
 
         private GameObject CreateExplosion()
