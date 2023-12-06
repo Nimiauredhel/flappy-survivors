@@ -185,6 +185,8 @@ namespace Gameplay
 
         private void LevelUpHandler(int newLevel)
         {
+            playerController.UIView.SetCanvasAlpha(0.0f, 0.5f);
+            
             Vector3[] positions = new[] { new Vector3(25.0f, 5.5f), new Vector3(25.0f, -0.75f), new Vector3(25.0f, -7.0f) };
             List<UpgradeOption> allCurrentOptions = upgradeTree.GetAllCurrentOptions(newLevel);
             Stack<PickupDropOrder> shortList = new Stack<PickupDropOrder>(4);

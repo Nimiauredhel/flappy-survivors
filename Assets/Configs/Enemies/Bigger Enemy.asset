@@ -17,5 +17,5 @@ MonoBehaviour:
     maxHP: 10
     minHP: 6
     power: 10
-    speed: 7
+    speed: 10
   viewPrefab: {fileID: -1032148392928579942, guid: 2be593ba1a60dba4f8fdb8ee41f7dac1, type: 3}

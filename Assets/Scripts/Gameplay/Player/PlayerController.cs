@@ -20,6 +20,8 @@ namespace Gameplay.Player
         private static readonly int HURT_HASH = Animator.StringToHash("Hurt");
         private static readonly int DYING_HASH = Animator.StringToHash("Dying");
 
+        public PlayerUIView UIView => uiView;
+        
         public event Action<int> ComboBreak;
         public event Action<int> LevelUp;
         public event Action PlayerStartedMoving;
@@ -455,7 +457,7 @@ namespace Gameplay.Player
 
         private void SelectedUpgradeHandler(UpgradeOption selectedOption)
         {
-            Time.timeScale = 1.0f;
+            uiView.SetCanvasAlpha(1.0f, 0.5f);
             selectedOption.Taken = true;
 
             switch (selectedOption.UpgradeConfig.Type())
