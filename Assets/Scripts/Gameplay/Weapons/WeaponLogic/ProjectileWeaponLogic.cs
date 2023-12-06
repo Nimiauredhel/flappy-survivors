@@ -71,42 +71,51 @@ namespace Gameplay.Weapons.WeaponLogic
 
         private async Task FireSingleProjectile(WeaponInstance instance, WeaponView projectile, CancellationToken token)
         {
-            int hits = 0;
-            
-            EventHandler<Collider2D> hitAction = delegate(object sender, Collider2D other)
+            try
             {
-                ScrolledObjectView SO = other.GetComponentInParent<ScrolledObjectView>();
-                
-                if (SO != null)
+                int hits = 0;
+            
+                EventHandler<Collider2D> hitAction = delegate(object sender, Collider2D other)
                 {
-                    if (instance.Stats.Hits > 0)
+                    ScrolledObjectView SO = other.GetComponentInParent<ScrolledObjectView>();
+                
+                    if (SO != null)
                     {
-                        hits++;
-                    }
+                        if (instance.Stats.Hits > 0)
+                        {
+                            hits++;
+                        }
                     
-                    HitHandler(SO, instance);
+                        HitHandler(SO, instance);
                     
-                    if (hits >= instance.Stats.Hits)
-                    {
-                        projectilePool.Release(projectile);
+                        if (hits >= instance.Stats.Hits)
+                        {
+                            projectilePool.Release(projectile);
+                        }
                     }
+                };
+            
+                projectile.TriggerEnter += hitAction;
+            
+                float time = 0.0f;
+            
+                while (!token.IsCancellationRequested && time < instance.Stats.Duration)
+                {
+                    float fixedDeltaTime = Time.fixedDeltaTime;
+                    projectile.transform.position += (Vector3.right * (instance.Stats.Speed * fixedDeltaTime));
+                    projectile.transform.Rotate(Vector3.forward, 30.0f * instance.Stats.Speed * fixedDeltaTime);
+                    time += fixedDeltaTime;
+                    await Awaitable.FixedUpdateAsync();
                 }
-            };
             
-            projectile.TriggerEnter += hitAction;
-            
-            float time = 0.0f;
-            
-            while (!token.IsCancellationRequested && time < instance.Stats.Duration)
-            {
-                float fixedDeltaTime = Time.fixedDeltaTime;
-                projectile.transform.position += (Vector3.right * (instance.Stats.Speed * fixedDeltaTime));
-                projectile.transform.Rotate(Vector3.forward, 30.0f * instance.Stats.Speed * fixedDeltaTime);
-                time += fixedDeltaTime;
-                await Awaitable.FixedUpdateAsync();
+                projectilePool.Release(projectile);
             }
-            
-            projectilePool.Release(projectile);
+            catch (OperationCanceledException e)
+            {
+                projectilePool.Release(projectile);
+                Console.WriteLine(e);
+                throw;
+            }
         }
         
         private WeaponView CreateProjectile()
