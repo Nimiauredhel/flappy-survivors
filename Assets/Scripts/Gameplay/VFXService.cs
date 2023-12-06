@@ -1,14 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Pool;
+using Random = UnityEngine.Random;
 
 namespace Gameplay
 {
     public class VFXService : MonoBehaviour
     {
+        private static readonly int EMISSION_HASH = Shader.PropertyToID("_Emission");
+        
         private static readonly WaitForSeconds WaitForExplosion = new WaitForSeconds(1.0f);
         private static readonly WaitForSeconds WaitForDamageTextIn = new WaitForSeconds(0.3f);
         private static readonly WaitForSeconds WaitForDamageTextOut = new WaitForSeconds(0.7f);
@@ -18,9 +22,11 @@ namespace Gameplay
         
         [SerializeField] private GameObject explosionPrefab;
         [SerializeField] private TextMeshPro damageTextPrefab;
+        [SerializeField] private Material sharedSpriteMaterial;
         
         private Camera gameplayCamera;
         private Tween cameraShake = null;
+        private Tween materialEmission = null;
 
         public void Initialize()
         {
@@ -39,17 +45,20 @@ namespace Gameplay
             cameraShake.onComplete += () => cameraShake.Rewind();
         }
 
-        public void RequestExplosionAt(Vector2 position)
+        public void RequestExplosionAt(Vector2 position, bool doLight = true)
         {
             StartCoroutine(ServeExplosion(position));
+            if (doLight) LightForSeconds(1.5f);
         }
 
-        public void RequestExplosionsAt(List<Vector3> positions)
+        public void RequestExplosionsAt(List<Vector3> positions, bool doLight = true)
         {
             foreach (Vector3 position in positions)
             {
-                RequestExplosionAt(position);
+                RequestExplosionAt(position, false);
             }
+            
+            if (doLight) LightForSeconds(1.0f);
         }
 
         public void RequestDamageTextAt(int damage, Vector2 position)
@@ -73,7 +82,18 @@ namespace Gameplay
 
             yield return null;
         }
-        
+
+        public void LightForSeconds(float duration)
+        {
+            if (materialEmission != null)
+            {
+                materialEmission.Kill();
+            }
+
+            sharedSpriteMaterial.SetFloat(EMISSION_HASH, 1.25f);
+            materialEmission = sharedSpriteMaterial.DOFloat(1.0f, EMISSION_HASH, duration);
+        }
+
         private IEnumerator ServeDamageText(int damage, Vector2 position)
         {
             TextMeshPro damageText;
@@ -116,5 +136,10 @@ namespace Gameplay
             return damageTest;
         }
 
+        private void OnDestroy()
+        {
+            sharedSpriteMaterial.color = Color.white;
+            sharedSpriteMaterial.SetFloat(EMISSION_HASH, 1.0f);
+        }
     }
 }

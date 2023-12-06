@@ -224,6 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 4942721070776471051, guid: cbe840fbe2bc205408de519743c81691, type: 3}
   damageTextPrefab: {fileID: 8223370719577550048, guid: 0b81428dc4afc3f429a4d690ec7815f1, type: 3}
+  sharedSpriteMaterial: {fileID: 2100000, guid: 192eb2d55044f5e4e907b6fc5936d1f5, type: 2}
 --- !u!4 &8065848699420797386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1025188191440729954, guid: 5725ab516c3a74c46964561db78ea474, type: 3}

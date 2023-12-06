@@ -7,8 +7,9 @@ Shader "Custom/GameplaySprite"
 	    [PerRendererData] _Contrast("ContrastValue", Range(-5,5)) = 1.0
         [PerRendererData] _XOffset("XOffset", Float) = 0.0
 	    _ContrastModifier("ContrastRange", Range(-5,5)) = 1.0
-
+        
         _Color ("Tint", Color) = (1,1,1,1)
+        _Emission ("Emission", Float) = 1.0
         [MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
         [HideInInspector] _RendererColor ("RendererColor", Color) = (1,1,1,1)
         [HideInInspector] _Flip ("Flip", Vector) = (1,1,1,1)
@@ -78,6 +79,7 @@ Shader "Custom/GameplaySprite"
             CBUFFER_END
 
             fixed4 _Color;
+            float _Emission;
 	        float _ContrastModifier;
 
             struct appdata_t
@@ -153,6 +155,7 @@ Shader "Custom/GameplaySprite"
                 fixed4 c = SampleSpriteTexture (coord) * IN.color;
 		        c = AdjustContrast(c, _Contrast);
                 c.rgb *= c.a;
+                c.rgb *= _Emission;
                 return c;
             }
             
