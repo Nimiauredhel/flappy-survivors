@@ -97,7 +97,7 @@ namespace Gameplay.ScrolledObjects.Pickup
 
         public void SpawnPickups(Stack<PickupDropOrder> pickupOrders, float comboModifier)
         {
-            StartCoroutine(SpawnPickupsRoutine(pickupOrders, comboModifier, SPAWN_GAP));
+            SpawnPickupsRoutine(pickupOrders, comboModifier, SPAWN_GAP);
         }
 
         public ScrolledObjectView[] SpawnAndReturnPickups(Stack<PickupDropOrder> pickupOrders, float comboModifier)
@@ -260,12 +260,11 @@ namespace Gameplay.ScrolledObjects.Pickup
             }
         }
 
-        private IEnumerator SpawnPickupsRoutine(Stack<PickupDropOrder> pickupOrders, float comboModifier, float spawnGap)
+        private async void SpawnPickupsRoutine(Stack<PickupDropOrder> pickupOrders, float comboModifier, float spawnGap)
         {
-            WaitForSeconds waitForSpawnGap = new WaitForSeconds(spawnGap);
             PickupDropOrder currentOrder;
             object currentValue;
-            yield return null;
+            await Awaitable.NextFrameAsync();
 
             while (pickupOrders.Count > 0)
             {
@@ -278,7 +277,7 @@ namespace Gameplay.ScrolledObjects.Pickup
                 }
 
                 SpawnPickup(currentOrder.Position, currentValue, currentOrder.Type);
-                yield return waitForSpawnGap;
+                await Awaitable.WaitForSecondsAsync(spawnGap);
             }
         }
     }
