@@ -1,28 +1,20 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using Configuration;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Pool;
+using VContainer;
 using Random = UnityEngine.Random;
 
 namespace Gameplay
 {
-    public class VFXService : MonoBehaviour
+    public class VFXService
     {
-        private static readonly int EMISSION_HASH = Shader.PropertyToID("_Emission");
-        
-        private const float EXPLOSION_DELAY = 1.0f;
-        private const float WaitForDamageTextIn = 0.3f;
-        private const float WaitForDamageTextOut = 0.7f;
+        [Inject] private readonly VFXConfiguration config;
         
         private ObjectPool<GameObject> pooledExplosions;
         private ObjectPool<TextMeshPro> pooledDamageText;
-        
-        [SerializeField] private GameObject explosionPrefab;
-        [SerializeField] private TextMeshPro damageTextPrefab;
-        [SerializeField] private Material sharedSpriteMaterial;
 
         private float baselineEmission = 1.0f;
         
@@ -33,17 +25,22 @@ namespace Gameplay
         public void Initialize()
         {
             baselineEmission = 1.0f;
-            sharedSpriteMaterial.SetFloat(EMISSION_HASH, baselineEmission);
+            config.SharedSpriteMaterial.SetFloat(config.EmissionHash, config.InitialBaselineEmission);
             gameplayCamera = Camera.main;
             cameraShake = DOTween.Sequence();
             pooledExplosions = new ObjectPool<GameObject>(CreateExplosion);
             pooledDamageText = new ObjectPool<TextMeshPro>(CreateDamageText);
         }
 
+        public void Dispose()
+        {
+            config.Cleanup();
+        }
+
         public void ChangeBaselineEmission(float newValue)
         {
             baselineEmission = newValue;
-            sharedSpriteMaterial.DOFloat(baselineEmission, EMISSION_HASH, 3.0f);
+            config.SharedSpriteMaterial.DOFloat(baselineEmission, config.EmissionHash, config.EmissionChangeDelay);
         }
 
         public void DoCameraShake(float strength)
@@ -68,7 +65,7 @@ namespace Gameplay
                 RequestExplosionAt(position, false);
             }
             
-            if (doLight) LightForSeconds(1.0f);
+            if (doLight) LightForSeconds(2.0f);
         }
 
         public void RequestDamageTextAt(int damage, Vector2 position)
@@ -85,7 +82,7 @@ namespace Gameplay
             {
                 explosion.transform.position = position;
                 explosion.SetActive(true);
-                await Awaitable.WaitForSecondsAsync(EXPLOSION_DELAY);
+                await Awaitable.WaitForSecondsAsync(config.ExplosionDelay);
                 explosion.SetActive(false);
                 pooledExplosions.Release(explosion);
             }
@@ -100,8 +97,8 @@ namespace Gameplay
                 materialEmission.Kill();
             }
 
-            sharedSpriteMaterial.SetFloat(EMISSION_HASH, baselineEmission + 0.25f);
-            materialEmission = sharedSpriteMaterial.DOFloat(baselineEmission, EMISSION_HASH, duration);
+            config.SharedSpriteMaterial.SetFloat(config.EmissionHash, baselineEmission + 0.25f);
+            materialEmission = config.SharedSpriteMaterial.DOFloat(baselineEmission, config.EmissionHash, duration);
         }
 
         private async void ServeDamageTextAsync(int damage, Vector2 position)
@@ -122,9 +119,9 @@ namespace Gameplay
                 damageText.DOFade(0.9f, 0.2f);
                 damageText.transform.DOScale(Vector3.one * targetScale, 0.7f);
                 damageText.transform.DOMove(targetPosition, 0.7f);
-                await Awaitable.WaitForSecondsAsync(WaitForDamageTextIn);
+                await Awaitable.WaitForSecondsAsync(config.DamageTextInDelay);
                 damageText.DOFade(0.0f, 0.5f);
-                await Awaitable.WaitForSecondsAsync(WaitForDamageTextOut);
+                await Awaitable.WaitForSecondsAsync(config.DamageTextOutDelay);
                 damageText.gameObject.SetActive(false);
                 pooledDamageText.Release(damageText);
             }
@@ -134,21 +131,16 @@ namespace Gameplay
 
         private GameObject CreateExplosion()
         {
-            GameObject explosion = Instantiate(explosionPrefab);
+            GameObject explosion = Object.Instantiate(config.ExplosionPrefab);
             explosion.SetActive(false);
             return explosion;
         }
         
         private TextMeshPro CreateDamageText()
         {
-            TextMeshPro damageTest = Instantiate(damageTextPrefab);
+            TextMeshPro damageTest = Object.Instantiate(config.DamageTextPrefab);
             damageTest.gameObject.SetActive(false);
             return damageTest;
-        }
-
-        private void OnDestroy()
-        {
-            sharedSpriteMaterial.SetFloat(EMISSION_HASH, 1.0f);
         }
     }
 }

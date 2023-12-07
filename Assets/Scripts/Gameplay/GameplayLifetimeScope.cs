@@ -22,11 +22,11 @@ namespace Gameplay
         
         [SerializeField] private PickupsController pickupsController;
         [SerializeField] private PlayerWeaponsComponent playerWeapons;
-        [SerializeField] private VFXService vfxService;
         [SerializeField] private PlayableDirector levelDirector;
         
         [SerializeField] private PlayerMovementConfiguration playerMovementConfig;
         [SerializeField] private EnemyControllerConfig enemyControllerConfig;
+        [SerializeField] private VFXConfiguration vfxConfig;
         
         [SerializeField] private AudioService audioServiceInstance;
         
@@ -43,12 +43,13 @@ namespace Gameplay
             builder.RegisterComponent(burstSignalReceiver);
             builder.RegisterComponent(pickupsController);
             builder.RegisterComponent(playerWeapons);
-            builder.RegisterComponent(vfxService);
             builder.RegisterComponent(levelDirector);
             
             builder.RegisterComponent(playerMovementConfig);
             builder.RegisterComponent(enemyControllerConfig);
+            builder.RegisterComponent(vfxConfig);
 
+            builder.Register<VFXService>(Lifetime.Singleton);
             builder.Register<GameModel>(Lifetime.Singleton);
             builder.Register<PlayerController>(Lifetime.Singleton);
             builder.Register<PlayerModel>(Lifetime.Singleton);

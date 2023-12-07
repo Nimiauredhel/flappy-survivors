@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 770b332319234b6d94897bfe0d114bf1, type: 3}
+  m_Name: VFX Config
+  m_EditorClassIdentifier: 
+  initialBaselineEmission: 1
+  emissionChangeDelay: 3
+  explosionDelay: 1
+  damageTextInDelay: 0.3
+  damageTextOutDelay: 0.7
+  explosionPrefab: {fileID: 4942721070776471051, guid: cbe840fbe2bc205408de519743c81691, type: 3}
+  damageTextPrefab: {fileID: 8223370719577550048, guid: 0b81428dc4afc3f429a4d690ec7815f1, type: 3}
+  sharedSpriteMaterial: {fileID: 2100000, guid: 192eb2d55044f5e4e907b6fc5936d1f5, type: 2}

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Audio;
@@ -93,6 +92,8 @@ namespace Gameplay
             playerController.PlayerStartedMoving -= PlayerStartedMovingHandler;
             
             enemiesController.EnemyHit -= EnemyHitHandler;
+            
+            vfxService.Dispose();
         }
 
         #endregion
