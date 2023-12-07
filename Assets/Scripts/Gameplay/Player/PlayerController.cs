@@ -19,8 +19,6 @@ namespace Gameplay.Player
         private static readonly int HOVERING_HASH = Animator.StringToHash("Hovering");
         private static readonly int HURT_HASH = Animator.StringToHash("Hurt");
         private static readonly int DYING_HASH = Animator.StringToHash("Dying");
-
-        public PlayerUIView UIView => uiView;
         
         public event Action<int> ComboBreak;
         public event Action<int> LevelUp;
@@ -153,7 +151,6 @@ namespace Gameplay.Player
             
             public override void EnterState(PlayerController player)
             {
-                player.uiView.SetCanvasAlpha(0.0f, 0.0f);
                 validWeaponType = WeaponType.None;
                 player.SetNeutral();
                 player.model.SetVulnerable(false);
@@ -166,7 +163,6 @@ namespace Gameplay.Player
 
             public override void ExitState(PlayerController player)
             {
-                player.uiView.SetCanvasAlpha(1.0f, 2.0f);
                 player.PlayerStartedMoving?.Invoke();
                 player.model.SetVulnerable(true);
             }
@@ -345,7 +341,6 @@ namespace Gameplay.Player
             _touchReceiver.PointerUp += PointerUpHandler;
             view.TriggerEntered += TriggerEnterHandler;
             
-            uiView.SetFadeAlpha(1.0f, 0.0f);
             uiView.UpdatePlayerHealthView((float)model.CurrentHealth/model.MaxHealth);
             uiView.UpdatePlayerXPView(0.0f);
             
@@ -456,7 +451,6 @@ namespace Gameplay.Player
 
         private void SelectedUpgradeHandler(UpgradeOption selectedOption)
         {
-            uiView.SetCanvasAlpha(1.0f, 0.5f);
             selectedOption.Taken = true;
 
             switch (selectedOption.UpgradeConfig.Type())

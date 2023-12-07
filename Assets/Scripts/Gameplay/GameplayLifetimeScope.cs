@@ -14,6 +14,7 @@ namespace Gameplay
     {
         [SerializeField] private TouchReceiver touchReceiver;
         [SerializeField] private PlayerView playerView;
+        [SerializeField] private GameplayUIView gameplayUIView;
         [SerializeField] private PlayerUIView playerUIView;
         
         [SerializeField] private EnemiesController enemiesController;
@@ -33,6 +34,7 @@ namespace Gameplay
             
             builder.RegisterComponent(touchReceiver);
             builder.RegisterComponent(playerView);
+            builder.RegisterComponent(gameplayUIView);
             builder.RegisterComponent(playerUIView);
             
             builder.RegisterComponent(enemiesController);

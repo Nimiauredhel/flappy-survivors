@@ -28,6 +28,7 @@ namespace Gameplay
         [Inject] private readonly PlayerController playerController;
         [Inject] private readonly VFXService vfxService;
         [Inject] private readonly PlayableDirector levelDirector;
+        [Inject] private readonly GameplayUIView uiView;
         
         [Inject] private readonly GameModel gameModel;
         
@@ -60,7 +61,7 @@ namespace Gameplay
             TimerRoutine();
             gameModel.SetGamePhase(GamePhase.IntroPhase);
             
-            playerController.UIView.SetFadeAlpha(0.0f, 2.0f);
+            uiView.SetFadeAlpha(0.0f, 2.0f, 1.0f);
         }
 
         public void Tick()
@@ -196,7 +197,7 @@ namespace Gameplay
                 vfxService.ChangeBaselineEmission(3.0f);
             
                 AudioService.Instance.PlayLevelUp();
-                playerController.UIView.SetCanvasAlpha(0.0f, 0.5f);
+                uiView.SetCanvasAlpha(0.0f, 0.5f);
                 
                 List<Vector3> purgePositions = pickupsController.PurgeAllPickups(PickupType.XP);
                 purgePositions.AddRange(enemiesController.PurgeAllEnemies());
@@ -243,7 +244,7 @@ namespace Gameplay
 
         private void GameOver()
         {
-            playerController.UIView.SetCanvasAlpha(0.0f, 2.5f);
+            uiView.SetCanvasAlpha(0.0f, 2.5f);
             
             List<Vector3> positions = new List<Vector3>();
             positions = pickupsController.PurgeAllPickups();
@@ -265,10 +266,6 @@ namespace Gameplay
             loading.allowSceneActivation = false;
             
             float delay = GameModel.Won ? 20.0f : 6.0f;
-            playerController.UIView.ShowGameOverMessage(
-                GameModel.Won ? "You Won" : "You Died", 3.0f);
-            
-            playerController.UIView.SetFadeAlpha(1.0f, delay * 0.75f);
             
             if (!GameModel.Won)
             {
@@ -292,20 +289,29 @@ namespace Gameplay
             switch (newPhase)
             {
                 case GamePhase.IntroPhase:
+                    uiView.SetCanvasAlpha(0.0f, 0.0f);
                     break;
                 case GamePhase.UpgradePhase:
+                    uiView.SetCanvasAlpha(0.0f, 0.5f);
                     levelDirector.Pause();
                     break;
                 case GamePhase.HordePhase:
+                    uiView.SetCanvasAlpha(1.0f, 2.0f);
                     levelDirector.Play();
                     break;
                 case GamePhase.BossPhase:
                     levelDirector.Stop();
                     break;
                 case GamePhase.YouWin:
+                    uiView.SetCanvasAlpha(0.0f, 0.5f);
+                    uiView.SetFadeAlpha(1.0f, 15.0f);
+                    uiView.ShowGameOverMessage("You Won", 3.0f);
                     levelDirector.Stop();
                     break;
                 case GamePhase.GameOver:
+                    uiView.SetCanvasAlpha(0.0f, 0.5f);
+                    uiView.SetFadeAlpha(1.0f, 5.0f);
+                    uiView.ShowGameOverMessage("You Died", 3.0f);
                     levelDirector.Stop();
                     break;
                 default:
@@ -325,7 +331,7 @@ namespace Gameplay
                 }
                 
                 GameModel.ChangeTimeLeft(-1.0f);
-                playerController.UIView.UpdateTimerText((int)GameModel.TimeLeft);
+                uiView.UpdateTimerText((int)GameModel.TimeLeft);
 
                 await Awaitable.WaitForSecondsAsync(1);
             }
