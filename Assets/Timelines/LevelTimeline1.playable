@@ -103,7 +103,7 @@ MonoBehaviour:
   parameter:
     enemyId: 0
     enemyAmount: 1
-    pathId: 2
+    pathId: 0
     enemySpawnGap: 0
 --- !u!114 &-8597203808683349900
 MonoBehaviour:
@@ -229,7 +229,7 @@ MonoBehaviour:
   parameter:
     enemyId: 0
     enemyAmount: 3
-    pathId: 3
+    pathId: 2
     enemySpawnGap: 0.2
 --- !u!114 &-8232935971490241423
 MonoBehaviour:
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   parameter:
     enemyId: 0
     enemyAmount: 10
-    pathId: 15
+    pathId: 12
     enemySpawnGap: 0.2
 --- !u!114 &-5673571427135240275
 MonoBehaviour:
@@ -1537,7 +1537,7 @@ MonoBehaviour:
   parameter:
     enemyId: 0
     enemyAmount: 1
-    pathId: 2
+    pathId: 4
     enemySpawnGap: 0
 --- !u!114 &-4661429373600469304
 MonoBehaviour:
@@ -1769,7 +1769,7 @@ MonoBehaviour:
   parameter:
     enemyId: 0
     enemyAmount: 1
-    pathId: 1
+    pathId: 6
     enemySpawnGap: 0
 --- !u!114 &-4133691887904255517
 MonoBehaviour:
@@ -2714,7 +2714,7 @@ MonoBehaviour:
   parameter:
     enemyId: 0
     enemyAmount: 1
-    pathId: 1
+    pathId: 4
     enemySpawnGap: 0
 --- !u!114 &-1710003528092894293
 MonoBehaviour:
@@ -2945,7 +2945,7 @@ MonoBehaviour:
   parameter:
     enemyId: 0
     enemyAmount: 3
-    pathId: 2
+    pathId: 1
     enemySpawnGap: 0.2
 --- !u!114 &-1205482615626627887
 MonoBehaviour:
@@ -3704,7 +3704,7 @@ MonoBehaviour:
   parameter:
     enemyId: 0
     enemyAmount: 1
-    pathId: 0
+    pathId: 6
     enemySpawnGap: 0
 --- !u!114 &1774655504138260831
 MonoBehaviour:

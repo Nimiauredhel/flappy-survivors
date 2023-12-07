@@ -18,5 +18,4 @@ public static class Constants
     {
         return (originalValue - originalMin) * (targetMax - targetMin) / (originalMax - originalMin) + targetMin;
     }
-
 }

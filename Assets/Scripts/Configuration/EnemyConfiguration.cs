@@ -9,8 +9,10 @@ namespace Configuration
     {
         public EnemyStats Stats => stats;
         public ScrolledObjectView ViewPrefab => viewPrefab;
+        public Sprite Icon => icon;
         
         [SerializeField] private EnemyStats stats;
         [SerializeField] private ScrolledObjectView viewPrefab;
+        [SerializeField] private Sprite icon;
     }
 }

@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 1644456562}
   - component: {fileID: 1644456561}
   m_Layer: 0
-  m_Name: LevelTimeline
+  m_Name: LevelDirector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

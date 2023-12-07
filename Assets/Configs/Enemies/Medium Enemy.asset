@@ -19,3 +19,4 @@ MonoBehaviour:
     power: 7
     speed: 12
   viewPrefab: {fileID: -1032148392928579942, guid: 37408543d97f7e14a8bb90024cf72130, type: 3}
+  icon: {fileID: 21300000, guid: 6da75b89e8d6eb247845d33af5e6674b, type: 3}
