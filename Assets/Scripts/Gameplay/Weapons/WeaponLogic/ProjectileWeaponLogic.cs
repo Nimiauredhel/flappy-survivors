@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Gameplay.ScrolledObjects;
@@ -17,9 +16,7 @@ namespace Gameplay.Weapons.WeaponLogic
     public class ProjectileWeaponLogic : WeaponLogicComponent
     {
         private ObjectPool<WeaponView> projectilePool;
-        private const float projectileGap = 0.15f;
-
-        private List<CancellationTokenSource> projectileTokenSources = new List<CancellationTokenSource>(8);
+        private WaitForSeconds projectileGap = new WaitForSeconds(0.15f);
         
         public override void Initialize(WeaponInstance instance)
         {
@@ -28,18 +25,12 @@ namespace Gameplay.Weapons.WeaponLogic
 
         public override void OnDispose(WeaponInstance instance)
         {
-            foreach (CancellationTokenSource tokenSource in projectileTokenSources)
-            {
-                tokenSource.Cancel();
-                tokenSource.Dispose();
-            }
-            
             projectilePool.Dispose();
         }
 
         public override void Draw(WeaponInstance instance)
         {
-            FireMultipleProjectiles(instance);
+            instance.View.StartCoroutine(FireMultipleProjectiles(instance));
         }
 
         public override void Sheathe(WeaponInstance instance)
@@ -52,7 +43,7 @@ namespace Gameplay.Weapons.WeaponLogic
             hitObject.HitByWeapon(instance.Stats.Power);
         }
 
-        private async Awaitable FireMultipleProjectiles(WeaponInstance instance)
+        private IEnumerator FireMultipleProjectiles(WeaponInstance instance)
         {
             for (int i = 0; i < instance.Stats.Amount; i++)
             {
@@ -64,71 +55,53 @@ namespace Gameplay.Weapons.WeaponLogic
                     projectile.SetHitArea(instance.Stats.Area);
                     projectile.Graphic.enabled = true;
                     projectile.Hitbox.enabled = true;
-                    projectile.gameObject.SetActive(true);
                     projectile.transform.Rotate(Vector3.forward, Random.Range(-180.0f, 180.0f));
-
-                    CancellationTokenSource newTokenSource = new CancellationTokenSource();
-                    projectileTokenSources.Add(newTokenSource);
-                    FireSingleProjectile(instance, projectile, newTokenSource);
-                    await Awaitable.WaitForSecondsAsync(projectileGap);
+                    
+                    projectile.StartCoroutine(FireSingleProjectile(instance, projectile));
+                    yield return projectileGap;
                 }
             }
         }
 
-        private async Task FireSingleProjectile(WeaponInstance instance, WeaponView projectile, CancellationTokenSource tokenSource)
+        private IEnumerator FireSingleProjectile(WeaponInstance instance, WeaponView projectile)
         {
             int hits = 0;
-        
+            
             EventHandler<Collider2D> hitAction = delegate(object sender, Collider2D other)
             {
                 ScrolledObjectView SO = other.GetComponentInParent<ScrolledObjectView>();
-            
+                
                 if (SO != null)
                 {
                     if (instance.Stats.Hits > 0)
                     {
                         hits++;
                     }
-                
+                    
                     HitHandler(SO, instance);
-                
+                    
                     if (hits >= instance.Stats.Hits)
                     {
-                        tokenSource.Cancel();
-                        //projectilePool.Release(projectile);
+                        projectilePool.Release(projectile);
                     }
                 }
             };
-        
+            
             projectile.TriggerEnter += hitAction;
-        
+            
             float time = 0.0f;
 
-            try
+            while (time < instance.Stats.Duration)
             {
-                while (!tokenSource.IsCancellationRequested && time < instance.Stats.Duration)
-                {
-                    float fixedDeltaTime = Time.fixedDeltaTime;
-                    projectile.transform.position += (Vector3.right * (instance.Stats.Speed * fixedDeltaTime));
-                    projectile.transform.Rotate(Vector3.forward, 30.0f * instance.Stats.Speed * fixedDeltaTime);
-                    time += fixedDeltaTime;
-                    await Awaitable.FixedUpdateAsync();
-                }
+                float fixedDeltaTime = Time.fixedDeltaTime;
+                projectile.transform.position += (Vector3.right * (instance.Stats.Speed * fixedDeltaTime));
+                projectile.transform.Rotate(Vector3.forward, 30.0f * instance.Stats.Speed * fixedDeltaTime);
+                time += fixedDeltaTime;
+                yield return Constants.WaitForFixedUpdate;
+            }
 
-                projectilePool.Release(projectile);
-            }
-            catch (OperationCanceledException e)
-            {
-                projectilePool.Release(projectile);
-                Console.WriteLine(e);
-                throw;
-            }
-            finally
-            {
-                projectilePool.Release(projectile);
-                projectileTokenSources.Remove(tokenSource);
-                tokenSource.Cancel();
-            }
+            
+            projectilePool.Release(projectile);
         }
         
         private WeaponView CreateProjectile()
@@ -141,10 +114,10 @@ namespace Gameplay.Weapons.WeaponLogic
 
         private void ReleaseProjectile(WeaponView projectile)
         {
+            projectile.StopAllCoroutines();
             projectile.ResetEventSubscription();
             projectile.Graphic.enabled = false;
             projectile.Hitbox.enabled = false;
-            projectile.gameObject.SetActive(false);
         }
     }
 }
