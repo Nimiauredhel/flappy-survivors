@@ -1,30 +1,26 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Configuration;
 using Gameplay.Level;
 using UnityEngine;
 using UnityEngine.Pool;
-using UnityEngine.Splines;
-using Random = UnityEngine.Random;
+using VContainer;
 
 namespace Gameplay.ScrolledObjects.Enemy
 {
-    public class EnemiesController : MonoBehaviour
+    public class EnemiesController
     {
         public event Action<bool, int, int, Vector3> EnemyHit;
-        
-        [SerializeField] private int poolSize = 100;
-        [SerializeField] private float startX, endX, minY, maxY;
-        [SerializeField] private EnemyRegistry enemyRegistry;
-        [SerializeField] private SplineContainer paths;
+
+        [Inject] private readonly EnemyControllerConfig config;
+        [Inject] private readonly BurstSignalReceiver signalReceiver;
     
         private ObjectPool<ScrolledObjectView>[] enemyPools;
         private List<ScrolledObjectView>[] activeEnemyLists;
 
         public void Initialize()
         {
-            int numOfTypes = enemyRegistry.EnemyTypes.Length;
+            int numOfTypes = config.EnemyRegistry.EnemyTypes.Length;
             
             activeEnemyLists = new System.Collections.Generic.List<ScrolledObjectView>[numOfTypes];
 
@@ -45,8 +41,20 @@ namespace Gameplay.ScrolledObjects.Enemy
                 onGetEnemyOfType = delegate(ScrolledObjectView view) { OnGetEnemy(index, view); };
                 onReturnEnemyOfType = delegate(ScrolledObjectView view) { OnReturnEnemy(index, view); };
                 
-                enemyPools[i] = new ObjectPool<ScrolledObjectView>(createEnemyOfType, onGetEnemyOfType, onReturnEnemyOfType, null, true, poolSize);
+                enemyPools[i] = new ObjectPool<ScrolledObjectView>
+                (
+                    createEnemyOfType, onGetEnemyOfType, onReturnEnemyOfType,
+                    null, true, config.PoolSize);
             }
+
+            signalReceiver.signalAssetEventPairs = new BurstSignalReceiver.SignalAssetEventPair[1]
+            {
+                new BurstSignalReceiver.SignalAssetEventPair()
+            };
+            signalReceiver.signalAssetEventPairs[0].signalAsset = config.EnemyBurstSignal;
+            signalReceiver.signalAssetEventPairs[0].events =
+                new BurstSignalReceiver.SignalAssetEventPair.ParameterizedEvent();
+            signalReceiver.signalAssetEventPairs[0].events.AddListener(RequestEnemyBurst);
         }
 
         public void DoUpdate()
@@ -57,7 +65,7 @@ namespace Gameplay.ScrolledObjects.Enemy
                 {
                     ScrolledObjectView currentObject = activeEnemyLists[i][j];
                     
-                    if (currentObject.transform.position.x <= endX)
+                    if (currentObject.transform.position.x <= config.EndX)
                     {
                         currentObject.Deactivate();
                     }
@@ -89,7 +97,7 @@ namespace Gameplay.ScrolledObjects.Enemy
 
         public void RequestEnemyBurst(BurstDefinition burstDefinition)
         {
-            StartCoroutine(EnemyBurstRoutine(burstDefinition));
+            EnemyBurstRoutine(burstDefinition);
         }
 
         public List<Vector3> PurgeAllEnemies()
@@ -109,10 +117,8 @@ namespace Gameplay.ScrolledObjects.Enemy
             return purgePositions;
         }
 
-        private IEnumerator EnemyBurstRoutine(BurstDefinition burstDefinition)
+        private async Awaitable EnemyBurstRoutine(BurstDefinition burstDefinition)
         {
-            WaitForSeconds spawnGap = new WaitForSeconds(burstDefinition.enemySpawnGap);
-
             for (int i = 0; i < burstDefinition.enemyAmount; i++)
             {
                 if (GameModel.CurrentGamePhase == GamePhase.BossPhase)
@@ -122,12 +128,12 @@ namespace Gameplay.ScrolledObjects.Enemy
 
                 while (GameModel.CurrentGamePhase != GamePhase.HordePhase)
                 {
-                    yield return null;
+                    await Awaitable.NextFrameAsync();
                 }
 
                 ScrolledObjectView enemy = enemyPools[burstDefinition.enemyId].Get();
-                enemy.SetPath(paths.Splines[burstDefinition.pathId]);
-                yield return spawnGap;
+                enemy.SetPath(config.Paths.Splines[burstDefinition.pathId]);
+                await Awaitable.WaitForSecondsAsync(burstDefinition.enemySpawnGap);
             }
         }
 
@@ -138,17 +144,17 @@ namespace Gameplay.ScrolledObjects.Enemy
 
         private ScrolledObjectView CreateEnemy(int enemyId)
         {
-            EnemyConfiguration enemyConfig = enemyRegistry.EnemyTypes[enemyId];
+            EnemyConfiguration enemyConfig = config.EnemyRegistry.EnemyTypes[enemyId];
             
             EnemyLogic createdLogic = new EnemyLogic(enemyConfig.Stats, EnemyHitForwarder);
-            ScrolledObjectView createdView = Instantiate<ScrolledObjectView>(enemyConfig.ViewPrefab, new Vector3(startX, 0.0f, 0.0f), Quaternion.identity, transform);
+            ScrolledObjectView createdView = UnityEngine.Object.Instantiate<ScrolledObjectView>(enemyConfig.ViewPrefab, new Vector3(config.StartX, 0.0f, 0.0f), Quaternion.identity);
             createdView.Initialize(createdLogic);
             return createdView;
         }
 
         private void OnGetEnemy(int enemyId, ScrolledObjectView spawnedEnemy)
         {
-            spawnedEnemy.transform.position = new Vector3(startX, Random.Range(minY, maxY));
+            spawnedEnemy.transform.position = new Vector3(config.StartX, 0.0f);
             spawnedEnemy.Activate(null);
             activeEnemyLists[enemyId].Add(spawnedEnemy);
         }

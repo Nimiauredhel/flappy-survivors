@@ -29,6 +29,7 @@ namespace Gameplay
         [Inject] private readonly VFXService vfxService;
         [Inject] private readonly PlayableDirector levelDirector;
         [Inject] private readonly GameplayUIView uiView;
+        [Inject] private readonly BurstSignalReceiver burstSignalReceiver;
         
         [Inject] private readonly GameModel gameModel;
         
@@ -44,15 +45,15 @@ namespace Gameplay
             
             upgradeTree = ConfigSelectionMediator.GetUpgradeTree();
             
+            enemiesController.Initialize();
+            enemiesController.EnemyHit += EnemyHitHandler;
+            
             InitializeLevel();
             
             gameModel.Initialize((float)levelDirector.duration);
             gameModel.GamePhaseChanged += PhaseChangedHandler;
             
             InitPlayerController();
-            
-            enemiesController.Initialize();
-            enemiesController.EnemyHit += EnemyHitHandler;
             
             vfxService.Initialize();
             pickupsController.Initialize();
@@ -105,11 +106,10 @@ namespace Gameplay
             TimelineAsset timeline = levelConfig.Timeline;
             levelDirector.playableAsset = timeline;
             PlayableBinding[] bindings = timeline.outputs.ToArray();
-            BurstSignalReceiver receiver = enemiesController.GetComponent<BurstSignalReceiver>();
 
             for (int i = 0; i < bindings.Length; i++)
             {
-                levelDirector.SetGenericBinding(bindings[i].sourceObject, receiver);
+                levelDirector.SetGenericBinding(bindings[i].sourceObject, burstSignalReceiver);
             }
 
             Object.Instantiate(levelConfig.BackgroundAsset);

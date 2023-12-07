@@ -31,7 +31,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8065848699420797386}
-  - {fileID: 3835305715640835456}
   - {fileID: 5464556988027686653}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -53,12 +52,14 @@ MonoBehaviour:
   autoInjectGameObjects: []
   touchReceiver: {fileID: 0}
   playerView: {fileID: 0}
+  gameplayUIView: {fileID: 0}
   playerUIView: {fileID: 0}
-  enemiesController: {fileID: 5600330180552089277}
+  burstSignalReceiver: {fileID: 0}
   pickupsController: {fileID: 9094265686977538518}
   vfxService: {fileID: 6848576409715824879}
   levelDirector: {fileID: 0}
   playerMovementConfig: {fileID: 11400000, guid: e414032af90abd241a93a779ea55474f, type: 2}
+  enemyControllerConfig: {fileID: 11400000, guid: 3f20c55cc1ea80441aba39382af4e1c6, type: 2}
   audioServiceInstance: {fileID: 11400000, guid: c10fdeece09f4e94992c1e5577379e3a, type: 2}
 --- !u!1001 &2374477979370377932
 PrefabInstance:
@@ -230,130 +231,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1025188191440729954, guid: 5725ab516c3a74c46964561db78ea474, type: 3}
   m_PrefabInstance: {fileID: 7049705246951087784}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &7549819159715489307
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 4000685732043314514}
-    m_Modifications:
-    - target: {fileID: 2701603590806665382, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: endX
-      value: -20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2701603590806665382, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: minY
-      value: -9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2701603590806665382, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: startX
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2701603590806665382, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: enemyRegistry
-      value: 
-      objectReference: {fileID: 11400000, guid: 87b7f273a4a66fc469048b0b55774d47, type: 2}
-    - target: {fileID: 3549120443606164865, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: m_Name
-      value: EnemiesController
-      objectReference: {fileID: 0}
-    - target: {fileID: 6773386059927239579, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6773386059927239579, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6773386059927239579, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6773386059927239579, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6773386059927239579, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6773386059927239579, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6773386059927239579, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6773386059927239579, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6773386059927239579, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6773386059927239579, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3549120443606164865, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1816293461097604236}
-  m_SourcePrefab: {fileID: 100100000, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
---- !u!4 &3835305715640835456 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6773386059927239579, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-  m_PrefabInstance: {fileID: 7549819159715489307}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5600330180552089277 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2701603590806665382, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-  m_PrefabInstance: {fileID: 7549819159715489307}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6451224751099560858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75c9debc06d37384dbc8112d7c74ed86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &6451224751099560858 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3549120443606164865, guid: b3128602902a2254cbed7d6df3a3b758, type: 3}
-  m_PrefabInstance: {fileID: 7549819159715489307}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1816293461097604236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6451224751099560858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 492f4ae85f4a4c838241f551ed7d6a17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  signalAssetEventPairs:
-  - signalAsset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-    events:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5600330180552089277}
-          m_TargetAssemblyTypeName: Gameplay.ScrolledObjects.Enemy.EnemiesController,
-            Assembly-CSharp
-          m_MethodName: RequestEnemyBurst
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2

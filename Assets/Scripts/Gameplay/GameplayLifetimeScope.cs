@@ -1,5 +1,6 @@
 using Audio;
 using Configuration;
+using Gameplay.Level;
 using Gameplay.Player;
 using Gameplay.ScrolledObjects.Enemy;
 using Gameplay.ScrolledObjects.Pickup;
@@ -16,14 +17,16 @@ namespace Gameplay
         [SerializeField] private PlayerView playerView;
         [SerializeField] private GameplayUIView gameplayUIView;
         [SerializeField] private PlayerUIView playerUIView;
+
+        [SerializeField] private BurstSignalReceiver burstSignalReceiver;
         
-        [SerializeField] private EnemiesController enemiesController;
         [SerializeField] private PickupsController pickupsController;
         [SerializeField] private PlayerWeaponsComponent playerWeapons;
         [SerializeField] private VFXService vfxService;
         [SerializeField] private PlayableDirector levelDirector;
         
         [SerializeField] private PlayerMovementConfiguration playerMovementConfig;
+        [SerializeField] private EnemyControllerConfig enemyControllerConfig;
         
         [SerializeField] private AudioService audioServiceInstance;
         
@@ -37,17 +40,19 @@ namespace Gameplay
             builder.RegisterComponent(gameplayUIView);
             builder.RegisterComponent(playerUIView);
             
-            builder.RegisterComponent(enemiesController);
+            builder.RegisterComponent(burstSignalReceiver);
             builder.RegisterComponent(pickupsController);
             builder.RegisterComponent(playerWeapons);
             builder.RegisterComponent(vfxService);
             builder.RegisterComponent(levelDirector);
             
             builder.RegisterComponent(playerMovementConfig);
+            builder.RegisterComponent(enemyControllerConfig);
 
             builder.Register<GameModel>(Lifetime.Singleton);
             builder.Register<PlayerController>(Lifetime.Singleton);
             builder.Register<PlayerModel>(Lifetime.Singleton);
+            builder.Register<EnemiesController>(Lifetime.Singleton);
             
             builder.RegisterEntryPoint<GameController>();
         }
