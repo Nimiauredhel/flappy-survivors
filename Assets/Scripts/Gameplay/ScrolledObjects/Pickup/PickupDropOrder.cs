@@ -4,15 +4,24 @@ namespace Gameplay.ScrolledObjects.Pickup
 {
     public struct PickupDropOrder
     {
-        public readonly object Value;
-        public readonly PickupType Type;
-        public readonly Vector3 Position;
+        public object Value => value;
+        public PickupType Type => type;
+        public Vector3 Position => position;
+
+        private object value;
+        private PickupType type;
+        private Vector3 position;
 
         public PickupDropOrder(object value, PickupType type, Vector3 position)
         {
-            this.Value = value;
-            this.Type = type;
-            this.Position = position;
+            this.value = value;
+            this.type = type;
+            this.position = position;
+        }
+
+        public void SetNewValue(object value)
+        {
+            this.value = value;
         }
     }
 }

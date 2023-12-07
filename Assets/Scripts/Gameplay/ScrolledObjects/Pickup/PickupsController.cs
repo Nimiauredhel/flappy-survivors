@@ -1,29 +1,17 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Configuration;
 using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Pool;
-using UnityEngine.Serialization;
+using VContainer;
 
 namespace Gameplay.ScrolledObjects.Pickup
 {
-    public class PickupsController : MonoBehaviour
+    public class PickupsController
     {
-        private const int MIN_PICKUP_VALUE = 1;
-        private const int MAX_PICKUP_VALUE = 100;
-        private const float MIN_PICKUP_SCALE = 1.0f;
-        private const float MAX_PICKUP_SCALE = 1.5f;
-        private const float SPAWN_GAP = 0.25f;
-        private static readonly Vector3 SPAWN_INITIAL_SCALE = new Vector3(0.0f, 0.0f, 1.0f);
-        private static readonly Vector3 SPAWN_POSITION_OFFSET = new Vector3(10.0f, 0.0f, 0.0f);
-        
-        [SerializeField] private int poolSize = 100;
-        [SerializeField] private ScrolledObjectView xpPickupPrefab;
-        [SerializeField] private ScrolledObjectView healthPickupPrefab;
-        [SerializeField] private ScrolledObjectView upgradePickupPrefab;
+        [Inject] private readonly PickupControllerConfig config;
 
         private List<KeyValuePair<PickupType, ScrolledObjectView>> activePickups = new List<KeyValuePair<PickupType, ScrolledObjectView>>(16);
         private ObjectPool<ScrolledObjectView> pooledXPPickups;
@@ -31,8 +19,8 @@ namespace Gameplay.ScrolledObjects.Pickup
 
         public void Initialize()
         {
-            pooledXPPickups = new ObjectPool<ScrolledObjectView>(CreateXPPickup, null, null, null, true, poolSize);
-            pooledHealthPickups = new ObjectPool<ScrolledObjectView>(CreateHealthPickup, null, null, null, true, poolSize);
+            pooledXPPickups = new ObjectPool<ScrolledObjectView>(CreateXPPickup, null, null, null, true, config.PoolSize);
+            pooledHealthPickups = new ObjectPool<ScrolledObjectView>(CreateHealthPickup, null, null, null, true, config.PoolSize);
         }
         
         public void DoUpdate()
@@ -41,7 +29,7 @@ namespace Gameplay.ScrolledObjects.Pickup
             {
                 ScrolledObjectView activePickup = activePickups[i].Value;
                 
-                if (activePickup.transform.position.x <= -24.0f)
+                if (activePickup.transform.position.x <= config.EndX)
                 {
                     activePickup.Deactivate();
                 }
@@ -74,7 +62,7 @@ namespace Gameplay.ScrolledObjects.Pickup
                             pooledHealthPickups.Release(toRemove.Value);
                             break;
                         case PickupType.Upgrade:
-                            Destroy(toRemove.Value.gameObject);
+                            UnityEngine.Object.Destroy(toRemove.Value.gameObject);
                             break;
                         case PickupType.Gold:
                             break;
@@ -97,36 +85,35 @@ namespace Gameplay.ScrolledObjects.Pickup
 
         public void SpawnPickups(Stack<PickupDropOrder> pickupOrders, float comboModifier)
         {
-            SpawnPickupsRoutine(pickupOrders, comboModifier, SPAWN_GAP);
+            SpawnPickupsRoutine(pickupOrders, comboModifier, config.SpawnGap);
         }
 
         public ScrolledObjectView[] SpawnAndReturnPickups(Stack<PickupDropOrder> pickupOrders, float comboModifier)
         {
             ScrolledObjectView[] spawnedPickups = new ScrolledObjectView[pickupOrders.Count];
             PickupDropOrder currentOrder;
-            object currentValue;
             int index = 0;
 
             while (pickupOrders.Count > 0)
             {
                 currentOrder = pickupOrders.Pop();
-                currentValue = currentOrder.Value;
-
-                if (currentValue is int valueInt)
+                
+                if (currentOrder.Value is int valueInt)
                 {
-                    currentValue = Mathf.FloorToInt(valueInt * comboModifier);
+                    object newValue = Mathf.FloorToInt(valueInt * comboModifier);
+                    currentOrder.SetNewValue(newValue);
                 }
 
-                spawnedPickups[index] = SpawnPickup(currentOrder.Position, currentValue, currentOrder.Type);
+                spawnedPickups[index] = SpawnPickup(currentOrder);
                 index++;
             }
 
             return spawnedPickups;
         }
 
-        public ScrolledObjectView SpawnPickup(PickupDropOrder order, PickupType type)
+        public ScrolledObjectView SpawnPickup(PickupDropOrder order)
         {
-            return SpawnPickup(order.Position, order.Value, type);
+            return SpawnPickup(order.Position, order.Value, order.Type);
         }
 
         public ScrolledObjectView SpawnPickup(Vector3 position, object value, PickupType type)
@@ -163,12 +150,12 @@ namespace Gameplay.ScrolledObjects.Pickup
                     sizeValue = valueInt;
                 }
 
-                Vector3 targetPosition = position + SPAWN_POSITION_OFFSET;
+                Vector3 targetPosition = position + config.SpawnPositionOffset;
                 Vector3 targetScale =
-                    Vector3.one * Constants.MapFloat(MIN_PICKUP_VALUE, MAX_PICKUP_VALUE, MIN_PICKUP_SCALE, MAX_PICKUP_SCALE, sizeValue);
+                    Vector3.one * Constants.MapFloat(config.MinPickupValue, config.MaxPickupValue, config.MinPickupScale, config.MaxPickupScale, sizeValue);
 
                 Transform spawnedPickupTransform = spawnedPickup.transform;
-                spawnedPickupTransform.localScale = SPAWN_INITIAL_SCALE;
+                spawnedPickupTransform.localScale = config.SpawnInitialScale;
                 spawnedPickupTransform.position = position;
                 
                 Sequence spawnSequence = DOTween.Sequence();
@@ -230,13 +217,13 @@ namespace Gameplay.ScrolledObjects.Pickup
                 case PickupType.None:
                     break;
                 case PickupType.XP:
-                    selectedPrefab = xpPickupPrefab;
+                    selectedPrefab = config.XPPickupPrefab;
                     break;
                 case PickupType.Health:
-                    selectedPrefab = healthPickupPrefab;
+                    selectedPrefab = config.HealthPickupPrefab;
                     break;
                 case PickupType.Upgrade:
-                    selectedPrefab = upgradePickupPrefab;
+                    selectedPrefab = config.UpgradePickupPrefab;
                     break;
                 case PickupType.Gold:
                     break;
@@ -248,7 +235,7 @@ namespace Gameplay.ScrolledObjects.Pickup
 
             if (selectedPrefab != null)
             {
-                ScrolledObjectView createdPickup = Instantiate(selectedPrefab, Vector3.up * 500.0f, quaternion.identity);
+                ScrolledObjectView createdPickup = UnityEngine.Object.Instantiate(selectedPrefab, Vector3.up * 500.0f, quaternion.identity);
                 createdPickup.Initialize(new PickupLogic(type, 1));
                 createdPickup.Deactivate();
                 return createdPickup;

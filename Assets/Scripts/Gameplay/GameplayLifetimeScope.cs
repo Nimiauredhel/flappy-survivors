@@ -20,12 +20,12 @@ namespace Gameplay
 
         [SerializeField] private BurstSignalReceiver burstSignalReceiver;
         
-        [SerializeField] private PickupsController pickupsController;
         [SerializeField] private PlayerWeaponsComponent playerWeapons;
         [SerializeField] private PlayableDirector levelDirector;
         
         [SerializeField] private PlayerMovementConfiguration playerMovementConfig;
         [SerializeField] private EnemyControllerConfig enemyControllerConfig;
+        [SerializeField] private PickupControllerConfig pickupControllerConfig;
         [SerializeField] private VFXConfiguration vfxConfig;
         
         [SerializeField] private AudioService audioServiceInstance;
@@ -41,12 +41,12 @@ namespace Gameplay
             builder.RegisterComponent(playerUIView);
             
             builder.RegisterComponent(burstSignalReceiver);
-            builder.RegisterComponent(pickupsController);
             builder.RegisterComponent(playerWeapons);
             builder.RegisterComponent(levelDirector);
             
             builder.RegisterComponent(playerMovementConfig);
             builder.RegisterComponent(enemyControllerConfig);
+            builder.RegisterComponent(pickupControllerConfig);
             builder.RegisterComponent(vfxConfig);
 
             builder.Register<VFXService>(Lifetime.Singleton);
@@ -54,6 +54,7 @@ namespace Gameplay
             builder.Register<PlayerController>(Lifetime.Singleton);
             builder.Register<PlayerModel>(Lifetime.Singleton);
             builder.Register<EnemiesController>(Lifetime.Singleton);
+            builder.Register<PickupsController>(Lifetime.Singleton);
             
             builder.RegisterEntryPoint<GameController>();
         }

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d53e615e60e4a87b9b01f359096bf98, type: 3}
+  m_Name: Pickup Controller Config
+  m_EditorClassIdentifier: 
+  poolSize: 100
+  minPickupValue: 1
+  maxPickupValue: 100
+  minPickupScale: 1
+  maxPickupScale: 1.5
+  spawnGap: 0.25
+  endX: -25
+  spawnInitialScale: {x: 0, y: 0, z: 1}
+  spawnPositionOffset: {x: 10, y: 0, z: 0}
+  xpPickupPrefab: {fileID: -1032148392928579942, guid: 4af055acacf86504a94ee843c7ce5319, type: 3}
+  healthPickupPrefab: {fileID: -1032148392928579942, guid: 61410369850e0754d95e73b0358a97e8, type: 3}
+  upgradePickupPrefab: {fileID: 2728240214457466254, guid: 0a9dd8ec5f61d0a4ea886428d0b22f39, type: 3}
