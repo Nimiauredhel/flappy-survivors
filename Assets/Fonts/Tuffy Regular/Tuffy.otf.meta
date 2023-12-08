@@ -3,14 +3,15 @@ guid: 27eb80a934f0d0d4a93332bf77a74094
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
+  fontSize: 32
   forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
   fontNames:
   - Tuffy
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 28de6f53a77c8b543885b6a05d28aa61, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

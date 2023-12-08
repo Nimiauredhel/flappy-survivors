@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Audio;
+using CommandTerminal;
 using Configuration;
 using Gameplay.Level;
 using Gameplay.Player;
@@ -62,6 +63,21 @@ namespace Gameplay
             gameModel.SetGamePhase(GamePhase.IntroPhase);
             
             uiView.SetFadeAlpha(0.0f, 2.0f, 1.0f);
+
+            Terminal.Shell.AddCommand("phase", delegate(CommandArg[] args)
+            {
+                GamePhase phase;
+                GamePhase.TryParse(args[0].String, out phase);
+                gameModel.SetGamePhase(phase);
+            });
+            Terminal.Shell.AddCommand("gameover", delegate { GameOver(); });
+            Terminal.Shell.AddCommand("win",
+                delegate
+                {
+                    gameModel.SetWonGame(); 
+                    GameOver(); 
+                    
+                });
         }
 
         public void Tick()
@@ -267,7 +283,7 @@ namespace Gameplay
             AsyncOperation loading = SceneManager.LoadSceneAsync("Menu");
             loading.allowSceneActivation = false;
             
-            float delay = GameModel.Won ? 20.0f : 8.0f;
+            float delay = GameModel.Won ? 20.0f : 5.0f;
             
             if (!GameModel.Won)
             {
@@ -305,15 +321,15 @@ namespace Gameplay
                     levelDirector.Stop();
                     break;
                 case GamePhase.YouWin:
-                    uiView.SetCanvasAlpha(0.0f, 1.5f);
-                    uiView.SetFadeAlpha(1.0f, 15.0f);
-                    uiView.ShowGameOverMessage("You Won", 5.0f);
+                    uiView.SetCanvasAlpha(0.0f, 3.0f);
+                    uiView.SetFadeAlpha(1.0f, 12.0f);
+                    uiView.ShowGameOverMessage("You Won", 6.0f);
                     levelDirector.Stop();
                     break;
                 case GamePhase.GameOver:
                     uiView.SetCanvasAlpha(0.0f, 1.5f);
-                    uiView.SetFadeAlpha(1.0f, 7.0f);
-                    uiView.ShowGameOverMessage("You Died", 4.0f);
+                    uiView.SetFadeAlpha(1.0f, 5.5f);
+                    uiView.ShowGameOverMessage("You Died", 5.0f);
                     levelDirector.Stop();
                     break;
                 default:

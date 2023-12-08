@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using CommandTerminal;
 using Configuration;
 using DG.Tweening;
 using Gameplay.ScrolledObjects;
@@ -347,6 +348,8 @@ namespace Gameplay.Player
             model.HealthPercentChanged += uiView.UpdatePlayerHealthView;
             model.XPPercentChanged += uiView.UpdatePlayerXPView;
             comboService.ComboChanged += HandleComboChanged;
+            
+            Terminal.Shell.AddCommand("die", delegate { ChangePlayerHealth(-model.CurrentHealth-1); });
         }
 
         public void OnDispose()
