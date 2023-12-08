@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Configuration;
 using Gameplay.Weapons;
 using Gameplay.Weapons.WeaponLogic;
-using TypeReferences;
 using UnityEngine;
 using Object = UnityEngine.Object;
 

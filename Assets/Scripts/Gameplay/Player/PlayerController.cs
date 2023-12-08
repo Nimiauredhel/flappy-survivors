@@ -30,9 +30,9 @@ namespace Gameplay.Player
         [Inject] private readonly PlayerView view;
         [Inject] private readonly PlayerUIView uiView;
         [Inject] private readonly PlayerModel model;
-        [Inject] private readonly PlayerWeaponsComponent weapons;
         [Inject] private readonly PlayerMovementConfiguration movementConfig;
-        
+
+        private readonly PlayerWeaponsComponent weapons = new PlayerWeaponsComponent();
         private readonly PlayerMagnetComponent magnet = new PlayerMagnetComponent();
         private readonly ComboService comboService = new ComboService();
         

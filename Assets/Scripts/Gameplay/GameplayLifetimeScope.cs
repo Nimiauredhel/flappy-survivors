@@ -19,8 +19,6 @@ namespace Gameplay
         [SerializeField] private PlayerUIView playerUIView;
 
         [SerializeField] private BurstSignalReceiver burstSignalReceiver;
-        
-        [SerializeField] private PlayerWeaponsComponent playerWeapons;
         [SerializeField] private PlayableDirector levelDirector;
         
         [SerializeField] private PlayerMovementConfiguration playerMovementConfig;
@@ -42,7 +40,6 @@ namespace Gameplay
             builder.RegisterComponent(playerUIView);
             
             builder.RegisterComponent(burstSignalReceiver);
-            builder.RegisterComponent(playerWeapons);
             builder.RegisterComponent(levelDirector);
             
             builder.RegisterComponent(playerMovementConfig);

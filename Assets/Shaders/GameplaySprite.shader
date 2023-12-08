@@ -100,7 +100,7 @@ Shader "Custom/GameplaySprite"
 
 	        half4 AdjustContrast(half4 color, half contrast)
 			{
-				return saturate(lerp(half4(0.5, 0.5, 0.5, 1), color, contrast * _ContrastModifier));
+				return saturate(lerp(half4(0.5, 0.5, 0.5, color.a), color, contrast * _ContrastModifier));
 			}
 
 			half4 AdjustContrastCurve(half4 color, half contrast)
