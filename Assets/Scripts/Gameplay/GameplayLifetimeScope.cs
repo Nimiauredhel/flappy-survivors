@@ -29,6 +29,7 @@ namespace Gameplay
         [SerializeField] private VFXConfiguration vfxConfig;
         
         [SerializeField] private AudioService audioServiceInstance;
+        [SerializeField] private Transform scrolledObjectParent;
         
         
         protected override void Configure(IContainerBuilder builder)
@@ -48,6 +49,8 @@ namespace Gameplay
             builder.RegisterComponent(enemyControllerConfig);
             builder.RegisterComponent(pickupControllerConfig);
             builder.RegisterComponent(vfxConfig);
+
+            builder.RegisterComponent(scrolledObjectParent);
 
             builder.Register<VFXService>(Lifetime.Singleton);
             builder.Register<GameModel>(Lifetime.Singleton);

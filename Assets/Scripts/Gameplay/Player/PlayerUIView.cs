@@ -56,8 +56,6 @@ namespace Gameplay.Player
             {
                 currentComboText.enabled = false;
             }
-
-            
         }
 
         public WeaponUIView AddOrReplaceWeaponIcon(Sprite iconSprite, WeaponUIView toReplace = null)
@@ -79,15 +77,15 @@ namespace Gameplay.Player
                 weaponIcons[index] = newIcon;
             }
 
-            StartCoroutine(RefreshWeaponsLayout());
+            _ = RefreshWeaponsLayout();
             
             return newIcon;
         }
 
-        public IEnumerator RefreshWeaponsLayout()
+        private async Awaitable RefreshWeaponsLayout()
         {
             weaponIconParent.enabled = true;
-            yield return null;
+            await Awaitable.WaitForSecondsAsync(1.0f);
             weaponIconParent.enabled = false;
         }
     }

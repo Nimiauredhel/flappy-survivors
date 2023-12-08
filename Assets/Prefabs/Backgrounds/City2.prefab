@@ -49,6 +49,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -78,7 +80,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 8, y: 3.5}
+  m_Size: {x: 8, y: 3.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -169,7 +171,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4335643680962254757, guid: f25b4dccc3b94c04d995bd50bff1c6c4, type: 3}
-      propertyPath: layers.Array.data[5].layerElements.Array.data[0]
+      propertyPath: 'layers.Array.data[5].layerElements.Array.data[0]'
       value: 
       objectReference: {fileID: 4714128885298065892}
     - target: {fileID: 6827644535865132923, guid: f25b4dccc3b94c04d995bd50bff1c6c4, type: 3}

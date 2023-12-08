@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 465823025505864649}
   - component: {fileID: 3064727920909989534}
   - component: {fileID: 4806692183086477646}
-  - component: {fileID: 2352610091759774680}
+  - component: {fileID: 4256089305055737409}
   - component: {fileID: 3321327974646467903}
   m_Layer: 5
   m_Name: WeaponsPanel
@@ -32,12 +32,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 907021220848267534}
+  m_Father: {fileID: 6339205512804100159}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -0.5}
-  m_SizeDelta: {x: 100, y: -267}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: 800, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3064727920909989534
 CanvasRenderer:
@@ -76,8 +76,8 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!114 &2352610091759774680
+  m_PixelsPerUnitMultiplier: 3
+--- !u!114 &4256089305055737409
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 941113653585632373}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
@@ -94,7 +94,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 1
+  m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
@@ -612,7 +612,7 @@ MonoBehaviour:
   xpSlider: {fileID: 6304115803410888495}
   currentLevelText: {fileID: 2484979447243248477}
   currentComboText: {fileID: 5978290812826148728}
-  weaponIconParent: {fileID: 2352610091759774680}
+  weaponIconParent: {fileID: 4256089305055737409}
   weaponIconPrefab: {fileID: 9117978627444281350, guid: 89a302f2633387d438c30b61c7176c34, type: 3}
 --- !u!1 &2282999006450752879
 GameObject:
@@ -727,7 +727,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 1920, y: 50}
+  m_SizeDelta: {x: 1920, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4702508380886176354
 MonoBehaviour:
@@ -872,10 +872,10 @@ RectTransform:
   - {fileID: 8305196969105105469}
   m_Father: {fileID: 6339205512804100159}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 795, y: -91.40003}
-  m_SizeDelta: {x: 300, y: 70}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -650, y: -50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2414849464355783441
 CanvasRenderer:
@@ -1008,10 +1008,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6339205512804100159}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -91.4}
-  m_SizeDelta: {x: -1720, y: 70}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 650, y: -50}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2746882905995265739
 CanvasRenderer:
@@ -1219,7 +1219,6 @@ RectTransform:
   - {fileID: 2160419266489438851}
   - {fileID: 1451832011711767029}
   - {fileID: 797426362974262209}
-  - {fileID: 465823025505864649}
   m_Father: {fileID: 2664520738431207436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1675,12 +1674,13 @@ RectTransform:
   - {fileID: 8564241220132938346}
   - {fileID: 1654239413100135723}
   - {fileID: 1829407185944757477}
+  - {fileID: 465823025505864649}
   m_Father: {fileID: 797426362974262209}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 1920, y: 50}
+  m_AnchoredPosition: {x: 0, y: -40}
+  m_SizeDelta: {x: 1920, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6304115803410888495
 MonoBehaviour:
@@ -1791,7 +1791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0

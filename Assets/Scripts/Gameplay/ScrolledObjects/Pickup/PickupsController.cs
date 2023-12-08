@@ -11,6 +11,7 @@ namespace Gameplay.ScrolledObjects.Pickup
 {
     public class PickupsController
     {
+        [Inject] private readonly Transform pickupsParent;
         [Inject] private readonly PickupControllerConfig config;
 
         private List<KeyValuePair<PickupType, ScrolledObjectView>> activePickups = new List<KeyValuePair<PickupType, ScrolledObjectView>>(16);
@@ -238,6 +239,7 @@ namespace Gameplay.ScrolledObjects.Pickup
                 ScrolledObjectView createdPickup = UnityEngine.Object.Instantiate(selectedPrefab, Vector3.up * 500.0f, quaternion.identity);
                 createdPickup.Initialize(new PickupLogic(type, 1));
                 createdPickup.Deactivate();
+                createdPickup.transform.SetParent(pickupsParent);
                 return createdPickup;
             }
             else

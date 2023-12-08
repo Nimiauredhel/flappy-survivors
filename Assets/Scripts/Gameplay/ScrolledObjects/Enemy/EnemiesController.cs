@@ -12,6 +12,7 @@ namespace Gameplay.ScrolledObjects.Enemy
     {
         public event Action<bool, int, int, Vector3> EnemyHit;
 
+        [Inject] private readonly Transform enemiesParent;
         [Inject] private readonly EnemyControllerConfig config;
         [Inject] private readonly BurstSignalReceiver signalReceiver;
     
@@ -97,7 +98,7 @@ namespace Gameplay.ScrolledObjects.Enemy
 
         public void RequestEnemyBurst(BurstDefinition burstDefinition)
         {
-            EnemyBurstRoutine(burstDefinition);
+            _ = EnemyBurstRoutine(burstDefinition);
         }
 
         public List<Vector3> PurgeAllEnemies()
@@ -149,6 +150,7 @@ namespace Gameplay.ScrolledObjects.Enemy
             EnemyLogic createdLogic = new EnemyLogic(enemyConfig.Stats, EnemyHitForwarder);
             ScrolledObjectView createdView = UnityEngine.Object.Instantiate<ScrolledObjectView>(enemyConfig.ViewPrefab, new Vector3(config.StartX, 0.0f, 0.0f), Quaternion.identity);
             createdView.Initialize(createdLogic);
+            createdView.transform.SetParent(enemiesParent);
             return createdView;
         }
 

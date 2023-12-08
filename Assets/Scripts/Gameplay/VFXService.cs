@@ -11,6 +11,7 @@ namespace Gameplay
 {
     public class VFXService
     {
+        [Inject] private readonly Transform vfxParent;
         [Inject] private readonly VFXConfiguration config;
         
         private ObjectPool<GameObject> pooledExplosions;
@@ -133,14 +134,16 @@ namespace Gameplay
         {
             GameObject explosion = Object.Instantiate(config.ExplosionPrefab);
             explosion.SetActive(false);
+            explosion.transform.SetParent(vfxParent);
             return explosion;
         }
         
         private TextMeshPro CreateDamageText()
         {
-            TextMeshPro damageTest = Object.Instantiate(config.DamageTextPrefab);
-            damageTest.gameObject.SetActive(false);
-            return damageTest;
+            TextMeshPro damageText = Object.Instantiate(config.DamageTextPrefab);
+            damageText.gameObject.SetActive(false);
+            damageText.transform.SetParent(vfxParent);
+            return damageText;
         }
     }
 }
