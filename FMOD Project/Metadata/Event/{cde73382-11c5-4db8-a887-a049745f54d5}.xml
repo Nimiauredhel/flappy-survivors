@@ -262,9 +262,6 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{ec1e2909-2b4c-4d96-b25e-3b0e4f08af82}">
-		<property name="isCutoff">
-			<value>true</value>
-		</property>
 		<property name="start">
 			<value>200</value>
 		</property>
@@ -322,7 +319,7 @@
 			<value>61</value>
 		</property>
 		<property name="length">
-			<value>7</value>
+			<value>6.9278447818840192</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{89cf8f21-6dc1-4c87-94d3-4de4f4d4ee44}</destination>
@@ -347,10 +344,10 @@
 	</object>
 	<object class="LoopRegion" id="{6b7227bc-b890-4a94-841d-a085a30fd68e}">
 		<property name="position">
-			<value>200</value>
+			<value>201.01519682765979</value>
 		</property>
 		<property name="length">
-			<value>53.420408163265307</value>
+			<value>48.530013140175896</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{89cf8f21-6dc1-4c87-94d3-4de4f4d4ee44}</destination>
@@ -403,7 +400,7 @@
 	</object>
 	<object class="NamedMarker" id="{5837715b-11f3-4640-8112-d93c14985292}">
 		<property name="position">
-			<value>200</value>
+			<value>201.01519682765979</value>
 		</property>
 		<property name="name">
 			<value>Boss</value>
@@ -636,6 +633,7 @@
 	<object class="MixerBusEffectChain" id="{ee679ce7-043f-4330-81aa-0a7f2604cdac}">
 		<relationship name="effects">
 			<destination>{04ec6a11-7b06-448f-8875-5fa0ebb9b204}</destination>
+			<destination>{5c3f94ce-9360-4587-bd5c-fd23ee4e817d}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{786db2db-d39e-468f-a06f-adf6027de802}" />
@@ -653,6 +651,7 @@
 	<object class="MixerBusEffectChain" id="{a1664216-9b4a-48d1-91b4-45fe4117fe76}">
 		<relationship name="effects">
 			<destination>{6e47731e-e3c1-45ef-afb1-c5db9febb5f8}</destination>
+			<destination>{48abd341-c7d8-427d-abd9-bcdb74a7b4c7}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{5b0ab35e-af2e-48ad-be0f-561b31f8a93a}" />
@@ -670,6 +669,7 @@
 	<object class="MixerBusEffectChain" id="{e2d11736-5871-43df-a72c-96d6975cf8a1}">
 		<relationship name="effects">
 			<destination>{9fe2a4d1-5da1-4bc4-b60b-bbb043ae1b60}</destination>
+			<destination>{487913bd-b4aa-4bf4-8579-50033a82df2e}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{87d6f3aa-182c-471a-b156-2b054c1cb235}" />
@@ -687,6 +687,7 @@
 	<object class="MixerBusEffectChain" id="{23592a8c-9eea-498d-ad79-85cf4b24d3b4}">
 		<relationship name="effects">
 			<destination>{acdeb39b-c5fd-43c5-8613-771abc0883f9}</destination>
+			<destination>{ef83e21b-e60f-4728-bf8c-e5b7d1ee1d94}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{65860b4d-de8d-4f6a-8524-5b986ffc6c5a}" />
@@ -830,7 +831,23 @@
 	</object>
 	<object class="MixerBusFader" id="{3fd47672-986d-4864-9c28-6f3b59641d25}" />
 	<object class="MixerBusFader" id="{04ec6a11-7b06-448f-8875-5fa0ebb9b204}" />
+	<object class="SFXReverbEffect" id="{5c3f94ce-9360-4587-bd5c-fd23ee4e817d}">
+		<property name="wetLevel">
+			<value>0</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{6e47731e-e3c1-45ef-afb1-c5db9febb5f8}" />
+	<object class="SFXReverbEffect" id="{48abd341-c7d8-427d-abd9-bcdb74a7b4c7}">
+		<property name="wetLevel">
+			<value>-12</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{9fe2a4d1-5da1-4bc4-b60b-bbb043ae1b60}" />
+	<object class="SFXReverbEffect" id="{487913bd-b4aa-4bf4-8579-50033a82df2e}">
+		<property name="wetLevel">
+			<value>-12</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{acdeb39b-c5fd-43c5-8613-771abc0883f9}" />
+	<object class="SFXReverbEffect" id="{ef83e21b-e60f-4728-bf8c-e5b7d1ee1d94}" />
 </objects>

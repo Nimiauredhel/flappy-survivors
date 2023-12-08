@@ -20,3 +20,4 @@ MonoBehaviour:
     speed: 10
   viewPrefab: {fileID: -1032148392928579942, guid: 2be593ba1a60dba4f8fdb8ee41f7dac1, type: 3}
   icon: {fileID: 21300000, guid: 49118c7ff7055344ebe8e658719c66ee, type: 3}
+  rotateWithPath: 1

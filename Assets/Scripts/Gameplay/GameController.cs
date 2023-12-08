@@ -34,13 +34,16 @@ namespace Gameplay
         [Inject] private readonly GameModel gameModel;
         
         private UpgradeTree upgradeTree;
+        private BurstDefinition bossBurstDefinition;
         
         private Stack<PickupDropOrder> comboBalloon = new Stack<PickupDropOrder>(32);
 
         #region Life Cycle
 
-        public void Start()
+        public async void Start()
         {
+            uiView.SetFadeAlpha(1.0f, 0.0f);
+            
             Application.targetFrameRate = 60;
             
             upgradeTree = ConfigSelectionMediator.GetUpgradeTree();
@@ -60,24 +63,15 @@ namespace Gameplay
             
             AudioService.Instance.PlayGameplayMusic();
             TimerRoutine();
+            InitializeTerminalCommands();
+
+            await Awaitable.NextFrameAsync();
+            
             gameModel.SetGamePhase(GamePhase.IntroPhase);
             
-            uiView.SetFadeAlpha(0.0f, 2.0f, 1.0f);
-
-            Terminal.Shell.AddCommand("phase", delegate(CommandArg[] args)
-            {
-                GamePhase phase;
-                GamePhase.TryParse(args[0].String, out phase);
-                gameModel.SetGamePhase(phase);
-            });
-            Terminal.Shell.AddCommand("gameover", delegate { GameOver(); });
-            Terminal.Shell.AddCommand("win",
-                delegate
-                {
-                    gameModel.SetWonGame(); 
-                    GameOver(); 
-                    
-                });
+            await Awaitable.WaitForSecondsAsync(0.25f);
+            
+            uiView.SetFadeAlpha(0.0f, 2.0f);
         }
 
         public void Tick()
@@ -119,7 +113,8 @@ namespace Gameplay
         private void InitializeLevel()
         {
             LevelConfiguration levelConfig = ConfigSelectionMediator.GetLevelConfig();
-            
+
+            bossBurstDefinition = levelConfig.BossEnemy;
             TimelineAsset timeline = levelConfig.Timeline;
             levelDirector.playableAsset = timeline;
             PlayableBinding[] bindings = timeline.outputs.ToArray();
@@ -144,13 +139,21 @@ namespace Gameplay
 
         #endregion
 
-        private void EnemyHitHandler(bool killed, int damage, int value, Vector3 position)
+        private void EnemyHitHandler(bool killed, int damage, int value, SpriteRenderer[] positions)
         {
-            vfxService.RequestDamageTextAt(damage, position);
+            Vector3 samplePosition = positions[Random.Range(0, positions.Length)].transform.position;
+            vfxService.RequestDamageTextAt(damage, samplePosition);
             
             if (killed)
             {
-                vfxService.RequestExplosionAt(position);
+                List<Vector3> vectorPositions = new List<Vector3>(positions.Length);
+
+                for (int i = 0; i < positions.Length; i++)
+                {
+                    vectorPositions.Add(positions[i].transform.position);
+                }
+                
+                vfxService.RequestExplosionsAt(vectorPositions, true, 0.4f);
                 AudioService.Instance.PlayEnemyDestroyed();
                 playerController.HandleEnemyKilled();
 
@@ -169,7 +172,7 @@ namespace Gameplay
                     }
 
                     int pickupValue = Random.Range(Mathf.CeilToInt(value * 0.55f), value);
-                    comboBalloon.Push(new PickupDropOrder(pickupValue, type, position));
+                    comboBalloon.Push(new PickupDropOrder(pickupValue, type, samplePosition));
                 }
             }
             else
@@ -220,7 +223,7 @@ namespace Gameplay
                 List<Vector3> purgePositions = pickupsController.PurgeAllPickups(PickupType.XP);
                 purgePositions.AddRange(enemiesController.PurgeAllEnemies());
                 
-                vfxService.RequestExplosionsAt(purgePositions);
+                _ = vfxService.RequestExplosionsAt(purgePositions);
                 
                 vfxService.DoCameraShake(purgePositions.Count * 0.1f);
                 
@@ -272,9 +275,10 @@ namespace Gameplay
                 positions.AddRange(enemiesController.PurgeAllEnemies());
             }
             
-            vfxService.RequestExplosionsAt(positions);
-
             gameModel.SetGamePhase(GameModel.Won ? GamePhase.YouWin : GamePhase.GameOver);
+            
+            vfxService.RequestExplosionsAt(positions);
+            
             GameOverRoutine();
         }
         
@@ -319,11 +323,12 @@ namespace Gameplay
                     break;
                 case GamePhase.BossPhase:
                     levelDirector.Stop();
+                    _ = BossRoutine();
                     break;
                 case GamePhase.YouWin:
-                    uiView.SetCanvasAlpha(0.0f, 3.0f);
-                    uiView.SetFadeAlpha(1.0f, 12.0f);
-                    uiView.ShowGameOverMessage("You Won", 6.0f);
+                    uiView.SetCanvasAlpha(0.0f, 5.0f);
+                    uiView.SetFadeAlpha(1.0f, 10.0f);
+                    uiView.ShowGameOverMessage("You Won", 10.0f);
                     levelDirector.Stop();
                     break;
                 case GamePhase.GameOver:
@@ -354,11 +359,61 @@ namespace Gameplay
                 await Awaitable.WaitForSecondsAsync(1);
             }
             
-            gameModel.SetGamePhase(GamePhase.BossPhase);
+            if (!playerController.PlayerIsDead) gameModel.SetGamePhase(GamePhase.BossPhase);
+        }
 
-            await Awaitable.WaitForSecondsAsync(2);
-            gameModel.SetWonGame();
-            GameOver();
+        private async Awaitable BossRoutine()
+        {
+            await vfxService.RequestExplosionsAt(enemiesController.PurgeAllEnemies(), true, 0.5f);
+            AudioService.Instance.PlayLevelUp();
+            
+            Debug.Log("Beginning boss routine.");
+            bool bossDefeated = false;
+            List<ScrolledObjectView> bossEnemies = await enemiesController.RequestEnemyBurstAndList(bossBurstDefinition);
+            
+            Debug.Log("Spawned " + bossEnemies.Count + " boss enemies.");
+            
+            while (!bossDefeated && !playerController.PlayerIsDead)
+            {
+                await Awaitable.WaitForSecondsAsync(0.5f);
+                
+                bossDefeated = true;
+
+                foreach (ScrolledObjectView bossEnemy in bossEnemies)
+                {
+                    if (bossEnemy.Active)
+                    {
+                        bossDefeated = false;
+                        break;
+                    }
+                }
+            }
+            
+            Debug.Log("Boss routine concluding.");
+            
+            if (bossDefeated && !playerController.PlayerIsDead)
+            {
+                gameModel.SetWonGame();
+                GameOver();
+            }
+        }
+
+        private void InitializeTerminalCommands()
+        {
+            Terminal.Shell.AddCommand("phase", delegate(CommandArg[] args)
+            {
+                GamePhase phase;
+                GamePhase.TryParse(args[0].String, out phase);
+                gameModel.SetGamePhase(phase);
+            });
+            Terminal.Shell.AddCommand("gameover", delegate { GameOver(); });
+            Terminal.Shell.AddCommand("win",
+                delegate
+                {
+                    gameModel.SetWonGame(); 
+                    GameOver(); 
+                    
+                });
         }
     }
 }

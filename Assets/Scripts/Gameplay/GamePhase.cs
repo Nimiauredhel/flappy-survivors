@@ -7,6 +7,7 @@
         HordePhase,
         BossPhase,
         YouWin,
-        GameOver
+        GameOver,
+        None
     }
 }

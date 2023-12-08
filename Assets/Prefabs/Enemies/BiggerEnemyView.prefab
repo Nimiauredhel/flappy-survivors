@@ -1075,7 +1075,7 @@ MonoBehaviour:
   - {fileID: 6635961698917119271}
   body: {fileID: 4859928808271287688}
   secondaryGraphic: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 1646345818551329705}
   text: {fileID: 0}
 --- !u!95 &1646345818551329705
 Animator:

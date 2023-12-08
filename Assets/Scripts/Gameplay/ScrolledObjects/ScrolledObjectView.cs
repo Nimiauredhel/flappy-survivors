@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using DG.Tweening;
+using System.Linq;
 using Gameplay.Upgrades;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Splines;
+using Random = System.Random;
 
 namespace Gameplay.ScrolledObjects
 {
@@ -18,6 +19,7 @@ namespace Gameplay.ScrolledObjects
         
         public bool Active => active;
 
+        public SpriteRenderer[] Graphics => graphics;
         public SpriteRenderer SecondaryGraphic => secondaryGraphic;
         public Rigidbody2D Body => body;
         public TextMeshPro Text => text;
@@ -31,6 +33,7 @@ namespace Gameplay.ScrolledObjects
         [SerializeField] private TextMeshPro text;
 
         private bool active = false;
+        private bool deactivating = false;
         private IScrolledObjectLogic logic;
         private MaterialPropertyBlock materialPropertyBlock;
         private Coroutine flashRoutine = null;
@@ -63,6 +66,7 @@ namespace Gameplay.ScrolledObjects
 
         public void Activate(object value)
         {
+            gameObject.SetActive(true);
             logic.OnActivate(this, value);
 
             for (int i = 0; i < graphics.Length; i++)
@@ -72,6 +76,7 @@ namespace Gameplay.ScrolledObjects
             
             SetHurtboxEnabled(true);
             SetHitboxEnabled(true);
+            
             active = true;
 
             if (animator != null)
@@ -85,18 +90,33 @@ namespace Gameplay.ScrolledObjects
             SetWhiteAmount(0);
         }
         
-        public void Deactivate()
+        public async Awaitable Deactivate()
         {
+            if (deactivating) return;
+            deactivating = true;
+            
             logic.OnDeactivate(this);
-            
-            for (int i = 0; i < graphics.Length; i++)
-            {
-                graphics[i].gameObject.SetActive(false);
-            }
-            
             SetHurtboxEnabled(false);
             SetHitboxEnabled(false);
+
+            if (graphics.Length > 1)
+            {
+                System.Random r = new System.Random();
+            
+                foreach (int i in Enumerable.Range(0, graphics.Length).OrderBy(x => r.Next()))
+                {
+                    graphics[i].gameObject.SetActive(false);
+                    await Awaitable.WaitForSecondsAsync(UnityEngine.Random.Range(0.05f, 0.1f));
+                }
+            }
+            else if (graphics.Length == 1)
+            {
+                graphics[0].gameObject.SetActive(false);
+            }
+            
             active = false;
+            deactivating = false;
+            gameObject.SetActive(false);
             
             Deactivated?.Invoke();
         }

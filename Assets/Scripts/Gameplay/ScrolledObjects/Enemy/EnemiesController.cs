@@ -10,7 +10,7 @@ namespace Gameplay.ScrolledObjects.Enemy
 {
     public class EnemiesController
     {
-        public event Action<bool, int, int, Vector3> EnemyHit;
+        public event Action<bool, int, int, SpriteRenderer[]> EnemyHit;
 
         [Inject] private readonly Transform enemiesParent;
         [Inject] private readonly EnemyControllerConfig config;
@@ -18,6 +18,9 @@ namespace Gameplay.ScrolledObjects.Enemy
     
         private ObjectPool<ScrolledObjectView>[] enemyPools;
         private List<ScrolledObjectView>[] activeEnemyLists;
+
+        private Dictionary<BurstDefinition, List<ScrolledObjectView>> burstTempLists =
+            new Dictionary<BurstDefinition, List<ScrolledObjectView>>();
 
         public void Initialize()
         {
@@ -68,7 +71,7 @@ namespace Gameplay.ScrolledObjects.Enemy
                     
                     if (currentObject.transform.position.x <= config.EndX)
                     {
-                        currentObject.Deactivate();
+                        _ = currentObject.Deactivate();
                     }
 
                     if (currentObject.Active)
@@ -100,6 +103,11 @@ namespace Gameplay.ScrolledObjects.Enemy
         {
             _ = EnemyBurstRoutine(burstDefinition);
         }
+        
+        public async Awaitable<List<ScrolledObjectView>> RequestEnemyBurstAndList(BurstDefinition burstDefinition)
+        {
+            return await EnemyBurstRoutine(burstDefinition, true);
+        }
 
         public List<Vector3> PurgeAllEnemies()
         {
@@ -118,36 +126,61 @@ namespace Gameplay.ScrolledObjects.Enemy
             return purgePositions;
         }
 
-        private async Awaitable EnemyBurstRoutine(BurstDefinition burstDefinition)
+        private async Awaitable<List<ScrolledObjectView>> EnemyBurstRoutine(BurstDefinition burstDefinition, bool returnEnemyList = false)
         {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            if (returnEnemyList)
+            {
+                burstTempLists.Add(burstDefinition, new List<ScrolledObjectView>());
+            }
+
             for (int i = 0; i < burstDefinition.enemyAmount; i++)
             {
-                if (GameModel.CurrentGamePhase == GamePhase.BossPhase)
-                {
-                    break;
-                }
-
-                while (GameModel.CurrentGamePhase != GamePhase.HordePhase)
+                
+                while (GameModel.CurrentGamePhase == GamePhase.UpgradePhase)
                 {
                     await Awaitable.NextFrameAsync();
                 }
-
+                
                 ScrolledObjectView enemy = enemyPools[burstDefinition.enemyId].Get();
                 enemy.SetPath(config.Paths.Splines[burstDefinition.pathId]);
+
+                if (returnEnemyList)
+                {
+                    burstTempLists[burstDefinition].Add(enemy);
+                }
+
                 await Awaitable.WaitForSecondsAsync(burstDefinition.enemySpawnGap);
             }
+
+            if (returnEnemyList)
+            {
+                List<ScrolledObjectView> tempList = burstTempLists[burstDefinition];
+                burstTempLists.Remove(burstDefinition);
+                return tempList;
+            }
+            
+            return null;
         }
 
-        private void EnemyHitForwarder(bool killed, int damage, int value, Vector3 position)
+        private void EnemyHitForwarder(bool killed, int damage, int value, SpriteRenderer[] positions)
         {
-            EnemyHit?.Invoke(killed, damage, value, position);
+            EnemyHit?.Invoke(killed, damage, value, positions);
         }
 
         private ScrolledObjectView CreateEnemy(int enemyId)
         {
             EnemyConfiguration enemyConfig = config.EnemyRegistry.EnemyTypes[enemyId];
             
-            EnemyLogic createdLogic = new EnemyLogic(enemyConfig.Stats, EnemyHitForwarder);
+            EnemyLogic createdLogic = new EnemyLogic(enemyConfig.Stats, EnemyHitForwarder, enemyConfig.RotateWithPath);
             ScrolledObjectView createdView = UnityEngine.Object.Instantiate<ScrolledObjectView>(enemyConfig.ViewPrefab, new Vector3(config.StartX, 0.0f, 0.0f), Quaternion.identity);
             createdView.Initialize(createdLogic);
             createdView.transform.SetParent(enemiesParent);

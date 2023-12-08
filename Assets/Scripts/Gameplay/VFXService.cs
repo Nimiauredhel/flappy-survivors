@@ -59,11 +59,16 @@ namespace Gameplay
             if (doLight) LightForSeconds(1.5f);
         }
 
-        public void RequestExplosionsAt(List<Vector3> positions, bool doLight = true)
+        public async Awaitable RequestExplosionsAt(List<Vector3> positions, bool doLight = true, float stagger = 0.0f)
         {
             foreach (Vector3 position in positions)
             {
                 RequestExplosionAt(position, false);
+                
+                if (stagger != 0.0f)
+                {
+                    Awaitable.WaitForSecondsAsync(stagger);
+                }
             }
             
             if (doLight) LightForSeconds(2.0f);

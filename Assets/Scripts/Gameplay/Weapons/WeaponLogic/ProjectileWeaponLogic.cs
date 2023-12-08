@@ -57,6 +57,7 @@ namespace Gameplay.Weapons.WeaponLogic
                     projectile.Hitbox.enabled = true;
                     projectile.transform.Rotate(Vector3.forward, Random.Range(-180.0f, 180.0f));
                     
+                    projectile.PlayDrawSound();
                     projectile.StartCoroutine(FireSingleProjectile(instance, projectile));
                     yield return projectileGap;
                 }
@@ -99,7 +100,6 @@ namespace Gameplay.Weapons.WeaponLogic
                 time += fixedDeltaTime;
                 yield return Constants.WaitForFixedUpdate;
             }
-
             
             projectilePool.Release(projectile);
         }

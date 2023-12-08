@@ -18,6 +18,9 @@ namespace Gameplay.ScrolledObjects
             {
                 hitReceiver = GetComponentInParent<ScrolledObjectView>();
             }
+
+            Collider2D coll = GetComponent<Collider2D>();
+            coll.isTrigger = true;
         }
 
         private void OnDrawGizmos()

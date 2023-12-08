@@ -26,6 +26,8 @@ namespace Gameplay.Player
         public event Action PlayerStartedMoving;
         public event Action<int> PlayerDamaged;
         public event Action PlayerDied;
+
+        public bool PlayerIsDead => model.Dead;
         
         [Inject] private readonly TouchReceiver _touchReceiver;
         [Inject] private readonly PlayerView view;
@@ -63,7 +65,7 @@ namespace Gameplay.Player
 
             public void DoUpdate()
             {
-                if (GameModel.CurrentGamePhase == GamePhase.HordePhase)
+                if (GameModel.CurrentGamePhase >= GamePhase.HordePhase)
                 {
                     if (currentCombo > 0)
                     {

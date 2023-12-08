@@ -1,6 +1,5 @@
 using System;
 using Gameplay.Upgrades;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
 using Random = UnityEngine.Random;
@@ -9,17 +8,19 @@ namespace Gameplay.ScrolledObjects.Enemy
 {
     public class EnemyLogic : IScrolledObjectLogic
     {
-        private event Action<bool, int, int, Vector3> EnemyHit; 
+        private event Action<bool, int, int, SpriteRenderer[]> EnemyHit; 
         
         private int currentHP;
         private float elapsedTime = 0.0f;
         private float expectedTime;
         private EnemyStats stats;
         private Spline path = null;
+        private bool rotateWithPath = true;
         
-        public EnemyLogic(EnemyStats stats, Action<bool, int, int, Vector3> hitHandler)
+        public EnemyLogic(EnemyStats stats, Action<bool, int, int, SpriteRenderer[]> hitHandler, bool rotateWithPath)
         {
             this.stats = stats;
+            this.rotateWithPath = rotateWithPath;
             EnemyHit += hitHandler;
         }
 
@@ -40,17 +41,22 @@ namespace Gameplay.ScrolledObjects.Enemy
                 float percent = elapsedTime / expectedTime;
 
                 //failsafe for when the spline messes with the pooling
-                if (percent > 3.0f)
+                if (percent > 10.0f)
                 {
-                    view.Deactivate();
+                    _ = view.Deactivate();
                     return;
                 }
 
                 Vector2 targetPosition = path.EvaluatePosition(percent).xy;
-                Vector3 targetRotation = -path.EvaluateAcceleration(percent).zzy;
+                
                 targetPosition += Constants.STAGE_OFFSET;
                 view.Body.MovePosition(targetPosition);
-                view.transform.rotation = (Quaternion.Euler(targetRotation));
+                
+                if (rotateWithPath)
+                {
+                    Vector3 targetRotation = -path.EvaluateAcceleration(percent).zzy;
+                    view.transform.rotation = (Quaternion.Euler(targetRotation));
+                }
             }
         }
 
@@ -71,10 +77,10 @@ namespace Gameplay.ScrolledObjects.Enemy
                 }
                 
                 currentHP = 0;
-                view.Deactivate();
+                _ = view.Deactivate();
             }
             
-            EnemyHit?.Invoke(killed, damage, value, view.transform.position);
+            EnemyHit?.Invoke(killed, damage, value, view.Graphics);
         }
 
         public void OnHitPlayer(ScrolledObjectView view, Action<int> hpAction, Action<int> xpAction, Action<UpgradeOption> upgradeOption)

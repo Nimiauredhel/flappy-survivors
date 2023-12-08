@@ -10,7 +10,7 @@ namespace Gameplay
         
         public Action<GamePhase> GamePhaseChanged;
         
-        private GamePhase currentGamePhase = GamePhase.IntroPhase;
+        private GamePhase currentGamePhase = GamePhase.None;
         
         private static GameModel instance;
         private bool won = false;
@@ -29,6 +29,8 @@ namespace Gameplay
 
         public void SetGamePhase(GamePhase newPhase)
         {
+            if (newPhase == currentGamePhase) return;
+            
             currentGamePhase = newPhase;
             GamePhaseChanged?.Invoke(currentGamePhase);
         }

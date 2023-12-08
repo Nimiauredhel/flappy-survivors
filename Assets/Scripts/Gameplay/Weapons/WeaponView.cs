@@ -1,4 +1,5 @@
 using System;
+using FMODUnity;
 using UnityEngine;
 
 namespace Gameplay.Weapons
@@ -14,6 +15,24 @@ namespace Gameplay.Weapons
         [SerializeField] private SpriteRenderer graphic;
         [SerializeField] private Collider2D hitbox;
         [SerializeField] private Animator animator;
+        [SerializeField] private EventReference drawEventReference;
+        [SerializeField] private EventReference sheatheEventReference;
+
+        public void PlayDrawSound()
+        {
+            if (!drawEventReference.IsNull)
+            {
+                RuntimeManager.PlayOneShot(drawEventReference);
+            }
+        }
+        
+        public void PlaySheatheSound()
+        {
+            if (!drawEventReference.IsNull)
+            {
+                RuntimeManager.PlayOneShot(sheatheEventReference);
+            }
+        }
 
         public void OnTriggerEnter2D(Collider2D other)
         {

@@ -12,16 +12,24 @@ namespace Gameplay.Weapons.WeaponLogic
     [UsedImplicitly]
     public class BasicWeaponLogic : WeaponLogicComponent
     {
+        private bool drawn = true;
         private int hits = 0;
         private float elapsedTime = 0.0f;
         private Awaitable weaponRoutine = null;
         
         public override void Draw(WeaponInstance instance)
         {
+            if (drawn) return;
+            drawn = true;
+            
             if (weaponRoutine != null)
             {
                 weaponRoutine.Cancel();
                 weaponRoutine = null;
+            }
+            else
+            {
+                instance.View.PlayDrawSound();
             }
             
             weaponRoutine = AttackRoutine(instance);
@@ -29,10 +37,17 @@ namespace Gameplay.Weapons.WeaponLogic
 
         public override void Sheathe(WeaponInstance instance)
         {
+            if (!drawn) return;
+            drawn = false;
+            
             if (weaponRoutine != null)
             {
                 instance.View.StopCoroutine(weaponRoutine);
                 weaponRoutine = null;
+            }
+            else
+            {
+                instance.View.PlaySheatheSound();
             }
             
             hits = 0;

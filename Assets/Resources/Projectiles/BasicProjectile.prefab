@@ -41,6 +41,7 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827756037308471551}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -64,9 +65,9 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
   m_Radius: 0.55
 --- !u!1 &3786677948436477324
 GameObject:
@@ -117,6 +118,20 @@ MonoBehaviour:
   graphic: {fileID: 6718569727245811768}
   hitbox: {fileID: 6966358250206230266}
   animator: {fileID: 0}
+  drawEventReference:
+    Guid:
+      Data1: -899692385
+      Data2: 1119937967
+      Data3: 755752342
+      Data4: 1532264291
+    Path: event:/SFX/ShurikenDraw
+  sheatheEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!50 &5494598786590864023
 Rigidbody2D:
   serializedVersion: 4
@@ -193,6 +208,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
