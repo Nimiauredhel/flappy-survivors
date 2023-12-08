@@ -267,7 +267,7 @@ namespace Gameplay
             AsyncOperation loading = SceneManager.LoadSceneAsync("Menu");
             loading.allowSceneActivation = false;
             
-            float delay = GameModel.Won ? 20.0f : 6.0f;
+            float delay = GameModel.Won ? 20.0f : 8.0f;
             
             if (!GameModel.Won)
             {
@@ -305,15 +305,15 @@ namespace Gameplay
                     levelDirector.Stop();
                     break;
                 case GamePhase.YouWin:
-                    uiView.SetCanvasAlpha(0.0f, 0.5f);
+                    uiView.SetCanvasAlpha(0.0f, 1.5f);
                     uiView.SetFadeAlpha(1.0f, 15.0f);
-                    uiView.ShowGameOverMessage("You Won", 3.0f);
+                    uiView.ShowGameOverMessage("You Won", 5.0f);
                     levelDirector.Stop();
                     break;
                 case GamePhase.GameOver:
-                    uiView.SetCanvasAlpha(0.0f, 0.5f);
-                    uiView.SetFadeAlpha(1.0f, 5.0f);
-                    uiView.ShowGameOverMessage("You Died", 3.0f);
+                    uiView.SetCanvasAlpha(0.0f, 1.5f);
+                    uiView.SetFadeAlpha(1.0f, 7.0f);
+                    uiView.ShowGameOverMessage("You Died", 4.0f);
                     levelDirector.Stop();
                     break;
                 default:

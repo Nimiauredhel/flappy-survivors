@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Audio;
 using Configuration;
 using Gameplay.Upgrades;
@@ -19,7 +18,7 @@ namespace MainMenu
 
         private UpgradeTree currentUpgradeTree;
         
-        public void Start()
+        public async void Start()
         {
             view.SetFadeAlpha(1.0f, 0.0f);
             view.SetCanvasAlpha(0.0f, 0.0f);
@@ -28,8 +27,10 @@ namespace MainMenu
             InitLoadoutOptions();
             
             AudioService.Instance.PlayMainMenuMusic();
+
+            await Awaitable.WaitForSecondsAsync(0.25f);
             
-            view.SetFadeAlpha(0.0f, 2.0f);
+            view.SetFadeAlpha(0.0f, 5.0f);
             view.SetCanvasAlpha(1.0f, 1.0f);
         }
 

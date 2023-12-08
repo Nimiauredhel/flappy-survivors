@@ -18,28 +18,35 @@ namespace MainMenu
         [SerializeField] private LevelUIToggle[] levelToggles;
         [SerializeField] private Slider loadingBar;
         [SerializeField] private LoadoutUIButton[] upgradeButtons;
+
+        private Tween canvasAlphaTween = null;
+        private Tween fadeAlphaTween = null;
         
         public void SetCanvasAlpha(float value, float duration)
         {
+            if (canvasAlphaTween != null) canvasAlphaTween.Kill();
+            
             if (duration == 0.0f)
             {
                 mainCanvasGroup.alpha = value;
             }
             else
             {
-                mainCanvasGroup.DOFade(value, duration);
+                canvasAlphaTween = mainCanvasGroup.DOFade(value, duration);
             }
         }
         
         public void SetFadeAlpha(float value, float duration)
         {
+            if (fadeAlphaTween != null) fadeAlphaTween.Kill();
+            
             if (duration == 0.0f)
             {
-                fadePanel.color = new Color(0.0f, 0.0f, 0.0f, value);
+                fadePanel.color = new Color(fadePanel.color.r, fadePanel.color.g, fadePanel.color.b, value);
             }
             else
             {
-                fadePanel.DOFade(value, duration);
+                fadeAlphaTween = fadePanel.DOFade(value, duration);
             }
         }
         
