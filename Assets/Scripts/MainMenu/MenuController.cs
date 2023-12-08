@@ -52,9 +52,6 @@ namespace MainMenu
 
         private void LoadoutSelectedHandler(UpgradeOption selectedUpgrade)
         {
-            view.SetCanvasAlpha(0.0f, 0.5f);
-            view.SetFadeAlpha(1.0f, 1.0f);
-            
             selectedUpgrade.Taken = true;
             WeaponConfiguration[] startingWeapons = new WeaponConfiguration[1]{(WeaponConfiguration)selectedUpgrade.UpgradeConfig};
             PlayerCharacterConfiguration newPlayerConfig =
@@ -62,22 +59,34 @@ namespace MainMenu
             newPlayerConfig.Initialize(defaultPlayerConfig.GetStats, startingWeapons, currentUpgradeTree);
             ConfigSelectionMediator.SetCharacterLoadout(newPlayerConfig, currentUpgradeTree);
             
-            view.StartCoroutine(GameLoadingRoutine());
+            _ = GameLoadingRoutine();
         }
 
-        private IEnumerator GameLoadingRoutine()
+        private async Awaitable GameLoadingRoutine()
         {
             float elapsedTime = 0.0f;
+            float fakeProgress = 0.0f;
+            float visualProgress = 0.0f;
+            float minLoadTime = 1.0f;
+            
             AsyncOperation loadingOperation = SceneManager.LoadSceneAsync("Gameplay");
             loadingOperation.allowSceneActivation = false;
             
-            while (loadingOperation.progress < 0.9f || elapsedTime < 1.0f)
+            while (loadingOperation.progress < 0.9f || fakeProgress < 1.0f)
             {
                 elapsedTime += Time.deltaTime;
-                view.SetLoadingBar(loadingOperation.progress);
-                yield return null;
+                fakeProgress = Mathf.InverseLerp(0.0f, minLoadTime, elapsedTime);
+                visualProgress = (fakeProgress + loadingOperation.progress) * 0.5f;
+                view.SetLoadingBar(visualProgress);
+                view.SetCanvasAlpha(1.0f - visualProgress, 0.0f);
+                view.SetFadeAlpha(visualProgress, 0.0f);
+                await Awaitable.NextFrameAsync();
             }
-
+            
+            view.SetCanvasAlpha(0.0f, 0.2f);
+            view.SetFadeAlpha(1.0f, 0.2f);
+            await Awaitable.WaitForSecondsAsync(0.25f);
+            
             loadingOperation.allowSceneActivation = true;
             AudioService.Instance.ReleaseMainMenuMusic();
         }

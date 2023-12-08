@@ -33,7 +33,14 @@ namespace MainMenu
         
         public void SetFadeAlpha(float value, float duration)
         {
-            fadePanel.CrossFadeAlpha(value, duration, true);
+            if (duration == 0.0f)
+            {
+                fadePanel.color = new Color(0.0f, 0.0f, 0.0f, value);
+            }
+            else
+            {
+                fadePanel.DOFade(value, duration);
+            }
         }
         
         public void DisplayLevelsDialog(LevelConfiguration[] options, Action<LevelConfiguration> selectionCallback)
