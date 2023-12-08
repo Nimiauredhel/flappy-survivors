@@ -4,6 +4,7 @@ using System.Linq;
 using Audio;
 using CommandTerminal;
 using Configuration;
+using DG.Tweening;
 using Gameplay.Level;
 using Gameplay.Player;
 using Gameplay.ScrolledObjects;
@@ -196,7 +197,7 @@ namespace Gameplay
             pickupsController.SpawnPickups(pickupsToDrop, comboModifier);
         }
 
-        private void LevelUpHandler(int newLevel)
+        private async void LevelUpHandler(int newLevel)
         {
             float refY = Camera.main.transform.position.y;
             Vector3[] positions = new[] { new Vector3(25.0f, refY + 6.7f), new Vector3(25.0f, refY + 0.2f), new Vector3(25.0f, refY - 6.3f) };
@@ -226,6 +227,10 @@ namespace Gameplay
                 _ = vfxService.RequestExplosionsAt(purgePositions);
                 
                 vfxService.DoCameraShake(purgePositions.Count * 0.1f);
+                
+                DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0.3f, 0.3f);
+                await Awaitable.WaitForSecondsAsync(0.3f);
+                DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1.0f, 0.3f);
                 
                 ScrolledObjectView[] upgradePickups = pickupsController.SpawnAndReturnPickups(shortList, 0.0f);
 
