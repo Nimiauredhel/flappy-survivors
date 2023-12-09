@@ -68,7 +68,7 @@ namespace MainMenu
             float elapsedTime = 0.0f;
             float fakeProgress = 0.0f;
             float visualProgress = 0.0f;
-            float minLoadTime = 1.0f;
+            float minLoadTime = 0.5f;
             
             AsyncOperation loadingOperation = SceneManager.LoadSceneAsync("Gameplay");
             loadingOperation.allowSceneActivation = false;
@@ -78,7 +78,6 @@ namespace MainMenu
                 elapsedTime += Time.deltaTime;
                 fakeProgress = Mathf.InverseLerp(0.0f, minLoadTime, elapsedTime);
                 visualProgress = (fakeProgress + loadingOperation.progress) * 0.5f;
-                view.SetLoadingBar(visualProgress);
                 view.SetCanvasAlpha(1.0f - visualProgress, 0.0f);
                 view.SetFadeAlpha(visualProgress, 0.0f);
                 await Awaitable.NextFrameAsync();

@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using Gameplay.Upgrades;
 using Configuration;
 using DG.Tweening;
-using FMODUnity;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace MainMenu
@@ -16,7 +14,6 @@ namespace MainMenu
         [SerializeField] private Image fadePanel;
         
         [SerializeField] private LevelUIToggle[] levelToggles;
-        [SerializeField] private Slider loadingBar;
         [SerializeField] private LoadoutUIButton[] upgradeButtons;
 
         private Tween canvasAlphaTween = null;
@@ -60,7 +57,7 @@ namespace MainMenu
                 LevelUIToggle toggle = levelToggles[i];
 
                 TimeSpan timerTimespan = TimeSpan.FromSeconds(option.RunTime);
-                int selectedFormat = timerTimespan.Minutes > 9 ? 0 : timerTimespan.Minutes > 0 ? 1 : 2;
+                int selectedFormat = timerTimespan.Minutes > 9 ? 0 : 1;
                 
                 toggle.Image.texture = option.Thumbnail.texture;
                 toggle.Text.text = option.Name;
@@ -91,11 +88,6 @@ namespace MainMenu
             }
         }
 
-        public void SetLoadingBar(float percent)
-        {
-            loadingBar.value = percent;
-        }
-
         private void OnLevelSelected(LevelConfiguration level, Toggle toggle, Action<LevelConfiguration> selectionCallback)
         {
             for (int i = 0; i < levelToggles.Length; i++)
@@ -116,8 +108,6 @@ namespace MainMenu
                 upgradeButtons[i].Button.onClick.RemoveAllListeners();
                 upgradeButtons[i].gameObject.SetActive(false);
             }
-            
-            //gameObject.SetActive(false);
             
             selectionCallback?.Invoke(option);
         }

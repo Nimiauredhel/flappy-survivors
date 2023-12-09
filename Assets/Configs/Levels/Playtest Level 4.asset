@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fad583861f5a48f9aa63ab8023380db9, type: 3}
-  m_Name: Test Level 2
+  m_Name: Playtest Level 4
   m_EditorClassIdentifier: 
-  name: Test Level 2
-  thumbnail: {fileID: 21300000, guid: 1645d486108e61744898131be7b1eef3, type: 3}
-  timeline: {fileID: 11400000, guid: a8d30f61a1318614fbbd24a275b70a93, type: 2}
-  backgroundAsset: {fileID: 5647197508514708505, guid: 61d7df651e939e3488d6a051069cca04, type: 3}
+  name: Level 4
+  thumbnail: {fileID: 21300000, guid: a343623974495b34fa2bd92ed9824323, type: 3}
+  timeline: {fileID: 11400000, guid: 57ece4394606de94ca56d863421caee4, type: 2}
+  backgroundAsset: {fileID: 5647197508514708505, guid: b3d430240693f6d4eaf46b7bba25a41b, type: 3}
   bossEnemy:
+    noRotation: 0
     enemyId: 3
-    enemyAmount: 1
+    enemyAmount: 2
     pathId: 17
-    enemySpawnGap: 0
+    enemySpawnGap: 6
+    speedOverride: 0.2
