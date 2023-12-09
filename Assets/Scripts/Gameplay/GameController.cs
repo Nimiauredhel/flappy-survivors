@@ -385,6 +385,11 @@ namespace Gameplay
                 await Awaitable.WaitForSecondsAsync(1);
             }
             
+            while (GameModel.Paused || GameModel.CurrentGamePhase != GamePhase.HordePhase)
+            {
+                await Awaitable.NextFrameAsync();
+            }
+            
             if (!playerController.PlayerIsDead) gameModel.SetGamePhase(GamePhase.BossPhase);
         }
 

@@ -17,12 +17,12 @@ MonoBehaviour:
   stats:
     weaponType: 2
     power: 1
-    amount: 4
+    amount: 1
     hits: 1
-    speed: 16
+    speed: 17
     duration: 3
     area: 1
-    cooldown: 3
+    cooldown: 2.5
     name: Shuriken
     description: Dispatch enemies at a distance.
   logicComponents:

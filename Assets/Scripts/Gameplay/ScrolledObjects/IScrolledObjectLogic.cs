@@ -14,7 +14,7 @@ namespace Gameplay.ScrolledObjects
 
         public void OnHitPlayer(ScrolledObjectView view, Action<int> hpAction, Action<int> xpAction, Action<UpgradeOption> upgradeAction);
         
-        public void OnActivate(ScrolledObjectView view, object value);
+        public void OnActivate(ScrolledObjectView view, object value, bool forbidPathRotation = false, float speedOverride = 0.0f);
 
         public void OnDeactivate(ScrolledObjectView view);
 

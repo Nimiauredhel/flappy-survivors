@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
     xpValue: 10
-    maxHP: 20
-    minHP: 90
+    maxHP: 70
+    minHP: 60
     power: 15
     speed: 0.25
   viewPrefab: {fileID: -1032148392928579942, guid: 11d0cb24ac9aaa3428315115c09c1d07, type: 3}

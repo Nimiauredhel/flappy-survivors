@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a477bc0050e4052a541aafe8b146681, type: 3}
-  m_Name: Level Registry
+  m_Name: _Level Registry
   m_EditorClassIdentifier: 
   levels:
+  - {fileID: 11400000, guid: a014cbd2948be9a4b9ce44ba9aae9242, type: 2}
+  - {fileID: 11400000, guid: c11faca8fe9d21b41bd6f21b2f06779a, type: 2}
   - {fileID: 11400000, guid: 1404d98be09495b47b2351e905adc088, type: 2}
   - {fileID: 11400000, guid: b025f835b79066343bfb353e298bb24c, type: 2}
-  - {fileID: 11400000, guid: 3b641d7735a37724db71243835dd727e, type: 2}

@@ -64,10 +64,10 @@ namespace Gameplay.ScrolledObjects
             logic.ScrolledObjectFixedUpdate(this);
         }
 
-        public void Activate(object value)
+        public void Activate(object value, bool forbidPathRotation = false, float speedOverride = 0.0f)
         {
             gameObject.SetActive(true);
-            logic.OnActivate(this, value);
+            logic.OnActivate(this, value, forbidPathRotation, speedOverride);
 
             for (int i = 0; i < graphics.Length; i++)
             {

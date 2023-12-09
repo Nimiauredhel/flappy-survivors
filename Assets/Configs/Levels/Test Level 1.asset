@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fad583861f5a48f9aa63ab8023380db9, type: 3}
-  m_Name: Test Level 3
+  m_Name: Test Level 1
   m_EditorClassIdentifier: 
-  name: Test Level 3
-  thumbnail: {fileID: 21300000, guid: 1645d486108e61744898131be7b1eef3, type: 3}
-  timeline: {fileID: 11400000, guid: 3313bccc3917ec646a767785e40a31a9, type: 2}
-  backgroundAsset: {fileID: 5647197508514708505, guid: 61d7df651e939e3488d6a051069cca04, type: 3}
+  name: Test Level
+  thumbnail: {fileID: 21300000, guid: a343623974495b34fa2bd92ed9824323, type: 3}
+  timeline: {fileID: 11400000, guid: 57ece4394606de94ca56d863421caee4, type: 2}
+  backgroundAsset: {fileID: 5647197508514708505, guid: b3d430240693f6d4eaf46b7bba25a41b, type: 3}
   bossEnemy:
     enemyId: 3
     enemyAmount: 1

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdb59a28d22e4154a189b32f098cab55, type: 3}
-  m_Name: Bigger Enemy
+  m_Name: Spinner Enemy
   m_EditorClassIdentifier: 
   stats:
-    xpValue: 10
-    maxHP: 10
-    minHP: 6
-    power: 10
-    speed: 8
-  viewPrefab: {fileID: -1032148392928579942, guid: 2be593ba1a60dba4f8fdb8ee41f7dac1, type: 3}
-  icon: {fileID: 21300000, guid: 49118c7ff7055344ebe8e658719c66ee, type: 3}
-  rotateWithPath: 1
+    xpValue: 1
+    maxHP: 1
+    minHP: 1
+    power: 4
+    speed: 12
+  viewPrefab: {fileID: -1032148392928579942, guid: 5a3bb2af25a98614e86f615b24930feb, type: 3}
+  icon: {fileID: 21300000, guid: 2715d44dda85aca4b85cb2b95bc365fe, type: 3}
+  rotateWithPath: 0

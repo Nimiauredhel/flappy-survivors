@@ -163,6 +163,7 @@ namespace Gameplay.ScrolledObjects.Enemy
                     }
 
                     ScrolledObjectView enemy = enemyPools[burstDefinition.enemyId].Get();
+                    enemy.Activate(null, burstDefinition.noRotation, burstDefinition.speedOverride);
                     enemy.SetPath(config.Paths.Splines[burstDefinition.pathId]);
 
                     if (returnEnemyList)
@@ -205,7 +206,6 @@ namespace Gameplay.ScrolledObjects.Enemy
         private void OnGetEnemy(int enemyId, ScrolledObjectView spawnedEnemy)
         {
             spawnedEnemy.transform.position = new Vector3(config.StartX, 0.0f);
-            spawnedEnemy.Activate(null);
             activeEnemyLists[enemyId].Add(spawnedEnemy);
         }
 

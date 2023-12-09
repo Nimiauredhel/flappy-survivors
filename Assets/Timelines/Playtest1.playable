@@ -1,0 +1,587 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9222191701266376715
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 3.5
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 0
+    enemyAmount: 1
+    pathId: 1
+    enemySpawnGap: 0
+    speedOverride: 0
+--- !u!114 &-6886213507488253567
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 16.266666666666666
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 0
+    enemyAmount: 2
+    pathId: 0
+    enemySpawnGap: 1
+    speedOverride: 0
+--- !u!114 &-6035814601961330692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 33.03333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 0}
+--- !u!114 &-5408711926361039573
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 10.016666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 0
+    enemyAmount: 2
+    pathId: 8
+    enemySpawnGap: 1
+    speedOverride: 0
+--- !u!114 &-4862880011290850049
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06f3805b04d4dccb458fd5716987594, type: 3}
+  m_Name: Burst Signal Receiver Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects:
+    - {fileID: -1759538440198409129}
+    - {fileID: 2496820423769265778}
+    - {fileID: 2086701451652801123}
+--- !u!114 &-4452989718851322807
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06f3805b04d4dccb458fd5716987594, type: 3}
+  m_Name: Burst Signal Receiver Track (3)
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects:
+    - {fileID: -5408711926361039573}
+    - {fileID: -4189455565122645125}
+    - {fileID: 5949374426911577095}
+    - {fileID: 5045988522235559747}
+    - {fileID: 4708895296501853866}
+--- !u!114 &-4189455565122645125
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 16.016666666666666
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 0
+    enemyAmount: 2
+    pathId: 1
+    enemySpawnGap: 1
+    speedOverride: 0
+--- !u!114 &-3876090478904926838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 9
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 0
+    enemyAmount: 2
+    pathId: 7
+    enemySpawnGap: 1
+    speedOverride: 0
+--- !u!114 &-3152691731742451632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 27.349999999999984
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 0
+    enemyAmount: 2
+    pathId: 1
+    enemySpawnGap: 1
+    speedOverride: 0
+--- !u!114 &-1759538440198409129
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5dda2f6d17f1af41b3d12da64999dc5, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 10.266666666666667
+  <parent>k__BackingField: {fileID: -4862880011290850049}
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 10
+    enemySpawnGap: 0.1
+--- !u!114 &-1614568477600384873
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 5
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 0
+    enemyAmount: 1
+    pathId: 2
+    enemySpawnGap: 0
+    speedOverride: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
+  m_Name: Playtest1
+  m_EditorClassIdentifier: 
+  m_Version: 0
+  m_Tracks:
+  - {fileID: -4862880011290850049}
+  - {fileID: 5983153653866620050}
+  - {fileID: 6591560959677321812}
+  - {fileID: -4452989718851322807}
+  m_FixedDuration: 30
+  m_EditorSettings:
+    m_Framerate: 60
+    m_ScenePreview: 1
+  m_DurationMode: 1
+  m_MarkerTrack: {fileID: 7830602046109682852}
+--- !u!114 &456529594018176544
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 13.016666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 4
+    enemyAmount: 2
+    pathId: 11
+    enemySpawnGap: 2
+    speedOverride: 0
+--- !u!114 &1316126661972935033
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 20.333333333333332
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 0
+    enemyAmount: 2
+    pathId: 2
+    enemySpawnGap: 1
+    speedOverride: 0
+--- !u!114 &2086701451652801123
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 5
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 4
+    enemyAmount: 1
+    pathId: 13
+    enemySpawnGap: 1
+    speedOverride: 0
+--- !u!114 &2496820423769265778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 1
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 4
+    enemyAmount: 2
+    pathId: 0
+    enemySpawnGap: 1
+    speedOverride: 0
+--- !u!114 &4708895296501853866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 27.016666666666666
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 0
+    enemyAmount: 2
+    pathId: 7
+    enemySpawnGap: 1
+    speedOverride: 0
+--- !u!114 &5045988522235559747
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 24.016666666666666
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 0
+    enemyAmount: 2
+    pathId: 0
+    enemySpawnGap: 1
+    speedOverride: 0
+--- !u!114 &5949374426911577095
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 20
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 0
+    enemyAmount: 2
+    pathId: 1
+    enemySpawnGap: 1
+    speedOverride: 0
+--- !u!114 &5983153653866620050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06f3805b04d4dccb458fd5716987594, type: 3}
+  m_Name: Burst Signal Receiver Track (1)
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects:
+    - {fileID: 8457154211006335002}
+    - {fileID: -1614568477600384873}
+--- !u!114 &6403638892436593293
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 6
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 0
+    enemyAmount: 3
+    pathId: 1
+    enemySpawnGap: 1
+    speedOverride: 0
+--- !u!114 &6591560959677321812
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06f3805b04d4dccb458fd5716987594, type: 3}
+  m_Name: Burst Signal Receiver Track (2)
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects:
+    - {fileID: -3876090478904926838}
+    - {fileID: 456529594018176544}
+    - {fileID: -6886213507488253567}
+    - {fileID: 1316126661972935033}
+    - {fileID: 8183482163627743147}
+    - {fileID: -3152691731742451632}
+    - {fileID: -9222191701266376715}
+    - {fileID: 6403638892436593293}
+--- !u!114 &7830602046109682852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a16748d9461eae46a725db9776d5390, type: 3}
+  m_Name: Markers
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
+--- !u!114 &8183482163627743147
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 24.266666666666666
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 0
+    enemyAmount: 2
+    pathId: 13
+    enemySpawnGap: 1
+    speedOverride: 0
+--- !u!114 &8457154211006335002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 2.5
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 4
+    enemyAmount: 2
+    pathId: 2
+    enemySpawnGap: 1
+    speedOverride: 0

@@ -71,7 +71,7 @@ namespace Gameplay.ScrolledObjects.Pickup
             view.Deactivate();
         }
 
-        public void OnActivate(ScrolledObjectView view, object newValue)
+        public void OnActivate(ScrolledObjectView view, object newValue, bool forbidPathRotation = false, float speedOverride = 0.0f)
         {
             elapsedTime = 0.0f;
             value = newValue;

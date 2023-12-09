@@ -43,13 +43,13 @@ namespace Gameplay.Level.Editor
             Rect newRect = markerRegion;
             newRect.size *= 10.0f;
             newRect.center = markerRegion.center - Vector2.down * 20.0f;
-            EnemyRegistry registry = AssetDatabase.LoadAssetAtPath<EnemyRegistry>("Assets/Configs/Enemy Registry.asset");
+            EnemyRegistry registry = AssetDatabase.LoadAssetAtPath<EnemyRegistry>("Assets/Configs/Enemies/_Enemy Registry.asset");
             GUI.DrawTexture(newRect, registry.EnemyTypes[emitter.parameter.enemyId].Icon.texture, ScaleMode.ScaleToFit);
         }
 
         private static void DrawEnemyPath(Rect markerRegion, BurstSignalEmitter emitter)
         {
-            SplineContainer paths = AssetDatabase.LoadAssetAtPath<SplineContainer>("Assets/Prefabs/EnemyPaths.prefab");
+            SplineContainer paths = AssetDatabase.LoadAssetAtPath<SplineContainer>("Assets/Configs/Enemies/_EnemyPaths.prefab");
             Spline path = paths.Splines[emitter.parameter.pathId];
 
             Rect newRegion = markerRegion;

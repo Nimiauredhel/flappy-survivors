@@ -62,7 +62,7 @@ namespace MainMenu
                 TimeSpan timerTimespan = TimeSpan.FromSeconds(option.RunTime);
                 int selectedFormat = timerTimespan.Minutes > 9 ? 0 : timerTimespan.Minutes > 0 ? 1 : 2;
                 
-                toggle.Image.sprite = option.Thumbnail;
+                toggle.Image.texture = option.Thumbnail.texture;
                 toggle.Text.text = option.Name;
                 toggle.Text.text += "\n" + TimeSpan.FromSeconds(option.RunTime).ToString(Constants.TIMER_FORMATS[selectedFormat]);
                 toggle.Toggle.onValueChanged.AddListener(delegate { OnLevelSelected(option, toggle.Toggle, selectionCallback); });

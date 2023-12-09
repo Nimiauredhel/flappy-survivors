@@ -16,6 +16,7 @@ namespace Gameplay.ScrolledObjects.Enemy
         private EnemyStats stats;
         private Spline path = null;
         private bool rotateWithPath = true;
+        private bool rotationForbidden = false;
         
         public EnemyLogic(EnemyStats stats, Action<bool, int, int, SpriteRenderer[]> hitHandler, bool rotateWithPath)
         {
@@ -52,7 +53,7 @@ namespace Gameplay.ScrolledObjects.Enemy
                 targetPosition += Constants.STAGE_OFFSET;
                 view.Body.MovePosition(targetPosition);
                 
-                if (rotateWithPath)
+                if (rotateWithPath & !rotationForbidden)
                 {
                     Vector3 targetRotation = -path.EvaluateAcceleration(percent).zzy;
                     view.transform.rotation = (Quaternion.Euler(targetRotation));
@@ -88,10 +89,12 @@ namespace Gameplay.ScrolledObjects.Enemy
             hpAction?.Invoke(-stats.Power);
         }
 
-        public void OnActivate(ScrolledObjectView view, object value)
+        public void OnActivate(ScrolledObjectView view, object value, bool forbidPathRotation = false, float speedOverride = 0.0f)
         {
+            rotationForbidden = forbidPathRotation;
             elapsedTime = 0.0f;
-            expectedTime = Constants.STAGE_WIDTH / stats.Speed;
+            expectedTime = Constants.STAGE_WIDTH /
+                           (speedOverride == 0.0f ? stats.Speed : speedOverride);
             currentHP = Random.Range(stats.MinHP, stats.MaxHP);
         }
 
