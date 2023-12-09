@@ -159,7 +159,7 @@ namespace Gameplay.ScrolledObjects.Enemy
                         
                     while (GameModel.CurrentGamePhase == GamePhase.UpgradePhase)
                     {
-                        await Awaitable.NextFrameAsync();
+                        await Awaitable.NextFrameAsync(token);
                     }
 
                     ScrolledObjectView enemy = enemyPools[burstDefinition.enemyId].Get();

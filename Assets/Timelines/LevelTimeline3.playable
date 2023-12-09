@@ -40,6 +40,7 @@ MonoBehaviour:
   m_Markers:
     m_Objects:
     - {fileID: -1759538440198409129}
+    - {fileID: -4083585224935996048}
 --- !u!114 &-4452989718851322807
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -63,6 +64,27 @@ MonoBehaviour:
   m_Clips: []
   m_Markers:
     m_Objects: []
+--- !u!114 &-4083585224935996048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 3
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    enemyId: 0
+    enemyAmount: 20
+    pathId: 0
+    enemySpawnGap: 0.1
 --- !u!114 &-1759538440198409129
 MonoBehaviour:
   m_ObjectHideFlags: 1

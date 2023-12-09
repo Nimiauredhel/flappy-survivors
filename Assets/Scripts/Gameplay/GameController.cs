@@ -274,8 +274,6 @@ namespace Gameplay
         {
             uiView.SetCanvasAlpha(0.0f, 2.5f);
             
-            enemiesController.CancelAllOngoingBursts();
-            
             List<Vector3> positions = pickupsController.PurgeAllPickups();
             
             if (GameModel.Won)
@@ -373,6 +371,8 @@ namespace Gameplay
 
         private async Awaitable BossRoutine()
         {
+            enemiesController.CancelAllOngoingBursts();
+            await Awaitable.NextFrameAsync();
             await vfxService.RequestExplosionsAt(enemiesController.PurgeAllEnemies(), true, 0.5f);
             AudioService.Instance.PlayLevelUp();
             
