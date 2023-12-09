@@ -20,7 +20,7 @@ namespace Gameplay.Weapons
 
         public void PlayDrawSound()
         {
-            if (drawEventReference.Path.Length > 0)
+            if (!drawEventReference.IsNull)
             {
                 RuntimeManager.PlayOneShot(drawEventReference);
             }
@@ -28,7 +28,7 @@ namespace Gameplay.Weapons
         
         public void PlaySheatheSound()
         {
-            if (sheatheEventReference.Path.Length > 0)
+            if (!drawEventReference.IsNull)
             {
                 RuntimeManager.PlayOneShot(sheatheEventReference);
             }
