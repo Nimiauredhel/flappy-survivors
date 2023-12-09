@@ -121,6 +121,11 @@ namespace Gameplay.ScrolledObjects.Pickup
         {
             ScrolledObjectView spawnedPickup = null;
 
+            if (type == PickupType.XP && GameModel.CurrentGamePhase > GamePhase.HordePhase)
+            {
+                type = PickupType.Health;
+            }
+
             switch (type)
             {
                 case PickupType.None:
@@ -264,7 +269,7 @@ namespace Gameplay.ScrolledObjects.Pickup
                 {
                     currentValue = Mathf.FloorToInt(valueInt * comboModifier);
                 }
-
+                
                 SpawnPickup(currentOrder.Position, currentValue, currentOrder.Type);
                 await Awaitable.WaitForSecondsAsync(spawnGap);
             }

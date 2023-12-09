@@ -159,7 +159,7 @@ namespace Gameplay
                     vectorPositions.Add(t.transform.position);
                 }
                 
-                _ = vfxService.RequestExplosionsAt(vectorPositions, true, 0.4f);
+                _ = vfxService.RequestExplosionsAt(vectorPositions, true, 0.05f, 0.01f);
                 AudioService.Instance.PlayEnemyDestroyed();
                 playerController.HandleEnemyKilled();
 
@@ -273,6 +273,8 @@ namespace Gameplay
         private void GameOver()
         {
             uiView.SetCanvasAlpha(0.0f, 2.5f);
+            
+            enemiesController.CancelAllOngoingBursts();
             
             List<Vector3> positions = pickupsController.PurgeAllPickups();
             

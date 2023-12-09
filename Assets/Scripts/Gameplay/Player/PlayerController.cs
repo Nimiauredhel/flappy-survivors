@@ -429,6 +429,9 @@ namespace Gameplay.Player
 
         private void ChangePlayerXP(int value)
         {
+            if (GameModel.CurrentGamePhase > GamePhase.HordePhase
+                || GameModel.CurrentGamePhase == GamePhase.UpgradePhase) return;
+            
             bool levelUp = false;
             model.ChangeXP(value, out levelUp);
 

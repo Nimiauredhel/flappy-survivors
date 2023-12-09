@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Configuration;
 using DG.Tweening;
 using TMPro;
@@ -59,13 +60,15 @@ namespace Gameplay
             if (doLight) LightForSeconds(1.5f);
         }
 
-        public async Awaitable RequestExplosionsAt(List<Vector3> positions, bool doLight = true, float stagger = 0.0f)
+        public async Awaitable RequestExplosionsAt(List<Vector3> positions, bool doLight = true, float staggerMax = 0.0f, float staggerMin = 0.0f)
         {
             bool doneLight = false;
             
-            foreach (Vector3 position in positions)
+            System.Random r = new System.Random();
+            
+            foreach (int i in Enumerable.Range(0, positions.Count).OrderBy(x => r.Next()))
             {
-                RequestExplosionAt(position, false);
+                RequestExplosionAt(positions[i], false);
 
                 if (!doneLight && doLight)
                 {
@@ -73,9 +76,9 @@ namespace Gameplay
                     LightForSeconds(3.0f);
                 }
 
-                if (stagger != 0.0f)
+                if (staggerMax != 0.0f)
                 {
-                    await Awaitable.WaitForSecondsAsync(stagger);
+                    await Awaitable.WaitForSecondsAsync(Random.Range(staggerMin, staggerMax));
                 }
                 else
                 {

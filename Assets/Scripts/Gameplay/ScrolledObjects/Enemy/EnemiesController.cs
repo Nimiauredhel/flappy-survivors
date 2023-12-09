@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using Configuration;
 using Gameplay.Level;
 using UnityEngine;
@@ -19,7 +20,8 @@ namespace Gameplay.ScrolledObjects.Enemy
         private ObjectPool<ScrolledObjectView>[] enemyPools;
         private List<ScrolledObjectView>[] activeEnemyLists;
 
-        private Dictionary<BurstDefinition, List<ScrolledObjectView>> burstTempLists =
+        private readonly List<CancellationTokenSource> burstCancellationTokens = new List<CancellationTokenSource>(4);
+        private readonly Dictionary<BurstDefinition, List<ScrolledObjectView>> burstTempLists =
             new Dictionary<BurstDefinition, List<ScrolledObjectView>>();
 
         public void Initialize()
@@ -101,12 +103,16 @@ namespace Gameplay.ScrolledObjects.Enemy
 
         public void RequestEnemyBurst(BurstDefinition burstDefinition)
         {
-            _ = EnemyBurstRoutine(burstDefinition);
+            CancellationTokenSource burstTokenSource = new CancellationTokenSource();
+            burstCancellationTokens.Add(burstTokenSource);
+            _ = EnemyBurstRoutine(burstDefinition, burstTokenSource.Token);
         }
         
         public async Awaitable<List<ScrolledObjectView>> RequestEnemyBurstAndList(BurstDefinition burstDefinition)
         {
-            return await EnemyBurstRoutine(burstDefinition, true);
+            CancellationTokenSource burstTokenSource = new CancellationTokenSource();
+            burstCancellationTokens.Add(burstTokenSource);
+            return await EnemyBurstRoutine(burstDefinition, burstTokenSource.Token, true);
         }
 
         public List<Vector3> PurgeAllEnemies()
@@ -119,56 +125,65 @@ namespace Gameplay.ScrolledObjects.Enemy
                 {
                     ScrolledObjectView currentObject = activeEnemyLists[i][j];
                     purgePositions.Add(currentObject.transform.position);
-                    currentObject.Deactivate();
+                    _ = currentObject.Deactivate();
                 }
             }
 
             return purgePositions;
         }
 
-        private async Awaitable<List<ScrolledObjectView>> EnemyBurstRoutine(BurstDefinition burstDefinition, bool returnEnemyList = false)
+        public void CancelAllOngoingBursts()
+        {
+            if (burstCancellationTokens.Count > 0)
+            {
+                for (int i = burstCancellationTokens.Count - 1; i > 0; i--)
+                {
+                    burstCancellationTokens[i].Cancel();
+                    burstCancellationTokens.RemoveAt(i);
+                }
+            }
+        }
+
+        private async Awaitable<List<ScrolledObjectView>> EnemyBurstRoutine(BurstDefinition burstDefinition, CancellationToken token, bool returnEnemyList = false)
         {
             try
             {
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-            if (returnEnemyList)
-            {
-                burstTempLists.Add(burstDefinition, new List<ScrolledObjectView>());
-            }
-
-            for (int i = 0; i < burstDefinition.enemyAmount; i++)
-            {
-                
-                while (GameModel.CurrentGamePhase == GamePhase.UpgradePhase)
-                {
-                    await Awaitable.NextFrameAsync();
-                }
-                
-                ScrolledObjectView enemy = enemyPools[burstDefinition.enemyId].Get();
-                enemy.SetPath(config.Paths.Splines[burstDefinition.pathId]);
-
                 if (returnEnemyList)
                 {
-                    burstTempLists[burstDefinition].Add(enemy);
+                    burstTempLists.Add(burstDefinition, new List<ScrolledObjectView>());
                 }
 
-                await Awaitable.WaitForSecondsAsync(burstDefinition.enemySpawnGap);
-            }
+                for (int i = 0; i < burstDefinition.enemyAmount; i++)
+                {
+                    if (token.IsCancellationRequested) break;
+                        
+                    while (GameModel.CurrentGamePhase == GamePhase.UpgradePhase)
+                    {
+                        await Awaitable.NextFrameAsync();
+                    }
 
-            if (returnEnemyList)
-            {
+                    ScrolledObjectView enemy = enemyPools[burstDefinition.enemyId].Get();
+                    enemy.SetPath(config.Paths.Splines[burstDefinition.pathId]);
+
+                    if (returnEnemyList)
+                    {
+                        burstTempLists[burstDefinition].Add(enemy);
+                    }
+
+                    await Awaitable.WaitForSecondsAsync(burstDefinition.enemySpawnGap, token);
+                }
+
+                if (!returnEnemyList) return null;
+
                 List<ScrolledObjectView> tempList = burstTempLists[burstDefinition];
                 burstTempLists.Remove(burstDefinition);
                 return tempList;
             }
-            
-            return null;
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
+            }
         }
 
         private void EnemyHitForwarder(bool killed, int damage, int value, SpriteRenderer[] positions)
