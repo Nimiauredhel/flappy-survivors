@@ -22,7 +22,7 @@ MonoBehaviour:
     speed: 0
     duration: 0.4
     area: 1
-    cooldown: 3
+    cooldown: 2
     name: Battle Axe
     description: Smite foes from above with a short but powerful blow.
   logicComponents:

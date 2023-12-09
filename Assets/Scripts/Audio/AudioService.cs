@@ -81,7 +81,7 @@ namespace Audio
             gameplayMusicInstance.setParameterByName(GAME_PHASE, (int)newPhase, true);
         }
 
-        private EventInstance StartNewEvent(EventReference reference)
+        private static EventInstance StartNewEvent(EventReference reference)
         {
             EventInstance newInstance = RuntimeManager.CreateInstance(reference);
             newInstance.start();

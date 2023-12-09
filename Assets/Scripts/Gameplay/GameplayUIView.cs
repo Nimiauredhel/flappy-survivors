@@ -28,7 +28,7 @@ namespace Gameplay
         
         public void SetFadeAlpha(float value, float duration, float from = -1.0f)
         {
-            if (from != -1.0f)
+            if (Math.Abs(from - (-1.0f)) > float.Epsilon)
             {
                 fadePanel.color = new Color(fadePanel.color.r, fadePanel.color.g, fadePanel.color.b, from);
             }

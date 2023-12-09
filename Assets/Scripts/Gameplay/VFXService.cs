@@ -46,7 +46,7 @@ namespace Gameplay
 
         public void DoCameraShake(float strength)
         {
-            if (cameraShake != null) cameraShake.Kill(true);
+            cameraShake?.Kill(true);
 
             Vector3 strengthVector = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0) * strength;
             cameraShake = gameplayCamera.DOShakePosition(0.25f, strengthVector);
@@ -61,17 +61,32 @@ namespace Gameplay
 
         public async Awaitable RequestExplosionsAt(List<Vector3> positions, bool doLight = true, float stagger = 0.0f)
         {
+            bool doneLight = false;
+            
             foreach (Vector3 position in positions)
             {
                 RequestExplosionAt(position, false);
-                
+
+                if (!doneLight && doLight)
+                {
+                    doneLight = true;
+                    LightForSeconds(3.0f);
+                }
+
                 if (stagger != 0.0f)
                 {
-                    Awaitable.WaitForSecondsAsync(stagger);
+                    await Awaitable.WaitForSecondsAsync(stagger);
+                }
+                else
+                {
+                    await Awaitable.NextFrameAsync();
                 }
             }
             
-            if (doLight) LightForSeconds(2.0f);
+            if (doLight)
+            {
+                LightForSeconds(3.0f);
+            }
         }
 
         public void RequestDamageTextAt(int damage, Vector2 position)
@@ -81,10 +96,9 @@ namespace Gameplay
 
         private async void ServeExplosionAsync(Vector2 position)
         {
-            GameObject explosion;
-            pooledExplosions.Get(out explosion);
+            pooledExplosions.Get(out var explosion);
 
-            if (explosion != null)
+            if (explosion)
             {
                 explosion.transform.position = position;
                 explosion.SetActive(true);
@@ -98,10 +112,7 @@ namespace Gameplay
 
         public void LightForSeconds(float duration)
         {
-            if (materialEmission != null)
-            {
-                materialEmission.Kill();
-            }
+            materialEmission?.Kill();
 
             config.SharedSpriteMaterial.SetFloat(config.EmissionHash, baselineEmission + 0.25f);
             materialEmission = config.SharedSpriteMaterial.DOFloat(baselineEmission, config.EmissionHash, duration);
@@ -109,8 +120,7 @@ namespace Gameplay
 
         private async void ServeDamageTextAsync(int damage, Vector2 position)
         {
-            TextMeshPro damageText;
-            pooledDamageText.Get(out damageText);
+            pooledDamageText.Get(out TextMeshPro damageText);
             Vector2 targetPosition = position + new Vector2(Random.Range(-0.75f, 0.75f), Random.Range(-0.75f, 0.75f));
 
             if (damageText != null)
@@ -137,17 +147,15 @@ namespace Gameplay
 
         private GameObject CreateExplosion()
         {
-            GameObject explosion = Object.Instantiate(config.ExplosionPrefab);
+            GameObject explosion = Object.Instantiate(config.ExplosionPrefab, vfxParent);
             explosion.SetActive(false);
-            explosion.transform.SetParent(vfxParent);
             return explosion;
         }
         
         private TextMeshPro CreateDamageText()
         {
-            TextMeshPro damageText = Object.Instantiate(config.DamageTextPrefab);
+            TextMeshPro damageText = Object.Instantiate(config.DamageTextPrefab, vfxParent);
             damageText.gameObject.SetActive(false);
-            damageText.transform.SetParent(vfxParent);
             return damageText;
         }
     }

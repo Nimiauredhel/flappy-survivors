@@ -11,7 +11,7 @@ public static class Constants
     {
         @"mm\:ss",
         @"m\:ss",
-        @"%s"
+        "%s"
     };
     
     public static float MapFloat(float originalMin, float originalMax, float targetMin, float targetMax, float originalValue)

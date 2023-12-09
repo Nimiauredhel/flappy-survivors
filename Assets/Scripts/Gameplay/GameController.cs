@@ -24,6 +24,8 @@ namespace Gameplay
 {
     public class GameController : IStartable, ITickable, IFixedTickable, IDisposable
     {
+        private static readonly Vector3[] upgradePickupPositions = new[] { new Vector3(25.0f, 7.7f), new Vector3(25.0f, 1.2f), new Vector3(25.0f, -5.3f) };
+        
         [Inject] private readonly EnemiesController enemiesController;
         [Inject] private readonly PickupsController pickupsController;
         [Inject] private readonly PlayerController playerController;
@@ -37,8 +39,8 @@ namespace Gameplay
         private UpgradeTree upgradeTree;
         private BurstDefinition bossBurstDefinition;
         
-        private Stack<PickupDropOrder> comboBalloon = new Stack<PickupDropOrder>(32);
-
+        private readonly Stack<PickupDropOrder> comboBalloon = new Stack<PickupDropOrder>(16);
+        
         #region Life Cycle
 
         public async void Start()
@@ -64,7 +66,10 @@ namespace Gameplay
             
             AudioService.Instance.PlayGameplayMusic();
             TimerRoutine();
+            
+            #if UNITY_EDITOR
             InitializeTerminalCommands();
+            #endif
 
             await Awaitable.NextFrameAsync();
             
@@ -120,9 +125,9 @@ namespace Gameplay
             levelDirector.playableAsset = timeline;
             PlayableBinding[] bindings = timeline.outputs.ToArray();
 
-            for (int i = 0; i < bindings.Length; i++)
+            foreach (PlayableBinding t in bindings)
             {
-                levelDirector.SetGenericBinding(bindings[i].sourceObject, burstSignalReceiver);
+                levelDirector.SetGenericBinding(t.sourceObject, burstSignalReceiver);
             }
 
             Object.Instantiate(levelConfig.BackgroundAsset);
@@ -149,12 +154,12 @@ namespace Gameplay
             {
                 List<Vector3> vectorPositions = new List<Vector3>(positions.Length);
 
-                for (int i = 0; i < positions.Length; i++)
+                foreach (SpriteRenderer t in positions)
                 {
-                    vectorPositions.Add(positions[i].transform.position);
+                    vectorPositions.Add(t.transform.position);
                 }
                 
-                vfxService.RequestExplosionsAt(vectorPositions, true, 0.4f);
+                _ = vfxService.RequestExplosionsAt(vectorPositions, true, 0.4f);
                 AudioService.Instance.PlayEnemyDestroyed();
                 playerController.HandleEnemyKilled();
 
@@ -196,11 +201,9 @@ namespace Gameplay
             
             pickupsController.SpawnPickups(pickupsToDrop, comboModifier);
         }
-
+        
         private async void LevelUpHandler(int newLevel)
         {
-            float refY = Camera.main.transform.position.y;
-            Vector3[] positions = new[] { new Vector3(25.0f, refY + 6.7f), new Vector3(25.0f, refY + 0.2f), new Vector3(25.0f, refY - 6.3f) };
             List<UpgradeOption> allCurrentOptions = upgradeTree.GetAllCurrentOptions(newLevel);
             Stack<PickupDropOrder> shortList = new Stack<PickupDropOrder>(4);
             
@@ -209,37 +212,36 @@ namespace Gameplay
                 if (allCurrentOptions.Count <= 0) break;
                 
                 UpgradeOption option = allCurrentOptions[Random.Range(0, allCurrentOptions.Count)];
-                shortList.Push(new PickupDropOrder(option, PickupType.Upgrade, positions[i]));
+                shortList.Push(new PickupDropOrder(option, PickupType.Upgrade, upgradePickupPositions[i]));
                 allCurrentOptions.Remove(option);
             }
 
-            if (shortList.Count > 0)
-            {
-                gameModel.SetGamePhase(GamePhase.UpgradePhase);
-                vfxService.ChangeBaselineEmission(3.0f);
+            if (shortList.Count <= 0) return;
             
-                AudioService.Instance.PlayLevelUp();
-                uiView.SetCanvasAlpha(0.0f, 0.5f);
+            gameModel.SetGamePhase(GamePhase.UpgradePhase);
+            vfxService.ChangeBaselineEmission(3.0f);
+            
+            AudioService.Instance.PlayLevelUp();
+            uiView.SetCanvasAlpha(0.0f, 0.5f);
                 
-                List<Vector3> purgePositions = pickupsController.PurgeAllPickups(PickupType.XP);
-                purgePositions.AddRange(enemiesController.PurgeAllEnemies());
+            List<Vector3> purgePositions = pickupsController.PurgeAllPickups(PickupType.XP);
+            purgePositions.AddRange(enemiesController.PurgeAllEnemies());
                 
-                _ = vfxService.RequestExplosionsAt(purgePositions);
+            _ = vfxService.RequestExplosionsAt(purgePositions);
                 
-                vfxService.DoCameraShake(purgePositions.Count * 0.1f);
+            vfxService.DoCameraShake(purgePositions.Count * 0.1f);
                 
-                DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0.3f, 0.3f);
-                await Awaitable.WaitForSecondsAsync(0.3f);
-                DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1.0f, 0.3f);
+            DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0.3f, 0.3f);
+            await Awaitable.WaitForSecondsAsync(0.3f);
+            DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1.0f, 0.3f);
                 
-                ScrolledObjectView[] upgradePickups = pickupsController.SpawnAndReturnPickups(shortList, 0.0f);
+            ScrolledObjectView[] upgradePickups = pickupsController.SpawnAndReturnPickups(shortList, 0.0f);
 
-                Action finishUpgradeAction = delegate { FinishUpgradePhase(upgradePickups, purgePositions); };
+            Action finishUpgradeAction = delegate { FinishUpgradePhase(upgradePickups, purgePositions); };
             
-                for (int i = 0; i < upgradePickups.Length; i++)
-                {
-                    upgradePickups[i].Deactivated += finishUpgradeAction;
-                }
+            foreach (ScrolledObjectView t in upgradePickups)
+            {
+                t.Deactivated += finishUpgradeAction;
             }
         }
 
@@ -259,11 +261,11 @@ namespace Gameplay
             
             pickupsController.SpawnPickups(healthDrops, 1.0f);
             
-            for (int i = 0; i < upgradePickups.Length; i++)
+            foreach (ScrolledObjectView t in upgradePickups)
             {
-                if (upgradePickups[i].Active)
+                if (t.Active)
                 {
-                    upgradePickups[i].Deactivate();
+                    _ = t.Deactivate();
                 }
             }
         }
@@ -272,8 +274,7 @@ namespace Gameplay
         {
             uiView.SetCanvasAlpha(0.0f, 2.5f);
             
-            List<Vector3> positions = new List<Vector3>();
-            positions = pickupsController.PurgeAllPickups();
+            List<Vector3> positions = pickupsController.PurgeAllPickups();
             
             if (GameModel.Won)
             {
@@ -282,7 +283,7 @@ namespace Gameplay
             
             gameModel.SetGamePhase(GameModel.Won ? GamePhase.YouWin : GamePhase.GameOver);
             
-            vfxService.RequestExplosionsAt(positions);
+            _ = vfxService.RequestExplosionsAt(positions);
             
             GameOverRoutine();
         }
@@ -342,6 +343,7 @@ namespace Gameplay
                     uiView.ShowGameOverMessage("You Died", 5.0f);
                     levelDirector.Stop();
                     break;
+                case GamePhase.None:
                 default:
                     throw new ArgumentOutOfRangeException(nameof(newPhase), newPhase, null);
             }
@@ -372,11 +374,8 @@ namespace Gameplay
             await vfxService.RequestExplosionsAt(enemiesController.PurgeAllEnemies(), true, 0.5f);
             AudioService.Instance.PlayLevelUp();
             
-            Debug.Log("Beginning boss routine.");
             bool bossDefeated = false;
             List<ScrolledObjectView> bossEnemies = await enemiesController.RequestEnemyBurstAndList(bossBurstDefinition);
-            
-            Debug.Log("Spawned " + bossEnemies.Count + " boss enemies.");
             
             while (!bossDefeated && !playerController.PlayerIsDead)
             {
@@ -394,21 +393,19 @@ namespace Gameplay
                 }
             }
             
-            Debug.Log("Boss routine concluding.");
-            
             if (bossDefeated && !playerController.PlayerIsDead)
             {
                 gameModel.SetWonGame();
                 GameOver();
             }
         }
-
+        
+        #if UNITY_EDITOR
         private void InitializeTerminalCommands()
         {
             Terminal.Shell.AddCommand("phase", delegate(CommandArg[] args)
             {
-                GamePhase phase;
-                GamePhase.TryParse(args[0].String, out phase);
+                Enum.TryParse(args[0].String, out GamePhase phase);
                 gameModel.SetGamePhase(phase);
             });
             Terminal.Shell.AddCommand("gameover", delegate { GameOver(); });
@@ -420,5 +417,6 @@ namespace Gameplay
                     
                 });
         }
+        #endif
     }
 }

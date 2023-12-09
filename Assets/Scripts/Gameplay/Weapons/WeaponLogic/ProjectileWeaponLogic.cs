@@ -1,8 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using Gameplay.ScrolledObjects;
 using JetBrains.Annotations;
 using UnityEngine;
