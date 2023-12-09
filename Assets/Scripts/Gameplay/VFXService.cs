@@ -19,15 +19,20 @@ namespace Gameplay
         private ObjectPool<TextMeshPro> pooledDamageText;
 
         private float baselineEmission = 1.0f;
+        private float baselineContrastRange = 1.0f;
         
         private Camera gameplayCamera;
         private Tween cameraShake = null;
-        private Tween materialEmission = null;
+        private Tween materialEmissionTween = null;
+        private Tween materialContrastTween = null;
 
         public void Initialize()
         {
-            baselineEmission = 1.0f;
-            config.SharedSpriteMaterial.SetFloat(config.EmissionHash, config.InitialBaselineEmission);
+            baselineEmission = config.InitialBaselineEmission;
+            config.SharedSpriteMaterial.SetFloat(config.EmissionHash, baselineEmission);
+            baselineContrastRange = config.InitialBaselineContrastRange;
+            config.SharedSpriteMaterial.SetFloat(config.ContrastRangeHash, baselineContrastRange);
+            
             gameplayCamera = Camera.main;
             cameraShake = DOTween.Sequence();
             pooledExplosions = new ObjectPool<GameObject>(CreateExplosion);
@@ -43,6 +48,12 @@ namespace Gameplay
         {
             baselineEmission = newValue;
             config.SharedSpriteMaterial.DOFloat(baselineEmission, config.EmissionHash, config.EmissionChangeDelay);
+        }
+        
+        public void ChangeBaselineContrastRange(float newValue)
+        {
+            baselineContrastRange = newValue;
+            config.SharedSpriteMaterial.DOFloat(baselineContrastRange, config.ContrastRangeHash, config.ContrastRangeChangeDelay);
         }
 
         public void DoCameraShake(float strength)
@@ -115,10 +126,18 @@ namespace Gameplay
 
         public void LightForSeconds(float duration)
         {
-            materialEmission?.Kill();
+            materialEmissionTween?.Kill();
 
             config.SharedSpriteMaterial.SetFloat(config.EmissionHash, baselineEmission + 0.25f);
-            materialEmission = config.SharedSpriteMaterial.DOFloat(baselineEmission, config.EmissionHash, duration);
+            materialEmissionTween = config.SharedSpriteMaterial.DOFloat(baselineEmission, config.EmissionHash, duration);
+        }
+
+        public void ContrastForSeconds(float duration)
+        {
+            materialContrastTween?.Kill();
+
+            config.SharedSpriteMaterial.SetFloat(config.ContrastRangeHash, baselineContrastRange + 1.0f);
+            materialContrastTween = config.SharedSpriteMaterial.DOFloat(baselineContrastRange, config.ContrastRangeHash, duration);
         }
 
         private async void ServeDamageTextAsync(int damage, Vector2 position)

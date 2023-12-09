@@ -225,6 +225,7 @@ namespace Gameplay
             if (shortList.Count <= 0) return;
             
             gameModel.SetGamePhase(GamePhase.UpgradePhase);
+            vfxService.ChangeBaselineContrastRange(1.12f);
             vfxService.ChangeBaselineEmission(3.0f);
             
             AudioService.Instance.PlayLevelUp();
@@ -259,6 +260,7 @@ namespace Gameplay
 
             gameModel.SetGamePhase(GamePhase.HordePhase);
             vfxService.ChangeBaselineEmission(1.0f);
+            vfxService.ChangeBaselineContrastRange(1.0f);
             
             Stack<PickupDropOrder> healthDrops = new Stack<PickupDropOrder>();
             
