@@ -78,10 +78,14 @@ namespace Gameplay
             await Awaitable.WaitForSecondsAsync(0.25f);
             
             uiView.SetFadeAlpha(0.0f, 2.0f);
+            uiView.PauseButtonClicked.AddListener(gameModel.TogglePause);
+            gameModel.GameSetPaused += GameSetPausedHandler;
         }
 
         public void Tick()
         {
+            if (GameModel.Paused) return;
+            
             playerController.DoUpdate();
             enemiesController.DoUpdate();
             pickupsController.DoUpdate();
@@ -91,6 +95,8 @@ namespace Gameplay
 
         public void FixedTick()
         {
+            if (GameModel.Paused) return;
+            
             playerController.DoFixedUpdate();
             enemiesController.DoFixedUpdate();
             pickupsController.DoFixedUpdate();
@@ -230,10 +236,12 @@ namespace Gameplay
             _ = vfxService.RequestExplosionsAt(purgePositions);
                 
             vfxService.DoCameraShake(purgePositions.Count * 0.1f);
-                
+
+            gameModel.SetCanPause(false);
             DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0.3f, 0.3f);
             await Awaitable.WaitForSecondsAsync(0.3f);
             DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1.0f, 0.3f);
+            gameModel.SetCanPause(true);
                 
             ScrolledObjectView[] upgradePickups = pickupsController.SpawnAndReturnPickups(shortList, 0.0f);
 
@@ -305,6 +313,13 @@ namespace Gameplay
             loading.allowSceneActivation = true;
         }
 
+        private void GameSetPausedHandler(bool value)
+        {
+            Time.timeScale = value ? 0.0f : 1.0f;
+            uiView.SetShowPausePanel(value);
+            AudioService.Instance.HandleSetPaused(value);
+        }
+
         private void PlayerStartedMovingHandler()
         {
             gameModel.SetGamePhase(GamePhase.HordePhase);
@@ -332,12 +347,14 @@ namespace Gameplay
                     _ = BossRoutine();
                     break;
                 case GamePhase.YouWin:
+                    gameModel.SetCanPause(false);
                     uiView.SetCanvasAlpha(0.0f, 5.0f);
                     uiView.SetFadeAlpha(1.0f, 10.0f);
                     uiView.ShowGameOverMessage("You Won", 10.0f);
                     levelDirector.Stop();
                     break;
                 case GamePhase.GameOver:
+                    gameModel.SetCanPause(false);
                     uiView.SetCanvasAlpha(0.0f, 1.5f);
                     uiView.SetFadeAlpha(1.0f, 5.5f);
                     uiView.ShowGameOverMessage("You Died", 5.0f);
@@ -348,14 +365,14 @@ namespace Gameplay
                     throw new ArgumentOutOfRangeException(nameof(newPhase), newPhase, null);
             }
         }
-        
+
         private async void TimerRoutine()
         {
             await Awaitable.WaitForSecondsAsync(1);
             
             while (GameModel.TimeLeft > 0)
             {
-                while (GameModel.CurrentGamePhase != GamePhase.HordePhase)
+                while (GameModel.Paused || GameModel.CurrentGamePhase != GamePhase.HordePhase)
                 {
                     await Awaitable.NextFrameAsync();
                 }
@@ -377,10 +394,12 @@ namespace Gameplay
             await Awaitable.NextFrameAsync();
             
             await vfxService.RequestExplosionsAt(enemiesController.PurgeAllEnemies(), true, 0.05f, 0.01f);
-            
+
+            gameModel.SetCanPause(false);
             DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0.3f, 0.3f);
             await Awaitable.WaitForSecondsAsync(0.3f);
             DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1.0f, 0.3f);
+            gameModel.SetCanPause(true);
             
             bool bossDefeated = false;
             List<ScrolledObjectView> bossEnemies = await enemiesController.RequestEnemyBurstAndList(bossBurstDefinition);

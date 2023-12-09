@@ -8,11 +8,40 @@ namespace Gameplay
 {
     public class GameplayUIView : MonoBehaviour
     {
+        public Button.ButtonClickedEvent PauseButtonClicked
+        {
+            get
+            {
+                if (pauseButtonClicked == null)
+                {
+                    pauseButtonClicked = new Button.ButtonClickedEvent();
+
+                    foreach (Button button in pauseButtons)
+                    {
+                        button.onClick.AddListener(pauseButtonClicked.Invoke);
+                    }
+                }
+
+                return pauseButtonClicked;
+            }
+        }
+
         [SerializeField] private CanvasGroup mainCanvasGroup;
         [SerializeField] private Image fadePanel;
         [SerializeField] private TextMeshProUGUI timerText;
 
         [SerializeField] private TextMeshProUGUI gameOverMessage;
+
+        [SerializeField] private GameObject pausePanel;
+        
+        [SerializeField] private Button[] pauseButtons;
+
+        private Button.ButtonClickedEvent pauseButtonClicked = null;
+
+        public void SetShowPausePanel(bool value)
+        {
+            pausePanel.gameObject.SetActive(value);
+        }
 
         public void SetCanvasAlpha(float value, float duration)
         {

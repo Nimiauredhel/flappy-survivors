@@ -29,6 +29,11 @@ namespace Audio
             Instance = this;
         }
 
+        public void HandleSetPaused(bool value)
+        {
+            gameplayMusicInstance.setParameterByName("Paused", value ? 1 : 0);
+        }
+
         public void PlayGameplayMusic()
         {
             gameplayMusicInstance = StartNewEvent(gameplayMusicReference);
