@@ -371,10 +371,16 @@ namespace Gameplay
 
         private async Awaitable BossRoutine()
         {
-            enemiesController.CancelAllOngoingBursts();
-            await Awaitable.NextFrameAsync();
-            await vfxService.RequestExplosionsAt(enemiesController.PurgeAllEnemies(), true, 0.5f);
             AudioService.Instance.PlayLevelUp();
+            enemiesController.CancelAllOngoingBursts();
+
+            await Awaitable.NextFrameAsync();
+            
+            await vfxService.RequestExplosionsAt(enemiesController.PurgeAllEnemies(), true, 0.05f, 0.01f);
+            
+            DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0.3f, 0.3f);
+            await Awaitable.WaitForSecondsAsync(0.3f);
+            DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1.0f, 0.3f);
             
             bool bossDefeated = false;
             List<ScrolledObjectView> bossEnemies = await enemiesController.RequestEnemyBurstAndList(bossBurstDefinition);
