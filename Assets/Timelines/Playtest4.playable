@@ -17,10 +17,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-9176407303234736247
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -38,10 +40,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 3
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-8912670451600290225
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -59,10 +63,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-8675535488003115757
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -80,10 +86,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-8666076029068596702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,31 +109,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
---- !u!114 &-8597203808683349900
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 117
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 1
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-8581566370296339032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,31 +132,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
---- !u!114 &-8446035640073755642
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter(Clone)
-  m_EditorClassIdentifier: 
-  m_Time: 30.05
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 2
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-8374511256096501008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,10 +155,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-8372793398251273551
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,10 +178,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-8325074864063849789
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,10 +201,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 3
     pathId: 2
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-8232935971490241423
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -248,10 +224,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-8108816163726622647
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,10 +247,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-8048308534146957319
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -290,10 +270,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-7967923854037754158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -306,15 +288,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
   m_Name: Burst Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 103.16666666666666
+  m_Time: 102.05
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
+--- !u!114 &-7801847912277806677
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 27.01666666666667
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 4
+    enemyAmount: 1
+    pathId: 2
+    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-7618213992308955408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -332,10 +339,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
-    enemyAmount: 10
+    enemyAmount: 8
     pathId: 3
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &-7556996972865302188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -353,31 +362,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 16
     enemySpawnGap: 0.1
---- !u!114 &-7538213359059689778
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 250.29999999999998
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 10
-    pathId: 3
-    enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-7531374599977873097
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -395,10 +385,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 13
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &-7414557453718418484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -416,10 +408,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-7365520600722033130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -437,10 +431,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 3
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-7341366353100328541
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -458,10 +454,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-7328465771379878094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -479,10 +477,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 1
-    enemyAmount: 25
+    enemyAmount: 10
     pathId: 1
-    enemySpawnGap: 0.51
+    enemySpawnGap: 1.5
+    speedOverride: 0
 --- !u!114 &-7308128227925411095
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -500,31 +500,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
---- !u!114 &-7306454783283952027
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 30.05
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 1
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-7267790687910853144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -542,10 +523,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-7176944419577115495
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -563,10 +546,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 30
     pathId: 2
     enemySpawnGap: 0.26
+    speedOverride: 0
 --- !u!114 &-7076327913068551830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -584,10 +569,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-7017800348873927603
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -605,31 +592,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
---- !u!114 &-6941251004180494973
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 260.29999999999995
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 0
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6844757708507581616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -647,31 +615,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
---- !u!114 &-6774445914690118478
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter(Clone)
-  m_EditorClassIdentifier: 
-  m_Time: 264.85
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 25
-    pathId: 2
-    enemySpawnGap: 0.23
+    speedOverride: 0
 --- !u!114 &-6769622829800169375
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -689,10 +638,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
-    enemyAmount: 10
+    enemyAmount: 8
     pathId: 3
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &-6754584712165671780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -710,10 +661,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6733414086144028997
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -731,31 +684,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 16
     enemySpawnGap: 0.2
---- !u!114 &-6703786715046064615
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 113.01666666666667
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 2
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6651563575444444013
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -773,10 +707,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6645366334349206047
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -794,10 +730,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 0
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-6598407264229448272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -815,10 +753,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6545102881726705839
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -836,10 +776,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6218988526130878879
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -857,10 +799,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6117268341481576460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -878,10 +822,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 1
+    noRotation: 0
+    enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6097863591961846627
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -899,10 +845,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 14
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6075407212128273873
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -920,10 +868,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6060833149002870281
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -941,10 +891,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 1
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6037942377162186573
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -962,10 +914,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6035814601961330692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -999,10 +953,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 15
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &-6021729852912217508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1020,10 +976,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-5964619187760168428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1041,10 +999,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-5938640928325837735
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1062,10 +1022,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 2
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-5761760693145696293
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1083,10 +1045,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-5694858334500071645
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1104,10 +1068,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 12
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-5673571427135240275
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1125,10 +1091,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-5652510677149530864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1146,10 +1114,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-5611186134078365120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1167,10 +1137,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 15
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &-5575701053316813014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1188,10 +1160,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 13
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &-5446015568401530689
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1209,10 +1183,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 14
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-5444152505050952359
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1230,10 +1206,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 1
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-5279565808992704061
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1251,10 +1229,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 15
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-5186361317447227055
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1272,10 +1252,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-5169084319299831072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1293,10 +1275,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 1
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-5012462325311812190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1314,10 +1298,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 10
     pathId: 0
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-4959619474398065238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1335,10 +1321,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4862880011290850049
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1363,11 +1351,9 @@ MonoBehaviour:
   m_Markers:
     m_Objects:
     - {fileID: -1759538440198409129}
-    - {fileID: 6644026950410683699}
     - {fileID: -1484065362871814173}
     - {fileID: -3170053772111959758}
     - {fileID: 7515147156746822114}
-    - {fileID: 6054018677183133763}
     - {fileID: 6477682555991353211}
     - {fileID: -3122052090873680545}
     - {fileID: -1835509685089051478}
@@ -1384,16 +1370,11 @@ MonoBehaviour:
     - {fileID: 5972677764504371107}
     - {fileID: -3327952726864822652}
     - {fileID: -8108816163726622647}
-    - {fileID: 8289455399126400257}
     - {fileID: -5186361317447227055}
-    - {fileID: -3696658789976539220}
     - {fileID: -540023712758734911}
-    - {fileID: 1132354292794402763}
     - {fileID: -8372793398251273551}
-    - {fileID: -3544564634497537915}
     - {fileID: -4045614641544226817}
     - {fileID: -7267790687910853144}
-    - {fileID: 2719917569046143757}
     - {fileID: -5169084319299831072}
     - {fileID: 4122067014045286785}
     - {fileID: 42153775913280141}
@@ -1409,16 +1390,11 @@ MonoBehaviour:
     - {fileID: -7414557453718418484}
     - {fileID: 6792004405860242807}
     - {fileID: -5444152505050952359}
-    - {fileID: -2397416064449337514}
     - {fileID: -3122983827392510528}
     - {fileID: -1289950129205634907}
     - {fileID: 2595866847497445170}
     - {fileID: -8232935971490241423}
-    - {fileID: -6703786715046064615}
     - {fileID: -9195253847607604992}
-    - {fileID: 6193664693717704644}
-    - {fileID: 6217094450235802399}
-    - {fileID: -1055807324410085299}
     - {fileID: 184413805042122884}
     - {fileID: -4331413786383137880}
     - {fileID: -3871958584194957234}
@@ -1433,25 +1409,20 @@ MonoBehaviour:
     - {fileID: 4959854554897461154}
     - {fileID: 8231621005578106256}
     - {fileID: 1798847835555814343}
-    - {fileID: 5366947164654624199}
     - {fileID: -8675535488003115757}
-    - {fileID: 3737633971757906285}
     - {fileID: -8666076029068596702}
     - {fileID: 1742433346605733067}
     - {fileID: -4760102142929925348}
     - {fileID: -1280623427425735975}
     - {fileID: 2609825597089038256}
     - {fileID: -704034114216582184}
-    - {fileID: 3769366365682618588}
     - {fileID: 204388541356430854}
     - {fileID: 6176526421105828465}
     - {fileID: -2227631452003355136}
     - {fileID: -5938640928325837735}
     - {fileID: 3231566976740388856}
     - {fileID: -3530876424302263574}
-    - {fileID: 8116256898296461084}
     - {fileID: -4484866738532381883}
-    - {fileID: 1408389327634458946}
     - {fileID: -8048308534146957319}
     - {fileID: -4240870570474988774}
     - {fileID: -3208917834542410546}
@@ -1466,7 +1437,6 @@ MonoBehaviour:
     - {fileID: 9142396759595299338}
     - {fileID: 5620704437299577774}
     - {fileID: -3571280544402163502}
-    - {fileID: -6941251004180494973}
     - {fileID: 7831928907695494918}
     - {fileID: 4352804970102594946}
     - {fileID: 8137983578660032560}
@@ -1475,7 +1445,6 @@ MonoBehaviour:
     - {fileID: 6735180626690217209}
     - {fileID: -1701415099020035141}
     - {fileID: 6706138717598706293}
-    - {fileID: 5940608853249835858}
 --- !u!114 &-4818308307374377143
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1493,10 +1462,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4777502331603380435
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1514,10 +1485,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4760102142929925348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1535,10 +1508,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 4
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4661429373600469304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1556,10 +1531,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 13
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &-4574701312095569195
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1577,10 +1554,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4484866738532381883
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1598,10 +1577,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4478016876263341060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1619,10 +1600,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 1
-    enemyAmount: 10
+    enemyAmount: 8
     pathId: 2
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &-4452989718851322807
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1683,10 +1666,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4396242050237634822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1704,10 +1689,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4331413786383137880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1725,10 +1712,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 10
     pathId: 2
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &-4240870570474988774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1746,10 +1735,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4204344639526902022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1767,10 +1758,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 6
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4133691887904255517
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1788,10 +1781,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 13
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4133252756198778840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1809,10 +1804,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 16
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-4123856158285681179
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1830,10 +1827,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4112337966945871652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1851,10 +1850,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4045614641544226817
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1872,10 +1873,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3871958584194957234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1893,10 +1896,35 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 2
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
+    speedOverride: 0
+--- !u!114 &-3866019811292722581
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 25
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 0
+    enemyAmount: 1
+    pathId: 2
+    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3855165655182247361
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1914,10 +1942,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3853850111196450823
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1935,10 +1965,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3738253506447254266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1956,10 +1988,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 14
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &-3731050972110621583
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1977,31 +2011,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 15
     enemySpawnGap: 0.2
---- !u!114 &-3696658789976539220
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 25
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 2
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3587105509206982075
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2019,10 +2034,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3571280544402163502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2040,31 +2057,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 10
     pathId: 2
     enemySpawnGap: 0.2
---- !u!114 &-3544564634497537915
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 28.983333333333334
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 2
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3530876424302263574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2082,10 +2080,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3493365512978783369
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2103,10 +2103,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3358982130405463651
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2124,10 +2126,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 15
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &-3327952726864822652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2145,52 +2149,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 10
     pathId: 2
     enemySpawnGap: 0.2
---- !u!114 &-3288037275610696723
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 201.26666666666665
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 1
-    enemySpawnGap: 0
---- !u!114 &-3247805182939781607
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 262.29999999999995
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 1
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3208917834542410546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2208,10 +2172,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3170053772111959758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2229,10 +2195,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3146216794187264719
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2250,10 +2218,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3125790783410001126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2271,10 +2241,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3122983827392510528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2292,10 +2264,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 2
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-3122052090873680545
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2313,10 +2287,35 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
+--- !u!114 &-3048212264837615375
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 28.983333333333334
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 0
+    enemyAmount: 1
+    pathId: 2
+    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-2988502426780598082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2334,10 +2333,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 14
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-2846970617552910631
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2355,10 +2356,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-2719466963671425961
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2376,52 +2379,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
-    enemyAmount: 10
+    enemyAmount: 8
     pathId: 2
-    enemySpawnGap: 0.2
---- !u!114 &-2693868668943502666
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 25
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 1
-    enemySpawnGap: 0
---- !u!114 &-2687623615682438033
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 23.033333333333335
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 1
-    enemySpawnGap: 0
+    enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &-2671713749664932028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2439,10 +2402,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 1
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-2466146027471115825
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2460,10 +2425,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-2445285391444364652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2481,73 +2448,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 13
     enemySpawnGap: 0
---- !u!114 &-2397416064449337514
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 106.06666666666666
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 3
-    pathId: 2
-    enemySpawnGap: 0.2
---- !u!114 &-2321647468911025350
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 291.9
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 1
-    enemyAmount: 25
-    pathId: 1
-    enemySpawnGap: 0.54
---- !u!114 &-2308606982971241526
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 203.23333333333332
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 1
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-2227631452003355136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2565,10 +2471,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 2
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-2195511040027109667
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2586,10 +2494,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 1
     enemyAmount: 5
     pathId: 3
     enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &-2149427301980924839
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2607,10 +2517,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 1
-    enemyAmount: 25
+    enemyAmount: 15
     pathId: 2
-    enemySpawnGap: 0.52
+    enemySpawnGap: 1
+    speedOverride: 0
 --- !u!114 &-2130585337492166496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2628,10 +2540,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-2075066126058740284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2649,10 +2563,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 1
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-1835509685089051478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2670,10 +2586,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-1759538440198409129
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2712,10 +2630,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 4
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-1710003528092894293
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2733,10 +2653,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 14
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-1701415099020035141
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2754,10 +2676,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 25
     pathId: 0
     enemySpawnGap: 0.24
+    speedOverride: 0
 --- !u!114 &-1639685301766677937
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2775,10 +2699,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-1484065362871814173
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2796,10 +2722,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-1476842666966731671
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2817,10 +2745,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 13
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-1427268981060206875
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2838,10 +2768,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 8
     pathId: 1
     enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &-1426594163297915327
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2859,10 +2791,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 3
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-1360000140405224332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2880,10 +2814,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 25
     pathId: 1
     enemySpawnGap: 0.22
+    speedOverride: 0
 --- !u!114 &-1303418928299358519
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2901,10 +2837,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-1289950129205634907
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2922,10 +2860,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-1280623427425735975
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2943,10 +2883,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 1
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-1205482615626627887
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2964,52 +2906,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
---- !u!114 &-1166704573030957521
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 27.01666666666667
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 1
-    enemySpawnGap: 0
---- !u!114 &-1055807324410085299
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 117
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 2
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-926391222366322225
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3027,10 +2929,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-891757894691453077
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3048,10 +2952,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-890317181677965577
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3069,10 +2975,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 1
     enemyAmount: 10
     pathId: 3
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &-704034114216582184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3090,10 +2998,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-688536498150767728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3111,10 +3021,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-540023712758734911
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3132,10 +3044,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-518644857484673905
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3153,10 +3067,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 10
     pathId: 0
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-344209957610923764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3174,10 +3090,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-323607685685777866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3195,10 +3113,35 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
+--- !u!114 &-218355278071839364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
+  m_Name: Burst Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 23.033333333333335
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
+  parameter:
+    noRotation: 0
+    enemyId: 0
+    enemyAmount: 1
+    pathId: 2
+    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-187296097600514576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3216,10 +3159,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3261,10 +3206,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &42153775913280141
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3282,10 +3229,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 1
     enemyAmount: 5
     pathId: 2
     enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &142061098234535358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3303,10 +3252,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 1
+    noRotation: 0
+    enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &172461546401475680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3324,10 +3275,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &184413805042122884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3345,10 +3298,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &204388541356430854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3366,10 +3321,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &237033280198118783
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3387,10 +3344,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 2
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &261776980385411235
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3408,10 +3367,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &320230453332069597
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3429,10 +3390,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 16
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &331092195865862759
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3450,10 +3413,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 2
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &349028069197862854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3471,10 +3436,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &368174878022214758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3492,10 +3459,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 16
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &386342192011295674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3513,10 +3482,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 16
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &984920393217170029
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3534,31 +3505,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
---- !u!114 &1132354292794402763
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 27.01666666666667
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 2
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &1163348370429121293
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3576,31 +3528,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
---- !u!114 &1205778687815324776
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 115.03333333333333
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 1
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &1275478887415523641
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3618,31 +3551,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
---- !u!114 &1408389327634458946
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 204.29999999999998
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 0
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &1594349034705105902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3660,10 +3574,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 16
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &1601421182092561034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3681,10 +3597,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 2
     enemyAmount: 2
     pathId: 3
     enemySpawnGap: 2
+    speedOverride: 0
 --- !u!114 &1742433346605733067
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3702,10 +3620,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 6
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &1774655504138260831
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3723,10 +3643,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &1786875598709606263
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3744,10 +3666,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 13
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &1798847835555814343
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3765,10 +3689,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &1871106270584902975
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3786,10 +3712,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &1915056726105418158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3807,10 +3735,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &1967376341349684670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3828,10 +3758,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &2225654824597572003
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3849,10 +3781,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &2595866847497445170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3870,10 +3804,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &2609825597089038256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3891,10 +3827,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &2622853069585181377
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3912,10 +3850,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &2697130205339644592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3933,31 +3873,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 1
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
---- !u!114 &2719917569046143757
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 61.06666666666666
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 11
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &2792813436569726375
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3975,10 +3896,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
-    enemyAmount: 10
+    noRotation: 0
+    enemyId: 4
+    enemyAmount: 8
     pathId: 2
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &2800621124581588015
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3996,10 +3919,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &2887934003429128183
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4017,10 +3942,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &2947801536961994417
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4038,10 +3965,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &3001086758861122714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4059,10 +3988,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 3
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &3027066585507325794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4080,10 +4011,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
-    enemyAmount: 10
+    enemyAmount: 8
     pathId: 3
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &3127991991223839927
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4101,10 +4034,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &3170146781583742743
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4122,10 +4057,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 1
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &3211112986230396760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4143,10 +4080,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &3221794332197960089
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4164,10 +4103,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &3231566976740388856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4185,10 +4126,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &3451498462555603463
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4206,10 +4149,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &3492361220272101656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4227,10 +4172,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 1
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &3638781827126851593
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4248,10 +4195,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &3643583519494097319
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4269,10 +4218,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &3736475820453559083
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4290,52 +4241,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 1
     enemySpawnGap: 0.2
---- !u!114 &3737633971757906285
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 120.06666666666666
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 0
-    enemySpawnGap: 0
---- !u!114 &3769366365682618588
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 192.26666666666665
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 0
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &3806665353719066343
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4353,10 +4264,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 3
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &3909110450582894420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4374,10 +4287,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &3936287641821541949
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4395,10 +4310,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 3
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &4122067014045286785
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4416,10 +4333,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 1
+    noRotation: 0
+    enemyId: 0
     enemyAmount: 5
     pathId: 2
     enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &4156220724456596672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4432,15 +4351,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
   m_Name: Burst Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 220.2833333333333
+  m_Time: 219.03333333333333
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
-    enemyAmount: 10
+    enemyAmount: 8
     pathId: 2
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &4205741148023506214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4458,10 +4379,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &4352804970102594946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4479,31 +4402,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
---- !u!114 &4383017743968948443
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 111.05
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 1
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &4458979417101951343
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4521,10 +4425,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 3
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &4763433159119597246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4542,10 +4448,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &4806423035287184173
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4563,10 +4471,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &4872172677651837318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4584,10 +4494,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &4959854554897461154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4605,10 +4517,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &5081458091357049141
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4626,10 +4540,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &5144189440423309673
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4647,10 +4563,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 3
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &5212355379372462801
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4668,52 +4586,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
---- !u!114 &5265945844463399014
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 113.01666666666667
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 1
-    enemySpawnGap: 0
---- !u!114 &5366947164654624199
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 118.06666666666666
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 0
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &5398935923511943611
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4731,10 +4609,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 25
     pathId: 1
     enemySpawnGap: 0.25
+    speedOverride: 0
 --- !u!114 &5420459436432913217
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4752,10 +4632,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &5489164125546001466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4773,10 +4655,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &5540666210133053017
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4794,31 +4678,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 1
+    noRotation: 0
+    enemyId: 0
     enemyAmount: 5
     pathId: 3
     enemySpawnGap: 0.5
---- !u!114 &5570421033585349665
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 42.05
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 2
-    enemyAmount: 2
-    pathId: 3
-    enemySpawnGap: 2
+    speedOverride: 0
 --- !u!114 &5584679448328921841
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4836,10 +4701,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 13
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &5620704437299577774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4857,10 +4724,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 2
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &5783830166866744092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4878,10 +4747,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &5792434741497190879
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4894,15 +4765,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
   m_Name: Burst Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 220.2833333333333
+  m_Time: 219.03333333333333
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
-    enemyAmount: 10
+    enemyAmount: 8
     pathId: 3
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &5863889579274483439
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4920,10 +4793,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 15
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &5885822367357610952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4941,10 +4816,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &5905528320832142799
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4962,31 +4839,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
---- !u!114 &5940608853249835858
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 291.9
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 1
-    enemyAmount: 25
-    pathId: 0
-    enemySpawnGap: 0.53
+    speedOverride: 0
 --- !u!114 &5942135889481399755
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5004,10 +4862,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &5969329929645401670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5025,10 +4885,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 3
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &5972370823634804473
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5046,10 +4908,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 14
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &5972677764504371107
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5067,10 +4931,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 2
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &5983153653866620050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5094,10 +4960,8 @@ MonoBehaviour:
   m_Clips: []
   m_Markers:
     m_Objects:
-    - {fileID: -7306454783283952027}
     - {fileID: -6651563575444444013}
     - {fileID: 2947801536961994417}
-    - {fileID: 5570421033585349665}
     - {fileID: 1601421182092561034}
     - {fileID: -891757894691453077}
     - {fileID: -5761760693145696293}
@@ -5115,13 +4979,9 @@ MonoBehaviour:
     - {fileID: -7365520600722033130}
     - {fileID: 3806665353719066343}
     - {fileID: -688536498150767728}
-    - {fileID: -2687623615682438033}
     - {fileID: -3493365512978783369}
-    - {fileID: -2693868668943502666}
     - {fileID: 1871106270584902975}
-    - {fileID: -1166704573030957521}
     - {fileID: -7341366353100328541}
-    - {fileID: -6075407212128273873}
     - {fileID: -4818308307374377143}
     - {fileID: -4423324698973549423}
     - {fileID: -926391222366322225}
@@ -5137,19 +4997,14 @@ MonoBehaviour:
     - {fileID: 7107358321736539905}
     - {fileID: -3587105509206982075}
     - {fileID: -1303418928299358519}
-    - {fileID: 7104623220751873949}
     - {fileID: -7967923854037754158}
     - {fileID: 331092195865862759}
     - {fileID: 4458979417101951343}
     - {fileID: 5144189440423309673}
     - {fileID: -6021729852912217508}
-    - {fileID: 4383017743968948443}
     - {fileID: 6707772813931133011}
-    - {fileID: 5265945844463399014}
     - {fileID: 7207465087226803195}
-    - {fileID: 1205778687815324776}
     - {fileID: 5905528320832142799}
-    - {fileID: -8597203808683349900}
     - {fileID: 7256465538093845416}
     - {fileID: 5969329929645401670}
     - {fileID: -890317181677965577}
@@ -5164,9 +5019,7 @@ MonoBehaviour:
     - {fileID: 1163348370429121293}
     - {fileID: 3211112986230396760}
     - {fileID: -7076327913068551830}
-    - {fileID: 7681024685085792377}
     - {fileID: -7308128227925411095}
-    - {fileID: 8084302672940188177}
     - {fileID: 7970236770157717451}
     - {fileID: 5885822367357610952}
     - {fileID: -1724582009229275540}
@@ -5179,11 +5032,8 @@ MonoBehaviour:
     - {fileID: 3936287641821541949}
     - {fileID: -1426594163297915327}
     - {fileID: 2622853069585181377}
-    - {fileID: -3288037275610696723}
     - {fileID: -4204344639526902022}
-    - {fileID: -2308606982971241526}
     - {fileID: 6774136573230252392}
-    - {fileID: 7164266129246594716}
     - {fileID: -5673571427135240275}
     - {fileID: -1205482615626627887}
     - {fileID: -8374511256096501008}
@@ -5195,39 +5045,15 @@ MonoBehaviour:
     - {fileID: 1967376341349684670}
     - {fileID: -2846970617552910631}
     - {fileID: -2130585337492166496}
-    - {fileID: -7538213359059689778}
     - {fileID: -9176407303234736247}
     - {fileID: 4205741148023506214}
     - {fileID: -344209957610923764}
-    - {fileID: -3247805182939781607}
     - {fileID: 5420459436432913217}
     - {fileID: -4123856158285681179}
     - {fileID: 7492341960600913585}
     - {fileID: -1360000140405224332}
     - {fileID: 5398935923511943611}
     - {fileID: -7328465771379878094}
-    - {fileID: -2321647468911025350}
---- !u!114 &6054018677183133763
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 44.05
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 2
-    enemyAmount: 2
-    pathId: 2
-    enemySpawnGap: 3
 --- !u!114 &6176526421105828465
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5245,52 +5071,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
---- !u!114 &6193664693717704644
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 115.03333333333333
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 2
-    enemySpawnGap: 0
---- !u!114 &6217094450235802399
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 116.06666666666666
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 0
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &6477682555991353211
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5308,10 +5094,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &6487034317068059157
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5329,10 +5117,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &6521090103350224537
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5350,10 +5140,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &6591560959677321812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5377,7 +5169,6 @@ MonoBehaviour:
   m_Clips: []
   m_Markers:
     m_Objects:
-    - {fileID: -8446035640073755642}
     - {fileID: -2445285391444364652}
     - {fileID: -7017800348873927603}
     - {fileID: -4661429373600469304}
@@ -5405,31 +5196,12 @@ MonoBehaviour:
     - {fileID: -323607685685777866}
     - {fileID: -1476842666966731671}
     - {fileID: 6521090103350224537}
-    - {fileID: -6774445914690118478}
     - {fileID: -7176944419577115495}
     - {fileID: -2149427301980924839}
-    - {fileID: 7706261429016507273}
---- !u!114 &6644026950410683699
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 30.05
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 0
-    enemySpawnGap: 0
+    - {fileID: -218355278071839364}
+    - {fileID: -3866019811292722581}
+    - {fileID: -7801847912277806677}
+    - {fileID: -3048212264837615375}
 --- !u!114 &6675548091860223437
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5447,10 +5219,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 15
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &6706138717598706293
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5468,10 +5242,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 1
-    enemyAmount: 25
+    enemyAmount: 15
     pathId: 0
-    enemySpawnGap: 0.5
+    enemySpawnGap: 1
+    speedOverride: 0
 --- !u!114 &6707772813931133011
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5489,10 +5265,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &6735180626690217209
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5510,10 +5288,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 25
     pathId: 0
     enemySpawnGap: 0.21
+    speedOverride: 0
 --- !u!114 &6765355432307303857
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5531,10 +5311,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &6774136573230252392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5552,10 +5334,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &6792004405860242807
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5568,15 +5352,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
   m_Name: Burst Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 103.16666666666666
+  m_Time: 106.06666666666666
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7092220505875453446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5594,31 +5380,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 14
     enemySpawnGap: 0.1
---- !u!114 &7104623220751873949
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 102.05
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 1
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7107358321736539905
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5636,31 +5403,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 3
     enemySpawnGap: 0.2
---- !u!114 &7164266129246594716
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 205.25
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 1
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7178382691888694338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5678,10 +5426,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7207465087226803195
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5699,10 +5449,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7256465538093845416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5720,10 +5472,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7302966587547261411
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5741,10 +5495,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7327838822823564712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5762,10 +5518,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 14
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &7372850999335717234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5783,10 +5541,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7386079500501110599
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5804,10 +5564,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 16
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &7492341960600913585
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5825,10 +5587,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7498468401787511692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5846,10 +5610,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7515147156746822114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5867,10 +5633,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 2
     enemyAmount: 2
     pathId: 2
     enemySpawnGap: 3
+    speedOverride: 0
 --- !u!114 &7537332752032655986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5888,10 +5656,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7543952901330861126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5909,10 +5679,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 2
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &7549772319475954459
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5930,52 +5702,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 8
     pathId: 0
     enemySpawnGap: 0.5
---- !u!114 &7681024685085792377
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 118.06666666666666
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 1
-    enemySpawnGap: 0
---- !u!114 &7706261429016507273
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter(Clone)
-  m_EditorClassIdentifier: 
-  m_Time: 291.9
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 1
-    enemyAmount: 25
-    pathId: 2
-    enemySpawnGap: 0.55
+    speedOverride: 0
 --- !u!114 &7830602046109682852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6016,10 +5748,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7927952604637581078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6037,10 +5771,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7970236770157717451
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6058,10 +5794,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &8048553873596694093
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6079,52 +5817,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
---- !u!114 &8084302672940188177
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 120.06666666666666
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 1
-    enemySpawnGap: 0
---- !u!114 &8116256898296461084
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 202.29999999999998
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 0
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &8137983578660032560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6142,10 +5840,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &8231621005578106256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6163,31 +5863,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
---- !u!114 &8289455399126400257
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 23.033333333333335
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 1
-    pathId: 2
-    enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &8318200436798787441
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6205,10 +5886,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &8841529402704081901
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6226,10 +5909,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 1
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &9142396759595299338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6247,10 +5932,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &9150515744278683381
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6268,10 +5955,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &9190549774536189590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6289,7 +5978,9 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0

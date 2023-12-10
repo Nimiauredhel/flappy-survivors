@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     noRotation: 0
-    enemyId: 0
+    enemyId: 4
     enemyAmount: 4
     pathId: 1
     enemySpawnGap: 2
@@ -623,7 +623,7 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
     noRotation: 0
-    enemyId: 0
+    enemyId: 4
     enemyAmount: 2
     pathId: 2
     enemySpawnGap: 1

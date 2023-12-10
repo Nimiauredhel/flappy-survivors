@@ -17,7 +17,7 @@ MonoBehaviour:
   stats:
     weaponType: 2
     power: 1
-    amount: 1
+    amount: 2
     hits: 1
     speed: 17
     duration: 3

@@ -17,10 +17,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-9176407303234736247
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -38,10 +40,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 3
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-8675535488003115757
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -59,10 +63,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-8597203808683349900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -80,10 +86,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-8446035640073755642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,10 +109,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-8366230592339167579
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,10 +132,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 30
     pathId: 1
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &-8232935971490241423
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,10 +155,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-7967923854037754158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,10 +178,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-7556996972865302188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,10 +201,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 16
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &-7531374599977873097
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,10 +224,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 3
     pathId: 13
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &-7414557453718418484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,10 +247,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-7308128227925411095
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -248,10 +270,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-7306454783283952027
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,31 +293,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
---- !u!114 &-7276777815985151939
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 114.91666666666667
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 30
-    pathId: 0
-    enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-7267790687910853144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -311,10 +316,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-7017800348873927603
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -332,10 +339,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6941251004180494973
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -353,10 +362,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6774445914690118478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,10 +385,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 30
     pathId: 2
-    enemySpawnGap: 0.2
+    enemySpawnGap: 1
+    speedOverride: 0
 --- !u!114 &-6733414086144028997
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -395,10 +408,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 16
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-6703786715046064615
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -416,10 +431,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6651563575444444013
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -437,10 +454,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6645366334349206047
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -458,10 +477,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 10
     pathId: 0
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-6598407264229448272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -479,10 +500,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6097863591961846627
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -500,10 +523,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 14
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6075407212128273873
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -521,10 +546,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6060833149002870281
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -542,10 +569,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 1
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6037942377162186573
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -563,10 +592,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-6035814601961330692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -600,10 +631,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 15
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &-6021729852912217508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -621,31 +654,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
---- !u!114 &-5965833714653710380
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter(Clone)
-  m_EditorClassIdentifier: 
-  m_Time: 114.91666666666667
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 30
-    pathId: 2
-    enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-5761760693145696293
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -663,10 +677,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-5694858334500071645
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -684,10 +700,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 15
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-5611186134078365120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -705,10 +723,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 15
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &-5575701053316813014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -726,10 +746,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 13
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &-5446015568401530689
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -747,10 +769,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 14
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-5444152505050952359
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -768,10 +792,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 1
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-5279565808992704061
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -789,10 +815,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 15
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-5169084319299831072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -810,10 +838,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-5012462325311812190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -831,10 +861,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 10
     pathId: 0
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-4862880011290850049
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -905,7 +937,6 @@ MonoBehaviour:
     - {fileID: 7831928907695494918}
     - {fileID: 4352804970102594946}
     - {fileID: 6735180626690217209}
-    - {fileID: -7276777815985151939}
     - {fileID: 7304761777901740297}
 --- !u!114 &-4818308307374377143
 MonoBehaviour:
@@ -924,10 +955,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4661429373600469304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -945,10 +978,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 13
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &-4574701312095569195
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -966,10 +1001,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4452989718851322807
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1030,10 +1067,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4396242050237634822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1051,10 +1090,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4133691887904255517
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1072,10 +1113,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 13
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-4133252756198778840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1093,10 +1136,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 16
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-4045614641544226817
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1114,10 +1159,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3738253506447254266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1135,10 +1182,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 14
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &-3731050972110621583
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1156,10 +1205,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 15
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-3587105509206982075
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1177,10 +1228,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3571280544402163502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1198,10 +1251,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 2
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-3544564634497537915
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1219,10 +1274,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3358982130405463651
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1240,10 +1297,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 15
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &-3247805182939781607
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1261,10 +1320,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3170053772111959758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1282,10 +1343,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3146216794187264719
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1303,10 +1366,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-3122983827392510528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1324,10 +1389,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 2
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-3122052090873680545
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1345,10 +1412,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-2988502426780598082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1366,10 +1435,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 14
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-2445285391444364652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1387,10 +1458,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 13
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-2397416064449337514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1408,10 +1481,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 2
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-2195511040027109667
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1429,10 +1504,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 3
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-2075066126058740284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1450,10 +1527,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 10
     pathId: 1
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-1835509685089051478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1471,10 +1550,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-1759538440198409129
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1513,10 +1594,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 14
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-1484065362871814173
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1534,10 +1617,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-1476842666966731671
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1555,10 +1640,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 13
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-1427268981060206875
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1576,10 +1663,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 10
     pathId: 1
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-1360000140405224332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1597,10 +1686,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 30
     pathId: 1
-    enemySpawnGap: 0.2
+    enemySpawnGap: 1
+    speedOverride: 0
 --- !u!114 &-1303418928299358519
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1618,10 +1709,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-1289950129205634907
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1639,10 +1732,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-1055807324410085299
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1660,10 +1755,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-926391222366322225
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1681,10 +1778,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-891757894691453077
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1702,10 +1801,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-518644857484673905
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1723,10 +1824,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 0
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &-344209957610923764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1744,10 +1847,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-323607685685777866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1765,10 +1870,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &-187296097600514576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1786,10 +1893,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,10 +1940,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 2
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &184413805042122884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1852,10 +1963,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &320230453332069597
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1873,10 +1986,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 16
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &331092195865862759
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1894,10 +2009,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 1
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &349028069197862854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1915,10 +2032,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &368174878022214758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1936,10 +2055,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 16
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &386342192011295674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1957,10 +2078,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 16
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &1205778687815324776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1978,10 +2101,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &1594349034705105902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1999,10 +2124,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 16
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &1601421182092561034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2020,10 +2147,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 3
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &1786875598709606263
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2041,10 +2170,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 13
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &2225654824597572003
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2062,10 +2193,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &2595866847497445170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2083,10 +2216,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &2719917569046143757
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2104,10 +2239,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &2800621124581588015
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2125,10 +2262,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &2947801536961994417
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2146,10 +2285,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &3170146781583742743
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2167,10 +2308,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 1
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &3492361220272101656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2188,10 +2331,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 1
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &3643583519494097319
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2209,10 +2354,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &3736475820453559083
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2230,10 +2377,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 1
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &3737633971757906285
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2251,10 +2400,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &3909110450582894420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2272,10 +2423,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &4122067014045286785
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2293,10 +2446,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 10
     pathId: 2
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &4205741148023506214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2314,10 +2469,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &4352804970102594946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2335,10 +2492,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &4383017743968948443
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2356,10 +2515,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &4458979417101951343
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2377,31 +2538,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 3
     enemySpawnGap: 0.2
---- !u!114 &4817737303776149155
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae4ec1b6ee0415ba4869975d1bae8b4, type: 3}
-  m_Name: Burst Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 114.91666666666667
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
-  parameter:
-    enemyId: 0
-    enemyAmount: 30
-    pathId: 1
-    enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &4872172677651837318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2419,10 +2561,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &5081458091357049141
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2440,10 +2584,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &5144189440423309673
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2461,10 +2607,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 3
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &5265945844463399014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2482,10 +2630,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &5366947164654624199
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2503,10 +2653,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &5540666210133053017
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2524,10 +2676,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 3
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &5570421033585349665
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2545,10 +2699,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 3
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &5584679448328921841
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2566,10 +2722,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 13
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &5863889579274483439
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2587,10 +2745,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 15
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &5905528320832142799
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2608,10 +2768,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &5942135889481399755
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2629,10 +2791,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &5972370823634804473
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2650,10 +2814,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 14
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &5983153653866620050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2723,7 +2889,6 @@ MonoBehaviour:
     - {fileID: -344209957610923764}
     - {fileID: -3247805182939781607}
     - {fileID: -1360000140405224332}
-    - {fileID: 4817737303776149155}
     - {fileID: -8366230592339167579}
 --- !u!114 &6054018677183133763
 MonoBehaviour:
@@ -2742,10 +2907,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 10
     pathId: 2
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &6193664693717704644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2763,10 +2930,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &6217094450235802399
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2784,10 +2953,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &6477682555991353211
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2805,10 +2976,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &6521090103350224537
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2826,10 +2999,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &6591560959677321812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2882,7 +3057,6 @@ MonoBehaviour:
     - {fileID: -1476842666966731671}
     - {fileID: 6521090103350224537}
     - {fileID: -6774445914690118478}
-    - {fileID: -5965833714653710380}
     - {fileID: 8780319832611952711}
 --- !u!114 &6644026950410683699
 MonoBehaviour:
@@ -2901,10 +3075,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &6675548091860223437
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2922,10 +3098,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 15
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &6707772813931133011
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2943,10 +3121,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &6735180626690217209
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2964,10 +3144,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 30
     pathId: 0
-    enemySpawnGap: 0.2
+    enemySpawnGap: 1
+    speedOverride: 0
 --- !u!114 &6765355432307303857
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2985,10 +3167,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &6792004405860242807
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3006,10 +3190,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7092220505875453446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3027,10 +3213,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 3
     pathId: 14
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &7104623220751873949
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3048,10 +3236,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7107358321736539905
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3069,10 +3259,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 3
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &7178382691888694338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3090,10 +3282,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
-    enemyId: 0
+    noRotation: 0
+    enemyId: 4
     enemyAmount: 1
     pathId: 2
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7207465087226803195
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3111,10 +3305,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7256465538093845416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3132,10 +3328,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 12
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7304761777901740297
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3153,10 +3351,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 30
     pathId: 0
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
+    speedOverride: 0
 --- !u!114 &7327838822823564712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3174,10 +3374,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 14
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &7386079500501110599
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3195,10 +3397,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 16
     enemySpawnGap: 0.1
+    speedOverride: 0
 --- !u!114 &7498468401787511692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3216,10 +3420,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7515147156746822114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3237,10 +3443,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 2
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &7537332752032655986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3258,10 +3466,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 0
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7543952901330861126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3279,10 +3489,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 3
     pathId: 2
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &7549772319475954459
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3300,10 +3512,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 10
     pathId: 0
     enemySpawnGap: 0.2
+    speedOverride: 0
 --- !u!114 &7681024685085792377
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3321,10 +3535,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &7830602046109682852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3365,10 +3581,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 11
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &8084302672940188177
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3386,10 +3604,12 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 1
     pathId: 1
     enemySpawnGap: 0
+    speedOverride: 0
 --- !u!114 &8780319832611952711
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3407,7 +3627,9 @@ MonoBehaviour:
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: cce1fc229c782474aa1929d7251055ff, type: 2}
   parameter:
+    noRotation: 0
     enemyId: 0
     enemyAmount: 30
     pathId: 2
-    enemySpawnGap: 0.2
+    enemySpawnGap: 0.5
+    speedOverride: 0
