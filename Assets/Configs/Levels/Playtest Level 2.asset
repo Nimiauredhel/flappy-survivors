@@ -18,8 +18,8 @@ MonoBehaviour:
   backgroundAsset: {fileID: 5647197508514708505, guid: 61d7df651e939e3488d6a051069cca04, type: 3}
   bossEnemy:
     noRotation: 1
-    enemyId: 2
-    enemyAmount: 8
+    enemyId: 0
+    enemyAmount: 20
     pathId: 17
     enemySpawnGap: 2
-    speedOverride: 0.5
+    speedOverride: 2.8

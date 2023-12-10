@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Medium Enemy
   m_EditorClassIdentifier: 
   stats:
-    xpValue: 5
+    xpValue: 4
     maxHP: 6
     minHP: 4
     power: 7

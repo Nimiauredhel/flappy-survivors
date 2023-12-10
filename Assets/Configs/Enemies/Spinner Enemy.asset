@@ -16,7 +16,7 @@ MonoBehaviour:
     xpValue: 1
     maxHP: 1
     minHP: 1
-    power: 4
+    power: 3
     speed: 12
   viewPrefab: {fileID: -1032148392928579942, guid: 5a3bb2af25a98614e86f615b24930feb, type: 3}
   icon: {fileID: 21300000, guid: 2715d44dda85aca4b85cb2b95bc365fe, type: 3}

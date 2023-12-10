@@ -2038,7 +2038,6 @@ MonoBehaviour:
   - {fileID: 1910727539}
   - {fileID: 2095690983}
   - {fileID: 732778102}
-  loadingBar: {fileID: 0}
   upgradeButtons:
   - {fileID: 7191729180883475108}
   - {fileID: 1641584785}
