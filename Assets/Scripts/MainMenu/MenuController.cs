@@ -25,6 +25,7 @@ namespace MainMenu
             
             InitLevelOptions();
             InitLoadoutOptions();
+            view.SetupPlayButton(PlayClickedHandler);
             
             AudioService.Instance.PlayMainMenuMusic();
 
@@ -59,7 +60,10 @@ namespace MainMenu
                 ScriptableObject.CreateInstance<PlayerCharacterConfiguration>();
             newPlayerConfig.Initialize(defaultPlayerConfig.GetStats, startingWeapons, currentUpgradeTree);
             ConfigSelectionMediator.SetCharacterLoadout(newPlayerConfig, currentUpgradeTree);
-            
+        }
+
+        private void PlayClickedHandler()
+        {
             _ = GameLoadingRoutine();
         }
 
