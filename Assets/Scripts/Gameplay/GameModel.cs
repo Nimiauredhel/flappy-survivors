@@ -26,6 +26,19 @@ namespace Gameplay
         {
             timeLeft = levelDuration;
             instance = this;
+
+            if (FocusListener.Instance != null)
+            {
+                FocusListener.Instance.FocusChanged += OnFocusChanged;
+            }
+        }
+
+        public void Dispose()
+        {
+            if (FocusListener.Instance != null)
+            {
+                FocusListener.Instance.FocusChanged -= OnFocusChanged;
+            }
         }
 
         public void TogglePause()
@@ -63,6 +76,11 @@ namespace Gameplay
         public static void ChangeTimeLeft(float delta)
         {
             instance.timeLeft += delta;
+        }
+
+        private void OnFocusChanged(object sender, bool focus)
+        {
+            if (!focus) SetPaused(true);
         }
     }
 }

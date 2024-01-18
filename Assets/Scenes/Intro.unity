@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 1754385896}
   - component: {fileID: 1754385897}
   m_Layer: 0
-  m_Name: FocusHelper
+  m_Name: FocusListener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

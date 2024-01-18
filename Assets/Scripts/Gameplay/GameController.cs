@@ -116,6 +116,7 @@ namespace Gameplay
             enemiesController.EnemyHit -= EnemyHitHandler;
             
             vfxService.Dispose();
+            gameModel.Dispose();
         }
 
         #endregion
