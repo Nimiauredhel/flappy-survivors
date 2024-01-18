@@ -29,8 +29,8 @@ public static class BuildUtils
 
     private static string[] GetScenes()
     {
-        string[] scenes = new string[]
-        {
+        string[] scenes = {
+            "Assets/Scenes/Intro.unity",
             "Assets/Scenes/Menu.unity",
             "Assets/Scenes/Gameplay.unity"
         };

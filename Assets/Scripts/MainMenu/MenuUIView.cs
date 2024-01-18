@@ -12,6 +12,7 @@ namespace MainMenu
     {
         [SerializeField] private CanvasGroup mainCanvasGroup;
         [SerializeField] private Image fadePanel;
+        [SerializeField] private Button playButton;
         
         [SerializeField] private LevelUIToggle[] levelToggles;
         [SerializeField] private LoadoutUIButton[] upgradeButtons;
@@ -65,7 +66,7 @@ namespace MainMenu
                 toggle.Toggle.onValueChanged.AddListener(delegate { OnLevelSelected(option, toggle.Toggle, selectionCallback); });
                 toggle.gameObject.SetActive(true);
             }
-
+            
             levelToggles[0].Toggle.interactable = false;
             levelToggles[0].Toggle.isOn = true;
         }
@@ -82,10 +83,18 @@ namespace MainMenu
                 button.Image.sprite = option.UpgradeConfig.Icon();
                 button.Text.text = option.UpgradeConfig.Description();
                     
-                button.Button.onClick.AddListener(delegate { OnUpgradeSelected(option, selectionCallback); });
+                button.Button.onClick.AddListener(delegate { OnUpgradeSelected(option, button, selectionCallback); });
                 
+                button.Checkmark.SetActive(false);
                 button.gameObject.SetActive(true);
             }
+
+            upgradeButtons[0].Button.onClick.Invoke();
+        }
+
+        public void SetupPlayButton(Action playCallback)
+        {
+            playButton.onClick.AddListener(playCallback.Invoke);
         }
 
         private void OnLevelSelected(LevelConfiguration level, Toggle toggle, Action<LevelConfiguration> selectionCallback)
@@ -101,13 +110,16 @@ namespace MainMenu
             selectionCallback?.Invoke(level);
         }
 
-        private void OnUpgradeSelected(UpgradeOption option, Action<UpgradeOption> selectionCallback)
+        private void OnUpgradeSelected(UpgradeOption option, LoadoutUIButton button, Action<UpgradeOption> selectionCallback)
         {
             for (int i = 0; i < upgradeButtons.Length; i++)
             {
-                upgradeButtons[i].Button.onClick.RemoveAllListeners();
-                upgradeButtons[i].gameObject.SetActive(false);
+                upgradeButtons[i].Button.interactable = true;
+                upgradeButtons[i].Checkmark.SetActive(false);
             }
+
+            button.Button.interactable = false;
+            button.Checkmark.SetActive(true);
             
             selectionCallback?.Invoke(option);
         }

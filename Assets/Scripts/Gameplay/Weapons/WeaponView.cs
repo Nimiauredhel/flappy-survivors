@@ -28,7 +28,7 @@ namespace Gameplay.Weapons
         
         public void PlaySheatheSound()
         {
-            if (!drawEventReference.IsNull)
+            if (!sheatheEventReference.IsNull)
             {
                 RuntimeManager.PlayOneShot(sheatheEventReference);
             }

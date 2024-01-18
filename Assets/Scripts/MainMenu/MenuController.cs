@@ -25,12 +25,12 @@ namespace MainMenu
             
             InitLevelOptions();
             InitLoadoutOptions();
-            
-            AudioService.Instance.PlayMainMenuMusic();
+            view.SetupPlayButton(PlayClickedHandler);
 
             await Awaitable.WaitForSecondsAsync(0.25f);
-            
             view.SetFadeAlpha(0.0f, 5.0f);
+            await Awaitable.WaitForSecondsAsync(1.0f);
+            AudioService.Instance.PlayMainMenuMusic();
             view.SetCanvasAlpha(1.0f, 1.0f);
         }
 
@@ -59,7 +59,10 @@ namespace MainMenu
                 ScriptableObject.CreateInstance<PlayerCharacterConfiguration>();
             newPlayerConfig.Initialize(defaultPlayerConfig.GetStats, startingWeapons, currentUpgradeTree);
             ConfigSelectionMediator.SetCharacterLoadout(newPlayerConfig, currentUpgradeTree);
-            
+        }
+
+        private void PlayClickedHandler()
+        {
             _ = GameLoadingRoutine();
         }
 

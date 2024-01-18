@@ -16,7 +16,7 @@ MonoBehaviour:
   commonness: 100
   stats:
     weaponType: 2
-    power: 1
+    power: 2
     amount: 2
     hits: 1
     speed: 17

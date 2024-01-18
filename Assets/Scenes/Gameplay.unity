@@ -678,6 +678,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1208134442005278243, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1878760983404365119, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
       propertyPath: m_Name
       value: GameplayUIViews
@@ -761,6 +765,22 @@ PrefabInstance:
     - target: {fileID: 2664520738431207436, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2750253477538333702, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806692183086477646, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593422928403394985, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632383849847620368, guid: e5beea6f27e9dfa4eb031302e149e52a, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
