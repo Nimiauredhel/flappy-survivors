@@ -317,6 +317,7 @@ namespace Gameplay
 
         private void GameSetPausedHandler(bool value)
         {
+            vfxService.ChangeBaselineTint(value ? new Color(0.25f, 0.0f, 0.0f) : Color.white);
             Time.timeScale = value ? 0.0f : 1.0f;
             uiView.SetShowPausePanel(value);
             AudioService.Instance.HandleSetPaused(value);

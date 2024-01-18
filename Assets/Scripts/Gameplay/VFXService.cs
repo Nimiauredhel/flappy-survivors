@@ -18,6 +18,7 @@ namespace Gameplay
         private ObjectPool<GameObject> pooledExplosions;
         private ObjectPool<TextMeshPro> pooledDamageText;
 
+        private Color baselineTint = Color.white;
         private float baselineEmission = 1.0f;
         private float baselineContrastRange = 1.0f;
         
@@ -28,6 +29,8 @@ namespace Gameplay
 
         public void Initialize()
         {
+            baselineTint = config.InitialBaselineTint;
+            config.SharedSpriteMaterial.SetColor(config.TintHash, baselineTint);
             baselineEmission = config.InitialBaselineEmission;
             config.SharedSpriteMaterial.SetFloat(config.EmissionHash, baselineEmission);
             baselineContrastRange = config.InitialBaselineContrastRange;
@@ -44,6 +47,12 @@ namespace Gameplay
             config.Cleanup();
         }
 
+        public void ChangeBaselineTint(Color newValue)
+        {
+            baselineTint = newValue;
+            config.SharedSpriteMaterial.DOColor(baselineTint, config.TintHash, config.TintChangeDelay).SetUpdate(true);
+        }
+        
         public void ChangeBaselineEmission(float newValue)
         {
             baselineEmission = newValue;
