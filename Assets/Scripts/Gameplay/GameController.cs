@@ -156,6 +156,7 @@ namespace Gameplay
         {
             Vector3 samplePosition = positions[Random.Range(0, positions.Length)].transform.position;
             vfxService.RequestDamageTextAt(damage, samplePosition);
+            gameModel.OnDealtDamage(damage);
             
             if (killed)
             {
@@ -168,6 +169,7 @@ namespace Gameplay
                 
                 _ = vfxService.RequestExplosionsAt(vectorPositions, true, 0.05f, 0.01f);
                 AudioService.Instance.PlayEnemyDestroyed();
+                gameModel.OnDestroyedEnemy(1);
                 playerController.HandleEnemyKilled();
 
                 if (value != 0)
@@ -196,6 +198,7 @@ namespace Gameplay
         
         private void PlayerDamagedHandler(int damage)
         {
+            gameModel.OnTookDamage(damage);
             vfxService.DoCameraShake(damage * 0.1f);
         }
 
@@ -387,7 +390,7 @@ namespace Gameplay
                     await Awaitable.NextFrameAsync();
                 }
                 
-                GameModel.ChangeTimeLeft(-1.0f);
+                GameModel.ElapseTime(1.0f);
                 uiView.UpdateTimerText((int)GameModel.TimeLeft);
 
                 await Awaitable.WaitForSecondsAsync(1);

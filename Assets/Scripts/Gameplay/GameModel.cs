@@ -10,6 +10,11 @@ namespace Gameplay
         public static bool CanPause => instance.canPause;
         public static bool Won => instance.won;
         public static float TimeLeft => instance.timeLeft;
+        public static float TimeElapsed => instance.timeElapsed;
+
+        public static int TotalDamageTaken => instance.totalDamageTaken;
+        public static int TotalDamageDealt => instance.totalDamageDealt;
+        public static int TotalEnemiesDestroyed => instance.totalEnemiesDestroyed;
 
         public Action<bool> GameSetPaused;
         public Action<GamePhase> GamePhaseChanged;
@@ -20,11 +25,18 @@ namespace Gameplay
         private bool paused = false;
         private bool canPause = true;
         private bool won = false;
+        
+        private int totalDamageTaken = 0;
+        private int totalDamageDealt = 0;
+        private int totalEnemiesDestroyed = 0;
+        
         private float timeLeft;
+        private float timeElapsed;
         
         public void Initialize(float levelDuration)
         {
             timeLeft = levelDuration;
+            timeElapsed = 0.0f;
             instance = this;
 
             if (FocusListener.Instance != null)
@@ -73,9 +85,25 @@ namespace Gameplay
             GamePhaseChanged?.Invoke(currentGamePhase);
         }
 
-        public static void ChangeTimeLeft(float delta)
+        public void OnDealtDamage(int value)
         {
-            instance.timeLeft += delta;
+            totalDamageDealt += value;
+        }
+        
+        public void OnTookDamage(int value)
+        {
+            totalDamageTaken += value;
+        }
+        
+        public void OnDestroyedEnemy(int value)
+        {
+            totalEnemiesDestroyed += value;
+        }
+
+        public static void ElapseTime(float delta)
+        {
+            instance.timeElapsed += delta;
+            instance.timeLeft -= delta;
         }
 
         private void OnFocusChanged(object sender, bool focus)
