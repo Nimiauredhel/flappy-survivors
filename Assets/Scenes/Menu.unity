@@ -1150,13 +1150,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<size=80>The
+  m_text: '<size=100>t<size=80>he
 
-    <size=95>Flappy
+    <size=105>F<size=90>lappy
 
-    <size=110>Survivors
+    <size=115>S<size=110>urvivors
 
-    <size=50>(not
+    <size=40>(not
     a trademark)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7da90859a155d854ab7602d1a60eb561, type: 2}
@@ -1194,9 +1194,9 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -1.5
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -35
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
