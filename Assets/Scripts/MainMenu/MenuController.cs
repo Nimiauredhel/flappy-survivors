@@ -26,12 +26,11 @@ namespace MainMenu
             InitLevelOptions();
             InitLoadoutOptions();
             view.SetupPlayButton(PlayClickedHandler);
-            
-            AudioService.Instance.PlayMainMenuMusic();
 
             await Awaitable.WaitForSecondsAsync(0.25f);
-            
             view.SetFadeAlpha(0.0f, 5.0f);
+            await Awaitable.WaitForSecondsAsync(1.0f);
+            AudioService.Instance.PlayMainMenuMusic();
             view.SetCanvasAlpha(1.0f, 1.0f);
         }
 
