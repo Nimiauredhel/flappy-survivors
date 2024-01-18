@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad583861f5a48f9aa63ab8023380db9, type: 3}
   m_Name: Playtest Level 3
   m_EditorClassIdentifier: 
-  name: Level 3
+  name: Third Strike
   thumbnail: {fileID: 21300000, guid: 1645d486108e61744898131be7b1eef3, type: 3}
   timeline: {fileID: 11400000, guid: a8d30f61a1318614fbbd24a275b70a93, type: 2}
   backgroundAsset: {fileID: 5647197508514708505, guid: 61d7df651e939e3488d6a051069cca04, type: 3}

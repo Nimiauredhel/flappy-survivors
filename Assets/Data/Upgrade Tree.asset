@@ -14,11 +14,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeTree:
     branches:
+    - name: Shuriken
+      upgradeLevels:
+      - name: Level 0
+        upgradeOptions:
+        - name: Dispatch enemies at a distance.
+          Taken: 1
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: b11c7d4fc237bcd4bbec5678e46327fc, type: 2}
+      - name: Level 1
+        upgradeOptions:
+        - name: -1 cooldown time.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: e3b432bf5a955e54783ab6ce89638b14, type: 2}
+        - name: +1 projectile.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 86c55bf32e9d70d459bcd1479effdf90, type: 2}
+        - name: Goes through one enemy.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 77a42c2899e8610488864d1aec307e4d, type: 2}
+        - name: +2 power.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 5494c4eacbe477f4cad94398133f75ed, type: 2}
+      - name: Level 2
+        upgradeOptions:
+        - name: +2 projectiles.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 71b0803f5367c1640b3d247e838c289e, type: 2}
+        - name: Goes through two more enemies.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: da896da194a26924f82f63ca7b9e5b97, type: 2}
+    - name: Kill Sphere
+      upgradeLevels:
+      - name: Level 0
+        upgradeOptions:
+        - name: Vaporize anything that touches you as you ascend.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 6f01e89c960b9634eb5560661d1e1ec2, type: 2}
+      - name: Level 1
+        upgradeOptions:
+        - name: Cooldown reduced by 1 second.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 395e3e392ded57e43aaea75f1ec60778, type: 2}
+        - name: 1.5x area of effect.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: a670862317ea26447b2d02f6b84c9d39, type: 2}
+      - name: Level 2
+        upgradeOptions:
+        - name: Increased duration by 50%.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: fb2665bd72c77db42b9b7945d606c723, type: 2}
     - name: Battle Axe
       upgradeLevels:
       - name: Level 0
         upgradeOptions:
-        - name: Smite foes from above with a short but powerful blow.
+        - name: Obliterate foes from above with precise, powerful blows.
           Taken: 0
           upgradeConfig:
             _underlyingValue: {fileID: 11400000, guid: 0e98b4b55b2b8b64583c7d61f3ab666c, type: 2}
@@ -42,66 +102,6 @@ MonoBehaviour:
           Taken: 0
           upgradeConfig:
             _underlyingValue: {fileID: 11400000, guid: 6d9a1b578d1088543abfc582ff2daae0, type: 2}
-    - name: Kill Sphere
-      upgradeLevels:
-      - name: Level 0
-        upgradeOptions:
-        - name: Emit a lethal force field as you ascend.
-          Taken: 0
-          upgradeConfig:
-            _underlyingValue: {fileID: 11400000, guid: 6f01e89c960b9634eb5560661d1e1ec2, type: 2}
-      - name: Level 1
-        upgradeOptions:
-        - name: Cooldown reduced by 1 second.
-          Taken: 0
-          upgradeConfig:
-            _underlyingValue: {fileID: 11400000, guid: 395e3e392ded57e43aaea75f1ec60778, type: 2}
-        - name: 1.5x area of effect.
-          Taken: 0
-          upgradeConfig:
-            _underlyingValue: {fileID: 11400000, guid: a670862317ea26447b2d02f6b84c9d39, type: 2}
-      - name: Level 2
-        upgradeOptions:
-        - name: Increased duration by 50%.
-          Taken: 0
-          upgradeConfig:
-            _underlyingValue: {fileID: 11400000, guid: fb2665bd72c77db42b9b7945d606c723, type: 2}
-    - name: Shuriken
-      upgradeLevels:
-      - name: Level 0
-        upgradeOptions:
-        - name: Dispatch enemies at a distance.
-          Taken: 1
-          upgradeConfig:
-            _underlyingValue: {fileID: 11400000, guid: b11c7d4fc237bcd4bbec5678e46327fc, type: 2}
-      - name: Level 1
-        upgradeOptions:
-        - name: -1 cooldown time.
-          Taken: 0
-          upgradeConfig:
-            _underlyingValue: {fileID: 11400000, guid: e3b432bf5a955e54783ab6ce89638b14, type: 2}
-        - name: +1 projectile.
-          Taken: 0
-          upgradeConfig:
-            _underlyingValue: {fileID: 11400000, guid: 86c55bf32e9d70d459bcd1479effdf90, type: 2}
-        - name: Goes through one enemy.
-          Taken: 0
-          upgradeConfig:
-            _underlyingValue: {fileID: 11400000, guid: 77a42c2899e8610488864d1aec307e4d, type: 2}
-        - name: +1 power.
-          Taken: 0
-          upgradeConfig:
-            _underlyingValue: {fileID: 11400000, guid: 5494c4eacbe477f4cad94398133f75ed, type: 2}
-      - name: Level 2
-        upgradeOptions:
-        - name: +2 projectiles.
-          Taken: 0
-          upgradeConfig:
-            _underlyingValue: {fileID: 11400000, guid: 71b0803f5367c1640b3d247e838c289e, type: 2}
-        - name: Goes through two more enemies.
-          Taken: 0
-          upgradeConfig:
-            _underlyingValue: {fileID: 11400000, guid: da896da194a26924f82f63ca7b9e5b97, type: 2}
     - name: Max Health Up
       upgradeLevels:
       - name: Level 0
@@ -133,7 +133,7 @@ MonoBehaviour:
       - name: Level 0
         upgradeOptions:
         - name: Increases magnet strength by 1.
-          Taken: 1
+          Taken: 0
           upgradeConfig:
             _underlyingValue: {fileID: 11400000, guid: c1bae599d639a6c42b650f8ef9d1d47f, type: 2}
       - name: Level 1

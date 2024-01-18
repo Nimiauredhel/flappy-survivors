@@ -73,6 +73,11 @@ namespace Gameplay
             gameOverMessage.DOFade(1.0f, delay);
         }
 
+        public void SetGamePhaseText(string phaseString)
+        {
+            timerText.text = phaseString;
+        }
+
         public void UpdateTimerText(int timeInSeconds)
         {
             TimeSpan timerTimespan = TimeSpan.FromSeconds(timeInSeconds);

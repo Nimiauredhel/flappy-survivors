@@ -24,7 +24,7 @@ MonoBehaviour:
     area: 1
     cooldown: 2.5
     name: Shuriken
-    description: Dispatch enemies at a distance.
+    description: Dispatch enemies at a safe distance.
   logicComponents:
   - GuidAssignmentFailed: 0
     GUID: c1e4d0f00ef9d4a419fd9bd69d1c084c

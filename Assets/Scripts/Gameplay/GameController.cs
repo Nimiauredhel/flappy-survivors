@@ -289,6 +289,11 @@ namespace Gameplay
             if (GameModel.Won)
             {
                 positions.AddRange(enemiesController.PurgeAllEnemies());
+                uiView.SetGamePhaseText("Well done!");
+            }
+            else
+            {
+                uiView.SetGamePhaseText("Too bad...");
             }
             
             gameModel.SetGamePhase(GameModel.Won ? GamePhase.YouWin : GamePhase.GameOver);
@@ -338,6 +343,7 @@ namespace Gameplay
                     uiView.SetCanvasAlpha(0.0f, 0.0f);
                     break;
                 case GamePhase.UpgradePhase:
+                    uiView.SetGamePhaseText("Ding!");
                     uiView.SetCanvasAlpha(0.0f, 0.5f);
                     levelDirector.Pause();
                     break;
@@ -396,17 +402,19 @@ namespace Gameplay
 
         private async Awaitable BossRoutine()
         {
+            _ = SurviveBlinkRoutine();
             AudioService.Instance.PlayLevelUp();
             enemiesController.CancelAllOngoingBursts();
-
+            
+            await Awaitable.NextFrameAsync();
+            await vfxService.RequestExplosionsAt(enemiesController.PurgeAllEnemies(), true, 0.05f, 0.01f);
+            gameModel.SetCanPause(false);
             await Awaitable.NextFrameAsync();
             
-            await vfxService.RequestExplosionsAt(enemiesController.PurgeAllEnemies(), true, 0.05f, 0.01f);
-
-            gameModel.SetCanPause(false);
             DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0.3f, 0.3f);
             await Awaitable.WaitForSecondsAsync(0.3f);
             DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1.0f, 0.3f);
+            
             gameModel.SetCanPause(true);
             
             bool bossDefeated = false;
@@ -434,8 +442,49 @@ namespace Gameplay
                 GameOver();
             }
         }
-        
-        #if UNITY_EDITOR
+
+        private async Awaitable SurviveBlinkRoutine()
+        {
+            string empty = string.Empty;
+            
+            string[] texts = new[]
+            {
+                "SURVIVE",
+                "SURVIVE",
+                "<i>Survive!</i>",
+                "</b><i>survivre</i>",
+                "sUrvIve",
+                "suRviVe",
+                "<size=60>s_</size>R<size=60>v</size>IV<size=50>e~",
+                "sU<i>rrv</i><size=60>VivE",
+                "SURVIVE!",
+                "SUR<size=90>V</size>IVE!",
+                "SURViVE",
+                "!evivruS"
+            };
+            
+            for (int i = 0; i < 120; i++)
+            {
+                uiView.SetGamePhaseText(texts[Random.Range(0, texts.Length)]);
+                await Awaitable.NextFrameAsync();
+            }
+            
+            uiView.SetGamePhaseText(texts[0]);
+            await Awaitable.WaitForSecondsAsync(0.25f);
+            uiView.SetGamePhaseText(empty);
+            await Awaitable.WaitForSecondsAsync(0.75f);
+            
+            while (GameModel.CurrentGamePhase == GamePhase.BossPhase)
+            {
+                uiView.SetGamePhaseText(texts[Random.Range(0, texts.Length)]);
+                await Awaitable.WaitForSecondsAsync(0.75f);
+                if (GameModel.CurrentGamePhase != GamePhase.BossPhase) break;
+                uiView.SetGamePhaseText(empty);
+                await Awaitable.WaitForSecondsAsync(0.25f);
+            }
+        }
+
+#if UNITY_EDITOR
         private void InitializeTerminalCommands()
         {
             Terminal.Shell.AddCommand("phase", delegate(CommandArg[] args)

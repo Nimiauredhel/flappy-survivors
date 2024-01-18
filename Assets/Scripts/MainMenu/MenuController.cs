@@ -20,6 +20,7 @@ namespace MainMenu
         
         public async void Start()
         {
+            AudioService.Instance.PlayMainMenuMusic();
             view.SetFadeAlpha(1.0f, 0.0f);
             view.SetCanvasAlpha(0.0f, 0.0f);
             
@@ -30,8 +31,7 @@ namespace MainMenu
             await Awaitable.WaitForSecondsAsync(0.25f);
             view.SetFadeAlpha(0.0f, 5.0f);
             await Awaitable.WaitForSecondsAsync(1.0f);
-            AudioService.Instance.PlayMainMenuMusic();
-            view.SetCanvasAlpha(1.0f, 1.0f);
+            view.SetCanvasAlpha(1.0f, 0.5f);
         }
 
         private void InitLevelOptions()

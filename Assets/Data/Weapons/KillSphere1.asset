@@ -24,7 +24,7 @@ MonoBehaviour:
     area: 1
     cooldown: 3
     name: Kill Sphere
-    description: Emit a lethal force field as you ascend.
+    description: Vaporize anything you touch as you ascend.
   logicComponents:
   - GuidAssignmentFailed: 0
     GUID: 2bc05b5214594004c992c29dc20c245e
