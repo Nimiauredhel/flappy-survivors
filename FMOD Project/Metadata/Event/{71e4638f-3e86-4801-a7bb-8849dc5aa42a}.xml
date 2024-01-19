@@ -85,6 +85,9 @@
 		<property name="length">
 			<value>2.4136961451247165</value>
 		</property>
+		<relationship name="fadeOutCurve">
+			<destination>{1c572f64-ddd4-4f9b-ae3f-abb1e25aeac5}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{93c4b3f4-af62-4611-99a8-cae565984ffc}</destination>
 		</relationship>
@@ -103,6 +106,14 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{0252f551-7b3b-4b82-9185-cef8d28c0fb5}" />
+	<object class="FadeCurve" id="{1c572f64-ddd4-4f9b-ae3f-abb1e25aeac5}">
+		<relationship name="startPoint">
+			<destination>{50bd8eed-f9ef-484e-8885-52b32844dd88}</destination>
+		</relationship>
+		<relationship name="endPoint">
+			<destination>{bb1eec0f-94ed-47b2-85d7-3335582c92e5}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{673fa4e5-a432-4406-94d1-29b5d2b05df4}" />
 	<object class="ThreeEQEffect" id="{b2405461-c0bf-4815-8c35-45db4da5fe30}">
 		<property name="lowGain">
@@ -129,12 +140,31 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{2cbf1806-b922-4450-9e99-1f41a2263bf5}" />
+	<object class="AutomationPoint" id="{50bd8eed-f9ef-484e-8885-52b32844dd88}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.141742662</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{bb1eec0f-94ed-47b2-85d7-3335582c92e5}">
+		<property name="position">
+			<value>2.4136961451247165</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
 	<object class="RandomizerModulator" id="{4f8ee574-58f4-44ff-be4f-7d3408c576f7}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>lowGain</value>
 		</property>
 		<property name="amount">
-			<value>2</value>
+			<value>3</value>
 		</property>
 	</object>
 	<object class="RandomizerModulator" id="{040e12cc-d163-46b1-8fb2-4926f4b963d6}">
@@ -142,7 +172,7 @@
 			<value>midGain</value>
 		</property>
 		<property name="amount">
-			<value>2</value>
+			<value>3</value>
 		</property>
 	</object>
 	<object class="RandomizerModulator" id="{c12b666d-5e4c-49f2-a5eb-352bb4987a31}">
@@ -150,7 +180,7 @@
 			<value>highGain</value>
 		</property>
 		<property name="amount">
-			<value>2</value>
+			<value>3</value>
 		</property>
 	</object>
 	<object class="RandomizerModulator" id="{42a26359-f295-4909-915d-eec996962e02}">
@@ -158,7 +188,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>6.5</value>
+			<value>13.333334</value>
 		</property>
 	</object>
 </objects>
