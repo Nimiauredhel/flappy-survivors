@@ -15,17 +15,18 @@ MonoBehaviour:
   levelRequirement: 1
   commonness: 100
   stats:
-    weaponType: 2
+    weaponDrawState: 2
+    weaponChargeState: 1
     power: 5
     amount: 0
     hits: 0
     speed: 0
-    duration: 0.4
+    duration: 0
     area: 1
-    chargeCapacity: 2
-    chargeDepletionRate: 2
+    chargeCapacity: 1
+    chargeDepletionRate: 5
     chargeReplenishmentRate: 1
-    chargeUseThreshold: 2
+    chargeUseThreshold: 0
     name: Battle Axe
     description: Obliterate foes from above with precise, powerful blows.
   logicComponents:

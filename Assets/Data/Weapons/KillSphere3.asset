@@ -15,14 +15,18 @@ MonoBehaviour:
   levelRequirement: 10
   commonness: 100
   stats:
-    weaponType: 0
+    weaponDrawState: 0
+    weaponChargeState: 0
     power: 0
     amount: 0
     hits: 0
     speed: 0
-    duration: 1
+    duration: 0
     area: 0
-    cooldown: 0
+    chargeCapacity: 0
+    chargeDepletionRate: -0.25
+    chargeReplenishmentRate: 0
+    chargeUseThreshold: 0
     name: Kill Sphere
     description: Increased duration by 50%.
   logicComponents: []

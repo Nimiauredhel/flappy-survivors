@@ -15,7 +15,8 @@ MonoBehaviour:
   levelRequirement: 1
   commonness: 100
   stats:
-    weaponType: 2
+    weaponDrawState: 2
+    weaponChargeState: 3
     power: 2
     amount: 2
     hits: 1
@@ -23,7 +24,7 @@ MonoBehaviour:
     duration: 3
     area: 1
     chargeCapacity: 2.5
-    chargeDepletionRate: 2.5
+    chargeDepletionRate: 0
     chargeReplenishmentRate: 1
     chargeUseThreshold: 2.5
     name: Shuriken

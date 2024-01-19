@@ -52,23 +52,23 @@ namespace Gameplay.Player
             }
         }
 
-        public void WeaponsUpdate(WeaponType validType)
+        public void WeaponsUpdate(Weapons.PlayerState currentPlayerState)
         {
             if (weapons == null || weapons.Count == 0) return;
 
             foreach (WeaponInstance weapon in weapons)
             {
-                weapon.WeaponUpdate(validType);
+                weapon.WeaponUpdate(currentPlayerState);
             }
         }
 
-        public void WeaponsFixedUpdate(WeaponType validType)
+        public void WeaponsFixedUpdate(Weapons.PlayerState currentPlayerState)
         {
             if (weapons == null || weapons.Count == 0) return;
             
             foreach (WeaponInstance weapon in weapons)
             {
-                weapon.WeaponFixedUpdate(validType);
+                weapon.WeaponFixedUpdate(currentPlayerState);
             }
         }
         

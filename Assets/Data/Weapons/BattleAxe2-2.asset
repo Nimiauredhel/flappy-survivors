@@ -22,9 +22,12 @@ MonoBehaviour:
     speed: 0
     duration: 0
     area: 0
-    cooldown: -1
+    chargeCapacity: -1
+    chargeDepletionRate: 0
+    chargeReplenishmentRate: 1
+    chargeUseThreshold: 0
     name: Battle Axe
-    description: Reduced cooldown by 1 second.
+    description: Reduce charge time by 50%.
   logicComponents: []
   viewPrefab: {fileID: 7273189750282731730, guid: d8c6dc4fb18d63d4782fc70c83cf80a0, type: 3}
   iconSprite: {fileID: 21300000, guid: a3d76346c656a9840bf67587ca40d379, type: 3}

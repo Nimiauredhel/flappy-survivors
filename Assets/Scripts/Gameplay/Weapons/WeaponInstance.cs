@@ -12,6 +12,8 @@ namespace Gameplay.Weapons
         
         private readonly WeaponLogicEntity logic;
         private readonly WeaponUIView uiView;
+
+        private bool drawn = false;
         
         public class WeaponStatus
         {
@@ -45,7 +47,7 @@ namespace Gameplay.Weapons
             View.TriggerEnter -= HitHandler;
         }
 
-        public void WeaponUpdate(WeaponType validType)
+        public void WeaponUpdate(PlayerState validType)
         {
             // Skip this if Game Phase is not relevant
             int gamePhase = (int)GameModel.CurrentGamePhase;
@@ -55,7 +57,7 @@ namespace Gameplay.Weapons
             uiView.UpdateCooldownIndicator(1.0f-(Status.currentCharge/Stats.ChargeCapacity));
         }
 
-        public void WeaponFixedUpdate(WeaponType validType)
+        public void WeaponFixedUpdate(PlayerState playerCurrentState)
         {
             // Skip this if Game Phase is not relevant
             int gamePhase = (int)GameModel.CurrentGamePhase;
@@ -64,24 +66,36 @@ namespace Gameplay.Weapons
             bool activated = false;
             float fixedDeltaTime = Time.fixedDeltaTime;
             
-            if (Stats.Type == validType || Stats.Type == WeaponType.Both)
+            //TODO: simplify the logic here that got a bit convoluted after changing "cooldown" to "charge"
+            
+            if (Status.currentCharge <= 0.0f)
+            {
+                Sheathe();
+            }
+            else if (Stats.DrawState == playerCurrentState || Stats.DrawState == PlayerState.Both)
             {
                 if (Status.currentCharge >= Stats.ChargeUseThreshold)
                 {
-                    activated = true;
-                    logic.Draw(this);
+                    Draw();
                 }
             }
             else
             {
-                logic.Sheathe(this);
+                Sheathe();
             }
 
-            if (activated)
+            if (drawn)
             {
-                Status.currentCharge -= Stats.ChargeDepletionRate;
+                if (Stats.ChargeDepletionRate > 0)
+                {
+                    Status.currentCharge -= Stats.ChargeDepletionRate * fixedDeltaTime;
+                }
+                else if (Status.currentCharge >= Stats.ChargeUseThreshold)
+                {
+                    Status.currentCharge = 0;
+                }
             }
-            else
+            else if (Stats.ChargeState == playerCurrentState || Stats.ChargeState == PlayerState.Both)
             {
                 Status.currentCharge += Stats.ChargeReplenishmentRate * fixedDeltaTime;
             }
@@ -101,6 +115,20 @@ namespace Gameplay.Weapons
         private void HitHandler(object sender, Collider2D other)
         {
             logic.HitHandler(sender, other, this);
+        }
+
+        private void Draw()
+        {
+            if (drawn) return;
+            drawn = true;
+            logic.Draw(this);
+        }
+
+        private void Sheathe()
+        {
+            if (!drawn) return;
+            drawn = false;
+            logic.Sheathe(this);
         }
     }
 }

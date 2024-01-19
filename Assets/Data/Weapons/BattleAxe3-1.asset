@@ -22,9 +22,12 @@ MonoBehaviour:
     speed: 0
     duration: 0
     area: 0
-    cooldown: 0
+    chargeCapacity: 0
+    chargeDepletionRate: 0
+    chargeReplenishmentRate: 0
+    chargeUseThreshold: 0
     name: Battle Axe
-    description: Skips the cooldown when you hit an enemy.
+    description: Refill charge instantly when you hit an enemy.
   logicComponents:
   - GuidAssignmentFailed: 0
     GUID: 2a2df2d8e474a82489bb758a238cde0f

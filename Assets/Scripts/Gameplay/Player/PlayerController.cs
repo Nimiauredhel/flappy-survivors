@@ -111,7 +111,7 @@ namespace Gameplay.Player
 
         private class PlayerState
         {
-            private protected static WeaponType validWeaponType = WeaponType.None;
+            private protected static Weapons.PlayerState currentPlayerState = Weapons.PlayerState.None;
             
             public virtual void ClimbCommand(PlayerController player)
             {
@@ -125,18 +125,18 @@ namespace Gameplay.Player
 
             public virtual void EnterState(PlayerController player)
             {
-                validWeaponType = WeaponType.None;
+                currentPlayerState = Weapons.PlayerState.None;
             }
 
             public virtual void UpdateState(PlayerController player)
             {
-                player.weapons.WeaponsUpdate(WeaponType.Both);
+                player.weapons.WeaponsUpdate(Weapons.PlayerState.Both);
             }
 
             public virtual void FixedUpdateState(PlayerController player)
             {
                 player.HandleMovement();
-                player.weapons.WeaponsFixedUpdate(validWeaponType);
+                player.weapons.WeaponsFixedUpdate(currentPlayerState);
             }
 
             public virtual void ExitState(PlayerController player)
@@ -154,7 +154,7 @@ namespace Gameplay.Player
             
             public override void EnterState(PlayerController player)
             {
-                validWeaponType = WeaponType.None;
+                currentPlayerState = Weapons.PlayerState.None;
                 player.SetNeutral();
                 player.model.SetVulnerable(false);
             }
@@ -180,13 +180,13 @@ namespace Gameplay.Player
 
             public override void EnterState(PlayerController player)
             {
-                validWeaponType = WeaponType.Climbing;
+                currentPlayerState = Weapons.PlayerState.Climbing;
                 player.SetGoUp();
             }
 
             public override void UpdateState(PlayerController player)
             {
-                player.weapons.WeaponsUpdate(validWeaponType);
+                player.weapons.WeaponsUpdate(currentPlayerState);
             }
         }
 
@@ -199,13 +199,13 @@ namespace Gameplay.Player
 
             public override void EnterState(PlayerController player)
             {
-                validWeaponType = WeaponType.Diving;
+                currentPlayerState = Weapons.PlayerState.Diving;
                 player.SetGoDown();
             }
         
             public override void UpdateState(PlayerController player)
             {
-                player.weapons.WeaponsUpdate(validWeaponType);
+                player.weapons.WeaponsUpdate(currentPlayerState);
             }
         }
 
@@ -215,14 +215,14 @@ namespace Gameplay.Player
             
             public override void EnterState(PlayerController player)
             {
-                validWeaponType = WeaponType.Both;
+                currentPlayerState = Weapons.PlayerState.Both;
                 timeToDive = player.movementConfig.NeutralDuration;
                 player.SetNeutral();
             }
 
             public override void UpdateState(PlayerController player)
             {
-                player.weapons.WeaponsUpdate(validWeaponType);
+                player.weapons.WeaponsUpdate(currentPlayerState);
                 
                 if (timeToDive <= 0.0f)
                 {
@@ -258,14 +258,14 @@ namespace Gameplay.Player
             public override void EnterState(PlayerController player)
             {
                 player.model.SetVulnerable(false);
-                validWeaponType = WeaponType.None;
+                currentPlayerState = Weapons.PlayerState.None;
                 timeToRecover = player.movementConfig.FlinchDuration;
                 player.SetHurt();
             }
 
             public override void UpdateState(PlayerController player)
             {
-                player.weapons.WeaponsUpdate(validWeaponType);
+                player.weapons.WeaponsUpdate(currentPlayerState);
                 
                 if (timeToRecover < 0.0f)
                 {
@@ -297,14 +297,14 @@ namespace Gameplay.Player
             
             public override void EnterState(PlayerController player)
             {
-                validWeaponType = WeaponType.None;
+                currentPlayerState = Weapons.PlayerState.None;
                 player.SetDying();
                 player.Die();
             }
 
             public override void UpdateState(PlayerController player)
             {
-                player.weapons.WeaponsUpdate(validWeaponType);
+                player.weapons.WeaponsUpdate(currentPlayerState);
             }
         }
         

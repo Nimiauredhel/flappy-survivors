@@ -22,9 +22,12 @@ MonoBehaviour:
     speed: 0
     duration: 0
     area: 0.5
-    cooldown: 0
+    chargeCapacity: 0
+    chargeDepletionRate: 0
+    chargeReplenishmentRate: 0
+    chargeUseThreshold: 0
     name: Kill Sphere
-    description: 1.5x area of effect.
+    description: Increase area of effect by 50%.
   logicComponents: []
   viewPrefab: {fileID: 7273189750282731730, guid: 88067083801288347b4eccaf1932aa93, type: 3}
   iconSprite: {fileID: 21300000, guid: e0987a7b03b8a484799f2e47241c5f38, type: 3}

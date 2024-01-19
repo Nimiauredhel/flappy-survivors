@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 
 namespace Gameplay.Weapons
 {
-    public enum WeaponType
+    public enum PlayerState
     {
         None,
         Climbing,
@@ -15,7 +15,8 @@ namespace Gameplay.Weapons
     [Serializable]
     public class WeaponStats
     {
-        public WeaponType Type => weaponType;
+        public PlayerState DrawState => weaponDrawState;
+        public PlayerState ChargeState => weaponChargeState;
         
         public int Power => power;
         public int Amount => amount;
@@ -31,7 +32,8 @@ namespace Gameplay.Weapons
         public string Name => name;
         public string Description => description;
         
-        [SerializeField] private WeaponType weaponType;
+        [FormerlySerializedAs("weaponDrawPhase")] [FormerlySerializedAs("weaponType")] [SerializeField] private PlayerState weaponDrawState;
+        [FormerlySerializedAs("weaponChargePhase")] [SerializeField] private PlayerState weaponChargeState;
         [SerializeField][Range(0, 30)] private int power = 1;
         [SerializeField][Range(0, 30)] private int amount = 1;
         [SerializeField] [Range(-30, 30)] private int hits = 0;
@@ -48,7 +50,8 @@ namespace Gameplay.Weapons
 
         public WeaponStats(WeaponStats original)
         {
-            weaponType = original.weaponType;
+            weaponDrawState = original.weaponDrawState;
+            weaponChargeState = original.weaponChargeState;
             power = original.power;
             speed = original.speed;
             duration = original.duration;
@@ -66,9 +69,14 @@ namespace Gameplay.Weapons
 
         public void ApplyUpgrade(WeaponStats upgrade)
         {
-            if (upgrade.weaponType != WeaponType.None)
+            if (upgrade.weaponDrawState != PlayerState.None)
             {
-                weaponType = upgrade.weaponType;
+                weaponDrawState = upgrade.weaponDrawState;
+            }
+            
+            if (upgrade.weaponChargeState != PlayerState.None)
+            {
+                weaponChargeState = upgrade.weaponChargeState;
             }
 
             power += upgrade.power;

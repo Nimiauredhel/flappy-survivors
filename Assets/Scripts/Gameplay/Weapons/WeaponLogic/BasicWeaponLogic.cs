@@ -15,9 +15,6 @@ namespace Gameplay.Weapons.WeaponLogic
     public class BasicWeaponLogic : WeaponLogicComponent
     {
         private bool drawn = true;
-        private int hits = 0;
-        private float elapsedTime = 0.0f;
-        private Awaitable weaponRoutine = null;
 
         private ObjectPool<GameObject> hitEffectPool = null;
 
@@ -39,37 +36,20 @@ namespace Gameplay.Weapons.WeaponLogic
         {
             if (drawn) return;
             drawn = true;
+
+            instance.View.PlayDrawSound();
             
-            if (weaponRoutine != null)
-            {
-                weaponRoutine.Cancel();
-                weaponRoutine = null;
-            }
-            else
-            {
-                instance.View.PlayDrawSound();
-            }
-            
-            weaponRoutine = AttackRoutine(instance);
+            instance.View.Graphic.enabled = true;
+            instance.View.Hitbox.enabled = true;
         }
 
         public override void Sheathe(WeaponInstance instance)
         {
             if (!drawn) return;
             drawn = false;
+
+            instance.View.PlaySheatheSound();
             
-            if (weaponRoutine != null)
-            {
-                instance.View.StopCoroutine(weaponRoutine);
-                weaponRoutine = null;
-            }
-            else
-            {
-                instance.View.PlaySheatheSound();
-            }
-            
-            hits = 0;
-            elapsedTime = 0.0f;
             instance.View.Animator.Rebind();
             instance.View.Animator.Update(0.0f);
             instance.View.Graphic.enabled = false;
@@ -84,32 +64,6 @@ namespace Gameplay.Weapons.WeaponLogic
             }
 
             hitObject.HitByWeapon(instance.Stats.Power);
-
-            if (instance.Stats.Hits > 0)
-            {
-                hits++;
-
-                if (hits >= instance.Stats.Hits)
-                {
-                    Sheathe(instance);
-                }
-            }
-        }
-
-        private async Awaitable AttackRoutine(WeaponInstance instance)
-        {
-            hits = 0;
-            elapsedTime = 0.0f;
-            instance.View.Graphic.enabled = true;
-            instance.View.Hitbox.enabled = true;
-
-            while (elapsedTime <= instance.Stats.Duration)
-            {
-                await Awaitable.FixedUpdateAsync();
-                elapsedTime += Time.fixedDeltaTime;
-            }
-            
-            Sheathe(instance);
         }
 
         private async Awaitable DoHitEffect(Vector3 position)
