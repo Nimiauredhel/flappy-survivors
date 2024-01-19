@@ -10,30 +10,38 @@ namespace MainMenu
 {
     public class MenuUIView : MonoBehaviour
     {
-        [SerializeField] private CanvasGroup mainCanvasGroup;
+        [SerializeField] private CanvasGroup[] canvasGroups; //initial, weapons, level, credits
         [SerializeField] private Image fadePanel;
         [SerializeField] private Button playButton;
         
         [SerializeField] private LevelUIToggle[] levelToggles;
         [SerializeField] private LoadoutUIButton[] upgradeButtons;
-
-        private Tween canvasAlphaTween = null;
+        
         private Tween fadeAlphaTween = null;
         
-        public void SetCanvasAlpha(float value, float duration)
+        public void SetCanvasAlpha(int canvasGroupIndex, float value, float duration, bool deactivate = false)
         {
-            if (canvasAlphaTween != null) canvasAlphaTween.Kill();
-            
             if (duration == 0.0f)
             {
-                mainCanvasGroup.alpha = value;
+                canvasGroups[canvasGroupIndex].alpha = value;
             }
             else
             {
-                canvasAlphaTween = mainCanvasGroup.DOFade(value, duration);
+                Tween tween = canvasGroups[canvasGroupIndex].DOFade(value, duration);
+                if (deactivate)
+                {
+                    CanvasGroup cg = canvasGroups[canvasGroupIndex];
+                    tween.onComplete += delegate { cg.gameObject.SetActive(false); };
+                }
             }
         }
-        
+
+        public void SetCanvasAlpha(string args)
+        {
+            string[] split = args.Split(',');
+            SetCanvasAlpha(int.Parse(split[0]), float.Parse(split[1]), float.Parse(split[2]), bool.Parse(split[3]));
+        }
+
         public void SetFadeAlpha(float value, float duration)
         {
             if (fadeAlphaTween != null) fadeAlphaTween.Kill();

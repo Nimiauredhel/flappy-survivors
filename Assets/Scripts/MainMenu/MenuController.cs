@@ -21,8 +21,6 @@ namespace MainMenu
         public async void Start()
         {
             AudioService.Instance.PlayMainMenuMusic();
-            view.SetFadeAlpha(1.0f, 0.0f);
-            view.SetCanvasAlpha(0.0f, 0.0f);
             
             InitLevelOptions();
             InitLoadoutOptions();
@@ -31,7 +29,7 @@ namespace MainMenu
             await Awaitable.WaitForSecondsAsync(0.25f);
             view.SetFadeAlpha(0.0f, 5.0f);
             await Awaitable.WaitForSecondsAsync(1.0f);
-            view.SetCanvasAlpha(1.0f, 0.5f);
+            view.SetCanvasAlpha(0, 1.0f, 0.5f);
         }
 
         private void InitLevelOptions()
@@ -82,12 +80,12 @@ namespace MainMenu
                 elapsedTime += Time.deltaTime;
                 fakeProgress = Mathf.InverseLerp(0.0f, minLoadTime, elapsedTime);
                 visualProgress = (fakeProgress + loadingOperation.progress) * 0.5f;
-                view.SetCanvasAlpha(1.0f - visualProgress, 0.0f);
+                view.SetCanvasAlpha(2, 1.0f - visualProgress, 0.0f);
                 view.SetFadeAlpha(visualProgress, 0.0f);
                 await Awaitable.NextFrameAsync();
             }
             
-            view.SetCanvasAlpha(0.0f, 0.2f);
+            view.SetCanvasAlpha(2, 0.0f, 0.2f);
             view.SetFadeAlpha(1.0f, 0.2f);
             await Awaitable.WaitForSecondsAsync(0.25f);
             
