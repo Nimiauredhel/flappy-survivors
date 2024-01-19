@@ -626,7 +626,7 @@ namespace Gameplay
             AsyncOperation loading = SceneManager.LoadSceneAsync(scene);
             loading.allowSceneActivation = false;
             uiView.SetFadeAlpha(1.0f, 1.0f);
-            Awaitable.WaitForSecondsAsync(1.0f);
+            await Awaitable.WaitForSecondsAsync(1.0f);
             loading.allowSceneActivation = true;
         }
 
