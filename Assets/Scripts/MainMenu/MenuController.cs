@@ -53,6 +53,7 @@ namespace MainMenu
 
         private void LoadoutSelectedHandler(UpgradeOption selectedUpgrade)
         {
+            currentUpgradeTree.ResetUpgradeTree();
             selectedUpgrade.Taken = true;
             WeaponConfiguration[] startingWeapons = new WeaponConfiguration[1]{(WeaponConfiguration)selectedUpgrade.UpgradeConfig};
             PlayerCharacterConfiguration newPlayerConfig =

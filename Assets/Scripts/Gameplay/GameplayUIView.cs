@@ -2,12 +2,15 @@ using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Gameplay
 {
     public class GameplayUIView : MonoBehaviour
     {
+        public GameOverUIView GameOverUIUIView => gameOverUIView;
+        
         public Button.ButtonClickedEvent PauseButtonClicked
         {
             get
@@ -26,11 +29,10 @@ namespace Gameplay
             }
         }
 
-        [SerializeField] private CanvasGroup mainCanvasGroup;
+        [SerializeField] private CanvasGroup hudCanvasGroup;
+        [FormerlySerializedAs("gameOverView")] [SerializeField] private GameOverUIView gameOverUIView;
         [SerializeField] private Image fadePanel;
         [SerializeField] private TextMeshProUGUI timerText;
-
-        [SerializeField] private TextMeshProUGUI gameOverMessage;
 
         [SerializeField] private GameObject pausePanel;
         
@@ -47,11 +49,11 @@ namespace Gameplay
         {
             if (duration == 0.0f)
             {
-                mainCanvasGroup.alpha = value;
+                hudCanvasGroup.alpha = value;
             }
             else
             {
-                mainCanvasGroup.DOFade(value, duration);
+                hudCanvasGroup.DOFade(value, duration);
             }
         }
         
@@ -63,14 +65,6 @@ namespace Gameplay
             }
 
             fadePanel.DOFade(value, duration);
-        }
-
-        public void ShowGameOverMessage(string message, float delay)
-        {
-            gameOverMessage.text = message;
-            gameOverMessage.alpha = 0.0f;
-            gameOverMessage.gameObject.SetActive(true);
-            gameOverMessage.DOFade(1.0f, delay);
         }
 
         public void SetGamePhaseText(string phaseString)

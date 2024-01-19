@@ -304,24 +304,161 @@ namespace Gameplay
             
             _ = vfxService.RequestExplosionsAt(positions);
             
-            GameOverRoutine();
+            _ = GameOverRoutine();
         }
         
-        private async void GameOverRoutine()
+        private async Awaitable GameOverRoutine()
         {
-            AsyncOperation loading = SceneManager.LoadSceneAsync("Menu");
-            loading.allowSceneActivation = false;
+            GameOverUIView viewPanel = uiView.GameOverUIUIView;
             
-            float delay = GameModel.Won ? 20.0f : 5.0f;
+            viewPanel.CanvasGroup.alpha = 0.0f;
+            viewPanel.gameObject.SetActive(true);
             
-            if (!GameModel.Won)
+            if (GameModel.Won)
             {
-                await Awaitable.WaitForSecondsAsync(1);
+                viewPanel.SetUp(true,
+                    delegate { _ = TransitionToScene("Gameplay"); },
+                    delegate { _ = TransitionToScene("Menu"); });
+                
+                await Awaitable.WaitForSecondsAsync(1.0f);
+                vfxService.ChangeBaselineContrastRange(1.12f);
+                vfxService.ChangeBaselineEmission(3.0f);
+            }
+            else
+            {
+                viewPanel.SetUp(false,
+                    delegate { _ = TransitionToScene("Menu"); },
+                    delegate { _ = TransitionToScene("Gameplay"); });
+                
+                await Awaitable.WaitForSecondsAsync(1.0f);
                 vfxService.ChangeBaselineEmission(100.0f);
             }
             
-            await Awaitable.WaitForSecondsAsync(delay);
-            loading.allowSceneActivation = true;
+            viewPanel.CanvasGroup.DOFade(1.0f, 1.0f);
+            await Awaitable.WaitForSecondsAsync(1.0f);
+            vfxService.ChangeBaselineEmission(0.0f);
+
+            float lerpValue = 0.0f;
+            int totalScore = 1000;
+            int displayScore = 0;
+            int scoreOrigin = displayScore;
+            int modifierOrigin = 0;
+            
+            int modifierNumber = 0;
+            int modifierDisplayNumber = 0;
+            
+            viewPanel.TotalScoreNumber.text = "0";
+
+            DOTween.To(()=> lerpValue, x=> lerpValue = x, 1.0f, 1.0f);
+
+            while (lerpValue < 1.0f)
+            {
+                displayScore = (int)Mathf.Lerp(scoreOrigin, totalScore, lerpValue);
+                viewPanel.TotalScoreNumber.text = displayScore.ToString();
+                await Awaitable.NextFrameAsync();
+            }
+
+            displayScore = totalScore;
+            viewPanel.TotalScoreNumber.text = displayScore.ToString();
+
+            viewPanel.SmallButton.interactable = true;
+            viewPanel.BigButton.interactable = true;
+            
+            await Awaitable.WaitForSecondsAsync(0.25f);
+
+            // "Enemies Destroyed"
+            
+            modifierNumber = GameModel.TotalEnemiesDestroyed;
+            modifierDisplayNumber = modifierNumber;
+            totalScore += modifierNumber * 50;
+            
+            scoreOrigin = displayScore;
+            modifierOrigin = modifierDisplayNumber;
+            
+            viewPanel.ModifierPrefix.text = "Enemies Destroyed:";
+            viewPanel.ModifierNumber.text = modifierOrigin.ToString();
+
+            lerpValue = 0.0f;
+            DOTween.To(()=> lerpValue, x=> lerpValue = x, 1.0f, 1.0f);
+            
+            while (lerpValue < 1.0f)
+            {
+                displayScore = (int)Mathf.Lerp(scoreOrigin, totalScore, lerpValue);
+                modifierDisplayNumber = (int)Mathf.Lerp(modifierOrigin, 0, lerpValue);
+                viewPanel.TotalScoreNumber.text = displayScore.ToString();
+                viewPanel.ModifierNumber.text = modifierDisplayNumber.ToString();
+                await Awaitable.NextFrameAsync();
+            }
+            
+            displayScore = totalScore;
+            viewPanel.TotalScoreNumber.text = displayScore.ToString();
+            viewPanel.ModifierNumber.text = "0";
+            
+            await Awaitable.WaitForSecondsAsync(0.25f);
+            
+            // "Damage Dealt"
+            
+            modifierNumber = GameModel.TotalDamageDealt;
+            modifierDisplayNumber = modifierNumber;
+            totalScore += modifierNumber * 10;
+            
+            scoreOrigin = displayScore;
+            modifierOrigin = modifierDisplayNumber;
+            
+            viewPanel.ModifierPrefix.text = "Damage Dealt:";
+            viewPanel.ModifierNumber.text = modifierOrigin.ToString();
+
+            lerpValue = 0.0f;
+            DOTween.To(()=> lerpValue, x=> lerpValue = x, 1.0f, 1.0f);
+            
+            while (lerpValue < 1.0f)
+            {
+                displayScore = (int)Mathf.Lerp(scoreOrigin, totalScore, lerpValue);
+                modifierDisplayNumber = (int)Mathf.Lerp(modifierOrigin, 0, lerpValue);
+                viewPanel.TotalScoreNumber.text = displayScore.ToString();
+                viewPanel.ModifierNumber.text = modifierDisplayNumber.ToString();
+                await Awaitable.NextFrameAsync();
+            }
+            
+            displayScore = totalScore;
+            viewPanel.TotalScoreNumber.text = displayScore.ToString();
+            viewPanel.ModifierNumber.text = "0";
+            
+            await Awaitable.WaitForSecondsAsync(0.25f);
+            
+            // "Damage Taken"
+            
+            modifierNumber = GameModel.TotalDamageTaken;
+            modifierDisplayNumber = modifierNumber;
+            totalScore -= modifierNumber * 10;
+            
+            scoreOrigin = displayScore;
+            modifierOrigin = modifierDisplayNumber;
+            
+            viewPanel.ModifierPrefix.text = "Damage Taken:";
+            viewPanel.ModifierNumber.text = modifierOrigin.ToString();
+
+            lerpValue = 0.0f;
+            DOTween.To(()=> lerpValue, x=> lerpValue = x, 1.0f, 1.0f);
+            
+            while (lerpValue < 1.0f)
+            {
+                displayScore = (int)Mathf.Lerp(scoreOrigin, totalScore, lerpValue);
+                modifierDisplayNumber = (int)Mathf.Lerp(modifierOrigin, 0, lerpValue);
+                viewPanel.TotalScoreNumber.text = displayScore.ToString();
+                viewPanel.ModifierNumber.text = modifierDisplayNumber.ToString();
+                await Awaitable.NextFrameAsync();
+            }
+            
+            displayScore = totalScore;
+            viewPanel.TotalScoreNumber.text = displayScore.ToString();
+            viewPanel.ModifierNumber.text = "0";
+            
+            await Awaitable.WaitForSecondsAsync(0.25f);
+
+            viewPanel.ModifierPrefix.text = "";
+            viewPanel.ModifierNumber.text = "";
+
         }
 
         private void GameSetPausedHandler(bool value)
@@ -362,15 +499,11 @@ namespace Gameplay
                 case GamePhase.YouWin:
                     gameModel.SetCanPause(false);
                     uiView.SetCanvasAlpha(0.0f, 5.0f);
-                    uiView.SetFadeAlpha(1.0f, 10.0f);
-                    uiView.ShowGameOverMessage("You Won", 10.0f);
                     levelDirector.Stop();
                     break;
                 case GamePhase.GameOver:
                     gameModel.SetCanPause(false);
                     uiView.SetCanvasAlpha(0.0f, 1.5f);
-                    uiView.SetFadeAlpha(1.0f, 5.5f);
-                    uiView.ShowGameOverMessage("You Died", 5.0f);
                     levelDirector.Stop();
                     break;
                 case GamePhase.None:
@@ -486,6 +619,15 @@ namespace Gameplay
                 uiView.SetGamePhaseText(empty);
                 await Awaitable.WaitForSecondsAsync(0.25f);
             }
+        }
+
+        private async Awaitable TransitionToScene(string scene)
+        {
+            AsyncOperation loading = SceneManager.LoadSceneAsync(scene);
+            loading.allowSceneActivation = false;
+            uiView.SetFadeAlpha(1.0f, 1.0f);
+            Awaitable.WaitForSecondsAsync(1.0f);
+            loading.allowSceneActivation = true;
         }
 
 #if UNITY_EDITOR
