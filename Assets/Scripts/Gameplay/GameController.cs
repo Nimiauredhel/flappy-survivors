@@ -427,8 +427,9 @@ namespace Gameplay
             await Awaitable.WaitForSecondsAsync(0.25f);
             
             // "Damage Taken"
+            // Note: the damage taken value is already negative, so we flip it back
             
-            modifierNumber = GameModel.TotalDamageTaken;
+            modifierNumber = GameModel.TotalDamageTaken * -1;
             modifierDisplayNumber = modifierNumber;
             totalScore -= modifierNumber * 10;
             
