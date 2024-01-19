@@ -11,13 +11,15 @@ namespace Gameplay.Weapons
         public SpriteRenderer Graphic => graphic;
         public Collider2D Hitbox => hitbox;
         public Animator Animator => animator;
+        public GameObject HitEffectPrefab => hitEffectPrefab;
 
         [SerializeField] private SpriteRenderer graphic;
         [SerializeField] private Collider2D hitbox;
         [SerializeField] private Animator animator;
         [SerializeField] private EventReference drawEventReference;
         [SerializeField] private EventReference sheatheEventReference;
-
+        [SerializeField] private GameObject hitEffectPrefab;
+        
         public void PlayDrawSound()
         {
             if (!drawEventReference.IsNull)

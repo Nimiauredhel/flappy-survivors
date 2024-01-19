@@ -124,6 +124,7 @@ namespace Gameplay
             if (explosion)
             {
                 explosion.transform.position = position;
+                explosion.transform.eulerAngles = new Vector3(0.0f, 0.0f, Random.Range(-15.0f, 15.0f));
                 explosion.SetActive(true);
                 await Awaitable.WaitForSecondsAsync(config.ExplosionDelay);
                 explosion.SetActive(false);

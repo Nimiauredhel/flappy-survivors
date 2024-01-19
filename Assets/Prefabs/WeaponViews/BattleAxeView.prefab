@@ -143,6 +143,7 @@ MonoBehaviour:
       Data3: 165383324
       Data4: 2144603436
     Path: event:/SFX/AxeSheathe
+  hitEffectPrefab: {fileID: 4942721070776471051, guid: eaab33b5f521468429d66e2a2f972189, type: 3}
 --- !u!50 &5494598786590864023
 Rigidbody2D:
   serializedVersion: 4

@@ -21,6 +21,7 @@ namespace Configuration
         [SerializeField] private TypeReference[] logicComponents;
         [SerializeField] private WeaponView viewPrefab;
         [SerializeField] private Sprite iconSprite;
+        
         public UpgradeType Type()
         {
             return UpgradeType.Weapon;
