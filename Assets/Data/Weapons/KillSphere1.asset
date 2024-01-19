@@ -22,7 +22,10 @@ MonoBehaviour:
     speed: 0
     duration: 2
     area: 1
-    cooldown: 3
+    chargeCapacity: 3
+    chargeDepletionRate: 3
+    chargeReplenishmentRate: 1
+    chargeUseThreshold: 3
     name: Kill Sphere
     description: Vaporize anything you touch as you ascend.
   logicComponents:

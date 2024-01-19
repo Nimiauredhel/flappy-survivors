@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Gameplay.Weapons
 {
@@ -22,7 +23,11 @@ namespace Gameplay.Weapons
         public float Speed => speed;
         public float Duration => duration;
         public float Area => area;
-        public float Cooldown => cooldown;
+        public float ChargeCapacity => chargeCapacity;
+        public float ChargeUseThreshold => chargeUseThreshold;
+        public float ChargeDepletionRate => chargeDepletionRate;
+        public float ChargeReplenishmentRate => chargeReplenishmentRate;
+        
         public string Name => name;
         public string Description => description;
         
@@ -33,7 +38,10 @@ namespace Gameplay.Weapons
         [SerializeField][Range(0.0f, 30.0f)] private float speed = 1.0f;
         [SerializeField][Range(0.0f, 30.0f)] private float duration = 1.0f;
         [SerializeField][Range(0.0f, 10.0f)] private float area = 1.0f;
-        [SerializeField][Range(-30.0f, 30.0f)] private float cooldown = 1.0f;
+        [FormerlySerializedAs("cooldown")][SerializeField][Range(0.0f, 30.0f)] private float chargeCapacity = 1.0f;
+        [SerializeField] private float chargeDepletionRate = 1.0f;
+        [SerializeField] private float chargeReplenishmentRate = 1.0f;
+        [SerializeField] private float chargeUseThreshold = 1.0f;
         
         [SerializeField] private string name;
         [SerializeField][TextArea] private string description;
@@ -45,7 +53,10 @@ namespace Gameplay.Weapons
             speed = original.speed;
             duration = original.duration;
             area = original.area;
-            cooldown = original.cooldown;
+            chargeCapacity = original.chargeCapacity;
+            chargeUseThreshold = original.chargeUseThreshold;
+            chargeDepletionRate = original.chargeDepletionRate;
+            chargeReplenishmentRate = original.ChargeReplenishmentRate;
             amount = original.amount;
             hits = original.hits;
 
@@ -64,7 +75,10 @@ namespace Gameplay.Weapons
             speed += upgrade.speed;
             duration += upgrade.duration;
             area += upgrade.area;
-            cooldown += upgrade.cooldown;
+            chargeCapacity += upgrade.chargeCapacity;
+            chargeUseThreshold += upgrade.chargeUseThreshold;
+            chargeDepletionRate += upgrade.chargeDepletionRate;
+            chargeReplenishmentRate += upgrade.ChargeReplenishmentRate;
             amount += upgrade.amount;
             hits += upgrade.hits;
         }

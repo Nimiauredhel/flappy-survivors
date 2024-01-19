@@ -17,7 +17,7 @@ namespace Gameplay.Weapons.WeaponLogic
         {
             if (skipCooldown)
             {
-                instance.Status.timeSinceActivated = instance.Stats.Cooldown;
+                instance.Status.currentCharge = instance.Stats.ChargeCapacity;
             }
         }
 

@@ -22,7 +22,10 @@ MonoBehaviour:
     speed: 17
     duration: 3
     area: 1
-    cooldown: 2.5
+    chargeCapacity: 2.5
+    chargeDepletionRate: 2.5
+    chargeReplenishmentRate: 1
+    chargeUseThreshold: 2.5
     name: Shuriken
     description: Dispatch enemies at a safe distance.
   logicComponents:

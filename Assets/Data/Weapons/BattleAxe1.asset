@@ -22,7 +22,10 @@ MonoBehaviour:
     speed: 0
     duration: 0.4
     area: 1
-    cooldown: 2
+    chargeCapacity: 2
+    chargeDepletionRate: 2
+    chargeReplenishmentRate: 1
+    chargeUseThreshold: 2
     name: Battle Axe
     description: Obliterate foes from above with precise, powerful blows.
   logicComponents:

@@ -1,4 +1,3 @@
-using System;
 using Configuration;
 using Gameplay.Weapons.WeaponLogic;
 using UnityEngine;
@@ -16,11 +15,11 @@ namespace Gameplay.Weapons
         
         public class WeaponStatus
         {
-            public float timeSinceActivated = 0.0f;
+            public float currentCharge = 0.0f;
 
             public WeaponStatus(WeaponStats stats)
             {
-                timeSinceActivated = stats.Cooldown;
+                currentCharge = stats.ChargeCapacity;
             }
         }
 
@@ -53,7 +52,7 @@ namespace Gameplay.Weapons
             if (gamePhase < 2 || gamePhase > 3) return;
             
             logic.OnUpdate(this);
-            uiView.UpdateCooldownIndicator(1.0f-(Status.timeSinceActivated/Stats.Cooldown));
+            uiView.UpdateCooldownIndicator(1.0f-(Status.currentCharge/Stats.ChargeCapacity));
         }
 
         public void WeaponFixedUpdate(WeaponType validType)
@@ -63,10 +62,11 @@ namespace Gameplay.Weapons
             if (gamePhase < 2 || gamePhase > 3) return;
             
             bool activated = false;
+            float fixedDeltaTime = Time.fixedDeltaTime;
             
             if (Stats.Type == validType || Stats.Type == WeaponType.Both)
             {
-                if (Status.timeSinceActivated >= Stats.Cooldown)
+                if (Status.currentCharge >= Stats.ChargeUseThreshold)
                 {
                     activated = true;
                     logic.Draw(this);
@@ -79,12 +79,14 @@ namespace Gameplay.Weapons
 
             if (activated)
             {
-                Status.timeSinceActivated = 0.0f;
+                Status.currentCharge -= Stats.ChargeDepletionRate;
             }
             else
             {
-                Status.timeSinceActivated += Time.fixedDeltaTime;
+                Status.currentCharge += Stats.ChargeReplenishmentRate * fixedDeltaTime;
             }
+
+            Status.currentCharge = Mathf.Clamp(Status.currentCharge, 0.0f, Stats.ChargeCapacity);
             
             logic.OnFixedUpdate(this);
         }
