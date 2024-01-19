@@ -15,7 +15,6 @@ public class FocusListener : MonoBehaviour
 
     private void OnApplicationFocus(bool focus)
     {
-        Debug.Log("Focus changed to " + focus);
         FocusChanged?.Invoke(this, focus);
     }
 }

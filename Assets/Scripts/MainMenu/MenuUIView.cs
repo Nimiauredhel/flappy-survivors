@@ -19,8 +19,13 @@ namespace MainMenu
         
         private Tween fadeAlphaTween = null;
         
-        public void SetCanvasAlpha(int canvasGroupIndex, float value, float duration, bool deactivate = false)
+        public void SetCanvasAlpha(int canvasGroupIndex, float value, float duration, bool changeActive)
         {
+            if (value > 0 && changeActive)
+            {
+                canvasGroups[canvasGroupIndex].gameObject.SetActive(true);
+            }
+
             if (duration == 0.0f)
             {
                 canvasGroups[canvasGroupIndex].alpha = value;
@@ -28,7 +33,8 @@ namespace MainMenu
             else
             {
                 Tween tween = canvasGroups[canvasGroupIndex].DOFade(value, duration);
-                if (deactivate)
+                
+                if (value <= 0 && changeActive)
                 {
                     CanvasGroup cg = canvasGroups[canvasGroupIndex];
                     tween.onComplete += delegate { cg.gameObject.SetActive(false); };
