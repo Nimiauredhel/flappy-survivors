@@ -58,7 +58,7 @@
 	</object>
 	<object class="EventAutomatableProperties" id="{58bff958-19b4-4cfe-813d-701734a47a87}">
 		<property name="maxVoices">
-			<value>5</value>
+			<value>3</value>
 		</property>
 		<property name="triggerCooldown">
 			<value>20</value>
@@ -86,8 +86,11 @@
 	</object>
 	<object class="SingleSound" id="{70da42b7-feb4-4ab3-b1a1-09d19904f160}">
 		<property name="length">
-			<value>1.8744671201814058</value>
+			<value>1.125</value>
 		</property>
+		<relationship name="fadeOutCurve">
+			<destination>{0fd2d7ba-41a5-4506-8d97-8829b487f732}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{17c0fc53-afac-4107-9fc8-1863756a70ca}</destination>
 		</relationship>
@@ -106,6 +109,14 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{5f1d1ad5-7f26-4075-a798-413dbdf62f8e}" />
+	<object class="FadeCurve" id="{0fd2d7ba-41a5-4506-8d97-8829b487f732}">
+		<relationship name="startPoint">
+			<destination>{eed96b28-a4da-4eee-984e-3c430e0e5819}</destination>
+		</relationship>
+		<relationship name="endPoint">
+			<destination>{8f61e80b-3abf-4b13-9816-0f69929134a9}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{1a11b087-8f42-4876-9952-c894d8220ef5}" />
 	<object class="ThreeEQEffect" id="{62baf7d2-e839-465a-a3fb-4b3e3f855d81}">
 		<property name="lowGain">
@@ -132,6 +143,25 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{b421f74a-0a7e-43e0-9bd1-46c8b164fea3}" />
+	<object class="AutomationPoint" id="{eed96b28-a4da-4eee-984e-3c430e0e5819}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+		<property name="curveShape">
+			<value>0.25471893</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{8f61e80b-3abf-4b13-9816-0f69929134a9}">
+		<property name="position">
+			<value>1.125</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
 	<object class="RandomizerModulator" id="{11d4eacd-ee05-4a9c-961a-c4cf6c1901d4}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>lowGain</value>

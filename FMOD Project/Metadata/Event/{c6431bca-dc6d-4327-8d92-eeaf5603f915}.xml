@@ -61,7 +61,7 @@
 	</object>
 	<object class="EventAutomatableProperties" id="{072f72d7-0b54-4e85-bc69-fb3fc28f4bde}">
 		<property name="maxVoices">
-			<value>10</value>
+			<value>5</value>
 		</property>
 		<property name="triggerCooldown">
 			<value>20</value>
@@ -95,7 +95,7 @@
 	</object>
 	<object class="SingleSound" id="{3706279d-c939-47d2-bae1-9e7f454dee27}">
 		<property name="length">
-			<value>0.46854875283446712</value>
+			<value>0.1015625</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{479acb3c-4484-4739-aba0-9e590a097744}</destination>
@@ -109,7 +109,7 @@
 	<object class="MixerBusPanner" id="{3bee2d04-8772-469b-8ee7-1c7fa9304379}" />
 	<object class="SingleSound" id="{12fb6ddc-13eb-4a1a-b2fe-6faa26e21a57}">
 		<property name="length">
-			<value>0.42594104308390024</value>
+			<value>0.21875</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{a2549811-7f89-4648-bc6d-8e36478349a0}</destination>
@@ -161,13 +161,10 @@
 	<object class="MixerBusPanner" id="{5bad43c3-ac29-4c9e-b65c-5a17fd8632cf}" />
 	<object class="ThreeEQEffect" id="{4bc15b88-256f-425c-af4a-f4f0741bf221}">
 		<property name="lowGain">
-			<value>1</value>
-		</property>
-		<property name="midGain">
-			<value>1</value>
+			<value>-15.5</value>
 		</property>
 		<property name="highGain">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{450b2286-cafe-454a-9656-15244d27041b}</destination>
@@ -197,16 +194,13 @@
 		<property name="nameOfPropertyBeingModulated">
 			<value>lowGain</value>
 		</property>
-		<property name="amount">
-			<value>2</value>
-		</property>
 	</object>
 	<object class="RandomizerModulator" id="{7d1f386e-9a83-4354-b9c1-eda959580d89}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>midGain</value>
 		</property>
 		<property name="amount">
-			<value>2</value>
+			<value>1</value>
 		</property>
 	</object>
 	<object class="RandomizerModulator" id="{a8f52bf5-ab2f-4301-ae20-60f18844bff4}">
@@ -214,7 +208,7 @@
 			<value>highGain</value>
 		</property>
 		<property name="amount">
-			<value>2</value>
+			<value>1</value>
 		</property>
 	</object>
 	<object class="RandomizerModulator" id="{c50283ac-d9a1-48ac-8552-d8f144a13e3e}">

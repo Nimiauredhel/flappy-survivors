@@ -58,7 +58,10 @@
 	</object>
 	<object class="EventAutomatableProperties" id="{99cc8fd2-693c-4d40-bf86-3a687af240b6}">
 		<property name="maxVoices">
-			<value>5</value>
+			<value>4</value>
+		</property>
+		<property name="priority">
+			<value>3</value>
 		</property>
 		<property name="triggerCooldown">
 			<value>20</value>

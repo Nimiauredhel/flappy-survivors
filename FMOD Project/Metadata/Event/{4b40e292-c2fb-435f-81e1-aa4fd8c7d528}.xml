@@ -60,6 +60,9 @@
 		<property name="maxVoices">
 			<value>1</value>
 		</property>
+		<property name="priority">
+			<value>3</value>
+		</property>
 	</object>
 	<object class="MarkerTrack" id="{3afff7f3-1b87-4383-9373-543a57506ed9}" />
 	<object class="Timeline" id="{59118231-2ba3-4677-bcf7-865a7d953cc9}">
