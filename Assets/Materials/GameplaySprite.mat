@@ -75,7 +75,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Emission: 1.0962398
+    - _Emission: 1
     - _EnableExternalAlpha: 0
     - _FlashAmount: 0
     - _GlossMapScale: 1
