@@ -288,11 +288,9 @@ namespace Gameplay
         {
             uiView.SetCanvasAlpha(0.0f, 2.5f);
             
-            List<Vector3> positions = pickupsController.PurgeAllPickups();
-            
             if (GameModel.Won)
             {
-                positions.AddRange(enemiesController.PurgeAllEnemies());
+                _ = vfxService.RequestExplosionsAt(enemiesController.PurgeAllEnemies());
                 uiView.SetGamePhaseText("Well done!");
             }
             else
@@ -301,8 +299,6 @@ namespace Gameplay
             }
             
             gameModel.SetGamePhase(GameModel.Won ? GamePhase.YouWin : GamePhase.GameOver);
-            
-            _ = vfxService.RequestExplosionsAt(positions);
             
             _ = GameOverRoutine();
         }
@@ -334,8 +330,12 @@ namespace Gameplay
                 vfxService.ChangeBaselineEmission(100.0f);
             }
             
+            _ = vfxService.RequestExplosionsAt(pickupsController.PurgeAllPickups());
+            await Awaitable.NextFrameAsync();
+            
             viewPanel.CanvasGroup.DOFade(1.0f, 1.0f);
             await Awaitable.WaitForSecondsAsync(1.0f);
+            
             vfxService.ChangeBaselineEmission(0.0f);
 
             float lerpValue = 0.0f;
@@ -546,6 +546,9 @@ namespace Gameplay
             
             await Awaitable.NextFrameAsync();
             await vfxService.RequestExplosionsAt(enemiesController.PurgeAllEnemies(), true, 0.05f, 0.01f);
+            await Awaitable.NextFrameAsync();
+            await vfxService.RequestExplosionsAt(pickupsController.PurgeAllPickups(PickupType.XP));
+            
             gameModel.SetCanPause(false);
             await Awaitable.NextFrameAsync();
             
