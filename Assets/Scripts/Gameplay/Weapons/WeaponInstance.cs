@@ -61,7 +61,7 @@ namespace Gameplay.Weapons
         {
             // Skip this if Game Phase is not relevant
             int gamePhase = (int)GameModel.CurrentGamePhase;
-            if (gamePhase < 2 || gamePhase > 3) return;
+            if (gamePhase is < 2 or > 3) return;
             
             bool activated = false;
             float fixedDeltaTime = Time.fixedDeltaTime;

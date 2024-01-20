@@ -16,6 +16,9 @@ Shader "Custom/GameplaySprite"
         [PerRendererData] _AlphaTex ("External Alpha", 2D) = "white" {}
         [PerRendererData] _EnableExternalAlpha ("Enable External Alpha", Float) = 0
         _FlashAmount ("Flash Amount", Range(0, 1)) = 0
+        
+        _BarFill("Bar Fill", Range(0, 5)) = 1
+        _BarFillSmoothing("Bar Fill Smoothing", Range(0, 1)) = 0.1
     }
 
     SubShader
@@ -81,6 +84,8 @@ Shader "Custom/GameplaySprite"
             fixed4 _Color;
             float _Emission;
 	        float _ContrastModifier;
+            float _BarFill;
+            float _BarFillSmoothing;
 
             struct appdata_t
             {
@@ -156,6 +161,10 @@ Shader "Custom/GameplaySprite"
 		        c = AdjustContrast(c, _Contrast);
                 c.rgb *= c.a;
                 c.rgb *= _Emission;
+
+                float smoothingHalf = _BarFillSmoothing/2;
+                c.rgb *= 1 - smoothstep(_BarFill - _BarFillSmoothing, _BarFill, IN.texcoord.x);
+                
                 return c;
             }
             

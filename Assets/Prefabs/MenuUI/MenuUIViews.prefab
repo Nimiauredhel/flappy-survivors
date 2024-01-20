@@ -2314,6 +2314,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3486223704979038832, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d3c77b9f9b23d64e8acabf45bc4bef1, type: 3}
+    - target: {fileID: 3486223704979038832, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486223704979038832, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5371854461764929199, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2431,6 +2443,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3486223704979038832, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d3c77b9f9b23d64e8acabf45bc4bef1, type: 3}
+    - target: {fileID: 3486223704979038832, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486223704979038832, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5371854461764929199, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2546,6 +2570,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2055307899540492143, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486223704979038832, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d3c77b9f9b23d64e8acabf45bc4bef1, type: 3}
+    - target: {fileID: 3486223704979038832, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486223704979038832, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5371854461764929199, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
@@ -2745,6 +2781,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8968173128244450895, guid: 9d27c067108e3da45966c5b1c66b35f2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d3c77b9f9b23d64e8acabf45bc4bef1, type: 3}
+    - target: {fileID: 8968173128244450895, guid: 9d27c067108e3da45966c5b1c66b35f2, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968173128244450895, guid: 9d27c067108e3da45966c5b1c66b35f2, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2780,6 +2828,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2055307899540492143, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486223704979038832, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d3c77b9f9b23d64e8acabf45bc4bef1, type: 3}
+    - target: {fileID: 3486223704979038832, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486223704979038832, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5371854461764929199, guid: 1d4f1ef625bb763468e661783ee19340, type: 3}
@@ -2979,6 +3039,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8968173128244450895, guid: 9d27c067108e3da45966c5b1c66b35f2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d3c77b9f9b23d64e8acabf45bc4bef1, type: 3}
+    - target: {fileID: 8968173128244450895, guid: 9d27c067108e3da45966c5b1c66b35f2, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968173128244450895, guid: 9d27c067108e3da45966c5b1c66b35f2, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3096,6 +3168,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8968173128244450895, guid: 9d27c067108e3da45966c5b1c66b35f2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d3c77b9f9b23d64e8acabf45bc4bef1, type: 3}
+    - target: {fileID: 8968173128244450895, guid: 9d27c067108e3da45966c5b1c66b35f2, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968173128244450895, guid: 9d27c067108e3da45966c5b1c66b35f2, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3211,6 +3295,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7701815936021409413, guid: 9d27c067108e3da45966c5b1c66b35f2, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968173128244450895, guid: 9d27c067108e3da45966c5b1c66b35f2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d3c77b9f9b23d64e8acabf45bc4bef1, type: 3}
+    - target: {fileID: 8968173128244450895, guid: 9d27c067108e3da45966c5b1c66b35f2, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968173128244450895, guid: 9d27c067108e3da45966c5b1c66b35f2, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

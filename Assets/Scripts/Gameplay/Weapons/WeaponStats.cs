@@ -40,7 +40,7 @@ namespace Gameplay.Weapons
         [SerializeField][Range(0.0f, 30.0f)] private float speed = 1.0f;
         [SerializeField][Range(0.0f, 30.0f)] private float duration = 1.0f;
         [SerializeField][Range(0.0f, 10.0f)] private float area = 1.0f;
-        [FormerlySerializedAs("cooldown")][SerializeField][Range(0.0f, 30.0f)] private float chargeCapacity = 1.0f;
+        [SerializeField][Range(0.0f, 30.0f)] private float chargeCapacity = 1.0f;
         [SerializeField] private float chargeDepletionRate = 1.0f;
         [SerializeField] private float chargeReplenishmentRate = 1.0f;
         [SerializeField] private float chargeUseThreshold = 1.0f;

@@ -344,6 +344,7 @@ namespace Gameplay.Player
             _touchReceiver.PointerUp += PointerUpHandler;
             view.TriggerEntered += TriggerEnterHandler;
             
+            uiView.Initialize();
             uiView.UpdatePlayerHealthView((float)model.CurrentHealth/model.MaxHealth);
             uiView.UpdatePlayerXPView(0.0f);
             
@@ -437,7 +438,7 @@ namespace Gameplay.Player
 
             if (levelUp)
             {
-                LevelUpHandler();
+                _ = LevelUpHandler();
             }
         }
         
@@ -451,10 +452,17 @@ namespace Gameplay.Player
             }
         }
 
-        private void LevelUpHandler()
+        private async Awaitable LevelUpHandler()
         {
             uiView.UpdatePlayerCurrentLevelText(model.CurrentLevel);
             LevelUp?.Invoke(model.CurrentLevel);
+
+            while (GameModel.CurrentGamePhase != GamePhase.HordePhase)
+            {
+                await Awaitable.NextFrameAsync();
+            }
+            
+            uiView.XPReverse();
         }
 
         private void SelectedUpgradeHandler(UpgradeOption selectedOption)
@@ -487,8 +495,6 @@ namespace Gameplay.Player
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            
-            
         }
 
         private void ChangePlayerHealth(int amount)
