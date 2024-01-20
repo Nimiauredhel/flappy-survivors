@@ -22,7 +22,7 @@ MonoBehaviour:
     speed: 0
     duration: 0
     area: 0
-    chargeCapacity: -1
+    chargeCapacity: 0
     chargeDepletionRate: 0
     chargeReplenishmentRate: 1
     chargeUseThreshold: 0
