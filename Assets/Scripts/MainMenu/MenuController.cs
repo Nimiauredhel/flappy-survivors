@@ -25,12 +25,12 @@ namespace MainMenu
             
             InitLevelOptions();
             InitLoadoutOptions();
-            view.SetupPlayButton(PlayClickedHandler);
+            view.BeginButtonClickedAction += BeginClickedHandler;
 
             await Awaitable.WaitForSecondsAsync(0.25f);
             view.SetFadeAlpha(0.0f, 5.0f);
-            await Awaitable.WaitForSecondsAsync(1.0f);
-            view.SetCanvasAlpha(0, 1.0f, 0.5f, true);
+            await Awaitable.WaitForSecondsAsync(1.5f);
+            view.SetCanvasAlpha(0, 1.0f, 1.0f, true);
         }
 
         private void InitLevelOptions()
@@ -61,8 +61,9 @@ namespace MainMenu
             ConfigSelectionMediator.SetCharacterLoadout(newPlayerConfig, currentUpgradeTree);
         }
 
-        private void PlayClickedHandler()
+        private void BeginClickedHandler()
         {
+            AudioService.Instance.PlayLevelUp();
             _ = GameLoadingRoutine();
         }
 

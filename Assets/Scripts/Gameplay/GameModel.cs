@@ -1,4 +1,5 @@
 ﻿using System;
+using Audio;
 using UnityEngine;
 
 namespace Gameplay
@@ -55,6 +56,7 @@ namespace Gameplay
 
         public void TogglePause()
         {
+            AudioService.Instance.PlayEnemyHit();
             SetPaused(!paused);
         }
 

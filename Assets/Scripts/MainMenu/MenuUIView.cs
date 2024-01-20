@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Audio;
 using Gameplay.Upgrades;
 using Configuration;
 using DG.Tweening;
@@ -16,8 +17,24 @@ namespace MainMenu
         
         [SerializeField] private LevelUIToggle[] levelToggles;
         [SerializeField] private LoadoutUIButton[] upgradeButtons;
+
+        public event Action PageTransitionAction;
+        public event Action BeginButtonClickedAction;
         
+        private int currentActivePage = 0;
         private Tween fadeAlphaTween = null;
+
+        public void BeginButtonClicked()
+        {
+            BeginButtonClickedAction?.Invoke();
+        }
+
+        public void TransitionToPage(int pageIndex)
+        {
+            PageTransitionAction?.Invoke();
+            AudioService.Instance.PlayEnemyHit();
+            _ = TransitionToPageAsync(pageIndex);
+        }
         
         public void SetCanvasAlpha(int canvasGroupIndex, float value, float duration, bool changeActive)
         {
@@ -40,12 +57,6 @@ namespace MainMenu
                     tween.onComplete += delegate { cg.gameObject.SetActive(false); };
                 }
             }
-        }
-
-        public void SetCanvasAlpha(string args)
-        {
-            string[] split = args.Split(',');
-            SetCanvasAlpha(int.Parse(split[0]), float.Parse(split[1]), float.Parse(split[2]), bool.Parse(split[3]));
         }
 
         public void SetFadeAlpha(float value, float duration)
@@ -106,11 +117,6 @@ namespace MainMenu
             upgradeButtons[0].Button.onClick.Invoke();
         }
 
-        public void SetupPlayButton(Action playCallback)
-        {
-            playButton.onClick.AddListener(playCallback.Invoke);
-        }
-
         private void OnLevelSelected(LevelConfiguration level, Toggle toggle, Action<LevelConfiguration> selectionCallback)
         {
             for (int i = 0; i < levelToggles.Length; i++)
@@ -136,6 +142,14 @@ namespace MainMenu
             button.Checkmark.SetActive(true);
             
             selectionCallback?.Invoke(option);
+        }
+
+        private async Awaitable TransitionToPageAsync(int pageIndex)
+        {
+            SetCanvasAlpha(currentActivePage, 0.0f, 0.5f, true);
+            await Awaitable.WaitForSecondsAsync(0.5f);
+            currentActivePage = pageIndex;
+            SetCanvasAlpha(currentActivePage, 1.0f, 1.0f, true);
         }
     }
 }

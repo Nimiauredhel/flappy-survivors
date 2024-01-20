@@ -629,12 +629,30 @@ namespace Gameplay
 
         private void Restart()
         {
+            if (GameModel.Won)
+            {
+                AudioService.Instance.PlayLevelUp();
+            }
+            else
+            {
+                AudioService.Instance.PlayEnemyDestroyed();
+            }
+
             gameModel.SetPaused(false);
             _ = TransitionToScene("Gameplay");
         }
 
         private void Quit()
         {
+            if (GameModel.Won)
+            {
+                AudioService.Instance.PlayLevelUp();
+            }
+            else
+            {
+                AudioService.Instance.PlayEnemyDestroyed();
+            }
+            
             gameModel.SetPaused(false);
             _ = TransitionToScene("Menu");
         }
