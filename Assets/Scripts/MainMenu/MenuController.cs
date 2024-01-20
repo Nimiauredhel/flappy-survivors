@@ -20,6 +20,7 @@ namespace MainMenu
         
         public async void Start()
         {
+            Application.runInBackground = false;
             AudioService.Instance.PlayMainMenuMusic();
             
             InitLevelOptions();
