@@ -28,6 +28,42 @@ namespace Gameplay
                 return pauseButtonClicked;
             }
         }
+        
+        public Button.ButtonClickedEvent RestartButtonClicked
+        {
+            get
+            {
+                if (restartButtonClicked == null)
+                {
+                    restartButtonClicked = new Button.ButtonClickedEvent();
+
+                    foreach (Button button in restartButtons)
+                    {
+                        button.onClick.AddListener(restartButtonClicked.Invoke);
+                    }
+                }
+
+                return restartButtonClicked;
+            }
+        }
+        
+        public Button.ButtonClickedEvent QuitButtonClicked
+        {
+            get
+            {
+                if (quitButtonClicked == null)
+                {
+                    quitButtonClicked = new Button.ButtonClickedEvent();
+
+                    foreach (Button button in quitButtons)
+                    {
+                        button.onClick.AddListener(quitButtonClicked.Invoke);
+                    }
+                }
+
+                return quitButtonClicked;
+            }
+        }
 
         [SerializeField] private CanvasGroup hudCanvasGroup;
         [FormerlySerializedAs("gameOverView")] [SerializeField] private GameOverUIView gameOverUIView;
@@ -35,10 +71,14 @@ namespace Gameplay
         [SerializeField] private TextMeshProUGUI timerText;
 
         [SerializeField] private GameObject pausePanel;
-        
+
+        [SerializeField] private Button[] quitButtons;
+        [SerializeField] private Button[] restartButtons;
         [SerializeField] private Button[] pauseButtons;
 
         private Button.ButtonClickedEvent pauseButtonClicked = null;
+        private Button.ButtonClickedEvent restartButtonClicked = null;
+        private Button.ButtonClickedEvent quitButtonClicked = null;
 
         public void SetShowPausePanel(bool value)
         {

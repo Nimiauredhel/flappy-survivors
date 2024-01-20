@@ -79,6 +79,8 @@ namespace Gameplay
             
             uiView.SetFadeAlpha(0.0f, 2.0f);
             uiView.PauseButtonClicked.AddListener(gameModel.TogglePause);
+            uiView.RestartButtonClicked.AddListener(Restart);
+            uiView.QuitButtonClicked.AddListener(Quit);
             gameModel.GameSetPaused += GameSetPausedHandler;
         }
 
@@ -313,8 +315,8 @@ namespace Gameplay
             if (GameModel.Won)
             {
                 viewPanel.SetUp(true,
-                    delegate { _ = TransitionToScene("Gameplay"); },
-                    delegate { _ = TransitionToScene("Menu"); });
+                    Restart,
+                    Quit);
                 
                 await Awaitable.WaitForSecondsAsync(1.0f);
                 vfxService.ChangeBaselineContrastRange(1.12f);
@@ -323,8 +325,8 @@ namespace Gameplay
             else
             {
                 viewPanel.SetUp(false,
-                    delegate { _ = TransitionToScene("Menu"); },
-                    delegate { _ = TransitionToScene("Gameplay"); });
+                    Quit,
+                    Restart);
                 
                 await Awaitable.WaitForSecondsAsync(1.0f);
                 vfxService.ChangeBaselineEmission(100.0f);
@@ -623,6 +625,18 @@ namespace Gameplay
                 uiView.SetGamePhaseText(empty);
                 await Awaitable.WaitForSecondsAsync(0.25f);
             }
+        }
+
+        private void Restart()
+        {
+            gameModel.SetPaused(false);
+            _ = TransitionToScene("Gameplay");
+        }
+
+        private void Quit()
+        {
+            gameModel.SetPaused(false);
+            _ = TransitionToScene("Menu");
         }
 
         private async Awaitable TransitionToScene(string scene)
