@@ -1,11 +1,20 @@
-Harpy 2D Pixel Art by Mattz Art
-Space Pirates Game Sprites - Pixel Art by Free Game Assets
-Alien Spaceship 2D Sprites Pixel Art by Free Game Assets
 
-Sky Backdrop by bart
-Explosion by Cuzco
-Boom Pack 2 by dklon
-Pixel Weapons (demo) by Gabe Hess
+<size=40>The Flappy Survivor</size>
 
-Removed:
-Flappy Grumpy Bird Sprite Sheets by bevoulin.com
+Designed & Developed
+by Mickey Hoz
+
+Music by Mickey Hoz
+
+Made with Unity
+Made using FMOD Studio by Firelight Technologies Pty Ltd.
+
+Assets used:
+-Harpy 2D Pixel Art by Mattz Art
+-Spaceship 2D Sprites by CraftPix.net
+-Space Pirates Game Sprites by CraftPix.net
+-City Background Pixel Art by CraftPix.net
+-Durkan's 100 Item Pack by Furkan Durkan
+-Explosion by Cuzco
+-Boom Pack 2 by dklon
+-Unity Command Terminal by stillwwater
