@@ -60,7 +60,7 @@ namespace Gameplay.Player
             
             xpTween = DOTween.Sequence();
             xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_HASH, 0.25f).SetEase(Ease.OutCirc));
-            xpTween.Join(xpBar.material.DOFloat(percent/4, BARFILL_SMOOTHING_HASH, 0.25f).SetEase(Ease.OutCirc));
+            xpTween.Join(xpBar.material.DOFloat(percent/10, BARFILL_SMOOTHING_HASH, 0.25f).SetEase(Ease.OutCirc));
         }
 
         public void XPReverse()
@@ -75,7 +75,7 @@ namespace Gameplay.Player
             
             xpTween = DOTween.Sequence();
             xpTween.Append(xpBar.material.DOFloat(0.0f, BARFILL_HASH, 10.0f).SetEase(Ease.OutCirc));
-            xpTween.Join(xpBar.material.DOFloat(0.2f, BARFILL_SMOOTHING_HASH, 10.0f).SetEase(Ease.OutCirc));
+            xpTween.Join(xpBar.material.DOFloat(0.1f, BARFILL_SMOOTHING_HASH, 10.0f).SetEase(Ease.OutCirc));
         }
 
         public void UpdatePlayerCurrentLevelText(int currentLevel)
