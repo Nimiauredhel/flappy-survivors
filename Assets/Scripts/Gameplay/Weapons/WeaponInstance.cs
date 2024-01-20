@@ -63,7 +63,6 @@ namespace Gameplay.Weapons
             int gamePhase = (int)GameModel.CurrentGamePhase;
             if (gamePhase is < 2 or > 3) return;
             
-            bool activated = false;
             float fixedDeltaTime = Time.fixedDeltaTime;
             
             //TODO: simplify the logic here that got a bit convoluted after changing "cooldown" to "charge"

@@ -68,7 +68,7 @@ namespace Gameplay.ScrolledObjects.Pickup
             }
             
             AudioService.Instance.PlayPickupCollected();
-            view.Deactivate();
+            _ = view.Deactivate();
         }
 
         public void OnActivate(ScrolledObjectView view, object newValue, bool forbidPathRotation = false, float speedOverride = 0.0f)

@@ -76,7 +76,7 @@ namespace Gameplay
 
         public void RequestExplosionAt(Vector2 position, bool doLight = true)
         {
-            ServeExplosionAsync(position);
+            _ = ServeExplosionAsync(position);
             if (doLight) LightForSeconds(1.5f);
         }
 
@@ -114,10 +114,10 @@ namespace Gameplay
 
         public void RequestDamageTextAt(int damage, Vector2 position)
         {
-            ServeDamageTextAsync(damage, position);
+            _ = ServeDamageTextAsync(damage, position);
         }
 
-        private async void ServeExplosionAsync(Vector2 position)
+        private async Awaitable ServeExplosionAsync(Vector2 position)
         {
             pooledExplosions.Get(out var explosion);
 
@@ -150,7 +150,7 @@ namespace Gameplay
             materialContrastTween = config.SharedSpriteMaterial.DOFloat(baselineContrastRange, config.ContrastRangeHash, duration);
         }
 
-        private async void ServeDamageTextAsync(int damage, Vector2 position)
+        private async Awaitable ServeDamageTextAsync(int damage, Vector2 position)
         {
             pooledDamageText.Get(out TextMeshPro damageText);
             Vector2 targetPosition = position + new Vector2(Random.Range(-0.75f, 0.75f), Random.Range(-0.75f, 0.75f));

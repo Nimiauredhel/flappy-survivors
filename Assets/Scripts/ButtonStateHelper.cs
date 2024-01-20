@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,11 +17,9 @@ public class ButtonStateHelper : MonoBehaviour
         }
     }
 
-    private async void OnEnable()
+    private void OnEnable()
     {
-        await Awaitable.WaitForSecondsAsync(0.25f);
-        
-        SetAll(true);
+        StartCoroutine(OnEnableRoutine());
     }
 
     private void OnDisable()
@@ -31,5 +30,12 @@ public class ButtonStateHelper : MonoBehaviour
     private void OnValidate()
     {
         SetAll(false);
+    }
+
+    private IEnumerator OnEnableRoutine()
+    {
+        yield return new WaitForSecondsRealtime(0.25f);
+        
+        SetAll(true);
     }
 }

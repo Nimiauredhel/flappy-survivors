@@ -1118,6 +1118,7 @@ GameObject:
   - component: {fileID: 6825846147121524621}
   - component: {fileID: 7157249979271296830}
   - component: {fileID: 8908905405170375549}
+  - component: {fileID: 3689300884063799061}
   m_Layer: 5
   m_Name: PausePanel
   m_TagString: Untagged
@@ -1188,6 +1189,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3689300884063799061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780406881667946316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73c840b88faad349ae599a96b363ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 2387289906774736868}
+  - {fileID: 3327931069033389916}
+  - {fileID: 2149454736261878478}
 --- !u!1 &3046840887031983487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1852,7 +1869,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 8694211349079148481}
   m_OnClick:
     m_PersistentCalls:
@@ -2747,7 +2764,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 291291890412135518}
   m_OnClick:
     m_PersistentCalls:
@@ -4112,7 +4129,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2099620496784488089}
   m_OnClick:
     m_PersistentCalls:

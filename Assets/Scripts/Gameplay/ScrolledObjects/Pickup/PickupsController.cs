@@ -32,14 +32,14 @@ namespace Gameplay.ScrolledObjects.Pickup
                 
                 if (activePickup.transform.position.x <= config.EndX)
                 {
-                    activePickup.Deactivate();
+                    _ = activePickup.Deactivate();
                 }
                 
                 if (activePickup.Active)
                 {
                     if (GameModel.CurrentGamePhase == GamePhase.UpgradePhase && activePickups[i].Key != PickupType.Upgrade)
                     {
-                        activePickup.Deactivate();
+                        _ = activePickup.Deactivate();
                     }
                     else
                     {
@@ -197,7 +197,7 @@ namespace Gameplay.ScrolledObjects.Pickup
                 if (specificType == PickupType.None || pickup.Key == specificType)
                 {
                     purgePositions.Add(pickup.Value.transform.position);
-                    pickup.Value.Deactivate();
+                    _ = pickup.Value.Deactivate();
                 }
             }
 
@@ -243,7 +243,7 @@ namespace Gameplay.ScrolledObjects.Pickup
             {
                 ScrolledObjectView createdPickup = UnityEngine.Object.Instantiate(selectedPrefab, Vector3.up * 500.0f, quaternion.identity);
                 createdPickup.Initialize(new PickupLogic(type, 1));
-                createdPickup.Deactivate();
+                _ = createdPickup.Deactivate();
                 createdPickup.transform.SetParent(pickupsParent);
                 return createdPickup;
             }
