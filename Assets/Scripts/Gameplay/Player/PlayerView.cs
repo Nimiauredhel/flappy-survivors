@@ -30,6 +30,8 @@ namespace Gameplay.Player
 
         public void Flash()
         {
+            if (!Preferences.FlashVFX) return;
+            
             if (flashRoutine != null)
             {
                 StopCoroutine(flashRoutine);

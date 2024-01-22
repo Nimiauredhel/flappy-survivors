@@ -55,12 +55,14 @@ namespace Gameplay
         
         public void ChangeBaselineEmission(float newValue)
         {
+            if (!Preferences.FlashVFX) return;
             baselineEmission = newValue;
             config.SharedSpriteMaterial.DOFloat(baselineEmission, config.EmissionHash, config.EmissionChangeDelay);
         }
         
         public void ChangeBaselineContrastRange(float newValue)
         {
+            if (!Preferences.ContrastVFX) return;
             baselineContrastRange = newValue;
             config.SharedSpriteMaterial.DOFloat(baselineContrastRange, config.ContrastRangeHash, config.ContrastRangeChangeDelay);
         }
@@ -76,12 +78,14 @@ namespace Gameplay
 
         public void RequestExplosionAt(Vector2 position, bool doLight = true)
         {
+            if (!Preferences.ExplosionVFX) return;
             _ = ServeExplosionAsync(position);
             if (doLight) LightForSeconds(1.5f);
         }
 
         public async Awaitable RequestExplosionsAt(List<Vector3> positions, bool doLight = true, float staggerMax = 0.0f, float staggerMin = 0.0f)
         {
+            if (!Preferences.ExplosionVFX) return;
             bool doneLight = false;
             
             System.Random r = new System.Random();
@@ -119,6 +123,7 @@ namespace Gameplay
 
         private async Awaitable ServeExplosionAsync(Vector2 position)
         {
+            if (!Preferences.ExplosionVFX) return;
             pooledExplosions.Get(out var explosion);
 
             if (explosion)
@@ -136,6 +141,7 @@ namespace Gameplay
 
         public void LightForSeconds(float duration)
         {
+            if (!Preferences.FlashVFX) return;
             materialEmissionTween?.Kill();
 
             config.SharedSpriteMaterial.SetFloat(config.EmissionHash, baselineEmission + 0.25f);
@@ -144,6 +150,7 @@ namespace Gameplay
 
         public void ContrastForSeconds(float duration)
         {
+            if (!Preferences.ContrastVFX) return;
             materialContrastTween?.Kill();
 
             config.SharedSpriteMaterial.SetFloat(config.ContrastRangeHash, baselineContrastRange + 1.0f);

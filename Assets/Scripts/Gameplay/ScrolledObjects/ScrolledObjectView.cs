@@ -134,6 +134,8 @@ namespace Gameplay.ScrolledObjects
         
         public void ShowDamage(int damage)
         {
+            if (!Preferences.FlashVFX) return;
+            
             if (flashRoutine != null)
             {
                 StopCoroutine(flashRoutine);

@@ -15,25 +15,15 @@ namespace MainMenu
         [SerializeField] private Slider musicVolumeSlider;
         [SerializeField] private Slider masterVolumeSlider;
 
-        private Bus sfxBus;
-        private Bus musicBus;
-        private Bus masterBus;
+        
 
         private void OnEnable()
         {
-            sfxBus = RuntimeManager.GetBus("bus:/Master/SFX");
-            musicBus = RuntimeManager.GetBus("bus:/Master/Music");
-            masterBus = RuntimeManager.GetBus("bus:/Master");
-
-            float volume;
-            sfxBus.getVolume(out volume);
-            sfxVolumeSlider.SetValueWithoutNotify(volume);
+            sfxVolumeSlider.SetValueWithoutNotify(Preferences.SFXVolume);
             sfxVolumeSlider.onValueChanged.AddListener(SetSfxVolume);
-            musicBus.getVolume(out volume);
-            musicVolumeSlider.SetValueWithoutNotify(volume);
+            musicVolumeSlider.SetValueWithoutNotify(Preferences.MusicVolume);
             musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
-            masterBus.getVolume(out volume);
-            masterVolumeSlider.SetValueWithoutNotify(volume);
+            masterVolumeSlider.SetValueWithoutNotify(Preferences.MasterVolume);
             masterVolumeSlider.onValueChanged.AddListener(SetMasterVolume);
         
             flashVFXToggle.SetIsOnWithoutNotify(Preferences.FlashVFX);
@@ -61,17 +51,17 @@ namespace MainMenu
 
         public void SetSfxVolume(float value)
         {
-            sfxBus.setVolume(value);
+            Preferences.SFXVolume = value;
         }
     
         public void SetMusicVolume(float value)
         {
-            musicBus.setVolume(value);
+            Preferences.MusicVolume = value;
         }
     
         public void SetMasterVolume(float value)
         {
-            masterBus.setVolume(value);
+            Preferences.MasterVolume = value;
         }
     }
 }
