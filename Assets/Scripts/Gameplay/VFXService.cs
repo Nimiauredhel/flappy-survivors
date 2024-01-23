@@ -29,6 +29,7 @@ namespace Gameplay
 
         public void Initialize()
         {
+            config.Cleanup();
             baselineTint = config.InitialBaselineTint;
             config.SharedSpriteMaterial.SetColor(config.TintHash, baselineTint);
             baselineEmission = config.InitialBaselineEmission;

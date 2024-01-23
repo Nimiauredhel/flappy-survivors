@@ -15,9 +15,11 @@ namespace MainMenu
         [SerializeField] private LevelRegistry levelRegistry;
         [SerializeField] private PlayerCharacterConfiguration defaultCharacterConfig;
         [SerializeField] private AudioService audioServiceInstance;
+        [SerializeField] private VFXConfiguration vfxConfig;
         
         protected override void Configure(IContainerBuilder builder)
         {
+            vfxConfig.Cleanup();
             audioServiceInstance.Initialize();
             
             builder.RegisterComponent(menuUIView);

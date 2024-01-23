@@ -157,6 +157,7 @@ MonoBehaviour:
   levelRegistry: {fileID: 11400000, guid: 447e373816c9a0f4aad3eabd8467ed5c, type: 2}
   defaultCharacterConfig: {fileID: 11400000, guid: c6090626691570544aa583874a1a877e, type: 2}
   audioServiceInstance: {fileID: 11400000, guid: c10fdeece09f4e94992c1e5577379e3a, type: 2}
+  vfxConfig: {fileID: 11400000, guid: d881237f2245b5842a215b846f5a9cf9, type: 2}
 --- !u!4 &800563708
 Transform:
   m_ObjectHideFlags: 0

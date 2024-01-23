@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 5b3c7e330aae7ce499c919ec4e7dbe3f, type: 3}
     - target: {fileID: 4335643680962254757, guid: f25b4dccc3b94c04d995bd50bff1c6c4, type: 3}
       propertyPath: layers.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4335643680962254757, guid: f25b4dccc3b94c04d995bd50bff1c6c4, type: 3}
       propertyPath: layers.Array.data[5].name
