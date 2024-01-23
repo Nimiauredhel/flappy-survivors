@@ -35,7 +35,8 @@ namespace Gameplay
         [Inject] private readonly BurstSignalReceiver burstSignalReceiver;
         
         [Inject] private readonly GameModel gameModel;
-        
+
+        private bool transitioning = false;
         private UpgradeTree upgradeTree;
         private BurstDefinition bossBurstDefinition;
         
@@ -463,7 +464,6 @@ namespace Gameplay
 
             viewPanel.ModifierPrefix.text = "";
             viewPanel.ModifierNumber.text = "";
-
         }
 
         private void GameSetPausedHandler(bool value)
@@ -661,10 +661,16 @@ namespace Gameplay
 
         private async Awaitable TransitionToScene(string scene)
         {
+            if (transitioning) return;
+            transitioning = true;
+            
             AsyncOperation loading = SceneManager.LoadSceneAsync(scene);
             loading.allowSceneActivation = false;
             uiView.SetFadeAlpha(1.0f, 1.0f);
             await Awaitable.WaitForSecondsAsync(1.0f);
+            DOTween.KillAll();
+            await Awaitable.NextFrameAsync();
+            transitioning = false;
             loading.allowSceneActivation = true;
         }
 
