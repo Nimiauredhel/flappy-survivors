@@ -58,7 +58,7 @@ namespace MainMenu
             PlayerCharacterConfiguration newPlayerConfig =
                 ScriptableObject.CreateInstance<PlayerCharacterConfiguration>();
             newPlayerConfig.Initialize(defaultPlayerConfig.GetStats, startingWeapons, currentUpgradeTree);
-            ConfigSelectionMediator.SetCharacterLoadout(newPlayerConfig, currentUpgradeTree);
+            ConfigSelectionMediator.SetCharacterLoadout(newPlayerConfig, currentUpgradeTree, selectedUpgrade);
         }
 
         private void BeginClickedHandler()

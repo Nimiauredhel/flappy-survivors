@@ -50,6 +50,8 @@ namespace Gameplay
             Application.targetFrameRate = 60;
             
             upgradeTree = ConfigSelectionMediator.GetUpgradeTree();
+            upgradeTree.ResetUpgradeTree();
+            ConfigSelectionMediator.GetStartingLoadout().Taken = true;
             
             enemiesController.Initialize();
             enemiesController.EnemyHit += EnemyHitHandler;
