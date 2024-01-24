@@ -69,6 +69,7 @@ Material:
     - PixelSnap: 1
     - _BarFill: 1
     - _BarFillSmoothing: 0
+    - _BarSecondaryFill: 1
     - _BumpScale: 1
     - _Contrast: 1
     - _ContrastModifier: 1

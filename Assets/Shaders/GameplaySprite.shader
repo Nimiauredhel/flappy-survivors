@@ -18,6 +18,7 @@ Shader "Custom/GameplaySprite"
         _FlashAmount ("Flash Amount", Range(0, 1)) = 0
         
         _BarFill("Bar Fill", Range(0, 5)) = 1
+        _BarSecondaryFill("Bar Secondary Fill", Range(0, 5)) = 1
         _BarFillSmoothing("Bar Fill Smoothing", Range(0, 1)) = 0.1
     }
 
@@ -85,6 +86,7 @@ Shader "Custom/GameplaySprite"
             float _Emission;
 	        float _ContrastModifier;
             float _BarFill;
+            float _BarSecondaryFill;
             float _BarFillSmoothing;
 
             struct appdata_t
@@ -144,26 +146,32 @@ Shader "Custom/GameplaySprite"
             fixed4 SampleSpriteTexture (float2 uv)
             {
                 fixed4 color = tex2D (_MainTex, uv);
-                fixed4 white = (1,1,1,color.a);
-
+                
             #if ETC1_EXTERNAL_ALPHA
                 fixed4 alpha = tex2D (_AlphaTex, uv);
                 color.a = lerp (color.a, alpha.r, _EnableExternalAlpha);
             #endif
 
-                return lerp(color, white, _FlashAmount);
+                return color;
             }
             
             fixed4 frag(v2f IN) : SV_Target
             {
                 float2 coord = IN.texcoord + float2(_XOffset, 0);
                 fixed4 c = SampleSpriteTexture (coord) * IN.color;
+                
 		        c = AdjustContrast(c, _Contrast);
                 c.rgb *= c.a;
                 c.rgb *= _Emission;
 
-                float smoothingHalf = _BarFillSmoothing/2;
-                c.rgb *= 1 - smoothstep(_BarFill - _BarFillSmoothing, _BarFill, IN.texcoord.x);
+                fixed4 white = (1,1,1,c.a);
+                c = lerp(c, white, _FlashAmount);
+
+                float fillValue = 1 - smoothstep(_BarFill, _BarFill + _BarFillSmoothing, IN.texcoord.x);
+                c.rgb *= fillValue;
+                _BarSecondaryFill = clamp(_BarSecondaryFill, _BarFill+0.0001 + _BarFillSmoothing, 1.0);
+                float barFillGap = _BarSecondaryFill - _BarFill;
+                c = lerp(c, white, saturate(smoothstep(_BarSecondaryFill, _BarFill, IN.texcoord.x) - fillValue + (barFillGap * 0.5 * fillValue)));
                 
                 return c;
             }
