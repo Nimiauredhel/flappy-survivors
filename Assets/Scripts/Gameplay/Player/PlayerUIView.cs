@@ -12,9 +12,9 @@ namespace Gameplay.Player
     {
         private const string LVL_TEXT_FORMAT = "LVL {0}";
         private const string COMBO_TEXT_FORMAT = "x{0}";
+        private static readonly int DO_BARFILL_HASH = Shader.PropertyToID("_DoBarFill");
         private static readonly int BARFILL_HASH = Shader.PropertyToID("_BarFill");
         private static readonly int BARFILL_SECONDARY_HASH = Shader.PropertyToID("_BarSecondaryFill");
-        private static readonly int BARFILL_SMOOTHING_HASH = Shader.PropertyToID("_BarFillSmoothing");
         
         [SerializeField] private Image healthBar;
         [SerializeField] private Image xpBar;
@@ -30,16 +30,16 @@ namespace Gameplay.Player
         private Sequence xpTween = null;
         private float lastHealthPercent = 1.0f;
         private float lastXpPercent = 0.0f;
-        private float tolerance = Mathf.Epsilon;
+        private readonly float tolerance = Mathf.Epsilon;
 
         public void Initialize()
         {
             healthBar.material = new Material(healthBar.material);
             xpBar.material = new Material(xpBar.material);
-            healthBar.material.SetFloat(BARFILL_SMOOTHING_HASH, 0.02f);
+            healthBar.material.SetInt(DO_BARFILL_HASH, 1);
             healthBar.material.SetFloat(BARFILL_HASH, 1.0f);
             healthBar.material.SetFloat(BARFILL_SECONDARY_HASH, 1.0f);
-            xpBar.material.SetFloat(BARFILL_SMOOTHING_HASH, 0.02f);
+            xpBar.material.SetInt(DO_BARFILL_HASH, 1);
             xpBar.material.SetFloat(BARFILL_HASH, 0.0f);
             xpBar.material.SetFloat(BARFILL_SECONDARY_HASH, 0.0f);
         }
@@ -48,23 +48,24 @@ namespace Gameplay.Player
         {
             float difference = percent - lastHealthPercent;
             if (Math.Abs(difference) < tolerance) return;
+            lastHealthPercent = percent;
             
             if (healthTween != null)
             {
                 healthTween.Kill();
             }
-            Debug.Log("New health percent: " + percent);
+            
             healthTween = DOTween.Sequence();
             
             if (difference > 0)
             {
-                healthTween.Append(healthBar.material.DOFloat(percent, BARFILL_SECONDARY_HASH, 0.25f).SetEase(Ease.OutCirc));
-                healthTween.Append(healthBar.material.DOFloat(percent, BARFILL_HASH, 0.25f).SetEase(Ease.OutCirc));
+                healthTween.Append(healthBar.material.DOFloat(percent, BARFILL_SECONDARY_HASH, 0.2f).SetEase(Ease.OutCirc));
+                healthTween.Append(healthBar.material.DOFloat(percent, BARFILL_HASH, 0.2f).SetEase(Ease.OutCirc));
             }
             else
             {
-                healthTween.Append(healthBar.material.DOFloat(percent, BARFILL_HASH, 0.25f).SetEase(Ease.OutCirc));
-                healthTween.Append(healthBar.material.DOFloat(percent, BARFILL_SECONDARY_HASH, 0.25f).SetEase(Ease.OutCirc));
+                healthTween.Append(healthBar.material.DOFloat(percent, BARFILL_HASH, 0.2f).SetEase(Ease.OutCirc));
+                healthTween.Append(healthBar.material.DOFloat(percent, BARFILL_SECONDARY_HASH, 0.2f).SetEase(Ease.OutCirc));
             }
         }
         
@@ -72,29 +73,30 @@ namespace Gameplay.Player
         {
             float difference = percent - lastXpPercent;
             if (Math.Abs(difference) < tolerance) return;
+            lastXpPercent = percent;
             
             if (xpTween != null)
             {
                 xpTween.Kill();
             }
-            Debug.Log("New xp percent: " + percent);
+            
             xpTween = DOTween.Sequence();
             if (difference > 0)
             {
-                xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_SECONDARY_HASH, 0.25f).SetEase(Ease.OutCirc));
-                xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_HASH, 0.25f).SetEase(Ease.OutCirc));
+                xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_SECONDARY_HASH, 0.2f).SetEase(Ease.OutCirc));
+                xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_HASH, 0.2f).SetEase(Ease.OutCirc));
             }
             else
             {
-                xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_HASH, 0.25f).SetEase(Ease.OutCirc));
-                xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_SECONDARY_HASH, 0.25f).SetEase(Ease.OutCirc));
+                xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_HASH, 0.2f).SetEase(Ease.OutCirc));
+                xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_SECONDARY_HASH, 0.2f).SetEase(Ease.OutCirc));
             }
         }
 
         public void XPReverse()
         {
             xpBar.material.SetFloat(BARFILL_HASH, 0.0f);
-            xpBar.material.SetFloat(BARFILL_SECONDARY_HASH, 1.0f);
+            xpBar.material.SetFloat(BARFILL_SECONDARY_HASH, 0.5f);
             
             if (xpTween != null)
             {

@@ -6,20 +6,23 @@ Shader "Custom/GameplaySprite"
         
 	    [PerRendererData] _Contrast("ContrastValue", Range(-5,5)) = 1.0
         [PerRendererData] _XOffset("XOffset", Float) = 0.0
-	    _ContrastModifier("ContrastRange", Range(-5,5)) = 1.0
         
         _Color ("Tint", Color) = (1,1,1,1)
+        _ContrastModifier("ContrastRange", Range(-5,5)) = 1.0
         _Emission ("Emission", Float) = 1.0
+        _FlashAmount ("Flash Amount", Range(0, 1)) = 0
+        
+        [Space][Space]
         [MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
         [HideInInspector] _RendererColor ("RendererColor", Color) = (1,1,1,1)
         [HideInInspector] _Flip ("Flip", Vector) = (1,1,1,1)
         [PerRendererData] _AlphaTex ("External Alpha", 2D) = "white" {}
         [PerRendererData] _EnableExternalAlpha ("Enable External Alpha", Float) = 0
-        _FlashAmount ("Flash Amount", Range(0, 1)) = 0
         
+        [Space][Space]
+        _DoBarFill("Do Bar Fill", int) = 0
         _BarFill("Bar Fill", Range(0, 5)) = 1
         _BarSecondaryFill("Bar Secondary Fill", Range(0, 5)) = 1
-        _BarFillSmoothing("Bar Fill Smoothing", Range(0, 1)) = 0.1
     }
 
     SubShader
@@ -85,6 +88,8 @@ Shader "Custom/GameplaySprite"
             fixed4 _Color;
             float _Emission;
 	        float _ContrastModifier;
+
+            int _DoBarFill;
             float _BarFill;
             float _BarSecondaryFill;
             float _BarFillSmoothing;
@@ -167,11 +172,14 @@ Shader "Custom/GameplaySprite"
                 fixed4 white = (1,1,1,c.a);
                 c = lerp(c, white, _FlashAmount);
 
-                float fillValue = 1 - smoothstep(_BarFill, _BarFill + _BarFillSmoothing, IN.texcoord.x);
-                c.rgb *= fillValue;
-                _BarSecondaryFill = clamp(_BarSecondaryFill, _BarFill+0.0001 + _BarFillSmoothing, 1.0);
-                float barFillGap = _BarSecondaryFill - _BarFill;
-                c = lerp(c, white, saturate(smoothstep(_BarSecondaryFill, _BarFill, IN.texcoord.x) - fillValue + (barFillGap * 0.5 * fillValue)));
+                if (_DoBarFill)
+                {
+                    float fillValue = 1 - step(_BarFill, IN.texcoord.x);
+                    c.rgb *= fillValue * (IN.texcoord.x * 2);
+                    _BarSecondaryFill = clamp(_BarSecondaryFill, _BarFill+0.0001, 1.0);
+                    float barFillGap = _BarSecondaryFill - _BarFill;
+                    c = lerp(c, white, saturate(smoothstep(_BarSecondaryFill, _BarFill, IN.texcoord.x) - fillValue));
+                }
                 
                 return c;
             }
