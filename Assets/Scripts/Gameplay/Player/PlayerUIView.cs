@@ -13,6 +13,7 @@ namespace Gameplay.Player
         private const string LVL_TEXT_FORMAT = "LVL {0}";
         private const string COMBO_TEXT_FORMAT = "x{0}";
         private static readonly int DO_BARFILL_HASH = Shader.PropertyToID("_DoBarFill");
+        private static readonly int GRADIENT_AMOUNT_HASH = Shader.PropertyToID("_GradientAmount");
         private static readonly int BARFILL_HASH = Shader.PropertyToID("_BarFill");
         private static readonly int BARFILL_SECONDARY_HASH = Shader.PropertyToID("_BarSecondaryFill");
         
@@ -37,9 +38,11 @@ namespace Gameplay.Player
             healthBar.material = new Material(healthBar.material);
             xpBar.material = new Material(xpBar.material);
             healthBar.material.SetInt(DO_BARFILL_HASH, 1);
+            healthBar.material.SetFloat(GRADIENT_AMOUNT_HASH, 0.75f);
             healthBar.material.SetFloat(BARFILL_HASH, 1.0f);
             healthBar.material.SetFloat(BARFILL_SECONDARY_HASH, 1.0f);
             xpBar.material.SetInt(DO_BARFILL_HASH, 1);
+            xpBar.material.SetFloat(GRADIENT_AMOUNT_HASH, 0.75f);
             xpBar.material.SetFloat(BARFILL_HASH, 0.0f);
             xpBar.material.SetFloat(BARFILL_SECONDARY_HASH, 0.0f);
         }
@@ -60,11 +63,13 @@ namespace Gameplay.Player
             if (difference > 0)
             {
                 healthTween.Append(healthBar.material.DOFloat(percent, BARFILL_SECONDARY_HASH, 0.2f).SetEase(Ease.OutCirc));
+                healthTween.AppendInterval(0.1f);
                 healthTween.Append(healthBar.material.DOFloat(percent, BARFILL_HASH, 0.2f).SetEase(Ease.OutCirc));
             }
             else
             {
                 healthTween.Append(healthBar.material.DOFloat(percent, BARFILL_HASH, 0.2f).SetEase(Ease.OutCirc));
+                healthTween.AppendInterval(0.1f);
                 healthTween.Append(healthBar.material.DOFloat(percent, BARFILL_SECONDARY_HASH, 0.2f).SetEase(Ease.OutCirc));
             }
         }
@@ -84,11 +89,13 @@ namespace Gameplay.Player
             if (difference > 0)
             {
                 xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_SECONDARY_HASH, 0.2f).SetEase(Ease.OutCirc));
+                xpTween.AppendInterval(0.1f);
                 xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_HASH, 0.2f).SetEase(Ease.OutCirc));
             }
             else
             {
                 xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_HASH, 0.2f).SetEase(Ease.OutCirc));
+                xpTween.AppendInterval(0.1f);
                 xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_SECONDARY_HASH, 0.2f).SetEase(Ease.OutCirc));
             }
         }
@@ -96,7 +103,7 @@ namespace Gameplay.Player
         public void XPReverse()
         {
             xpBar.material.SetFloat(BARFILL_HASH, 0.0f);
-            xpBar.material.SetFloat(BARFILL_SECONDARY_HASH, 0.5f);
+            xpBar.material.SetFloat(BARFILL_SECONDARY_HASH, 1.0f);
             
             if (xpTween != null)
             {
@@ -104,7 +111,7 @@ namespace Gameplay.Player
             }
             
             xpTween = DOTween.Sequence();
-            xpTween.Append(xpBar.material.DOFloat(0.0f, BARFILL_SECONDARY_HASH, 10.0f).SetEase(Ease.OutCirc));
+            xpTween.Append(xpBar.material.DOFloat(0.0f, BARFILL_SECONDARY_HASH, 7.5f).SetEase(Ease.OutCirc));
         }
 
         public void UpdatePlayerCurrentLevelText(int currentLevel)
@@ -135,7 +142,8 @@ namespace Gameplay.Player
 
             WeaponUIView newIcon = Instantiate(weaponIconPrefab, weaponIconParent.transform);
             newIcon.SetWeaponIconSprite(iconSprite);
-            newIcon.UpdateCooldownIndicator(0.0f);
+            newIcon.UpdateChargeIndicator(0.0f);
+            newIcon.UpdateReadyIndicator(true);
 
             if (toReplace == null || !weaponIcons.Contains(toReplace))
             {

@@ -54,7 +54,8 @@ namespace Gameplay.Weapons
             if (gamePhase < 2 || gamePhase > 3) return;
             
             logic.OnUpdate(this);
-            uiView.UpdateCooldownIndicator(1.0f-(Status.currentCharge/Stats.ChargeCapacity));
+            uiView.UpdateChargeIndicator(1.0f-(Status.currentCharge/Stats.ChargeCapacity));
+            uiView.UpdateReadyIndicator(Status.currentCharge >= Stats.ChargeUseThreshold && Status.currentCharge > 0);
         }
 
         public void WeaponFixedUpdate(PlayerState playerCurrentState)

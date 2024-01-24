@@ -11,6 +11,7 @@ Shader "Custom/GameplaySprite"
         _ContrastModifier("ContrastRange", Range(-5,5)) = 1.0
         _Emission ("Emission", Float) = 1.0
         _FlashAmount ("Flash Amount", Range(0, 1)) = 0
+        _GradientAmount ("Gradient Amount",Range(0, 5)) = 0
         
         [Space][Space]
         [MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
@@ -88,7 +89,8 @@ Shader "Custom/GameplaySprite"
             fixed4 _Color;
             float _Emission;
 	        float _ContrastModifier;
-
+            float _GradientAmount;
+            
             int _DoBarFill;
             float _BarFill;
             float _BarSecondaryFill;
@@ -171,13 +173,16 @@ Shader "Custom/GameplaySprite"
 
                 fixed4 white = (1,1,1,c.a);
                 c = lerp(c, white, _FlashAmount);
-
+                c.rgb *= 1 - (1 - IN.texcoord.x) * _GradientAmount;
+                
                 if (_DoBarFill)
                 {
                     float fillValue = 1 - step(_BarFill, IN.texcoord.x);
-                    c.rgb *= fillValue * (IN.texcoord.x * 2);
+                    
                     _BarSecondaryFill = clamp(_BarSecondaryFill, _BarFill+0.0001, 1.0);
                     float barFillGap = _BarSecondaryFill - _BarFill;
+                    c.rgb *= fillValue;
+                    c.rgb *= 1 - barFillGap;
                     c = lerp(c, white, saturate(smoothstep(_BarSecondaryFill, _BarFill, IN.texcoord.x) - fillValue));
                 }
                 
