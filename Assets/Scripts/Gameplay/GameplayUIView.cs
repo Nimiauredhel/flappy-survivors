@@ -69,7 +69,8 @@ namespace Gameplay
         [FormerlySerializedAs("gameOverView")] [SerializeField] private GameOverUIView gameOverUIView;
         [SerializeField] private Image fadePanel;
         [SerializeField] private TextMeshProUGUI timerText;
-
+        [SerializeField] private TextMeshProUGUI tapText;
+        
         [SerializeField] private GameObject pausePanel;
 
         [SerializeField] private Button[] quitButtons;
@@ -117,6 +118,33 @@ namespace Gameplay
             TimeSpan timerTimespan = TimeSpan.FromSeconds(timeInSeconds);
             int selectedFormat = timerTimespan.Minutes > 9 ? 0 : timerTimespan.Minutes > 0 ? 1 : 2;
             timerText.text = TimeSpan.FromSeconds(timeInSeconds).ToString(Constants.TIMER_FORMATS[selectedFormat]);
+        }
+
+        public void ShowTapText()
+        {
+            _ = TapTextRoutine();
+        }
+
+        public void HideTapText()
+        {
+            tapText.gameObject.SetActive(false);
+        }
+
+        private async Awaitable TapTextRoutine()
+        {
+            if (tapText.gameObject.activeInHierarchy) return;
+            tapText.gameObject.SetActive(true);
+            tapText.enabled = false;
+            
+            await Awaitable.WaitForSecondsAsync(1.0f);
+
+            while (tapText.gameObject.activeInHierarchy)
+            {
+                tapText.enabled = true;
+                await Awaitable.WaitForSecondsAsync(1.0f);
+                tapText.enabled = false;
+                await Awaitable.WaitForSecondsAsync(1.0f);
+            }
         }
     }
 }

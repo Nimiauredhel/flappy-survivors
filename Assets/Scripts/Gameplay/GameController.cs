@@ -46,9 +46,8 @@ namespace Gameplay
 
         public async void Start()
         {
-            uiView.SetFadeAlpha(1.0f, 0.0f);
-            
             Application.targetFrameRate = 60;
+            uiView.SetFadeAlpha(1.0f, 0.0f);
             
             upgradeTree = ConfigSelectionMediator.GetUpgradeTree();
             upgradeTree.ResetUpgradeTree();
@@ -79,6 +78,8 @@ namespace Gameplay
             gameModel.SetGamePhase(GamePhase.IntroPhase);
             
             await Awaitable.WaitForSecondsAsync(0.25f);
+            
+            playerController.SetHasControl(true);
             
             uiView.SetFadeAlpha(0.0f, 2.0f);
             uiView.PauseButtonClicked.AddListener(gameModel.TogglePause);
@@ -304,6 +305,7 @@ namespace Gameplay
             }
             
             gameModel.SetGamePhase(GameModel.Won ? GamePhase.YouWin : GamePhase.GameOver);
+            playerController.SetHasControl(false);
             
             _ = GameOverRoutine();
         }
@@ -476,7 +478,10 @@ namespace Gameplay
 
         private void PlayerStartedMovingHandler()
         {
-            gameModel.SetGamePhase(GamePhase.HordePhase);
+            if (GameModel.CurrentGamePhase == GamePhase.IntroPhase)
+            {
+                gameModel.SetGamePhase(GamePhase.HordePhase);  
+            }
         }
 
         private void PhaseChangedHandler(GamePhase newPhase)
@@ -487,6 +492,7 @@ namespace Gameplay
             {
                 case GamePhase.IntroPhase:
                     uiView.SetCanvasAlpha(0.0f, 0.0f);
+                    uiView.ShowTapText();
                     break;
                 case GamePhase.UpgradePhase:
                     uiView.SetGamePhaseText("Ding!");
@@ -495,10 +501,15 @@ namespace Gameplay
                     break;
                 case GamePhase.HordePhase:
                     uiView.SetCanvasAlpha(1.0f, 2.0f);
+                    uiView.HideTapText();
                     levelDirector.Play();
                     break;
                 case GamePhase.BossPhase:
-                    levelDirector.Stop();
+                    if (levelDirector != null)
+                    {
+                        levelDirector.Stop();
+                    }
+
                     _ = BossRoutine();
                     break;
                 case GamePhase.YouWin:

@@ -1563,7 +1563,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1871374611570957456}
+      - m_Target: {fileID: 4293131711848585188}
         m_TargetAssemblyTypeName: ButtonStateHelper, Assembly-CSharp
         m_MethodName: SetAll
         m_Mode: 6
@@ -4011,7 +4011,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1871374611570957456}
+      - m_Target: {fileID: 896212048919483821}
         m_TargetAssemblyTypeName: ButtonStateHelper, Assembly-CSharp
         m_MethodName: SetAll
         m_Mode: 6
@@ -4729,7 +4729,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1871374611570957456}
+      - m_Target: {fileID: 8087472725652631762}
         m_TargetAssemblyTypeName: ButtonStateHelper, Assembly-CSharp
         m_MethodName: SetAll
         m_Mode: 6
@@ -5191,7 +5191,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1871374611570957456}
+      - m_Target: {fileID: 5333097951761204746}
         m_TargetAssemblyTypeName: ButtonStateHelper, Assembly-CSharp
         m_MethodName: SetAll
         m_Mode: 6

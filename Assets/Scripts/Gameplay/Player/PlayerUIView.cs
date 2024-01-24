@@ -38,11 +38,11 @@ namespace Gameplay.Player
             healthBar.material = new Material(healthBar.material);
             xpBar.material = new Material(xpBar.material);
             healthBar.material.SetInt(DO_BARFILL_HASH, 1);
-            healthBar.material.SetFloat(GRADIENT_AMOUNT_HASH, 0.75f);
+            healthBar.material.SetFloat(GRADIENT_AMOUNT_HASH, 0.5f);
             healthBar.material.SetFloat(BARFILL_HASH, 1.0f);
             healthBar.material.SetFloat(BARFILL_SECONDARY_HASH, 1.0f);
             xpBar.material.SetInt(DO_BARFILL_HASH, 1);
-            xpBar.material.SetFloat(GRADIENT_AMOUNT_HASH, 0.75f);
+            xpBar.material.SetFloat(GRADIENT_AMOUNT_HASH, 0.5f);
             xpBar.material.SetFloat(BARFILL_HASH, 0.0f);
             xpBar.material.SetFloat(BARFILL_SECONDARY_HASH, 0.0f);
         }
@@ -63,13 +63,13 @@ namespace Gameplay.Player
             if (difference > 0)
             {
                 healthTween.Append(healthBar.material.DOFloat(percent, BARFILL_SECONDARY_HASH, 0.2f).SetEase(Ease.OutCirc));
-                healthTween.AppendInterval(0.1f);
+                healthTween.AppendInterval(0.2f);
                 healthTween.Append(healthBar.material.DOFloat(percent, BARFILL_HASH, 0.2f).SetEase(Ease.OutCirc));
             }
             else
             {
                 healthTween.Append(healthBar.material.DOFloat(percent, BARFILL_HASH, 0.2f).SetEase(Ease.OutCirc));
-                healthTween.AppendInterval(0.1f);
+                healthTween.AppendInterval(0.2f);
                 healthTween.Append(healthBar.material.DOFloat(percent, BARFILL_SECONDARY_HASH, 0.2f).SetEase(Ease.OutCirc));
             }
         }
@@ -89,13 +89,13 @@ namespace Gameplay.Player
             if (difference > 0)
             {
                 xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_SECONDARY_HASH, 0.2f).SetEase(Ease.OutCirc));
-                xpTween.AppendInterval(0.1f);
+                xpTween.AppendInterval(0.2f);
                 xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_HASH, 0.2f).SetEase(Ease.OutCirc));
             }
             else
             {
                 xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_HASH, 0.2f).SetEase(Ease.OutCirc));
-                xpTween.AppendInterval(0.1f);
+                xpTween.AppendInterval(0.2f);
                 xpTween.Append(xpBar.material.DOFloat(percent, BARFILL_SECONDARY_HASH, 0.2f).SetEase(Ease.OutCirc));
             }
         }

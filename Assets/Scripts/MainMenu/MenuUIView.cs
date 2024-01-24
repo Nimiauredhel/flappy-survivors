@@ -146,10 +146,10 @@ namespace MainMenu
 
         private async Awaitable TransitionToPageAsync(int pageIndex)
         {
-            SetCanvasAlpha(currentActivePage, 0.0f, 0.5f, true);
-            await Awaitable.WaitForSecondsAsync(0.5f);
+            SetCanvasAlpha(currentActivePage, 0.0f, 0.25f, true);
+            await Awaitable.WaitForSecondsAsync(0.25f);
             currentActivePage = pageIndex;
-            SetCanvasAlpha(currentActivePage, 1.0f, 1.0f, true);
+            SetCanvasAlpha(currentActivePage, 1.0f, 0.5f, true);
         }
     }
 }

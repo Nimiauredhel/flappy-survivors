@@ -1,12 +1,9 @@
 using System;
-using System.Collections;
 using CommandTerminal;
 using Configuration;
 using DG.Tweening;
 using Gameplay.ScrolledObjects;
 using Gameplay.Upgrades;
-using Gameplay.Weapons;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using VContainer;
@@ -38,6 +35,8 @@ namespace Gameplay.Player
         private readonly PlayerWeaponsComponent weapons = new PlayerWeaponsComponent();
         private readonly PlayerMagnetComponent magnet = new PlayerMagnetComponent();
         private readonly ComboService comboService = new ComboService();
+
+        private bool hasControl = false;
         
         private PlayerCharacterConfiguration characterConfig;
         
@@ -131,6 +130,11 @@ namespace Gameplay.Player
             public virtual void UpdateState(PlayerController player)
             {
                 player.weapons.WeaponsUpdate(Weapons.PlayerState.Both);
+                
+                if (!player.hasControl)
+                {
+                    player.SetNewState(new InitialState());
+                }
             }
 
             public virtual void FixedUpdateState(PlayerController player)
@@ -150,6 +154,14 @@ namespace Gameplay.Player
             public override void DiveCommand(PlayerController player)
             {
                 
+            }
+            
+            public override void ClimbCommand(PlayerController player)
+            {
+                if (player.hasControl)
+                {
+                    player.SetNewState(player._climbState);
+                }
             }
             
             public override void EnterState(PlayerController player)
@@ -187,6 +199,11 @@ namespace Gameplay.Player
             public override void UpdateState(PlayerController player)
             {
                 player.weapons.WeaponsUpdate(currentPlayerState);
+                
+                if (!player.hasControl)
+                {
+                    player.SetNewState(new InitialState());
+                }
             }
         }
 
@@ -206,6 +223,11 @@ namespace Gameplay.Player
             public override void UpdateState(PlayerController player)
             {
                 player.weapons.WeaponsUpdate(currentPlayerState);
+                
+                if (!player.hasControl)
+                {
+                    player.SetNewState(new InitialState());
+                }
             }
         }
 
@@ -223,6 +245,12 @@ namespace Gameplay.Player
             public override void UpdateState(PlayerController player)
             {
                 player.weapons.WeaponsUpdate(currentPlayerState);
+                
+                if (!player.hasControl)
+                {
+                    player.SetNewState(new InitialState());
+                    return;
+                }
                 
                 if (timeToDive <= 0.0f)
                 {
@@ -353,6 +381,11 @@ namespace Gameplay.Player
             comboService.ComboChanged += HandleComboChanged;
             
             Terminal.Shell.AddCommand("die", delegate { ChangePlayerHealth(-model.CurrentHealth-1); });
+        }
+
+        public void SetHasControl(bool value)
+        {
+            hasControl = value;
         }
 
         public void OnDispose()
