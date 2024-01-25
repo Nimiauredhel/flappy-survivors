@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 7273189750282731730}
   - component: {fileID: 5494598786590864023}
   m_Layer: 7
-  m_Name: BasicProjectile
+  m_Name: ShurikenProjectileView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,6 +132,8 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  projectilePrefab: {fileID: 0}
+  hitEffectPrefab: {fileID: 0}
 --- !u!50 &5494598786590864023
 Rigidbody2D:
   serializedVersion: 4

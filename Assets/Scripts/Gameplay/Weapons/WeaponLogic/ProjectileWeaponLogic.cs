@@ -13,16 +13,36 @@ namespace Gameplay.Weapons.WeaponLogic
     public class ProjectileWeaponLogic : WeaponLogicComponent
     {
         private ObjectPool<WeaponView> projectilePool;
+        private ObjectPool<GameObject> hitEffectPool = null;
         private WaitForSeconds projectileGap = new WaitForSeconds(0.15f);
         
         public override void Initialize(WeaponInstance instance)
         {
-            projectilePool = new ObjectPool<WeaponView>(CreateProjectile, null, ReleaseProjectile);
+            projectilePool = new ObjectPool<WeaponView>(delegate
+            {
+                WeaponView projectileInstance = Object.Instantiate<WeaponView>(instance.View.ProjectilePrefab);
+                projectileInstance.Graphic.enabled = false;
+                projectileInstance.Hitbox.enabled = false;
+                return projectileInstance;
+            }, null, ReleaseProjectile);
+
+            if (instance.View.HitEffectPrefab != null)
+            {
+                hitEffectPool = new ObjectPool<GameObject>(
+                    delegate
+                    {
+                        GameObject go = Object.Instantiate(instance.View.HitEffectPrefab);
+                        go.SetActive(false);
+                        return go;
+                    });
+            }
         }
 
         public override void OnDispose(WeaponInstance instance)
         {
             projectilePool.Dispose();
+            
+            if (hitEffectPool != null) hitEffectPool.Dispose();
         }
 
         public override void Draw(WeaponInstance instance)
@@ -37,6 +57,11 @@ namespace Gameplay.Weapons.WeaponLogic
 
         public override void HitHandler(ScrolledObjectView hitObject, WeaponInstance instance)
         {
+            if (hitEffectPool != null)
+            {
+                _ = DoHitEffect(hitObject.transform.position, instance.View.transform.position);
+            }
+            
             hitObject.HitByWeapon(instance.Stats.Power);
         }
 
@@ -100,14 +125,6 @@ namespace Gameplay.Weapons.WeaponLogic
             
             projectilePool.Release(projectile);
         }
-        
-        private WeaponView CreateProjectile()
-        {
-            WeaponView projectileInstance = Object.Instantiate<WeaponView>(Resources.Load<WeaponView>("Projectiles/BasicProjectile"));
-            projectileInstance.Graphic.enabled = false;
-            projectileInstance.Hitbox.enabled = false;
-            return projectileInstance;
-        }
 
         private void ReleaseProjectile(WeaponView projectile)
         {
@@ -115,6 +132,20 @@ namespace Gameplay.Weapons.WeaponLogic
             projectile.ResetEventSubscription();
             projectile.Graphic.enabled = false;
             projectile.Hitbox.enabled = false;
+        }
+        
+        private async Awaitable DoHitEffect(Vector3 position, Vector3 origin)
+        {
+            GameObject effect = hitEffectPool.Get();
+            Quaternion rotation = Quaternion.LookRotation(
+                position - origin,
+                effect.transform.TransformDirection(Vector3.up));
+            effect.transform.position = position;
+            effect.transform.rotation = new Quaternion( 0 , 0 , rotation.z , rotation.w );
+            effect.SetActive(true);
+            await Awaitable.WaitForSecondsAsync(5.0f);
+            effect.SetActive(false);
+            hitEffectPool.Release(effect);
         }
     }
 }
