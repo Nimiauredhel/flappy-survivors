@@ -15,6 +15,7 @@ public static class BuildUtils
         string path = BUILD_FOLDER + ANDROID_FOLDER + string.Format(BUILD_NAME_FORMAT, ".apk");
 
         // Build player.
+        PlayerSettings.Android.useCustomKeystore = false;
         EditorUserBuildSettings.buildAppBundle = false;
         BuildPipeline.BuildPlayer(GetScenes(), path, BuildTarget.Android, BuildOptions.None);
     }
