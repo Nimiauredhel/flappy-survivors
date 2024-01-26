@@ -594,6 +594,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerView
       objectReference: {fileID: 0}
+    - target: {fileID: 5719603026876396363, guid: 5a510ed3e69732345984b06c044d0e37, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7245551341282347214, guid: 5a510ed3e69732345984b06c044d0e37, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10

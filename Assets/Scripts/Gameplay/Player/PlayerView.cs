@@ -26,6 +26,10 @@ namespace Gameplay.Player
         {
             materialPropertyBlock = new MaterialPropertyBlock();
             _playerGraphic.GetPropertyBlock(materialPropertyBlock);
+            materialPropertyBlock.SetFloat("_OutlineThickness", 1.0f);
+            materialPropertyBlock.SetFloat("_OutlineOpacity", 0.02f);
+            materialPropertyBlock.SetColor("_OutlineColor", Color.white);
+            _playerGraphic.SetPropertyBlock(materialPropertyBlock);
         }
 
         public void Flash()

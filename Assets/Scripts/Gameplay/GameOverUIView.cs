@@ -37,9 +37,11 @@ namespace Gameplay
         public void SetUp(bool won, UnityAction smallButtonAction, UnityAction bigButtonAction)
         {
             smallButton.onClick.RemoveAllListeners();
+            smallButton.onClick.AddListener(DisableAllButtons);
             smallButton.onClick.AddListener(smallButtonAction);
             
             bigButton.onClick.RemoveAllListeners();
+            bigButton.onClick.AddListener(DisableAllButtons);
             bigButton.onClick.AddListener(bigButtonAction);
             
             //TODO: set correct color palette according to won/lost
@@ -54,6 +56,12 @@ namespace Gameplay
 
             smallButton.interactable = false;
             bigButton.interactable = false;
+        }
+
+        private void DisableAllButtons()
+        {
+            bigButton.interactable = false;
+            smallButton.interactable = false;
         }
     }
 }

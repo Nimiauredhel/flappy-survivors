@@ -12,6 +12,9 @@ Shader "Custom/GameplaySprite"
         _Emission ("Emission", Float) = 1.0
         _FlashAmount ("Flash Amount", Range(0, 1)) = 0
         _GradientAmount ("Gradient Amount",Range(0, 5)) = 0
+        _OutlineColor ("Outline Color", Color) = (1,1,1,1)
+        _OutlineOpacity ("Outline Opacity", Range (0, 1)) = 0.5
+        _OutlineThickness ("Outline Thickness", Range(0, 20)) = 1.0
         
         [Space][Space]
         [MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
@@ -40,7 +43,7 @@ Shader "Custom/GameplaySprite"
         Cull Off
         Lighting Off
         ZWrite Off
-        Blend One OneMinusSrcAlpha
+        Blend SrcAlpha OneMinusSrcAlpha
 
         Pass
         {
@@ -90,6 +93,10 @@ Shader "Custom/GameplaySprite"
             float _Emission;
 	        float _ContrastModifier;
             float _GradientAmount;
+
+            fixed4 _OutlineColor;
+            float _OutlineOpacity;
+            float _OutlineThickness;
             
             int _DoBarFill;
             float _BarFill;
@@ -112,23 +119,23 @@ Shader "Custom/GameplaySprite"
                 UNITY_VERTEX_OUTPUT_STEREO
             };
 
-	        half4 AdjustContrast(half4 color, half contrast)
+	        half4 AdjustContrast(half4 color, const half contrast)
 			{
 				return saturate(lerp(half4(0.5, 0.5, 0.5, color.a), color, contrast * _ContrastModifier));
 			}
 
-			half4 AdjustContrastCurve(half4 color, half contrast)
+			half4 AdjustContrastCurve(const half4 color, const half contrast)
 			{
 				return pow(abs(color * 2 - 1), 1 / max(contrast, 0.0001)) * sign(color - _ContrastModifier) + _ContrastModifier;
 			}
 
 
-            inline float4 UnityFlipSprite(in float3 pos, in fixed2 flip)
+            inline float4 UnityFlipSprite(in float3 pos, in const fixed2 flip)
             {
                 return float4(pos.xy * flip, pos.z, 1.0);
             }
             
-            v2f vert(appdata_t IN)
+            v2f vert(const appdata_t IN)
             {
                 v2f OUT;
 
@@ -148,6 +155,7 @@ Shader "Custom/GameplaySprite"
             }
             
             sampler2D _MainTex;
+            float4 _MainTex_TexelSize;
             sampler2D _AlphaTex;
 
             fixed4 SampleSpriteTexture (float2 uv)
@@ -161,30 +169,50 @@ Shader "Custom/GameplaySprite"
 
                 return color;
             }
+
+            float DetermineOutlineAmount(fixed4 selfColor, float2 coord)
+            {
+                float2 size = _OutlineThickness * _MainTex_TexelSize.xy;
+                float outline = SampleSpriteTexture(float2(coord.x + size.x, coord.y)).a;
+                outline += SampleSpriteTexture(float2(coord.x, coord.y + size.y)).a;
+                outline += SampleSpriteTexture(float2(coord.x - size.x, coord.y)).a;
+                outline += SampleSpriteTexture(float2(coord.x, coord.y - size.y)).a;
+                outline += SampleSpriteTexture(float2(coord.x + size.x, coord.y + size.y)).a;
+                outline += SampleSpriteTexture(float2(coord.x - size.x, coord.y - size.y)).a;
+                outline += SampleSpriteTexture(float2(coord.x + size.x, coord.y - size.y)).a;
+                outline += SampleSpriteTexture(float2(coord.x - size.x, coord.y + size.y)).a;
+                outline = min(outline, 1.0);
+                outline = min(outline, step(selfColor.a, 0));
+                return outline;
+            }
             
             fixed4 frag(v2f IN) : SV_Target
             {
-                float2 coord = IN.texcoord + float2(_XOffset, 0);
+                const float2 coord = IN.texcoord + float2(_XOffset, 0);
                 fixed4 c = SampleSpriteTexture (coord) * IN.color;
                 
 		        c = AdjustContrast(c, _Contrast);
                 c.rgb *= c.a;
                 c.rgb *= _Emission;
 
-                fixed4 white = (1,1,1,c.a);
+                const fixed4 white = (1,1,1,c.a);
                 c = lerp(c, white, _FlashAmount);
                 c.rgb *= 1 - (1 - IN.texcoord.x) * _GradientAmount;
                 
                 if (_DoBarFill)
                 {
-                    float fillValue = 1 - step(_BarFill, IN.texcoord.x);
+                    const float fillValue = 1 - step(_BarFill, IN.texcoord.x);
                     
                     _BarSecondaryFill = clamp(_BarSecondaryFill, _BarFill+0.0001, 1.0);
-                    float barFillGap = _BarSecondaryFill - _BarFill;
+                    const float barFillGap = _BarSecondaryFill - _BarFill;
                     c.rgb *= fillValue;
                     c.rgb *= 1 - barFillGap;
                     c = lerp(c, white, saturate(smoothstep(_BarSecondaryFill, _BarFill, IN.texcoord.x) - fillValue));
                 }
+
+                const float outlineAmount = DetermineOutlineAmount(c, coord);
+                c.rgb = lerp(c.rgb, _OutlineColor.rgb, outlineAmount);
+                c.a = lerp(c.a, _OutlineOpacity, outlineAmount);
                 
                 return c;
             }
