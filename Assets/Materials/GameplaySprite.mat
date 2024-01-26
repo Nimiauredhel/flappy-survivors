@@ -78,6 +78,7 @@ Material:
     - _DoBarFill: 0
     - _DstBlend: 0
     - _Emission: 1
+    - _EmissionModifier: 1
     - _EnableExternalAlpha: 0
     - _FlashAmount: 0
     - _GlossMapScale: 1
@@ -101,7 +102,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0.2754717, g: 0.2754717, b: 0.2754717, a: 1}
     - _Rect: {r: 0, g: 0, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

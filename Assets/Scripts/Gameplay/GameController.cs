@@ -321,20 +321,15 @@ namespace Gameplay
                 viewPanel.SetUp(true,
                     Restart,
                     Quit);
-                
-                await Awaitable.WaitForSecondsAsync(1.0f);
-                vfxService.ChangeBaselineContrastRange(1.12f);
-                vfxService.ChangeBaselineEmission(3.0f);
             }
             else
             {
                 viewPanel.SetUp(false,
                     Quit,
                     Restart);
-                
-                await Awaitable.WaitForSecondsAsync(1.0f);
-                vfxService.ChangeBaselineEmission(100.0f);
             }
+            
+            await Awaitable.WaitForSecondsAsync(1.0f);
             
             _ = vfxService.RequestExplosionsAt(pickupsController.PurgeAllPickups());
             await Awaitable.NextFrameAsync();
@@ -342,7 +337,7 @@ namespace Gameplay
             viewPanel.CanvasGroup.DOFade(1.0f, 1.0f);
             await Awaitable.WaitForSecondsAsync(1.0f);
             
-            vfxService.ChangeBaselineEmission(0.0f);
+            vfxService.ChangeBaselineEmission(0.5f);
 
             float lerpValue = 0.0f;
             int totalScore = 1000;

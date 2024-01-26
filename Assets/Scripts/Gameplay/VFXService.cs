@@ -150,7 +150,7 @@ namespace Gameplay
             if (!Preferences.FlashVFX) return;
             materialEmissionTween?.Kill();
 
-            config.SharedSpriteMaterial.SetFloat(config.EmissionHash, baselineEmission + 0.25f);
+            config.SharedSpriteMaterial.SetFloat(config.EmissionHash, baselineEmission + 1f);
             materialEmissionTween = config.SharedSpriteMaterial.DOFloat(baselineEmission, config.EmissionHash, duration);
         }
 

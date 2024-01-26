@@ -8,6 +8,7 @@ namespace Gameplay.Background
     {
         private static readonly int XOFFSET_ID = Shader.PropertyToID("_XOffset");
         private static readonly int CONTRAST_ID = Shader.PropertyToID("_Contrast");
+        private static readonly int EMISSION_MODIFIER_ID = Shader.PropertyToID("_EmissionModifier");
         
         public string name;
         
@@ -15,6 +16,7 @@ namespace Gameplay.Background
         [SerializeField] private int sortingLayer;
         [SerializeField][Range(-5.0f, 5.0f)] private float scrollSpeed;
         [SerializeField][Range(0-5.0f, 5.0f)] private float contrast = 1.0f;
+        [SerializeField] private float emissionModifier = 0.0f;
         [SerializeField] private SpriteRenderer[] layerElements;
 
         private MaterialPropertyBlock materialPropertyBlock = null;
@@ -42,6 +44,7 @@ namespace Gameplay.Background
         {
             ValidateMaterialPropertyBlock();
             materialPropertyBlock.SetFloat(CONTRAST_ID, contrast);
+            materialPropertyBlock.SetFloat(EMISSION_MODIFIER_ID, emissionModifier);
             
             foreach (SpriteRenderer renderer in layerElements)
             {

@@ -10,6 +10,7 @@ Shader "Custom/GameplaySprite"
         _Color ("Tint", Color) = (1,1,1,1)
         _ContrastModifier("ContrastRange", Range(-5,5)) = 1.0
         _Emission ("Emission", Float) = 1.0
+        _EmissionModifier("EmissionModifier", Float) = 1.0
         _FlashAmount ("Flash Amount", Range(0, 1)) = 0
         _GradientAmount ("Gradient Amount",Range(0, 5)) = 0
         _OutlineColor ("Outline Color", Color) = (1,1,1,1)
@@ -63,6 +64,10 @@ Shader "Custom/GameplaySprite"
                     UNITY_DEFINE_INSTANCED_PROP(fixed2, unity_SpriteFlipArray)
                     // Contrast
                     UNITY_DEFINE_INSTANCED_PROP(float, unity_SpriteContrastArray)
+                    // Emission
+                    UNITY_DEFINE_INSTANCED_PROP(float, unity_SpriteEmissionArray)
+                    // EmissionModifier
+                    UNITY_DEFINE_INSTANCED_PROP(float, unity_SpriteEmissionModifierArray)
                     // XOffset
                     UNITY_DEFINE_INSTANCED_PROP(float, unity_SpriteXOffsetArray)
                     // FlashAmount
@@ -73,6 +78,8 @@ Shader "Custom/GameplaySprite"
                 #define _RendererColor  UNITY_ACCESS_INSTANCED_PROP(PerDrawSprite, unity_SpriteRendererColorArray)
                 #define _Flip           UNITY_ACCESS_INSTANCED_PROP(PerDrawSprite, unity_SpriteFlipArray)
                 #define _Contrast       UNITY_ACCESS_INSTANCED_PROP(PerDrawSprite, unity_SpriteContrastArray)
+                #define _Emission     UNITY_ACCESS_INSTANCED_PROP(PerDrawSprite, unity_SpriteEmissionArray)
+                #define _EmissionModifier      UNITY_ACCESS_INSTANCED_PROP(PerDrawSprite, unity_SpriteEmissionModifierArray)
                 #define _XOffset        UNITY_ACCESS_INSTANCED_PROP(PerDrawSprite, unity_SpriteXOffsetArray)
                 #define _FlashAmount    UNITY_ACCESS_INSTANCED_PROP(PerDrawSprite, unity_SpriteFlashAmountArray)
             
@@ -83,6 +90,8 @@ Shader "Custom/GameplaySprite"
                 fixed4 _RendererColor;
                 fixed2 _Flip;
                 float _Contrast;
+                float _Emission;
+                float _EmissionModifier;
                 float _XOffset;
                 fixed _FlashAmount;
             #endif
@@ -90,7 +99,6 @@ Shader "Custom/GameplaySprite"
             CBUFFER_END
 
             fixed4 _Color;
-            float _Emission;
 	        float _ContrastModifier;
             float _GradientAmount;
 
@@ -193,7 +201,9 @@ Shader "Custom/GameplaySprite"
                 
 		        c = AdjustContrast(c, _Contrast);
                 c.rgb *= c.a;
-                c.rgb *= _Emission;
+                float emissionDifference = (_Emission - 1);
+                float finalEmission = 1 + (emissionDifference * _EmissionModifier);
+                c.rgb *= finalEmission;
 
                 const fixed4 white = (1,1,1,c.a);
                 c = lerp(c, white, _FlashAmount);

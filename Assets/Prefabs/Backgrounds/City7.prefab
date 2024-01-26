@@ -89,6 +89,26 @@ PrefabInstance:
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4335643680962254757, guid: f25b4dccc3b94c04d995bd50bff1c6c4, type: 3}
+      propertyPath: layers.Array.data[0].emissionModifier
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335643680962254757, guid: f25b4dccc3b94c04d995bd50bff1c6c4, type: 3}
+      propertyPath: layers.Array.data[1].emissionModifier
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335643680962254757, guid: f25b4dccc3b94c04d995bd50bff1c6c4, type: 3}
+      propertyPath: layers.Array.data[2].emissionModifier
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335643680962254757, guid: f25b4dccc3b94c04d995bd50bff1c6c4, type: 3}
+      propertyPath: layers.Array.data[3].emissionModifier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335643680962254757, guid: f25b4dccc3b94c04d995bd50bff1c6c4, type: 3}
+      propertyPath: layers.Array.data[4].emissionModifier
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335643680962254757, guid: f25b4dccc3b94c04d995bd50bff1c6c4, type: 3}
       propertyPath: layers.Array.data[5].layerElements.Array.size
       value: 1
       objectReference: {fileID: 0}

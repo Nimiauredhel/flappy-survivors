@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Playtest Level 4
   m_EditorClassIdentifier: 
   name: Flappy 4ever
-  thumbnail: {fileID: 21300000, guid: 7bb79d6448b33664583afb7a2d183638, type: 3}
+  thumbnail: {fileID: 21300000, guid: ae7e8c9d5da4b56439777a82bde27555, type: 3}
   timeline: {fileID: 11400000, guid: 57ece4394606de94ca56d863421caee4, type: 2}
-  backgroundAsset: {fileID: 5647197508514708505, guid: 4928e8d36a6dc314dbdeb1dc429a18c9, type: 3}
+  backgroundAsset: {fileID: 5647197508514708505, guid: bd03f242377291f4880d042d87311440, type: 3}
   bossEnemy:
     noRotation: 0
     enemyId: 3
