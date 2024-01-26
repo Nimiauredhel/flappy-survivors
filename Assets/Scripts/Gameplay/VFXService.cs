@@ -48,6 +48,11 @@ namespace Gameplay
             config.Cleanup();
         }
 
+        public void ChangeOutlineThickness(float newValue)
+        {
+            config.SharedSpriteMaterial.DOFloat(newValue, config.OutlineThicknessHash, 1.0f);
+        }
+
         public void ChangeBaselineTint(Color newValue)
         {
             baselineTint = newValue;

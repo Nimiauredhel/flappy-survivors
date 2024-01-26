@@ -11,14 +11,17 @@ namespace Configuration
         private const string TINT_STRING = "_Color";
         private const string EMISSION_STRING = "_Emission";
         private const string CONTRAST_RANGE_STRING = "_ContrastModifier";
+        private const string OUTLINE_THICKNESS_STRING = "_OutlineThickness";
         
         private static readonly int TINT_HASH = Shader.PropertyToID(TINT_STRING);
         private static readonly int EMISSION_HASH = Shader.PropertyToID(EMISSION_STRING);
         private static readonly int CONTRAST_RANGE_HASH = Shader.PropertyToID(CONTRAST_RANGE_STRING);
+        private static readonly int OUTLINE_THICKNESS_HASH = Shader.PropertyToID(OUTLINE_THICKNESS_STRING);
         
         public int TintHash => TINT_HASH;
         public int EmissionHash => EMISSION_HASH;
         public int ContrastRangeHash => CONTRAST_RANGE_HASH;
+        public int OutlineThicknessHash => OUTLINE_THICKNESS_HASH;
 
         public Color InitialBaselineTint => initialBaselineTint;
         public float InitialBaselineEmission => initialBaselineEmission;
@@ -52,6 +55,7 @@ namespace Configuration
             sharedSpriteMaterial.SetColor(TINT_HASH, initialBaselineTint);
             sharedSpriteMaterial.SetFloat(EMISSION_HASH, initialBaselineEmission);
             sharedSpriteMaterial.SetFloat(CONTRAST_RANGE_HASH, InitialBaselineContrastRange);
+            sharedSpriteMaterial.SetFloat(OUTLINE_THICKNESS_HASH, 0.0f);
         }
     }
 }

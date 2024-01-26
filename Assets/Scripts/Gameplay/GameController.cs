@@ -235,8 +235,6 @@ namespace Gameplay
             if (shortList.Count <= 0) return;
             
             gameModel.SetGamePhase(GamePhase.UpgradePhase);
-            vfxService.ChangeBaselineContrastRange(1.12f);
-            vfxService.ChangeBaselineEmission(3.0f);
             
             AudioService.Instance.PlayLevelUp();
             uiView.SetCanvasAlpha(0.0f, 0.5f);
@@ -271,6 +269,7 @@ namespace Gameplay
             gameModel.SetGamePhase(GamePhase.HordePhase);
             vfxService.ChangeBaselineEmission(1.0f);
             vfxService.ChangeBaselineContrastRange(1.0f);
+            vfxService.ChangeOutlineThickness(0.0f);
             
             Stack<PickupDropOrder> healthDrops = new Stack<PickupDropOrder>();
             
@@ -497,6 +496,9 @@ namespace Gameplay
                 case GamePhase.UpgradePhase:
                     uiView.SetGamePhaseText("Ding!");
                     uiView.SetCanvasAlpha(0.0f, 0.5f);
+                    vfxService.ChangeBaselineContrastRange(1.12f);
+                    vfxService.ChangeBaselineEmission(3.0f);
+                    vfxService.ChangeOutlineThickness(1.0f);
                     levelDirector.Pause();
                     break;
                 case GamePhase.HordePhase:
