@@ -207,7 +207,8 @@ Shader "Custom/GameplaySprite"
 
                 const fixed4 white = (1,1,1,c.a);
                 c = lerp(c, white, _FlashAmount);
-                c.rgb *= 1 - (1 - IN.texcoord.x) * _GradientAmount;
+                float gradientOutcome = 1 - (1 - IN.texcoord.x) * _GradientAmount;
+                c.rgb *= gradientOutcome;
                 
                 if (_DoBarFill)
                 {
@@ -217,7 +218,7 @@ Shader "Custom/GameplaySprite"
                     const float barFillGap = _BarSecondaryFill - _BarFill;
                     c.rgb *= fillValue;
                     c.rgb *= 1 - barFillGap;
-                    c = lerp(c, white, saturate(smoothstep(_BarSecondaryFill, _BarFill, IN.texcoord.x) - fillValue));
+                    c = lerp(c, white * gradientOutcome, saturate(step(IN.texcoord.x, _BarSecondaryFill) - fillValue));
                 }
 
                 const float outlineAmount = DetermineOutlineAmount(c, coord);
