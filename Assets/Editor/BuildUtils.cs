@@ -5,15 +5,17 @@ public static class BuildUtils
     private const string BUILD_FOLDER = "Build/";
     private const string ANDROID_FOLDER = "Android/";
     private const string WEBGL_FOLDER = "WEBGL/";
-    private const string BUILD_NAME_FORMAT = "FlappySurvivors{0}";
+    private const string BUILD_NAME_FORMAT = "TheFlappySurvivor{0}";
     
     [MenuItem("Build/Android")]
     public static void BuildForAndroid()
     {
+        // Build APK
         // Get filename.
         string path = BUILD_FOLDER + ANDROID_FOLDER + string.Format(BUILD_NAME_FORMAT, ".apk");
 
         // Build player.
+        EditorUserBuildSettings.buildAppBundle = false;
         BuildPipeline.BuildPlayer(GetScenes(), path, BuildTarget.Android, BuildOptions.None);
     }
 
