@@ -190,26 +190,35 @@ Shader "Custom/GameplaySprite"
                 outline += SampleSpriteTexture(float2(coord.x + size.x, coord.y - size.y)).a;
                 outline += SampleSpriteTexture(float2(coord.x - size.x, coord.y + size.y)).a;
                 outline = min(outline, 1.0);
+                outline = min(outline, step(0.1, _OutlineThickness));
                 outline = min(outline, step(selfColor.a, 0));
                 return outline;
             }
             
             fixed4 frag(v2f IN) : SV_Target
             {
+                //Texture sampling
                 const float2 coord = IN.texcoord + float2(_XOffset, 0);
                 fixed4 c = SampleSpriteTexture (coord) * IN.color;
-                
+
+                //Contrast adjustment
 		        c = AdjustContrast(c, _Contrast);
                 c.rgb *= c.a;
+
+                //Emission
                 float emissionDifference = (_Emission - 1);
                 float finalEmission = 1 + (emissionDifference * _EmissionModifier);
                 c.rgb *= finalEmission;
 
+                //Flashing (pure white)
                 const fixed4 white = (1,1,1,c.a);
                 c = lerp(c, white, _FlashAmount);
+
+                //Left-Right darkening gradient
                 float gradientOutcome = 1 - (1 - IN.texcoord.x) * _GradientAmount;
                 c.rgb *= gradientOutcome;
-                
+
+                //Bar Fill (Health bars etc.)
                 if (_DoBarFill)
                 {
                     const float fillValue = 1 - step(_BarFill, IN.texcoord.x);
@@ -221,10 +230,12 @@ Shader "Custom/GameplaySprite"
                     c = lerp(c, white * gradientOutcome, saturate(step(IN.texcoord.x, _BarSecondaryFill) - fillValue));
                 }
 
+                //Outline
                 const float outlineAmount = DetermineOutlineAmount(c, coord);
                 c.rgb = lerp(c.rgb, _OutlineColor.rgb, outlineAmount);
                 c.a = lerp(c.a, _OutlineOpacity, outlineAmount);
-                
+
+                //End
                 return c;
             }
             
