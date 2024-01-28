@@ -37,6 +37,7 @@ namespace Gameplay
         [Inject] private readonly GameModel gameModel;
 
         private bool transitioning = false;
+        private bool transitioned = false;
         private UpgradeTree upgradeTree;
         private BurstDefinition bossBurstDefinition;
         
@@ -527,6 +528,8 @@ namespace Gameplay
 
         private async void TimerRoutine()
         {
+            if (transitioning || transitioned) return;
+            
             await Awaitable.WaitForSecondsAsync(1);
             
             while (GameModel.TimeLeft > 0)
@@ -540,11 +543,14 @@ namespace Gameplay
                 uiView.UpdateTimerText((int)GameModel.TimeLeft);
 
                 await Awaitable.WaitForSecondsAsync(1);
+                
+                if (transitioning || transitioned) return;
             }
             
             while (GameModel.Paused || GameModel.CurrentGamePhase != GamePhase.HordePhase)
             {
                 await Awaitable.NextFrameAsync();
+                if (transitioning || transitioned) return;
             }
             
             if (!playerController.PlayerIsDead) gameModel.SetGamePhase(GamePhase.BossPhase);
@@ -552,6 +558,8 @@ namespace Gameplay
 
         private async Awaitable BossRoutine()
         {
+            if (transitioning || transitioned) return;
+            
             _ = SurviveBlinkRoutine();
             AudioService.Instance.PlayLevelUp();
             enemiesController.CancelAllOngoingBursts();
@@ -568,6 +576,7 @@ namespace Gameplay
             await Awaitable.WaitForSecondsAsync(0.3f);
             DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1.0f, 0.3f);
             
+            if (transitioning || transitioned) return;
             gameModel.SetCanPause(true);
             
             bool bossDefeated = false;
@@ -576,6 +585,7 @@ namespace Gameplay
             while (!bossDefeated && !playerController.PlayerIsDead)
             {
                 await Awaitable.WaitForSecondsAsync(0.5f);
+                if (transitioning || transitioned) return;
                 
                 bossDefeated = true;
 
@@ -591,6 +601,7 @@ namespace Gameplay
             
             if (bossDefeated && !playerController.PlayerIsDead)
             {
+                if (transitioning || transitioned) return;
                 gameModel.SetWonGame();
                 GameOver();
             }
@@ -669,16 +680,18 @@ namespace Gameplay
 
         private async Awaitable TransitionToScene(string scene)
         {
-            if (transitioning) return;
+            if (transitioning || transitioned) return;
             transitioning = true;
             
             AsyncOperation loading = SceneManager.LoadSceneAsync(scene);
             loading.allowSceneActivation = false;
-            uiView.SetFadeAlpha(1.0f, 1.0f);
-            await Awaitable.WaitForSecondsAsync(1.0f);
+            uiView.SetFadeAlpha(1.0f, 0.5f);
+            await Awaitable.WaitForSecondsAsync(0.75f);
             DOTween.KillAll();
             await Awaitable.NextFrameAsync();
             transitioning = false;
+            transitioned = true;
+            await Awaitable.NextFrameAsync();
             loading.allowSceneActivation = true;
         }
 
