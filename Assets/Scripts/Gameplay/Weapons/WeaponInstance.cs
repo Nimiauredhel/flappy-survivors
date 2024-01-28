@@ -109,7 +109,7 @@ namespace Gameplay.Weapons
         {
             Stats.ApplyUpgrade(upgradeConfig.Stats);
             View.SetHitArea(Stats.Area);
-            logic.IncorporateLogicUpgrade(WeaponLogicBuilder.BuildWeaponLogicComponents(upgradeConfig.LogicComponents));
+            logic.IncorporateLogicUpgrade(WeaponLogicBuilder.BuildWeaponLogicComponents(upgradeConfig.LogicComponents), this);
         }
 
         private void HitHandler(object sender, Collider2D other)

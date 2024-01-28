@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using Gameplay.ScrolledObjects;
 using JetBrains.Annotations;
@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 namespace Gameplay.Weapons.WeaponLogic
 {
     [UsedImplicitly]
-    public class ProjectileWeaponLogic : WeaponLogicComponent
+    public class SheatheProjectileWeaponLogic : WeaponLogicComponent
     {
         private ObjectPool<WeaponView> projectilePool;
         private ObjectPool<GameObject> hitEffectPool = null;
@@ -47,12 +47,15 @@ namespace Gameplay.Weapons.WeaponLogic
 
         public override void Draw(WeaponInstance instance)
         {
-            instance.View.StartCoroutine(FireMultipleProjectiles(instance));
+            
         }
 
         public override void Sheathe(WeaponInstance instance)
         {
-            
+            if (instance.Status.currentCharge <= instance.Stats.ChargeUseThreshold)
+            {
+                instance.View.StartCoroutine(FireMultipleProjectiles(instance));
+            }
         }
 
         public override void HitHandler(ScrolledObjectView hitObject, WeaponInstance instance)

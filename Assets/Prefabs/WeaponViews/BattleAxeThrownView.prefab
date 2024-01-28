@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 5494598786590864023}
   - component: {fileID: 5630820799306849562}
   m_Layer: 7
-  m_Name: BattleAxeView
+  m_Name: BattleAxeThrownView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
       Data3: 165383324
       Data4: 2144603436
     Path: event:/SFX/AxeSheathe
-  projectilePrefab: {fileID: 7273189750282731730, guid: 593a814823ee2bd49ae6b0a59b1b74f0, type: 3}
+  projectilePrefab: {fileID: 0}
   hitEffectPrefab: {fileID: 4942721070776471051, guid: eaab33b5f521468429d66e2a2f972189, type: 3}
 --- !u!50 &5494598786590864023
 Rigidbody2D:
@@ -182,7 +182,7 @@ Animator:
   m_GameObject: {fileID: 3786677948436477324}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: da44342f041635342b4ee23aaa8d1af6, type: 2}
+  m_Controller: {fileID: 22100000, guid: 96d99c0408f031745818d79a091ee523, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

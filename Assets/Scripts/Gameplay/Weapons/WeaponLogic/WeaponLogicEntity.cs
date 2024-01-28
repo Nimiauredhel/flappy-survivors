@@ -13,11 +13,16 @@ namespace Gameplay.Weapons.WeaponLogic
             this.components = components;
         }
 
-        public void IncorporateLogicUpgrade(List<WeaponLogicComponent> upgradeComponents)
+        public void IncorporateLogicUpgrade(List<WeaponLogicComponent> upgradeComponents, WeaponInstance instance)
         {
             List<WeaponLogicComponent> newList = new List<WeaponLogicComponent>(components.Length + upgradeComponents.Count);
             newList.AddRange(components);
             newList.AddRange(upgradeComponents);
+
+            for (int i = 0; i < upgradeComponents.Count; i++)
+            {
+                upgradeComponents[i].Initialize(instance);
+            }
 
             components = newList.ToArray();
         }

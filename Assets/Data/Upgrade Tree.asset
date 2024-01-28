@@ -18,7 +18,7 @@ MonoBehaviour:
       upgradeLevels:
       - name: Level 0
         upgradeOptions:
-        - name: Dispatch enemies at a distance.
+        - name: Dispatch enemies at a safe distance.
           Taken: 1
           upgradeConfig:
             _underlyingValue: {fileID: 11400000, guid: b11c7d4fc237bcd4bbec5678e46327fc, type: 2}
@@ -54,17 +54,17 @@ MonoBehaviour:
       upgradeLevels:
       - name: Level 0
         upgradeOptions:
-        - name: Vaporize anything that touches you as you ascend.
+        - name: Vaporize anything you touch as you ascend.
           Taken: 0
           upgradeConfig:
             _underlyingValue: {fileID: 11400000, guid: 6f01e89c960b9634eb5560661d1e1ec2, type: 2}
       - name: Level 1
         upgradeOptions:
-        - name: Cooldown reduced by 1 second.
+        - name: Reduce charge time by 50%.
           Taken: 0
           upgradeConfig:
             _underlyingValue: {fileID: 11400000, guid: 395e3e392ded57e43aaea75f1ec60778, type: 2}
-        - name: 1.5x area of effect.
+        - name: Increase area of effect by 50%.
           Taken: 0
           upgradeConfig:
             _underlyingValue: {fileID: 11400000, guid: a670862317ea26447b2d02f6b84c9d39, type: 2}
@@ -88,13 +88,17 @@ MonoBehaviour:
           Taken: 0
           upgradeConfig:
             _underlyingValue: {fileID: 11400000, guid: a326835469e9a994e9e8bd2ad25e8035, type: 2}
-        - name: Reduced cooldown by 1 second.
+        - name: Reduce charge time by 50%.
           Taken: 0
           upgradeConfig:
             _underlyingValue: {fileID: 11400000, guid: aa6256b5148bd544e8089334906ae045, type: 2}
+        - name: Throws the axe when it's spent.
+          Taken: 0
+          upgradeConfig:
+            _underlyingValue: {fileID: 11400000, guid: 5f0c969f47fdbaf419dc01e643ec28da, type: 2}
       - name: Level 2
         upgradeOptions:
-        - name: Skips the cooldown when you hit an enemy.
+        - name: Refill charge instantly when you hit an enemy.
           Taken: 0
           upgradeConfig:
             _underlyingValue: {fileID: 11400000, guid: 6c2454643e18071448f7d6fdb98f411c, type: 2}
