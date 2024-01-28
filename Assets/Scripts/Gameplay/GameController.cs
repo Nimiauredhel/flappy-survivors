@@ -49,6 +49,7 @@ namespace Gameplay
         {
             Application.targetFrameRate = 60;
             uiView.SetFadeAlpha(1.0f, 0.0f);
+            Resources.UnloadUnusedAssets();
             
             upgradeTree = ConfigSelectionMediator.GetUpgradeTree();
             upgradeTree.ResetUpgradeTree();
@@ -124,6 +125,7 @@ namespace Gameplay
             
             vfxService.Dispose();
             gameModel.Dispose();
+            Resources.UnloadUnusedAssets();
         }
 
         #endregion
