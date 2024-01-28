@@ -3816,10 +3816,7 @@ MonoBehaviour:
 
     <size=145>F<size=130>lappy
 
-    <size=155>S<size=150>urvivor
-
-    <size=40>(not
-    a trademark)'
+    <size=155>S<size=150>urvivor'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7da90859a155d854ab7602d1a60eb561, type: 2}
   m_sharedMaterial: {fileID: -7929957449177397787, guid: 7da90859a155d854ab7602d1a60eb561, type: 2}
