@@ -38,6 +38,7 @@ namespace Gameplay.Player
         private readonly ComboService comboService = new ComboService();
 
         private bool hasControl = false;
+        private bool inputPressed = false;
         private float lastHeight = 0.0f;
         
         private PlayerCharacterConfiguration characterConfig;
@@ -141,6 +142,15 @@ namespace Gameplay.Player
 
             public virtual void FixedUpdateState(PlayerController player)
             {
+                if (player.inputPressed)
+                {
+                    ClimbCommand(player);
+                }
+                else
+                {
+                    DiveCommand(player);
+                }
+
                 player.HandleMovement();
                 player.weapons.WeaponsFixedUpdate(currentPlayerState);
             }
@@ -236,6 +246,11 @@ namespace Gameplay.Player
         private class NeutralState : PlayerState
         {
             private float timeToDive = 0.0f;
+            
+            public override void DiveCommand(PlayerController player)
+            {
+            
+            }
             
             public override void EnterState(PlayerController player)
             {
@@ -445,12 +460,12 @@ namespace Gameplay.Player
 
         private void PointerDownHandler(object sender, PointerEventData eventData)
         {
-            _currentState.ClimbCommand(this);
+            inputPressed = true;
         }
 
         private void PointerUpHandler(object sender, PointerEventData eventData)
         {
-            _currentState.DiveCommand(this);
+            inputPressed = false;
         }
         
         #endregion
