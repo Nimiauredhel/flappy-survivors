@@ -130,6 +130,7 @@ namespace Gameplay
             playerController.PlayerDamaged -= PlayerDamagedHandler;
             playerController.PlayerDied -= GameOver;
             playerController.PlayerStartedMoving -= PlayerStartedMovingHandler;
+            playerController.PlayerHeightChanged -= PlayerHeightChangedHandler;
             
             enemiesController.EnemyHit -= EnemyHitHandler;
             

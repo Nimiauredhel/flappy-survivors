@@ -439,7 +439,7 @@ namespace Gameplay.Player
             if (height != lastHeight)
             {
                 lastHeight = height;
-                PlayerHeightChanged.Invoke(height, Mathf.InverseLerp(movementConfig.MinY, movementConfig.MaxY, height));
+                PlayerHeightChanged?.Invoke(height, Mathf.InverseLerp(movementConfig.MinY, movementConfig.MaxY, height));
             }
         }
 
