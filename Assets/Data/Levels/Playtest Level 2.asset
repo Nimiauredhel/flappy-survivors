@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Second Wind
   thumbnail: {fileID: 21300000, guid: 1645d486108e61744898131be7b1eef3, type: 3}
   timeline: {fileID: 11400000, guid: a9cb33dad6d37aa47861efb11c1346c7, type: 2}
-  backgroundAsset: {fileID: 5647197508514708505, guid: 61d7df651e939e3488d6a051069cca04, type: 3}
+  backgroundAsset: {fileID: 6406875335158267963, guid: 61d7df651e939e3488d6a051069cca04, type: 3}
   bossEnemy:
     noRotation: 1
     enemyId: 0

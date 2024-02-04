@@ -398,6 +398,9 @@ namespace Gameplay.Player
             comboService.ComboChanged += HandleComboChanged;
             
             Terminal.Shell.AddCommand("die", delegate { ChangePlayerHealth(-model.CurrentHealth-1); });
+            
+            float height = view.Body.position.y;
+            PlayerHeightChanged?.Invoke(height, Mathf.InverseLerp(movementConfig.MinY, movementConfig.MaxY, height));
         }
 
         public void SetHasControl(bool value)

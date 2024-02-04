@@ -5,7 +5,16 @@ namespace Gameplay.Background
 {
     public class BackgroundView : MonoBehaviour
     {
+        [SerializeField] private float heightMin = 0.0f;
+        [SerializeField] private float heightMax = 2.0f;
         [SerializeField] private BackgroundLayer[] layers;
+        
+        private float referenceHeight = 0.0f;
+
+        public void SetHeightPercent(float percent)
+        {
+            referenceHeight = Mathf.Lerp(heightMin, heightMax, percent);
+        }
 
         private void Start()
         {
@@ -19,7 +28,7 @@ namespace Gameplay.Background
         {
             foreach (BackgroundLayer layer in layers)
             {
-                layer.LayerUpdate();
+                layer.LayerUpdate(referenceHeight);
             }
         }
         

@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Third Strike
   thumbnail: {fileID: 21300000, guid: 4199d06ac34a9ba4e9bba78ba4aa522a, type: 3}
   timeline: {fileID: 11400000, guid: a8d30f61a1318614fbbd24a275b70a93, type: 2}
-  backgroundAsset: {fileID: 5647197508514708505, guid: 852f22c5d42502847a9b00f54df39a22, type: 3}
+  backgroundAsset: {fileID: 6406875335158267963, guid: 852f22c5d42502847a9b00f54df39a22, type: 3}
   bossEnemy:
     noRotation: 0
     enemyId: 3

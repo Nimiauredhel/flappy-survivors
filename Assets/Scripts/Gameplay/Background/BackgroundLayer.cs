@@ -22,21 +22,44 @@ namespace Gameplay.Background
         private MaterialPropertyBlock materialPropertyBlock = null;
         
         private float xOffset = 0.0f;
+        private float referenceHeight = -50.0f;
+        private Vector3[] initialPositions;
 
         public void LayerInitialize()
         {
             xOffset = 0.0f;
+            initialPositions = new Vector3[layerElements.Length];
+            
+            for (int i = 0; i < layerElements.Length; i++)
+            {
+                initialPositions[i] = layerElements[i].transform.position;
+            }
+            
             LayerValidate();
         }
 
-        public void LayerUpdate()
+        public void LayerUpdate(float newReferenceHeight)
         {
-            xOffset += scrollSpeed * Time.deltaTime;
-            materialPropertyBlock.SetFloat(XOFFSET_ID, xOffset);
+            bool heightChanged = false;
             
-            foreach (SpriteRenderer renderer in layerElements)
+            if (referenceHeight != newReferenceHeight)
             {
-                renderer.SetPropertyBlock(materialPropertyBlock);
+                heightChanged = true;
+                referenceHeight = newReferenceHeight;
+            }
+
+            float delta = scrollSpeed * Time.deltaTime * (layerElements[0].flipX ? -1 : 1);
+            xOffset += delta;
+            materialPropertyBlock.SetFloat(XOFFSET_ID, xOffset);
+
+            for (int i = 0; i < layerElements.Length; i++)
+            {
+                layerElements[i].SetPropertyBlock(materialPropertyBlock);
+
+                if (heightChanged)
+                {
+                    layerElements[i].transform.position = initialPositions[i] + (Vector3.up * (-referenceHeight * scrollSpeed));
+                }
             }
         }
 

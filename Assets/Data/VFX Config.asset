@@ -21,8 +21,8 @@ MonoBehaviour:
   explosionDelay: 1
   damageTextInDelay: 0.3
   damageTextOutDelay: 0.7
-  cameraMaxHeight: 1
-  cameraMinHeight: -1
+  cameraMaxHeight: 0.75
+  cameraMinHeight: -0.75
   cameraMoveRatio: 0.3
   explosionPrefab: {fileID: 4942721070776471051, guid: cbe840fbe2bc205408de519743c81691, type: 3}
   damageTextPrefab: {fileID: 8223370719577550048, guid: 0b81428dc4afc3f429a4d690ec7815f1, type: 3}

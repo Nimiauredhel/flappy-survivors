@@ -24,7 +24,7 @@ namespace Gameplay
 {
     public class GameController : IStartable, ITickable, IFixedTickable, IDisposable
     {
-        private static readonly Vector3[] upgradePickupPositions = new[] { new Vector3(20.0f, 7.0f), new Vector3(20.0f, 0.0f), new Vector3(20.0f, -7.0f) };
+        private static readonly Vector3[] upgradePickupPositions = new[] { new Vector3(20.0f, 6.5f), new Vector3(20.0f, 0.0f), new Vector3(20.0f, -6.5f) };
         
         [Inject] private readonly EnemiesController enemiesController;
         [Inject] private readonly PickupsController pickupsController;
@@ -40,6 +40,7 @@ namespace Gameplay
         private bool transitioned = false;
         private UpgradeTree upgradeTree;
         private BurstDefinition bossBurstDefinition;
+        private Background.BackgroundView backgroundView;
         
         private readonly Stack<PickupDropOrder> comboBalloon = new Stack<PickupDropOrder>(16);
         
@@ -72,9 +73,8 @@ namespace Gameplay
             gameModel.Initialize((float)levelDirector.duration);
             gameModel.GamePhaseChanged += PhaseChangedHandler;
             
-            InitPlayerController();
-            
             vfxService.Initialize();
+            InitPlayerController();
             pickupsController.Initialize();
             
             AudioService.Instance.PlayGameplayMusic();
@@ -163,18 +163,19 @@ namespace Gameplay
                 levelDirector.SetGenericBinding(t.sourceObject, burstSignalReceiver);
             }
 
-            Object.Instantiate(levelConfig.BackgroundAsset);
+            backgroundView = Object.Instantiate(levelConfig.BackgroundAsset);
         }
 
         private void InitPlayerController()
         {
-            playerController.Initialize();
             playerController.ComboBreak += ComboBrokenHandler;
             playerController.LevelUp += LevelUpHandler;
             playerController.PlayerDamaged += PlayerDamagedHandler;
             playerController.PlayerDied += GameOver;
             playerController.PlayerStartedMoving += PlayerStartedMovingHandler;
             playerController.PlayerHeightChanged += PlayerHeightChangedHandler;
+            
+            playerController.Initialize();
         }
 
         #endregion
@@ -182,6 +183,7 @@ namespace Gameplay
         private void PlayerHeightChangedHandler(float height, float percent)
         {
             vfxService.HandlePlayerHeightChanged(percent);
+            backgroundView.SetHeightPercent(percent);
         }
 
         private void EnemyHitHandler(bool killed, int damage, int value, SpriteRenderer[] positions)

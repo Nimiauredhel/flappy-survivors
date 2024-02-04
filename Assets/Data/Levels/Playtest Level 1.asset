@@ -15,7 +15,7 @@ MonoBehaviour:
   name: First Taste
   thumbnail: {fileID: 21300000, guid: a343623974495b34fa2bd92ed9824323, type: 3}
   timeline: {fileID: 11400000, guid: 2381cf89440602a419b3d98ebfb01f0e, type: 2}
-  backgroundAsset: {fileID: 5647197508514708505, guid: b3d430240693f6d4eaf46b7bba25a41b, type: 3}
+  backgroundAsset: {fileID: 6406875335158267963, guid: b3d430240693f6d4eaf46b7bba25a41b, type: 3}
   bossEnemy:
     noRotation: 1
     enemyId: 4
