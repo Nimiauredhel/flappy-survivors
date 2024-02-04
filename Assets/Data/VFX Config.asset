@@ -12,11 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770b332319234b6d94897bfe0d114bf1, type: 3}
   m_Name: VFX Config
   m_EditorClassIdentifier: 
+  initialBaselineTint: {r: 1, g: 1, b: 1, a: 1}
   initialBaselineEmission: 1
+  initialBaselineContrastRange: 1
+  tintChangeDelay: 1
   emissionChangeDelay: 3
+  contrastRangeChangeDelay: 2
   explosionDelay: 1
   damageTextInDelay: 0.3
   damageTextOutDelay: 0.7
+  cameraMaxHeight: 1
+  cameraMinHeight: -1
+  cameraMoveRatio: 0.3
   explosionPrefab: {fileID: 4942721070776471051, guid: cbe840fbe2bc205408de519743c81691, type: 3}
   damageTextPrefab: {fileID: 8223370719577550048, guid: 0b81428dc4afc3f429a4d690ec7815f1, type: 3}
   sharedSpriteMaterial: {fileID: 2100000, guid: 192eb2d55044f5e4e907b6fc5936d1f5, type: 2}

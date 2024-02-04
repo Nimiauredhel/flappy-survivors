@@ -7,7 +7,7 @@ namespace Gameplay
     public class GameModel
     {
         public static GamePhase CurrentGamePhase => instance.currentGamePhase;
-        public static bool Paused => instance.paused;
+        public static bool Paused => instance == null || instance.paused;
         public static bool CanPause => instance.canPause;
         public static bool Won => instance.won;
         public static float TimeLeft => instance.timeLeft;

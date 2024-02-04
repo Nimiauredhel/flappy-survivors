@@ -22,5 +22,5 @@ MonoBehaviour:
   reverseSpeed: 6
   maxX: 12
   minX: -12
-  maxY: 7
-  minY: -7.5
+  maxY: 7.5
+  minY: -9.5

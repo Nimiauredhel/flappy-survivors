@@ -21,6 +21,7 @@ namespace Gameplay.Player
         public event Action<int> ComboBreak;
         public event Action<int> LevelUp;
         public event Action PlayerStartedMoving;
+        public event Action<float, float> PlayerHeightChanged;
         public event Action<int> PlayerDamaged;
         public event Action PlayerDied;
 
@@ -37,6 +38,7 @@ namespace Gameplay.Player
         private readonly ComboService comboService = new ComboService();
 
         private bool hasControl = false;
+        private float lastHeight = 0.0f;
         
         private PlayerCharacterConfiguration characterConfig;
         
@@ -432,6 +434,13 @@ namespace Gameplay.Player
             movementVector.Set(xSpeed, ySpeed);
             movementVector *= Time.fixedDeltaTime;
             view.Body.MovePosition(view.Body.position + movementVector);
+            float height = view.Body.position.y;
+            
+            if (height != lastHeight)
+            {
+                lastHeight = height;
+                PlayerHeightChanged.Invoke(height, Mathf.InverseLerp(movementConfig.MinY, movementConfig.MaxY, height));
+            }
         }
 
         private void PointerDownHandler(object sender, PointerEventData eventData)

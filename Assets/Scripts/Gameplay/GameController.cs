@@ -24,7 +24,7 @@ namespace Gameplay
 {
     public class GameController : IStartable, ITickable, IFixedTickable, IDisposable
     {
-        private static readonly Vector3[] upgradePickupPositions = new[] { new Vector3(25.0f, 7.7f), new Vector3(25.0f, 1.2f), new Vector3(25.0f, -5.3f) };
+        private static readonly Vector3[] upgradePickupPositions = new[] { new Vector3(20.0f, 7.0f), new Vector3(20.0f, 0.0f), new Vector3(20.0f, -7.0f) };
         
         [Inject] private readonly EnemiesController enemiesController;
         [Inject] private readonly PickupsController pickupsController;
@@ -49,12 +49,21 @@ namespace Gameplay
         {
             Application.targetFrameRate = 60;
             uiView.SetFadeAlpha(1.0f, 0.0f);
-            Resources.UnloadUnusedAssets();
             
             upgradeTree = ConfigSelectionMediator.GetUpgradeTree();
             upgradeTree.ResetUpgradeTree();
-            ConfigSelectionMediator.GetStartingLoadout().Taken = true;
             
+            UpgradeOption startingLoadout = ConfigSelectionMediator.GetStartingLoadout();
+
+            if (startingLoadout == null)
+            {
+                Debug.LogWarning("Null starting loadout.");
+            }
+            else
+            {
+                startingLoadout.Taken = true;
+            }
+
             enemiesController.Initialize();
             enemiesController.EnemyHit += EnemyHitHandler;
             
@@ -79,6 +88,7 @@ namespace Gameplay
             
             gameModel.SetGamePhase(GamePhase.IntroPhase);
             
+            await Resources.UnloadUnusedAssets();
             await Awaitable.WaitForSecondsAsync(0.25f);
             
             playerController.SetHasControl(true);
@@ -135,6 +145,12 @@ namespace Gameplay
         private void InitializeLevel()
         {
             LevelConfiguration levelConfig = ConfigSelectionMediator.GetLevelConfig();
+            
+            if (levelConfig == null)
+            {
+                Debug.LogWarning("No level definition loaded. Skipping level generation.");
+                return;
+            }
 
             bossBurstDefinition = levelConfig.BossEnemy;
             TimelineAsset timeline = levelConfig.Timeline;
@@ -157,9 +173,15 @@ namespace Gameplay
             playerController.PlayerDamaged += PlayerDamagedHandler;
             playerController.PlayerDied += GameOver;
             playerController.PlayerStartedMoving += PlayerStartedMovingHandler;
+            playerController.PlayerHeightChanged += PlayerHeightChangedHandler;
         }
 
         #endregion
+
+        private void PlayerHeightChangedHandler(float height, float percent)
+        {
+            vfxService.HandlePlayerHeightChanged(percent);
+        }
 
         private void EnemyHitHandler(bool killed, int damage, int value, SpriteRenderer[] positions)
         {
@@ -253,7 +275,6 @@ namespace Gameplay
             DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0.3f, 0.3f);
             await Awaitable.WaitForSecondsAsync(0.3f);
             DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1.0f, 0.3f);
-            gameModel.SetCanPause(true);
                 
             ScrolledObjectView[] upgradePickups = pickupsController.SpawnAndReturnPickups(shortList, 0.0f);
 

@@ -21,7 +21,8 @@ namespace Gameplay
         private Color baselineTint = Color.white;
         private float baselineEmission = 1.0f;
         private float baselineContrastRange = 1.0f;
-        
+
+        private Transform gameplayCameraParent;
         private Camera gameplayCamera;
         private Tween cameraShake = null;
         private Tween materialEmissionTween = null;
@@ -38,6 +39,7 @@ namespace Gameplay
             config.SharedSpriteMaterial.SetFloat(config.ContrastRangeHash, baselineContrastRange);
             
             gameplayCamera = Camera.main;
+            gameplayCameraParent = gameplayCamera.transform.parent;
             cameraShake = DOTween.Sequence();
             pooledExplosions = new ObjectPool<GameObject>(CreateExplosion);
             pooledDamageText = new ObjectPool<TextMeshPro>(CreateDamageText);
@@ -161,6 +163,14 @@ namespace Gameplay
 
             config.SharedSpriteMaterial.SetFloat(config.ContrastRangeHash, baselineContrastRange + 1.0f);
             materialContrastTween = config.SharedSpriteMaterial.DOFloat(baselineContrastRange, config.ContrastRangeHash, duration);
+        }
+        
+        public void HandlePlayerHeightChanged(float percent)
+        {
+            float targetCameraHeight = Mathf.Lerp(config.CameraMinHeight, config.CameraMaxHeight, percent);
+            Vector3 currentCameraPos = gameplayCameraParent.transform.position;
+            Vector3 targetCameraPos = new Vector3(currentCameraPos.x, Mathf.Lerp(currentCameraPos.y, targetCameraHeight,config.CameraMoveRatio), currentCameraPos.z);
+            gameplayCameraParent.transform.position = targetCameraPos;
         }
 
         private async Awaitable ServeDamageTextAsync(int damage, Vector2 position)

@@ -7,7 +7,7 @@ namespace Gameplay.Upgrades
     [Serializable]
     public class UpgradeTree
     {
-        [SerializeField] private UpgradeBranch[] branches;
+        [SerializeField] private UpgradeBranch[] branches = Array.Empty<UpgradeBranch>();
         
         public void ResetUpgradeTree()
         {

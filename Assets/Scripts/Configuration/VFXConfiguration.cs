@@ -32,6 +32,9 @@ namespace Configuration
         public float ExplosionDelay => explosionDelay;
         public float DamageTextInDelay => damageTextInDelay;
         public float DamageTextOutDelay => damageTextOutDelay;
+        public float CameraMaxHeight => cameraMaxHeight;
+        public float CameraMinHeight => cameraMinHeight;
+        public float CameraMoveRatio => cameraMoveRatio;
         public GameObject ExplosionPrefab => explosionPrefab;
         public TextMeshPro DamageTextPrefab => damageTextPrefab;
         public Material SharedSpriteMaterial => sharedSpriteMaterial;
@@ -45,6 +48,9 @@ namespace Configuration
         [SerializeField] private float explosionDelay = 1.0f;
         [SerializeField] private float damageTextInDelay = 0.3f;
         [SerializeField] private float damageTextOutDelay = 0.7f;
+        [SerializeField] private float cameraMaxHeight = 1.0f;
+        [SerializeField] private float cameraMinHeight = -1.0f;
+        [SerializeField][Range(0.0f, 1.0f)] private float cameraMoveRatio = 0.1f;
         
         [SerializeField] private GameObject explosionPrefab;
         [SerializeField] private TextMeshPro damageTextPrefab;
