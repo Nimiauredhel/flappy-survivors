@@ -397,7 +397,9 @@ namespace Gameplay.Player
             model.XPPercentChanged += uiView.UpdatePlayerXPView;
             comboService.ComboChanged += HandleComboChanged;
             
+            #if COMMAND_TERMINAL
             Terminal.Shell.AddCommand("die", delegate { ChangePlayerHealth(-model.CurrentHealth-1); });
+            #endif
             
             float height = view.Body.position.y;
             PlayerHeightChanged?.Invoke(height, Mathf.InverseLerp(movementConfig.MinY, movementConfig.MaxY, height));

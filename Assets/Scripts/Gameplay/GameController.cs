@@ -73,16 +73,17 @@ namespace Gameplay
             gameModel.Initialize((float)levelDirector.duration);
             gameModel.GamePhaseChanged += PhaseChangedHandler;
             
+#if COMMAND_TERMINAL
+            Object.Instantiate(Resources.Load("CommandTerminal"));
+            InitializeTerminalCommands();
+#endif
+            
             vfxService.Initialize();
             InitPlayerController();
             pickupsController.Initialize();
             
             AudioService.Instance.PlayGameplayMusic();
             TimerRoutine();
-            
-            #if UNITY_EDITOR
-            InitializeTerminalCommands();
-            #endif
 
             await Awaitable.NextFrameAsync();
             
